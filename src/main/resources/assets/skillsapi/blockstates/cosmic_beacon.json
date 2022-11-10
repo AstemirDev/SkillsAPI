@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "skillsapi:block/cosmic_beacon"
+    }
+  }
+}

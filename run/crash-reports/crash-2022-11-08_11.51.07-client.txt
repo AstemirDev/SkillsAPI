@@ -1,0 +1,164 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 2022-11-08 11:51:07
+Description: Rendering overlay
+
+java.lang.IllegalStateException: Some intrusive holders were not added to registry: [Reference{null=air}]
+	at net.minecraftforge.registries.NamespacedHolderHelper.freeze(NamespacedHolderHelper.java:181) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.registries.NamespacedDefaultedWrapper.freeze(NamespacedDefaultedWrapper.java:209) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.registries.GameData.lambda$freezeData$7(GameData.java:257) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?] {}
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?] {}
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?] {}
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?] {}
+	at net.minecraftforge.registries.GameData.freezeData(GameData.java:257) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.common.ForgeStatesProvider.lambda$new$5(ForgeStatesProvider.java:26) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.fml.ModLoader.lambda$dispatchAndHandleError$23(ModLoader.java:207) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?] {}
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.dispatchAndHandleError(ModLoader.java:207) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?] {}
+	at net.minecraftforge.fml.ModLoader.lambda$finishMods$20(ModLoader.java:197) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?] {}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at net.minecraftforge.fml.ModLoader.finishMods(ModLoader.java:197) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?] {}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$finishModLoading$6(ClientModLoader.java:125) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$createRunnableWithCatch$4(ClientModLoader.java:111) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.finishModLoading(ClientModLoader.java:125) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraftforge.client.loading.ClientModLoader.lambda$onResourceReload$3(ClientModLoader.java:104) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at java.util.concurrent.CompletableFuture$UniRun.tryFire$$$capture(CompletableFuture.java:787) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$UniRun.tryFire(CompletableFuture.java) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.exec(CompletableFuture.java:483) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraftforge.registries.NamespacedHolderHelper.freeze(NamespacedHolderHelper.java:181) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.registries.NamespacedDefaultedWrapper.freeze(NamespacedDefaultedWrapper.java:209) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.registries.GameData.lambda$freezeData$7(GameData.java:257) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?] {}
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?] {}
+	at java.util.Iterator.forEachRemaining(Iterator.java:133) ~[?:?] {}
+	at java.util.Spliterators$IteratorSpliterator.forEachRemaining(Spliterators.java:1845) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?] {}
+	at java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?] {}
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?] {}
+	at java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?] {}
+	at net.minecraftforge.registries.GameData.freezeData(GameData.java:257) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.common.ForgeStatesProvider.lambda$new$5(ForgeStatesProvider.java:26) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
+	at net.minecraftforge.fml.ModLoader.lambda$dispatchAndHandleError$23(ModLoader.java:207) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?] {}
+-- Overlay render details --
+Details:
+	Overlay name: net.minecraft.client.gui.screens.LoadingOverlay
+Stacktrace:
+	at net.minecraft.client.renderer.GameRenderer.render(GameRenderer.java:888) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1115) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.Minecraft.run(Minecraft.java:700) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.run(Main.java:212) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.client.main.Main.main(Main.java:51) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?] {}
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[?:?] {}
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?] {}
+	at java.lang.reflect.Method.invoke(Method.java:568) ~[?:?] {}
+	at net.minecraftforge.fml.loading.targets.ForgeClientUserdevLaunchHandler.lambda$launchService$0(ForgeClientUserdevLaunchHandler.java:25) ~[fmlloader-1.19.2-43.1.43.jar%2394!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandlerDecorator.launch(LaunchServiceHandlerDecorator.java:30) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:53) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.modlauncher.LaunchServiceHandler.launch(LaunchServiceHandler.java:71) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.modlauncher.Launcher.run(Launcher.java:106) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.modlauncher.Launcher.main(Launcher.java:77) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:26) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.modlauncher.BootstrapLaunchConsumer.accept(BootstrapLaunchConsumer.java:23) [modlauncher-10.0.8.jar%23107!/:?] {}
+	at cpw.mods.bootstraplauncher.BootstrapLauncher.main(BootstrapLauncher.java:141) [bootstraplauncher-1.1.2.jar:?] {}
+
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: No
+	Packs: Default, Mod Resources
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19.2
+	Minecraft Version ID: 1.19.2
+	Operating System: Mac OS X (x86_64) version 12.4
+	Java Version: 17.0.1, Microsoft
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), Microsoft
+	Memory: 168562760 bytes (160 MiB) / 497025024 bytes (474 MiB) up to 4294967296 bytes (4096 MiB)
+	CPUs: 8
+	Processor Vendor: Apple Inc.
+	Processor Name: Apple M1
+	Identifier: Apple Inc. Family 0x1b588bb3 Model 0 Stepping 0
+	Microarchitecture: ARM64 SoC: Firestorm + Icestorm
+	Frequency (GHz): 24.00
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 8
+	Graphics card #0 name: Apple M1
+	Graphics card #0 vendor: Apple (0x106b)
+	Graphics card #0 VRAM (MB): 0.00
+	Graphics card #0 deviceId: unknown
+	Graphics card #0 versionInfo: unknown
+	Memory slot #0 capacity (MB): 0.00
+	Memory slot #0 clockSpeed (GHz): 0.00
+	Memory slot #0 type: unknown
+	Virtual memory max (MB): 18432.00
+	Virtual memory used (MB): 10456.67
+	Swap memory total (MB): 2048.00
+	Swap memory used (MB): 840.50
+	JVM Flags: 1 total; -Xss1M
+	Launched Version: MOD_DEV
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: Apple M1 GL version 4.1 Metal - 76.3, Apple
+	Window size: 1708x960
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: <disabled>
+	Using VBOs: Yes
+	Is Modded: Definitely; Client brand changed to 'forge'
+	Type: Client (map_client.txt)
+	Graphics mode: fast
+	Resource Packs: vanilla, mod_resources
+	Current Language: English (US)
+	CPU: 8x Apple M1
+	ModLauncher: 10.0.8+10.0.8+main.0ef7e830
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.3.jar eventbus PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.43.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.43.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.43.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.43.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.19.2-43.1.43.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.8.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.8.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp|Minecraft                     |minecraft                     |1.19.2              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |43.1.43             |DONE      |Manifest: NOSIGNATURE
+		resources                                         |Astemir's Animation API Mod   |animationapi                  |1.2                 |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: eeca8c27-bc58-41e0-a2f1-968fbbc69955
+	FML: 43.1
+	Forge: net.minecraftforge:43.1.43

@@ -1,0 +1,36 @@
+package org.astemir.api.common;
+
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraftforge.network.PacketDistributor;
+import org.astemir.api.SkillsAPI;
+import org.astemir.api.network.messages.ScreenShakeMessage;
+
+public class PlayerScreenShaker {
+
+    private int shakeTicks = 0;
+    private float shakePower = 0;
+
+    public static void shakeScreen(ServerPlayer player, int ticks, float power){
+        SkillsAPI.API.getAPINetwork().send(PacketDistributor.PLAYER.with(()->player), new ScreenShakeMessage(power,ticks));
+    }
+
+    @Deprecated
+    public void shake(int ticks,float power){
+        shakeTicks = ticks;
+        shakePower = power;
+    }
+
+    public void update(){
+        if (shakeTicks > 0){
+            shakeTicks--;
+        }
+    }
+
+    public int getShakeTicks() {
+        return shakeTicks;
+    }
+
+    public float getShakePower() {
+        return shakePower;
+    }
+}

@@ -1,0 +1,46 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"animation.model.open": {
+			"animation_length": 2.6,
+			"bones": {
+				"trapdoor": {
+					"rotation": {
+						"0.32": [0, 0, 0],
+						"0.68": [-90, 0, 0],
+						"0.84": [-90, 0, 0]
+					},
+					"position": {
+						"0.32": [0, 0, 0],
+						"0.68": [0, 0, 0],
+						"0.84": [0, 0, 0],
+						"1.0": [0, -10, 0]
+					}
+				}
+			}
+		},
+		"animation.model.loop": {
+			"loop": true,
+			"animation_length": 0.52,
+			"bones": {
+				"trapdoor": {
+					"rotation": [-90, 0, 0],
+					"position": [0, -10, 0]
+				}
+			}
+		},
+		"animation.model.rotation": {
+			"loop": true,
+			"animation_length": 2.08,
+			"bones": {
+				"base": {
+					"rotation": {
+						"0.0": [0, 0, 0],
+						"2.08": [0, 360, 0]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

@@ -66,7 +66,7 @@ Details:
 Stacktrace:
 	at net.minecraftforge.fml.DistExecutor.validateSafeReferent(DistExecutor.java:254) ~[fmlcore-1.18.2-40.1.25.jar%2378!/:?] {}
 	at net.minecraftforge.fml.DistExecutor.safeRunWhenOn(DistExecutor.java:121) ~[fmlcore-1.18.2-40.1.25.jar%2378!/:?] {}
-	at org.astemir.example.ExampleAnimationAPIMod.<clinit>(ExampleAnimationAPIMod.java:29) ~[%2379!/:?] {re:classloading}
+	at org.astemir.example.ExampleAPIMod.<clinit>(ExampleAnimationAPIMod.java:29) ~[%2379!/:?] {re:classloading}
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?] {}
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?] {}
 	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?] {}

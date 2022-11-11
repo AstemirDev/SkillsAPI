@@ -30,7 +30,7 @@ public class ExampleAPIMod extends SkillsAPI {
 
     public final static String MOD_ID = "skillsapi";
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
 
     public ExampleAPIMod() {
         super(MOD_ID);
@@ -40,6 +40,7 @@ public class ExampleAPIMod extends SkillsAPI {
             ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
+        init();
     }
 
     @SubscribeEvent

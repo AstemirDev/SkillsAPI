@@ -42,6 +42,9 @@ public abstract class SkillsAPI {
     public SkillsAPI(String modId) {
         API = this;
         MOD_ID = modId;
+    }
+
+    protected void init(){
         WORLD_EVENTS = new WorldEventHandler();
         GLOBAL_TASK_HANDLER = new GlobalTaskHandler();
         EventManager.registerForgeEventInstance(this);

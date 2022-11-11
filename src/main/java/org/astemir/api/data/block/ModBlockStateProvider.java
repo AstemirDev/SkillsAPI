@@ -33,6 +33,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
             Block block = blockStatePair.getKey();
             BlockStateHolder blockStateHolder = blockStatePair.getValue();
             switch (blockStateHolder.getType()){
+                case EMPTY -> emptyBlock(block);
                 case DEFAULT -> simpleBlock(block);
                 case MIRRORED -> mirroredBlock(block);
                 case HORIZONTAL -> horizontalBlock(block, getDefaultBlockTexture(block),getDefaultBlockTexture(block),getMaterialBlockTexture(blockStateHolder));
@@ -82,6 +83,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(block,new ConfiguredModel(cubeAll(block)),new ConfiguredModel(cubeMirroredAll(block)),new ConfiguredModel(cubeAll(block),0,180,false),new ConfiguredModel(cubeMirroredAll(block),0,180,false));
     }
 
+    public void emptyBlock(Block block){
+        simpleBlock(block,new ConfiguredModel(empty(block)));
+    }
+
     public void chiseledBlock(Block block, ResourceLocation side, ResourceLocation end) {
         simpleBlock(block, new ConfiguredModel(models().cubeColumn(name(block), side, end)));
     }
@@ -92,6 +97,13 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .parent(modelFile("block/cube_mirrored_all"))
                 .texture("all", getBlockDefaultTextureLocation(location));
     }
+
+    public BlockModelBuilder empty(Block block) {
+        ResourceLocation location = getBlockResourceLocation(block);
+        return models().getBuilder(location.toString())
+                .texture("particle", getBlockDefaultTextureLocation(location));
+    }
+
 
     public BlockModelBuilder wallInventory(Block block,BlockStateHolder stateHolder) {
         ResourceLocation location = getBlockResourceLocation(block);

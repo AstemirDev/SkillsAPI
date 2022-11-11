@@ -7,13 +7,14 @@ import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.model.ItemModelWrapper;
 import org.astemir.api.utils.ResourceUtils;
+import org.astemir.example.ExampleAPIMod;
 import org.astemir.example.client.model.ModelMace;
 import org.astemir.example.common.item.MaceItem;
 
 public class ModelWrapperMace extends ItemModelWrapper<MaceItem> {
 
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture("item/mace_in_hand.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"item/mace_in_hand.png");
     private final ModelMace MODEL = new ModelMace();
 
     @Override

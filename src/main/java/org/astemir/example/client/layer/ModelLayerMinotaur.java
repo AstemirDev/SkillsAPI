@@ -10,12 +10,13 @@ import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.ModRenderTypes;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.utils.ResourceUtils;
+import org.astemir.example.ExampleAPIMod;
 import org.astemir.example.client.wrapper.ModelWrapperMinotaur;
 import org.astemir.example.common.entity.EntityMinotaur;
 
 public class ModelLayerMinotaur extends RenderLayer<EntityMinotaur,ModelWrapperMinotaur> {
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture("entity/minotaur_eyes.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"entity/minotaur_eyes.png");
 
 
     public ModelLayerMinotaur(RenderLayerParent<EntityMinotaur, ModelWrapperMinotaur> p_117346_) {

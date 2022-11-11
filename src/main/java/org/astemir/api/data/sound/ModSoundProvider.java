@@ -14,9 +14,11 @@ import java.util.Map;
 public class ModSoundProvider extends SoundDefinitionsProvider {
 
     private Map<String,SoundDefinition> soundsToRegister = new HashMap<>();
+    private String modId;
 
-    public ModSoundProvider(DataGenerator generator, ExistingFileHelper helper) {
-        super(generator, SkillsAPI.API.MOD_ID, helper);
+    public ModSoundProvider(DataGenerator generator, String modId,ExistingFileHelper helper) {
+        super(generator,modId , helper);
+        this.modId = modId;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class ModSoundProvider extends SoundDefinitionsProvider {
     public SoundDefinition createDefinition(SoundResource... resources){
         SoundDefinition definition = definition();
         for (SoundResource resource : resources) {
-            ResourceLocation loc = ResourceUtils.resource(resource.getPath());
+            ResourceLocation loc = ResourceUtils.resource(modId,resource.getPath());
             SoundDefinition.Sound sound = sound(loc);
             if (resource.isPreload()){
                 sound = sound.preload();

@@ -11,6 +11,12 @@ public class ModLangProvider {
 
     private Map<String, LanguageDictionary> langs = new HashMap<>();
 
+    private String modId;
+
+    public ModLangProvider(String modId) {
+        this.modId = modId;
+    }
+
     public LanguageDictionary addLang(String lang){
         LanguageDictionary res = new LanguageDictionary();
         langs.put(lang,res);
@@ -19,7 +25,7 @@ public class ModLangProvider {
 
     public void register(DataGenerator gen){
         langs.forEach((lang,data)->{
-            LanguageProvider provider = new LanguageProvider(gen, SkillsAPI.API.MOD_ID,lang) {
+            LanguageProvider provider = new LanguageProvider(gen, modId,lang) {
                 @Override
                 protected void addTranslations() {
                     data.getTranslations().forEach((key,translation)->{

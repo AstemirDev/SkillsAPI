@@ -5,19 +5,19 @@ import org.astemir.api.SkillsAPI;
 
 public class ResourceUtils {
 
-    public static final ResourceLocation resource(String path){
-        return new ResourceLocation(SkillsAPI.API.MOD_ID,path);
+    public static final ResourceLocation resource(String modId,String path){
+        return new ResourceLocation(modId,path);
     }
 
-    public static ResourceLocation animation(String path){
-        return resource("animations/"+path);
+    public static ResourceLocation animation(String modId,String path){
+        return resource(modId,"animations/"+path);
     }
 
-    public static ResourceLocation texture(String path){
-        return resource("textures/"+path);
+    public static ResourceLocation texture(String modId,String path){
+        return resource(modId,"textures/"+path);
     }
 
-    public static ResourceLocation model(String path){
-        return resource("models/"+path);
+    public static ResourceLocation model(String modId,String path){
+        return resource(modId,"models/"+path);
     }
 }

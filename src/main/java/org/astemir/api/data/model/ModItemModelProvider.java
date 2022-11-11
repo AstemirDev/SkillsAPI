@@ -22,8 +22,11 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private List<Pair<Item, ModelType>> itemModels = new ArrayList<>();
 
-    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
-        super(generator, SkillsAPI.API.MOD_ID, existingFileHelper);
+    private String modId;
+
+    public ModItemModelProvider(DataGenerator generator,String modId, ExistingFileHelper existingFileHelper) {
+        super(generator, modId, existingFileHelper);
+        this.modId = modId;
     }
 
     @Override
@@ -53,13 +56,13 @@ public class ModItemModelProvider extends ItemModelProvider {
     public ItemModelBuilder block(Item item){
         ResourceLocation location = getItemResourceLocation(item);
         return getBuilder(location.toString())
-                .parent(modelFile(SkillsAPI.API.MOD_ID,"block/"+location.getPath()));
+                .parent(modelFile(modId,"block/"+location.getPath()));
     }
 
     public ItemModelBuilder wall(Item item){
         ResourceLocation location = getItemResourceLocation(item);
         return getBuilder(location.toString())
-                .parent(modelFile(SkillsAPI.API.MOD_ID,"block/"+location.getPath()+"_inventory"));
+                .parent(modelFile(modId,"block/"+location.getPath()+"_inventory"));
     }
 
 

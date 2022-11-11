@@ -91,7 +91,7 @@ public class EntityProperties<T extends Entity> {
         return this;
     }
 
-    public EntityType<T> build(String id){
+    public EntityType<T> build(String modId,String id){
         EntityType.Builder builder = EntityType.Builder.of(factory,category).sized(width,height).updateInterval(updateInterval).immuneTo(immuneTo).clientTrackingRange(clientTrackingRange);
         if (canSpawnFarFromPlayer){
             builder = builder.canSpawnFarFromPlayer();
@@ -105,7 +105,7 @@ public class EntityProperties<T extends Entity> {
         if (!serialize){
             builder = builder.noSave();
         }
-        EntityType type = builder.build(new ResourceLocation(id).toString());
+        EntityType type = builder.build(new ResourceLocation(modId,id).toString());
         entitySettings.put(type,this);
         return type;
     }

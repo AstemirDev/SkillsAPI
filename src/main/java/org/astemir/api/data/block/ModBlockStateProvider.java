@@ -23,8 +23,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private List<Pair<Block, BlockStateHolder>> blockStates = new ArrayList<>();
 
-    public ModBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
-        super(gen, SkillsAPI.API.MOD_ID, exFileHelper);
+    public ModBlockStateProvider(DataGenerator gen, String modId,ExistingFileHelper exFileHelper) {
+        super(gen, modId, exFileHelper);
     }
 
     @Override

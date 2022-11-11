@@ -2,8 +2,8 @@ Manifest-Version: 1.0
 Specification-Title: examplemod
 Specification-Vendor: examplemodsareus
 Specification-Version: 1
-Implementation-Title: AstemirAnimationAPI
+Implementation-Title: SkillsAPI
 Implementation-Version: 1.2
 Implementation-Vendor: examplemodsareus
-Implementation-Timestamp: 2022-11-11T03:15:13+0300
+Implementation-Timestamp: 2022-11-11T10:26:54+0300
 

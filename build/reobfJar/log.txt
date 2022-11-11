@@ -1,5 +1,5 @@
 Java Launcher: /Users/astemirkerefov/Library/Application Support/minecraft/runtime/java-runtime-beta/mac-os/java-runtime-beta/jre.bundle/Contents/Home/bin/java
-Arguments: '--in-jar, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/AstemirAnimationAPI/build/libs/skillsapi-1.2.jar, --out-jar, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/AstemirAnimationAPI/build/reobfJar/output.jar, --srg-in, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/AstemirAnimationAPI/build/createMcpToSrg/output.tsrg, --live'
+Arguments: '--in-jar, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/libs/skillsapi-1.2.jar, --out-jar, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/reobfJar/output.jar, --srg-in, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createMcpToSrg/output.tsrg, --live'
 Classpath:
  - /Users/astemirkerefov/.gradle/caches/forge_gradle/maven_downloader/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0-shaded.jar
  - /Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_official_1.19.2/forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar
@@ -108,7 +108,7 @@ Classpath:
  - /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.antlr/antlr-runtime/3.5.2/cd9cd41361c155f3af0f653009dcecb08d8b4afd/antlr-runtime-3.5.2.jar
  - /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.abego.treelayout/org.abego.treelayout.core/1.0.3/457216e8e6578099ae63667bb1e4439235892028/org.abego.treelayout.core-1.0.3.jar
  - /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.glassfish/javax.json/1.0.4/3178f73569fd7a1e5ffc464e680f7a8cc784b85a/javax.json-1.0.4.jar
-Working directory: /Users/astemirkerefov/Desktop/Minecraft mods/Forge/AstemirAnimationAPI/build/reobfJar
+Working directory: /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/reobfJar
 Main class: net.md_5.specialsource.SpecialSource
 ====================================
 Loading mappings

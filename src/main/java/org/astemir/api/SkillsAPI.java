@@ -51,7 +51,6 @@ public abstract class SkillsAPI {
         EventManager.registerFMLEvent(this::enqueueIMC);
         EventManager.registerFMLEvent(this::processIMC);
         EventManager.registerFMLEvent(EntityRegisterEvents::onAttributesLoad);
-        EventManager.registerForgeEventClass(MiscAPIEvents.class);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () ->{
             EventManager.registerFMLEvent(AdvancedItemRenderer::onRegisterReloadListener);
             EventManager.registerFMLEvent(TESRModels::onModelRegistryInit);
@@ -60,6 +59,7 @@ public abstract class SkillsAPI {
     }
 
     protected void init(){
+        EventManager.registerForgeEventClass(MiscAPIEvents.class);
         EventManager.registerForgeEventClass(CommandsRegisterEvents.class);
     }
 

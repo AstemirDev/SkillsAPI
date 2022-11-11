@@ -101,6 +101,18 @@ public class EntityData<V> {
             }
         });
 
+        serializationMap.put(EntityDataSerializers.COMPOUND_TAG, new SerializationFunc() {
+            @Override
+            public void serialize(Entity entity, EntityData data, CompoundTag tag) {
+                tag.put(data.getName(),(CompoundTag)data.get(entity));
+            }
+
+            @Override
+            public void deserialize(Entity entity, EntityData data, CompoundTag tag) {
+                data.set(entity,tag.get(data.getName()));
+            }
+        });
+
         serializationMap.put(EntityDataSerializers.ITEM_STACK, new SerializationFunc() {
             @Override
             public void serialize(Entity entity, EntityData data, CompoundTag tag) {
@@ -120,7 +132,7 @@ public class EntityData<V> {
     private V defaultValue;
     private String name;
 
-    public EntityData(Class<? extends Entity> entityClass, String name,EntityDataSerializer<V> dataSerializer,V defaultValue) {
+    public EntityData(Class<? extends Entity> entityClass, String name, EntityDataSerializer<V> dataSerializer, V defaultValue) {
         this.name = name;
         this.dataAccessor = SynchedEntityData.defineId(entityClass,dataSerializer);
         this.defaultValue = defaultValue;
@@ -135,7 +147,11 @@ public class EntityData<V> {
     }
 
     public V get(Entity entity){
-        return (V) entity.getEntityData().get(dataAccessor);
+        if (entity.getEntityData().get(dataAccessor) == null){
+            return defaultValue();
+        }else {
+            return (V) entity.getEntityData().get(dataAccessor);
+        }
     }
 
     public V defaultValue() {
@@ -151,11 +167,17 @@ public class EntityData<V> {
     }
 
     public void load(Entity entity,CompoundTag tag){
-        serializationMap.get(dataAccessor.getSerializer()).deserialize(entity,this,tag);
+        if (tag != null) {
+            if (tag.contains(getName())) {
+                serializationMap.get(dataAccessor.getSerializer()).deserialize(entity, this, tag);
+            }
+        }
     }
 
     public void save(Entity entity,CompoundTag tag){
-        serializationMap.get(dataAccessor.getSerializer()).serialize(entity,this,tag);
+        if (tag != null) {
+            serializationMap.get(dataAccessor.getSerializer()).serialize(entity, this, tag);
+        }
     }
 
 

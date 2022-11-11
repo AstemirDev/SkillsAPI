@@ -118,7 +118,7 @@ public class EntityProperties<T extends Entity> {
         return attributes;
     }
 
-    public class SpawnPlacement{
+    public static class SpawnPlacement{
 
         private SpawnPlacements.Type placementType;
         private Heightmap.Types heightmapType;

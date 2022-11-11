@@ -40,7 +40,7 @@ public abstract class BlockEntityModelWrapper<T extends BlockEntity & ITESRModel
 
     @Override
     public RenderType getRenderType(T renderTarget, ResourceLocation texture) {
-        return RenderType.entitySolid(texture);
+        return RenderType.entityCutoutNoCull(texture);
     }
 
     @Override

@@ -12,7 +12,7 @@ public class ClientAPIEvents {
     public static AnimationDataHandler ANIMATION_DATA_HANDLER = new AnimationDataHandler();
 
     @SubscribeEvent
-    public void onMainRender(TickEvent.RenderTickEvent e){
+    public static void onMainRender(TickEvent.RenderTickEvent e){
         ANIMATION_DATA_HANDLER.removeUnusedData();
     }
 

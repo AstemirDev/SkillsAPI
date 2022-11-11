@@ -18,9 +18,13 @@ public class Cooldown {
             } else if (ticks == delay) {
                 ticks = 0;
                 canBeUsed = true;
+                onCanBeUsed();
             }
         }
     }
+
+    public void onCanBeUsed(){};
+
 
     public int getDelay() {
         return delay;

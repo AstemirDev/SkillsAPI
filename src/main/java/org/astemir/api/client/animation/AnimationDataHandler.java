@@ -24,8 +24,15 @@ public class AnimationDataHandler {
     public void removeUnusedData(){
         for (BoneStates states : data) {
             int tick = states.getLastTick();
-            if (globalTick-tick > 200){
-                data.remove(states);
+            if (states.getKey().getPos() != null){
+                if (globalTick - tick > 100) {
+                    data.remove(states);
+                }
+            }else
+            if (states.getKey().getUniqueID() != null){
+                if (globalTick - tick > 200) {
+                    data.remove(states);
+                }
             }
         }
         globalTick++;

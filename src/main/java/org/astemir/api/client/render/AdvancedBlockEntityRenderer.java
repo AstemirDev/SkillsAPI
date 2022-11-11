@@ -40,7 +40,7 @@ public class AdvancedBlockEntityRenderer<T extends BlockEntity & ITESRModel> imp
                 i = 15728880;
             }
             VertexConsumer consumer = p_112310_.getBuffer(blockModelWrapper.getRenderType((BlockEntity) target,blockModelWrapper.getTexture(target)));
-            blockModelWrapper.renderBlock((BlockEntity) target,p_112309_,consumer,p_112310_,i,p_112312_,1,1,1,1);
+            blockModelWrapper.renderToBuffer(p_112309_,consumer,i,p_112312_,1,1,1,1);
         }
     }
 

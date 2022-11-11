@@ -24,16 +24,15 @@ public class DataUtils {
         return new ModelFile.UncheckedModelFile(modId+":"+path);
     }
 
-    public static ResourceLocation getBlockResourceLocation(Block block){
-        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block));
-    }
-
     public static ResourceLocation getItemDefaultTextureLocation(ResourceLocation location){
         return new ResourceLocation(location.getNamespace(), "item/" + location.getPath());
     }
 
     public static ResourceLocation getItemResourceLocation(Item item){
-        return Objects.requireNonNull(ForgeRegistries.ITEMS.getKey(item));
+        return ForgeRegistries.ITEMS.getKey(item);
     }
 
+    public static ResourceLocation getBlockResourceLocation(Block block){
+        return ForgeRegistries.BLOCKS.getKey(block);
+    }
 }

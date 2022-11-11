@@ -22,7 +22,6 @@ import org.astemir.example.client.wrapper.ModelWrapperTestArmor;
 import org.astemir.example.common.block.ModBlocks;
 import org.astemir.example.common.entity.ModEntities;
 import org.astemir.example.common.item.ModItems;
-
 import static org.astemir.example.ExampleAPIMod.MOD_ID;
 
 
@@ -31,7 +30,7 @@ public class ExampleAPIMod extends SkillsAPI {
 
     public final static String MOD_ID = "skillsapi";
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
 
     public ExampleAPIMod() {
         super(MOD_ID);

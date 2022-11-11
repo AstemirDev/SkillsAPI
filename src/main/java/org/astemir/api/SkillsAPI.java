@@ -90,10 +90,6 @@ public abstract class SkillsAPI {
         onProcessIMC(event);
     }
 
-    public static final ResourceLocation resource(String path){
-        return new ResourceLocation(SkillsAPI.API.MOD_ID,path);
-    }
-
     protected abstract void onClientSetup(FMLClientSetupEvent event);
 
     protected abstract void onCommonSetup(FMLCommonSetupEvent event);

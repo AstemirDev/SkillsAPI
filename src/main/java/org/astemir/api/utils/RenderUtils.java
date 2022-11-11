@@ -16,15 +16,13 @@ import org.astemir.api.SkillsAPI;
 
 public class RenderUtils {
 
-
-
-    public static void fillScreenWithTexture(PoseStack stack, ResourceLocation texture){
+    public static void fillScreenWithTexture(PoseStack stack, ResourceLocation texture,float r,float g,float b,float a){
         Minecraft minecraft = Minecraft.getInstance();
         int x1 = 0, y1 = 0, x2 = minecraft.getWindow().getGuiScaledWidth(), y2 = minecraft.getWindow().getGuiScaledHeight();
         stack.pushPose();
         RenderSystem.enableBlend();
         RenderSystem.defaultBlendFunc();
-        RenderSystem.setShaderColor(1,1,1,0.025f);
+        RenderSystem.setShaderColor(r,g,b,a);
         RenderSystem.setShaderTexture(0, texture);
         Gui.blit(stack, x1, y1, x1, y1, x2, y2, x2, y2);
         RenderSystem.disableBlend();
@@ -33,6 +31,6 @@ public class RenderUtils {
     }
 
     public static Material material(String path) {
-        return new Material(TextureAtlas.LOCATION_BLOCKS, SkillsAPI.resource(path));
+        return new Material(TextureAtlas.LOCATION_BLOCKS, ResourceUtils.resource(path));
     }
 }

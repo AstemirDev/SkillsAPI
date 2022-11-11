@@ -49,17 +49,10 @@ public class MiscAPIEvents {
     }
 
     @SubscribeEvent
-    public static void onWorldUpdate(TickEvent.LevelTickEvent e){
+    public static void onWorldUpdate(TickEvent.LevelTickEvent e) {
         if (e.phase == TickEvent.Phase.END) {
             SkillsAPI.GLOBAL_TASK_HANDLER.update();
         }
-    }
-
-    @SubscribeEvent
-    public static void onRegisterCommands(RegisterCommandsEvent e){
-        ShakeScreenCommand.register(e.getDispatcher());
-        PlayAnimationCommand.register(e.getDispatcher());
-        PlayActionCommand.register(e.getDispatcher());
     }
 
     @SubscribeEvent

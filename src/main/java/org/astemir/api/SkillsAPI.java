@@ -19,6 +19,7 @@ import org.astemir.api.common.GlobalTaskHandler;
 import org.astemir.api.common.PlayerScreenShaker;
 import org.astemir.api.common.WorldEventHandler;
 import org.astemir.api.common.entity.EntityRegisterEvents;
+import org.astemir.api.common.event.CommandsRegisterEvents;
 import org.astemir.api.common.event.EventManager;
 import org.astemir.api.common.event.MiscAPIEvents;
 import org.astemir.api.network.messages.*;
@@ -44,9 +45,6 @@ public abstract class SkillsAPI {
         MOD_ID = modId;
         WORLD_EVENTS = new WorldEventHandler();
         GLOBAL_TASK_HANDLER = new GlobalTaskHandler();
-    }
-
-    protected void init(){
         EventManager.registerForgeEventInstance(this);
         EventManager.registerFMLEvent(this::commonSetup);
         EventManager.registerFMLEvent(this::clientSetup);
@@ -59,6 +57,10 @@ public abstract class SkillsAPI {
             EventManager.registerFMLEvent(TESRModels::onModelRegistryInit);
             EventManager.registerFMLEvent(TESRModels::onModelBakeEvent);
         });
+    }
+
+    protected void init(){
+        EventManager.registerForgeEventClass(CommandsRegisterEvents.class);
     }
 
 

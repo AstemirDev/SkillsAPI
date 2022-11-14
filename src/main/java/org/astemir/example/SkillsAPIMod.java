@@ -56,6 +56,8 @@ public class SkillsAPIMod extends SkillsAPI {
 
     @SubscribeEvent
     public void onClientSetup(FMLClientSetupEvent event) {
+        WORLD_EVENTS = new WorldEventHandler();
+        System.out.println("Initialize world events: "+WORLD_EVENTS);
         EventManager.registerForgeEventClass(ClientStateHandler.class);
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModelWrapperTestArmor testArmor = new ModelWrapperTestArmor();
@@ -72,8 +74,6 @@ public class SkillsAPIMod extends SkillsAPI {
 
     @Override
     protected void onUnsafeClientSetup() {
-        WORLD_EVENTS = new WorldEventHandler();
-        System.out.println("Initialize world events: "+WORLD_EVENTS);
         if (INITIALIZE_EXAMPLE_FEATURES) {
             TESRModels.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
         }

@@ -10,6 +10,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.astemir.api.utils.ResourceUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
 public class RecipeHolder {
@@ -68,8 +70,14 @@ public class RecipeHolder {
 
     public RecipeHolder shapeless(Consumer<FinishedRecipe> consumer,ItemLike... materials){
         ShapelessRecipeBuilder newBuilder = new ShapelessRecipeBuilder(result,count);
+        List<String> criterionTags = new ArrayList<>();
         for (ItemLike material : materials) {
-            newBuilder = newBuilder.requires(material).unlockedBy(getHasName(material),has(material));
+            String criterionName = getHasName(material);
+            newBuilder = newBuilder.requires(material);
+            if (!criterionTags.contains(criterionName)){
+                newBuilder = newBuilder.unlockedBy(criterionName,has(material));
+                criterionTags.add(criterionName);
+            }
         }
         if (!group.isEmpty()){
             newBuilder = newBuilder.group(group);

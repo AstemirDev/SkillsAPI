@@ -35,7 +35,7 @@ public class SkillsAPIMod extends SkillsAPI {
 
     public static SkillsAPIMod INSTANCE;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
 
     public SkillsAPIMod() {
         super(MOD_ID);

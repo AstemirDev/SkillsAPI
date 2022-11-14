@@ -25,9 +25,6 @@ public class WorldEventHandler {
         listeners.add(listener);
     }
 
-    public void invokeWorldEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new BlockEventMessage(pos,event,arguments));
-    }
 
     public void onHandleEvent(BlockPos pos, int event, PacketArgument[] arguments){
         ClientLevel level = Minecraft.getInstance().level;

@@ -15,6 +15,7 @@ import org.astemir.api.client.ClientStateHandler;
 import org.astemir.api.client.render.AdvancedItemRenderer;
 import org.astemir.api.client.TESRModels;
 import org.astemir.api.client.render.ArmorModels;
+import org.astemir.api.common.WorldEventHandler;
 import org.astemir.api.common.event.EventManager;
 import org.astemir.example.client.renderer.CosmicBeaconRenderer;
 import org.astemir.example.client.renderer.MinotaurRenderer;
@@ -71,6 +72,8 @@ public class SkillsAPIMod extends SkillsAPI {
 
     @Override
     protected void onUnsafeClientSetup() {
+        WORLD_EVENTS = new WorldEventHandler();
+        System.out.println("Initialize world events: "+WORLD_EVENTS);
         if (INITIALIZE_EXAMPLE_FEATURES) {
             TESRModels.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
         }

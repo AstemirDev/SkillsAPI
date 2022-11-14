@@ -42,7 +42,6 @@ public abstract class SkillsAPI {
 
     protected void defaultInit(){
         initializeAPI();
-        WORLD_EVENTS = new WorldEventHandler();
         GLOBAL_TASK_HANDLER = new GlobalTaskHandler();
         EventManager.registerForgeEventClass(MiscAPIEvents.class);
         EventManager.registerForgeEventClass(CommandsRegisterEvents.class);

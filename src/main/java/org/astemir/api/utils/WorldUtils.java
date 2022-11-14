@@ -11,6 +11,10 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.network.PacketDistributor;
+import org.astemir.api.network.PacketArgument;
+import org.astemir.api.network.messages.BlockEventMessage;
+import org.astemir.example.SkillsAPIMod;
 
 public class WorldUtils {
 
@@ -29,6 +33,10 @@ public class WorldUtils {
             Blocks.STRUCTURE_VOID,
             Blocks.NETHER_PORTAL
     };
+
+    public static void invokeWorldEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new BlockEventMessage(pos,event,arguments));
+    }
 
 
     public static void setNight(ServerLevel world){

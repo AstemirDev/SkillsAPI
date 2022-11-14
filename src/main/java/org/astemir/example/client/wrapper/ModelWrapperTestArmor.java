@@ -17,7 +17,7 @@ import org.astemir.example.common.item.armor.TestArmor;
 public class ModelWrapperTestArmor extends ArmorModelWrapper<TestArmor> {
 
 
-    public static ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"armor/test_armor.png");
+    public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID,"armor/test_armor.png");
     private final ModelTestArmor MODEL = new ModelTestArmor();
 
     @Override

@@ -16,7 +16,7 @@ import org.astemir.example.common.item.armor.TestArmor;
 
 public class ModelTestArmor extends AdvancedModel<TestArmor> {
 
-	public static ResourceLocation MODEL = ResourceUtils.model(ExampleAPIMod.MOD_ID,"item/armor.geo.json");
+	public static ResourceLocation MODEL = ResourceUtils.loadModel(ExampleAPIMod.MOD_ID,"item/armor.geo.json");
 
 	public ModelTestArmor() {
 		super(RenderType::entityCutoutNoCull,MODEL,null);

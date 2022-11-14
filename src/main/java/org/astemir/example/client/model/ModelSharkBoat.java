@@ -15,8 +15,8 @@ import org.astemir.example.common.entity.EntitySharkBoat;
 
 public class ModelSharkBoat extends AdvancedModel<EntitySharkBoat> {
 
-	public static ResourceLocation MODEL = ResourceUtils.model(ExampleAPIMod.MOD_ID,"entity/shark_boat.geo.json");
-	public static ResourceLocation ANIMATIONS = ResourceUtils.animation(ExampleAPIMod.MOD_ID,"entity/shark_boat.animation.json");
+	public static ResourceLocation MODEL = ResourceUtils.loadModel(ExampleAPIMod.MOD_ID,"entity/shark_boat.geo.json");
+	public static ResourceLocation ANIMATIONS = ResourceUtils.loadAnimation(ExampleAPIMod.MOD_ID,"entity/shark_boat.animation.json");
 
 	public ModelSharkBoat() {
 		super(RenderType::entityCutoutNoCull,MODEL,ANIMATIONS);

@@ -20,7 +20,7 @@ public class ResourceUtils {
         return loadResource(modId,"textures/"+path);
     }
 
-    public static ResourceLocation model(String modId,String path){
+    public static ResourceLocation loadModel(String modId,String path){
         return loadResource(modId,"models/"+path);
     }
 

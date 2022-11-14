@@ -11,7 +11,7 @@ import org.astemir.example.common.item.MaceItem;
 
 public class ModelMace extends AdvancedModel<MaceItem> {
 
-	public static ResourceLocation MODEL = ResourceUtils.model(ExampleAPIMod.MOD_ID,"item/mace.geo.json");
+	public static ResourceLocation MODEL = ResourceUtils.loadModel(ExampleAPIMod.MOD_ID,"item/mace.geo.json");
 
 	public ModelMace() {
 		super(RenderType::entityCutoutNoCull,MODEL,null);

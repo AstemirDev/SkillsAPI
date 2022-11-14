@@ -12,7 +12,7 @@ import org.astemir.example.common.entity.EntitySharkBoat;
 
 public class ModelWrapperSharkBoat extends EntityModelWrapper<EntitySharkBoat> {
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID, "entity/shark_boat.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID, "entity/shark_boat.png");
     private final ModelSharkBoat MODEL = new ModelSharkBoat();
 
 

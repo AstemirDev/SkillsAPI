@@ -11,7 +11,7 @@ import org.astemir.example.common.entity.EntityMinotaur;
 
 public class ModelWrapperMinotaur extends EntityModelWrapper<EntityMinotaur> {
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"entity/minotaur.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID,"entity/minotaur.png");
 
     private final ModelMinotaur MODEL = new ModelMinotaur();
 

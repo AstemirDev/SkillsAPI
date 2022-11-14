@@ -11,8 +11,8 @@ import org.astemir.example.common.entity.EntityMinotaur;
 
 public class ModelMinotaur extends AdvancedModel<EntityMinotaur> {
 
-	public static ResourceLocation MODEL = ResourceUtils.model(ExampleAPIMod.MOD_ID,"entity/minotaur.geo.json");
-	public static ResourceLocation ANIMATIONS = ResourceUtils.animation(ExampleAPIMod.MOD_ID,"entity/minotaur.animation.json");
+	public static ResourceLocation MODEL = ResourceUtils.loadModel(ExampleAPIMod.MOD_ID,"entity/minotaur.geo.json");
+	public static ResourceLocation ANIMATIONS = ResourceUtils.loadAnimation(ExampleAPIMod.MOD_ID,"entity/minotaur.animation.json");
 
 	public ModelMinotaur() {
 		super(RenderType::entityCutoutNoCull,MODEL,ANIMATIONS);

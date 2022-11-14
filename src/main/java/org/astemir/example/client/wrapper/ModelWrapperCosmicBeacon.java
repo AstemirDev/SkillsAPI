@@ -11,7 +11,7 @@ import org.astemir.example.common.block.BlockEntityCosmicBeacon;
 
 public class ModelWrapperCosmicBeacon extends BlockEntityModelWrapper<BlockEntityCosmicBeacon> {
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"block/cosmic_beacon.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID,"block/cosmic_beacon.png");
 
     private final ModelCosmicBeacon MODEL = new ModelCosmicBeacon();
 

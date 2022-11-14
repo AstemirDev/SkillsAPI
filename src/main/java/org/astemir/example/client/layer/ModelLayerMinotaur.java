@@ -16,7 +16,7 @@ import org.astemir.example.common.entity.EntityMinotaur;
 
 public class ModelLayerMinotaur extends RenderLayer<EntityMinotaur,ModelWrapperMinotaur> {
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"entity/minotaur_eyes.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID,"entity/minotaur_eyes.png");
 
 
     public ModelLayerMinotaur(RenderLayerParent<EntityMinotaur, ModelWrapperMinotaur> p_117346_) {

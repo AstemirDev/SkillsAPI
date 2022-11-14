@@ -14,8 +14,8 @@ import org.astemir.example.common.block.BlockEntityCosmicBeacon;
 
 public class ModelCosmicBeacon extends AdvancedModel<BlockEntityCosmicBeacon> {
 
-	public static ResourceLocation MODEL = ResourceUtils.model(ExampleAPIMod.MOD_ID,"block/cosmic_beacon.geo.json");
-	public static ResourceLocation ANIMATIONS = ResourceUtils.animation(ExampleAPIMod.MOD_ID,"block/cosmic_beacon.animation.json");
+	public static ResourceLocation MODEL = ResourceUtils.loadModel(ExampleAPIMod.MOD_ID,"block/cosmic_beacon.geo.json");
+	public static ResourceLocation ANIMATIONS = ResourceUtils.loadAnimation(ExampleAPIMod.MOD_ID,"block/cosmic_beacon.animation.json");
 
 	public ModelCosmicBeacon() {
 		super(RenderType::entityCutoutNoCull,MODEL,ANIMATIONS);

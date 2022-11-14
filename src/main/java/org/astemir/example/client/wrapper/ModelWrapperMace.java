@@ -14,7 +14,7 @@ import org.astemir.example.common.item.MaceItem;
 public class ModelWrapperMace extends ItemModelWrapper<MaceItem> {
 
 
-    public final ResourceLocation TEXTURE = ResourceUtils.texture(ExampleAPIMod.MOD_ID,"item/mace_in_hand.png");
+    public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID,"item/mace_in_hand.png");
     private final ModelMace MODEL = new ModelMace();
 
     @Override

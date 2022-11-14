@@ -22,17 +22,17 @@ public class AdvancedCubeRenderer {
     private final ObjectList<ModelBox> cubeList = new ObjectArrayList<>();
     private final ObjectList<AdvancedCubeRenderer> childModels = new ObjectArrayList<>();
 
-    private float rotationX;
-    private float rotationY;
-    private float rotationZ;
+    public float rotationX;
+    public float rotationY;
+    public float rotationZ;
 
-    private float positionX;
-    private float positionY;
-    private float positionZ;
+    public float positionX;
+    public float positionY;
+    public float positionZ;
 
-    private float scaleX = 1;
-    private float scaleY = 1;
-    private float scaleZ = 1;
+    public float scaleX = 1;
+    public float scaleY = 1;
+    public float scaleZ = 1;
 
     public Vector3 defaultRotation = new Vector3(0,0,0);
     public Vector3 rotationPoint = new Vector3(0,0,0);

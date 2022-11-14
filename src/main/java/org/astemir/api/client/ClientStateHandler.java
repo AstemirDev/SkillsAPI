@@ -19,7 +19,7 @@ public class ClientStateHandler {
 
     @SubscribeEvent
     public static void onCameraRotate(ViewportEvent.ComputeCameraAngles e){
-        PlayerScreenShaker shaker = SkillsAPIMod.API.SCREEN_SHAKER;
+        PlayerScreenShaker shaker = SkillsAPIMod.INSTANCE.SCREEN_SHAKER;
         float power = shaker.getShakePower();
         int ticks = shaker.getShakeTicks();
         float ticksExistedDelta = (float) (ticks+e.getPartialTick());

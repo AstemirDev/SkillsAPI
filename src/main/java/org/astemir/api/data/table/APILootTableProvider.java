@@ -15,11 +15,11 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class ModLootTableProvider extends LootTableProvider {
+public class APILootTableProvider extends LootTableProvider {
 
     private List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> lootProviders =  new ArrayList<>();
 
-    public ModLootTableProvider(DataGenerator p_124437_) {
+    public APILootTableProvider(DataGenerator p_124437_) {
         super(p_124437_);
     }
 

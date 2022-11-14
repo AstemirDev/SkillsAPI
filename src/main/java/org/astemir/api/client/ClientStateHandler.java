@@ -7,7 +7,7 @@ import org.astemir.api.client.animation.AnimationDataHandler;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.common.PlayerScreenShaker;
 
-public class ClientAPIEvents {
+public class ClientStateHandler {
 
     public static AnimationDataHandler ANIMATION_DATA_HANDLER = new AnimationDataHandler();
 

@@ -1,6 +1,6 @@
 package org.astemir.api.client.animation;
 
-import org.astemir.api.client.ClientAPIEvents;
+import org.astemir.api.client.ClientStateHandler;
 import org.astemir.api.client.render.AdvancedCubeRenderer;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.IAnimated;
@@ -18,7 +18,7 @@ public class AnimationDataHandler {
 
 
     public static AnimationDataHandler getInstance(){
-        return ClientAPIEvents.ANIMATION_DATA_HANDLER;
+        return ClientStateHandler.ANIMATION_DATA_HANDLER;
     }
 
     public void removeUnusedData(){

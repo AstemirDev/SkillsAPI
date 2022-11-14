@@ -31,6 +31,6 @@ public class RenderUtils {
     }
 
     public static Material material(String modId,String path) {
-        return new Material(TextureAtlas.LOCATION_BLOCKS, ResourceUtils.resource(modId,path));
+        return new Material(TextureAtlas.LOCATION_BLOCKS, ResourceUtils.loadResource(modId,path));
     }
 }

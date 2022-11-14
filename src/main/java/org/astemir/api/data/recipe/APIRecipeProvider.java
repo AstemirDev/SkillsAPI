@@ -9,18 +9,18 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-
 import java.util.function.Consumer;
 
-public class ModRecipeProvider extends RecipeProvider {
+public class APIRecipeProvider extends RecipeProvider {
 
-    public ModRecipeProvider(DataGenerator p_125973_) {
+    public APIRecipeProvider(DataGenerator p_125973_) {
         super(p_125973_);
     }
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> p_176532_) {
     }
+
 
     public void bricks(Block result, ItemLike material, Consumer<FinishedRecipe> consumer){
         ShapedRecipeBuilder.shaped(result).define('#', material).pattern("##").pattern("##").unlockedBy("has_"+getHasName(material), has(material)).save(consumer);

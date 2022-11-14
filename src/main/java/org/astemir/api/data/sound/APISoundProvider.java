@@ -11,12 +11,12 @@ import org.astemir.api.utils.ResourceUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ModSoundProvider extends SoundDefinitionsProvider {
+public class APISoundProvider extends SoundDefinitionsProvider {
 
     private Map<String,SoundDefinition> soundsToRegister = new HashMap<>();
     private String modId;
 
-    public ModSoundProvider(DataGenerator generator, String modId,ExistingFileHelper helper) {
+    public APISoundProvider(DataGenerator generator, String modId, ExistingFileHelper helper) {
         super(generator,modId , helper);
         this.modId = modId;
     }
@@ -39,7 +39,7 @@ public class ModSoundProvider extends SoundDefinitionsProvider {
     public SoundDefinition createDefinition(SoundResource... resources){
         SoundDefinition definition = definition();
         for (SoundResource resource : resources) {
-            ResourceLocation loc = ResourceUtils.resource(modId,resource.getPath());
+            ResourceLocation loc = ResourceUtils.loadResource(modId,resource.getPath());
             SoundDefinition.Sound sound = sound(loc);
             if (resource.isPreload()){
                 sound = sound.preload();

@@ -7,24 +7,22 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.math.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static org.astemir.api.utils.DataUtils.*;
+import static org.astemir.api.utils.ResourceUtils.*;
 
 
-public class ModItemModelProvider extends ItemModelProvider {
+public class APIItemModelProvider extends ItemModelProvider {
 
 
     private List<Pair<Item, ModelType>> itemModels = new ArrayList<>();
 
     private String modId;
 
-    public ModItemModelProvider(DataGenerator generator,String modId, ExistingFileHelper existingFileHelper) {
+    public APIItemModelProvider(DataGenerator generator, String modId, ExistingFileHelper existingFileHelper) {
         super(generator, modId, existingFileHelper);
         this.modId = modId;
     }
@@ -54,29 +52,29 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     public ItemModelBuilder block(Item item){
-        ResourceLocation location = getItemResourceLocation(item);
+        ResourceLocation location = getItemLocation(item);
         return getBuilder(location.toString())
-                .parent(modelFile(modId,"block/"+location.getPath()));
+                .parent(createModelFile(modId,"block/"+location.getPath()));
     }
 
     public ItemModelBuilder wall(Item item){
-        ResourceLocation location = getItemResourceLocation(item);
+        ResourceLocation location = getItemLocation(item);
         return getBuilder(location.toString())
-                .parent(modelFile(modId,"block/"+location.getPath()+"_inventory"));
+                .parent(createModelFile(modId,"block/"+location.getPath()+"_inventory"));
     }
 
 
     public ItemModelBuilder spawnEgg(Item item){
-        ResourceLocation location = getItemResourceLocation(item);
+        ResourceLocation location = getItemLocation(item);
         return getBuilder(location.toString())
-                .parent(modelFile("item/template_spawn_egg"));
+                .parent(createModelFile("item/template_spawn_egg"));
     }
 
     public ItemModelBuilder generatedItem(Item item) {
-        ResourceLocation location = getItemResourceLocation(item);
+        ResourceLocation location = getItemLocation(item);
         return getBuilder(location.toString())
-                .parent(modelFile("item/generated"))
-                .texture("layer0", getItemDefaultTextureLocation(location));
+                .parent(createModelFile("item/generated"))
+                .texture("layer0", getItemTexture(location));
     }
 
 

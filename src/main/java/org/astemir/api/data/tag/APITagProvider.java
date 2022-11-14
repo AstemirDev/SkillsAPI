@@ -11,11 +11,11 @@ import org.jetbrains.annotations.Nullable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ModTagProvider<T> extends TagsProvider<T> {
+public class APITagProvider<T> extends TagsProvider<T> {
 
     private List<Pair<T, TagKey<T>>> tags = new ArrayList<>();
 
-    public ModTagProvider(DataGenerator p_126546_, Registry p_126547_, String modId, @Nullable ExistingFileHelper existingFileHelper) {
+    public APITagProvider(DataGenerator p_126546_, Registry p_126547_, String modId, @Nullable ExistingFileHelper existingFileHelper) {
         super(p_126546_, p_126547_, modId, existingFileHelper);
     }
 

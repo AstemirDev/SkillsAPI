@@ -11,9 +11,11 @@ import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.astemir.api.SkillsAPI;
+import org.astemir.api.client.ClientStateHandler;
 import org.astemir.api.client.render.AdvancedItemRenderer;
 import org.astemir.api.client.TESRModels;
 import org.astemir.api.client.render.ArmorModels;
+import org.astemir.api.common.event.EventManager;
 import org.astemir.example.client.renderer.CosmicBeaconRenderer;
 import org.astemir.example.client.renderer.MinotaurRenderer;
 import org.astemir.example.client.renderer.SharkBoatRenderer;
@@ -40,20 +42,24 @@ public class ExampleAPIMod extends SkillsAPI {
             ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
-        init();
+        defaultInit();
+        initializeAPI();
     }
 
     @SubscribeEvent
     public void onCommonSetup(FMLCommonSetupEvent event) {
+        defaultCommon();
     }
 
     @SubscribeEvent
     public void onClientSetup(FMLClientSetupEvent event) {
+        EventManager.registerForgeEventClass(ClientStateHandler.class);
         if (INITIALIZE_EXAMPLE_FEATURES) {
-            ArmorModels.addModel(ModItems.TEST_HELMET.get(), new ModelWrapperTestArmor());
-            ArmorModels.addModel(ModItems.TEST_CHESTPLATE.get(), new ModelWrapperTestArmor());
-            ArmorModels.addModel(ModItems.TEST_LEGGINGS.get(), new ModelWrapperTestArmor());
-            ArmorModels.addModel(ModItems.TEST_BOOTS.get(), new ModelWrapperTestArmor());
+            ModelWrapperTestArmor testArmor = new ModelWrapperTestArmor();
+            ArmorModels.addModel(ModItems.TEST_HELMET.get(), testArmor);
+            ArmorModels.addModel(ModItems.TEST_CHESTPLATE.get(), testArmor);
+            ArmorModels.addModel(ModItems.TEST_LEGGINGS.get(), testArmor);
+            ArmorModels.addModel(ModItems.TEST_BOOTS.get(), testArmor);
             AdvancedItemRenderer.addModel(ModItems.MACE.get(), new ModelWrapperMace());
             BlockEntityRenderers.register(ModBlocks.COSMIC_BEACON_ENTITY.get(), CosmicBeaconRenderer::new);
             EntityRenderers.register(ModEntities.MINOTAUR.get(), MinotaurRenderer::new);
@@ -61,12 +67,12 @@ public class ExampleAPIMod extends SkillsAPI {
         }
     }
 
-    static {
+    @Override
+    protected void onUnsafeClientSetup() {
         if (INITIALIZE_EXAMPLE_FEATURES) {
             TESRModels.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
         }
     }
-
 
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
@@ -75,9 +81,11 @@ public class ExampleAPIMod extends SkillsAPI {
 
     @Override
     protected void onEnqueueIMC(InterModEnqueueEvent event) {
+
     }
 
     @Override
     protected void onProcessIMC(InterModProcessEvent event) {
+
     }
 }

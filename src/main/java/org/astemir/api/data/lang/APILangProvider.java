@@ -7,13 +7,13 @@ import org.astemir.api.SkillsAPI;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ModLangProvider {
+public class APILangProvider {
 
     private Map<String, LanguageDictionary> langs = new HashMap<>();
 
     private String modId;
 
-    public ModLangProvider(String modId) {
+    public APILangProvider(String modId) {
         this.modId = modId;
     }
 

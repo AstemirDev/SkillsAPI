@@ -2,21 +2,15 @@ package org.astemir.api.common.event;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
-import net.minecraftforge.event.entity.EntityLeaveLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.level.ChunkEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.common.animation.AnimationEvent;
 import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.commands.PlayActionCommand;
-import org.astemir.api.common.commands.PlayAnimationCommand;
-import org.astemir.api.common.commands.ShakeScreenCommand;
+import org.astemir.example.SkillsAPIMod;
 
 public class MiscAPIEvents {
 
@@ -51,7 +45,7 @@ public class MiscAPIEvents {
     @SubscribeEvent
     public static void onWorldUpdate(TickEvent.LevelTickEvent e) {
         if (e.phase == TickEvent.Phase.END) {
-            SkillsAPI.GLOBAL_TASK_HANDLER.update();
+            SkillsAPIMod.INSTANCE.GLOBAL_TASK_HANDLER.update();
         }
     }
 

@@ -8,10 +8,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.AnimationMessage;
 import org.astemir.api.network.AnimationTarget;
 import org.astemir.api.network.messages.ClientAnimationSyncMessage;
+import org.astemir.example.SkillsAPIMod;
 
 
 public enum AnimationHandler {
@@ -29,11 +29,11 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPI.API.getAPINetwork().sendToServer(new ClientAnimationSyncMessage(target,entity.getUUID()));
+            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ClientAnimationSyncMessage(target,entity.getUUID()));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
-            SkillsAPI.API.getAPINetwork().sendToServer(new ClientAnimationSyncMessage(target,blockEntity.getBlockPos()));
+            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ClientAnimationSyncMessage(target,blockEntity.getBlockPos()));
         }
     }
 
@@ -51,12 +51,12 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPI.API.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new AnimationMessage(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new AnimationMessage(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
             BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPI.API.getAPINetwork().send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new AnimationMessage(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new AnimationMessage(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
         }
     }
 

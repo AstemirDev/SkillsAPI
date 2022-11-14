@@ -4,8 +4,8 @@ import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.astemir.api.client.animation.AnimationDataHandler;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.common.PlayerScreenShaker;
+import org.astemir.example.SkillsAPIMod;
 
 public class ClientStateHandler {
 
@@ -19,7 +19,7 @@ public class ClientStateHandler {
 
     @SubscribeEvent
     public static void onCameraRotate(ViewportEvent.ComputeCameraAngles e){
-        PlayerScreenShaker shaker = SkillsAPI.API.SCREEN_SHAKER;
+        PlayerScreenShaker shaker = SkillsAPIMod.API.SCREEN_SHAKER;
         float power = shaker.getShakePower();
         int ticks = shaker.getShakeTicks();
         float ticksExistedDelta = (float) (ticks+e.getPartialTick());

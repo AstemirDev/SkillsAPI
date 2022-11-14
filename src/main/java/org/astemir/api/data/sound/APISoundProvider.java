@@ -5,7 +5,6 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.utils.ResourceUtils;
 
 import java.util.HashMap;

@@ -4,8 +4,8 @@ package org.astemir.api.network.messages;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.PacketArgument;
+import org.astemir.example.SkillsAPIMod;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -52,7 +52,7 @@ public class BlockEventMessage {
         public void accept(BlockEventMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
             final NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
-                SkillsAPI.WORLD_EVENTS.onHandleEvent(message.pos,message.eventId,message.arguments);
+                SkillsAPIMod.INSTANCE.WORLD_EVENTS.onHandleEvent(message.pos,message.eventId,message.arguments);
             });
             context.setPacketHandled(true);
         }

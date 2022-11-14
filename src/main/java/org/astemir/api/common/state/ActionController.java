@@ -5,8 +5,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ActionControllerMessage;
+import org.astemir.example.SkillsAPIMod;
 
 
 public class ActionController<T extends IActionListener> {
@@ -124,13 +124,13 @@ public class ActionController<T extends IActionListener> {
     public void sendUpdatePacket(){
         if (owner instanceof Entity) {
             Entity entity = (Entity)owner;
-            SkillsAPI.API.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ActionControllerMessage(entity.getId(), owner.getActionStateMachine().getIdByName(getName()), action.getId(),actionTick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ActionControllerMessage(entity.getId(), owner.getActionStateMachine().getIdByName(getName()), action.getId(),actionTick));
         }
 
         if (owner instanceof BlockEntity){
             BlockEntity blockEntity = (BlockEntity) owner;
             BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPI.API.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ActionControllerMessage(pos, owner.getActionStateMachine().getIdByName(getName()), action.getId(),actionTick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ActionControllerMessage(pos, owner.getActionStateMachine().getIdByName(getName()), action.getId(),actionTick));
         }
     }
 

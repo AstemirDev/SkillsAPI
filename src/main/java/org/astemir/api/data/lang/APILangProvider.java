@@ -2,8 +2,6 @@ package org.astemir.api.data.lang;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
-import org.astemir.api.SkillsAPI;
-
 import java.util.HashMap;
 import java.util.Map;
 

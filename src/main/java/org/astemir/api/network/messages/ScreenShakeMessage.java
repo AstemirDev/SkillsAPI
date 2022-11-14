@@ -3,8 +3,7 @@ package org.astemir.api.network.messages;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
-import org.astemir.api.SkillsAPI;
-
+import org.astemir.example.SkillsAPIMod;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 
@@ -37,7 +36,7 @@ public class ScreenShakeMessage {
         public void accept(ScreenShakeMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
             final NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
-                SkillsAPI.API.SCREEN_SHAKER.shake(message.shakeTicks,message.shakePower);
+                SkillsAPIMod.INSTANCE.SCREEN_SHAKER.shake(message.shakeTicks,message.shakePower);
             });
             context.setPacketHandled(true);
         }

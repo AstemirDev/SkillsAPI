@@ -30,8 +30,6 @@ public abstract class SkillsAPI {
 
     public final String MOD_ID;
 
-    public static SkillsAPI API;
-
     public static WorldEventHandler WORLD_EVENTS;
 
     public static GlobalTaskHandler GLOBAL_TASK_HANDLER;
@@ -39,7 +37,6 @@ public abstract class SkillsAPI {
     public static PlayerScreenShaker SCREEN_SHAKER = new PlayerScreenShaker();
 
     public SkillsAPI(String modId) {
-        API = this;
         MOD_ID = modId;
     }
 

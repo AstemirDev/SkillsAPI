@@ -72,7 +72,7 @@ Stacktrace:
 	at net.minecraftforge.eventbus.EventBus.addListener(EventBus.java:187) ~[eventbus-6.0.3.jar%23106!/:?] {}
 	at org.astemir.api.common.event.EventManager.registerFMLEvent(EventManager.java:14) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.SkillsAPI.defaultInit(SkillsAPI.java:58) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.ExampleAPIMod.<init>(ExampleAPIMod.java:45) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.SkillsAPIMod.<init>(ExampleAPIMod.java:45) ~[%23186!/:?] {re:classloading}
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?] {}
 	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?] {}
 	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?] {}

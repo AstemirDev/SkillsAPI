@@ -17,10 +17,10 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.SkillsAPI;
 import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.network.messages.EntityEventMessage;
+import org.astemir.example.SkillsAPIMod;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -163,11 +163,11 @@ public class EntityUtils {
         if (entity.level.isClientSide){
             return;
         }
-        SkillsAPI.API.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
     }
 
     public static <T extends Entity> void forceInvokeEntityClientEvent(T entity,int event){
-        SkillsAPI.API.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
     }
 
     public static void breakNearbyBlocks(LivingEntity entity, Vector3 size, int yOffset, int blockBreakChance) {

@@ -24,18 +24,21 @@ import org.astemir.example.client.wrapper.ModelWrapperTestArmor;
 import org.astemir.example.common.block.ModBlocks;
 import org.astemir.example.common.entity.ModEntities;
 import org.astemir.example.common.item.ModItems;
-import static org.astemir.example.ExampleAPIMod.MOD_ID;
+import static org.astemir.example.SkillsAPIMod.MOD_ID;
 
 
 @Mod(MOD_ID)
-public class ExampleAPIMod extends SkillsAPI {
+public class SkillsAPIMod extends SkillsAPI {
 
     public final static String MOD_ID = "skillsapi";
 
+    public static SkillsAPIMod INSTANCE;
+
     public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
 
-    public ExampleAPIMod() {
+    public SkillsAPIMod() {
         super(MOD_ID);
+        INSTANCE = this;
         defaultInit();
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());

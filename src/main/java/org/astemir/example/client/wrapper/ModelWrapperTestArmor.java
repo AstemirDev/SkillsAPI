@@ -6,18 +6,15 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.model.ArmorModelWrapper;
-import org.astemir.api.client.model.ItemModelWrapper;
 import org.astemir.api.utils.ResourceUtils;
-import org.astemir.example.ExampleAPIMod;
-import org.astemir.example.client.model.ModelMace;
+import org.astemir.example.SkillsAPIMod;
 import org.astemir.example.client.model.ModelTestArmor;
-import org.astemir.example.common.item.MaceItem;
 import org.astemir.example.common.item.armor.TestArmor;
 
 public class ModelWrapperTestArmor extends ArmorModelWrapper<TestArmor> {
 
 
-    public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(ExampleAPIMod.MOD_ID,"armor/test_armor.png");
+    public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPIMod.MOD_ID,"armor/test_armor.png");
     private final ModelTestArmor MODEL = new ModelTestArmor();
 
     @Override

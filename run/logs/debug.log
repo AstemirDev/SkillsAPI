@@ -178,7 +178,7 @@
 [14нояб.2022 08:38:54.154] [Render thread/DEBUG] [net.minecraftforge.common.ForgeI18n/CORE]: Loading I18N data entries: 5641
 [14нояб.2022 08:38:54.226] [Render thread/DEBUG] [net.minecraftforge.fml.ModWorkManager/LOADING]: Using 8 threads for parallel mod-loading
 [14нояб.2022 08:38:54.246] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@7650ded6 - got cpw.mods.cl.ModuleClassLoader@c6e0f32
-[14нояб.2022 08:38:54.247] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for org.astemir.example.ExampleAPIMod
+[14нояб.2022 08:38:54.247] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for org.astemir.example.SkillsAPIMod
 [14нояб.2022 08:38:54.266] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@7650ded6 - got cpw.mods.cl.ModuleClassLoader@c6e0f32
 [14нояб.2022 08:38:54.267] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.minecraftforge.common.ForgeMod
 [14нояб.2022 08:38:54.614] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Forge Version package package net.minecraftforge.versions.forge, Forge, version 43.1 from cpw.mods.modlauncher.TransformingClassLoader@7650ded6

@@ -44,13 +44,9 @@ public abstract class SkillsAPI {
     }
 
     protected void defaultInit(){
+        initializeAPI();
         WORLD_EVENTS = new WorldEventHandler();
         GLOBAL_TASK_HANDLER = new GlobalTaskHandler();
-        EventManager.registerForgeEventInstance(this);
-        EventManager.registerFMLEvent(this::clientSetup);
-        EventManager.registerFMLEvent(this::commonSetup);
-        EventManager.registerFMLEvent(this::enqueueIMC);
-        EventManager.registerFMLEvent(this::processIMC);
         EventManager.registerForgeEventClass(MiscAPIEvents.class);
         EventManager.registerForgeEventClass(CommandsRegisterEvents.class);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () ->{
@@ -71,6 +67,11 @@ public abstract class SkillsAPI {
     }
 
     public void initializeAPI(){
+        EventManager.registerForgeEventInstance(this);
+        EventManager.registerFMLEvent(this::clientSetup);
+        EventManager.registerFMLEvent(this::commonSetup);
+        EventManager.registerFMLEvent(this::enqueueIMC);
+        EventManager.registerFMLEvent(this::processIMC);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () ->{
             onUnsafeClientSetup();
             EventManager.registerFMLEvent(TESRModels::onModelRegistryInit);
@@ -95,7 +96,7 @@ public abstract class SkillsAPI {
         onProcessIMC(event);
     }
 
-    private void serverStart(ServerStartingEvent event){onServerStarting(event);}
+    private void serverStart(ServerStartingEvent event){ onServerStarting(event);}
 
 
     protected void onClientSetup(FMLClientSetupEvent event){};

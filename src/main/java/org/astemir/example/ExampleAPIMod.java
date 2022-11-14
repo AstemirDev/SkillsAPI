@@ -36,14 +36,13 @@ public class ExampleAPIMod extends SkillsAPI {
 
     public ExampleAPIMod() {
         super(MOD_ID);
+        defaultInit();
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModBlocks.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
-        defaultInit();
-        initializeAPI();
     }
 
     @SubscribeEvent

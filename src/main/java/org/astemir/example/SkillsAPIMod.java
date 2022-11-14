@@ -35,7 +35,7 @@ public class SkillsAPIMod extends SkillsAPI {
 
     public static SkillsAPIMod INSTANCE;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
 
     public SkillsAPIMod() {
         super(MOD_ID);
@@ -57,7 +57,6 @@ public class SkillsAPIMod extends SkillsAPI {
     @SubscribeEvent
     public void onClientSetup(FMLClientSetupEvent event) {
         WORLD_EVENTS = new WorldEventHandler();
-        System.out.println("Initialize world events: "+WORLD_EVENTS);
         EventManager.registerForgeEventClass(ClientStateHandler.class);
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModelWrapperTestArmor testArmor = new ModelWrapperTestArmor();

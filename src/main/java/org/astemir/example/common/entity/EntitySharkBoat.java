@@ -118,6 +118,10 @@ public class EntitySharkBoat extends Entity implements IAnimated, ITESRModel, ne
 
     }
 
+    @Override
+    public void onAnimationStart(Animation animation) {
+    }
+
 
     @Override
     protected void readAdditionalSaveData(CompoundTag p_20052_) {

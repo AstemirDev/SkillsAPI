@@ -195,7 +195,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (animated instanceof IAnimated) {
             if (!Minecraft.getInstance().isPaused()) {
-                float smoothness = 1.65f;
+                float smoothness = 2;
                 //float delta = (ticks - ((IAnimated) animated).getTicks()) / smoothness;
                 float delta = partialTicks/smoothness;
                 if (!animations.isEmpty()) {

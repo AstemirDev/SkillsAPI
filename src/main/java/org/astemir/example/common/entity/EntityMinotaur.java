@@ -81,6 +81,10 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
     }
 
     @Override
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }

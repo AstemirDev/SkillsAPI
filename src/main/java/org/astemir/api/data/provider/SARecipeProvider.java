@@ -40,6 +40,10 @@ public class SARecipeProvider extends RecipeProvider {
         return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("##","##").put("#",material)),result,count);
     }
 
+    public DataRecipeHolder chiseled(ItemLike result,ItemLike material,int count){
+        return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("#","#").put("#",material)),result,count);
+    }
+
     public DataRecipeHolder nineBlock(ItemLike result,ItemLike material,int count){
         return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("###","###","###").put("#",material)),result,count);
     }
@@ -102,6 +106,10 @@ public class SARecipeProvider extends RecipeProvider {
 
     public DataRecipeHolder stoneCut(ItemLike result,ItemLike material,int count){
         return new DataRecipeHolder(new DataRecipeType.StoneCutter(material),result,count);
+    }
+
+    public DataRecipeHolder upgrade(ItemLike tool,ItemLike material,ItemLike result){
+        return new DataRecipeHolder(new DataRecipeType.SmithTable(tool,material),result,1);
     }
 
     public DataRecipeHolder campfire(ItemLike result,ItemLike material,int time,float exp,int count){

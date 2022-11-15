@@ -5,6 +5,7 @@ import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.recipes.*;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.astemir.api.utils.ResourceUtils;
@@ -30,8 +31,9 @@ public abstract class DataRecipeType {
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
             }
+            newBuilder = newBuilder.unlockedBy(getHasName(material), has(material));
             if (holder.getCustomName().isEmpty()) {
-                newBuilder.save(consumer);
+                newBuilder.save(consumer,getConversionRecipeName(holder.getResult(),material)+"_stonecutting");
             }else{
                 newBuilder.save(consumer,holder.getCustomName());
             }
@@ -50,8 +52,7 @@ public abstract class DataRecipeType {
 
         @Override
         public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
-            UpgradeRecipeBuilder newBuilder = UpgradeRecipeBuilder.smithing(Ingredient.of(upgradable),Ingredient.of(material),holder.getResult().asItem());
-            newBuilder = newBuilder.unlocks(getHasName(material),has(material));
+            UpgradeRecipeBuilder newBuilder = UpgradeRecipeBuilder.smithing(Ingredient.of(upgradable),Ingredient.of(material),holder.getResult().asItem()).unlocks(getHasName(material),has(material));
             if (holder.getCustomName().isEmpty()) {
                 newBuilder.save(consumer, ResourceUtils.getItemId(holder.getResult().asItem()) + "_smithing");
             }else{
@@ -74,7 +75,7 @@ public abstract class DataRecipeType {
 
         @Override
         public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
-            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime());
+            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
             }
@@ -99,7 +100,7 @@ public abstract class DataRecipeType {
 
         @Override
         public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
-            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.smoking(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime());
+            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.smoking(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
             }
@@ -124,7 +125,7 @@ public abstract class DataRecipeType {
 
         @Override
         public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
-            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.blasting(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime());
+            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.blasting(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
             }
@@ -149,7 +150,7 @@ public abstract class DataRecipeType {
 
         @Override
         public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
-            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.smelting(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime());
+            SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.smelting(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
             }
@@ -246,6 +247,19 @@ public abstract class DataRecipeType {
     }
 
     public abstract void build(DataRecipeHolder holder,Consumer<FinishedRecipe> consumer);
+
+
+    protected static String getConversionRecipeName(ItemLike p_176518_, ItemLike p_176519_) {
+        return ResourceUtils.getItemId(p_176518_.asItem()) + "_from_" + ResourceUtils.getItemId(p_176519_.asItem());
+    }
+
+    protected static String getSmeltingRecipeName(ItemLike p_176657_) {
+        return ResourceUtils.getItemId(p_176657_.asItem()) + "_from_smelting";
+    }
+
+    protected static String getBlastingRecipeName(ItemLike p_176669_) {
+        return ResourceUtils.getItemId(p_176669_.asItem()) + "_from_blasting";
+    }
 
     public static String getHasName(ItemLike itemLike) {
         return "has_" + ResourceUtils.getItemId(itemLike.asItem());

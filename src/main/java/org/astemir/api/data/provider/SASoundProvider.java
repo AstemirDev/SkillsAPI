@@ -2,9 +2,11 @@ package org.astemir.api.data.provider;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
+import net.minecraftforge.registries.RegistryObject;
 import org.astemir.api.data.misc.DataSoundResource;
 import org.astemir.api.utils.ResourceUtils;
 
@@ -34,6 +36,14 @@ public class SASoundProvider extends SoundDefinitionsProvider {
 
     public void addSound(String name,SoundDefinition definition){
         soundsToRegister.put(name,definition);
+    }
+
+    public void addSound(SoundEvent soundEvent, SoundDefinition definition){
+        soundsToRegister.put(soundEvent.getLocation().getPath(),definition);
+    }
+
+    public void addSound(RegistryObject<SoundEvent> soundEvent, SoundDefinition definition){
+        soundsToRegister.put(soundEvent.get().getLocation().getPath(),definition);
     }
 
     public SoundDefinition createDefinition(DataSoundResource... resources){

@@ -5,6 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.ValidationContext;
@@ -39,6 +40,40 @@ public class SALootTableProvider extends LootTableProvider {
     protected List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> getTables() {
         return lootProviders;
     }
+
+    public LootProviderEntities.MobLoot mobLoot(){
+        return new LootProviderEntities.MobLoot();
+    }
+
+    public LootProviderBlocks.BlockDrop dropSelf(){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.SELF);
+    }
+
+    public LootProviderBlocks.BlockDrop dropOther(ItemLike other){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.OTHER_BLOCK).otherDrop(other);
+    }
+
+    public LootProviderBlocks.BlockDrop dropSlab(){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.SLAB);
+    }
+
+    public LootProviderBlocks.BlockDrop dropDoor(){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.DOOR);
+    }
+
+    public LootProviderBlocks.BlockDrop dropSilkTouch(){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.SILK_TOUCH);
+    }
+
+    public LootProviderBlocks.BlockDrop dropSilkTouchOther(ItemLike other){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.OTHER_BLOCK_SILK_TOUCH).otherDrop(other);
+    }
+
+    public LootProviderBlocks.BlockDrop dropOtherShears(ItemLike other){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.OTHER_SHEARS).otherDrop(other);
+    }
+
+
 
     public void addEntityDrops(EntityType entityType,LootProviderEntities.MobLoot loot){
         this.mobsDrops.put(entityType,loot);

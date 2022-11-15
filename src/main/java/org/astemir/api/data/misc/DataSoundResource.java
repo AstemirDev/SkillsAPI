@@ -12,11 +12,6 @@ public class DataSoundResource {
         this.path = path;
     }
 
-    public DataSoundResource(SoundEvent soundEvent) {
-        this.path = soundEvent.getLocation().getPath();
-    }
-
-
     public DataSoundResource subtitle(String subtitle){
         this.subtitle = subtitle;
         return this;

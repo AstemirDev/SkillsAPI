@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.network.syncher.SynchedEntityData;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -21,12 +22,15 @@ import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.network.messages.EntityEventMessage;
 import org.astemir.example.SkillsAPIMod;
-
 import java.util.List;
 import java.util.function.Predicate;
 
 public class EntityUtils {
 
+
+    public static boolean canBeTargeted(Player player){
+        return !player.isCreative() && !player.isSpectator();
+    }
 
     public static boolean hasTarget(Mob mob){
         return isEntityExist(mob.getTarget());
@@ -49,23 +53,11 @@ public class EntityUtils {
                 limbSwingAmount = 1.0F;
             }
         }
-        boolean isMovingByPlayer = false;
-        Entity entity1 = entity.getControllingPassenger();
-        if (entity1 != null){
-            Player player = (Player)entity1;
-            isMovingByPlayer = player.xxa > 0 || player.zza > 0 || player.xxa  < 0 || player.zza < 0;
-        }
-        return !(limbSwingAmount > min && limbSwingAmount < max) || isMovingByPlayer;
+        return !(limbSwingAmount > min && limbSwingAmount < max) || isMovingByPlayer(entity);
     }
 
     public static boolean isMoving(Entity entity, float min, float max){
-        boolean isMovingByPlayer = false;
-        Entity entity1 = entity.getControllingPassenger();
-        if (entity1 instanceof Player && entity1 != null){
-            Player player = (Player)entity1;
-            isMovingByPlayer = player.xxa > 0 || player.zza > 0 || player.xxa  < 0 || player.zza < 0;
-        }
-        return !(entity.getDeltaMovement().length() > min && entity.getDeltaMovement().length() < max) || isMovingByPlayer;
+        return !(entity.getDeltaMovement().length() > min && entity.getDeltaMovement().length() < max) || isMovingByPlayer(entity);
     }
 
     public static boolean isMovingByPlayer(Entity entity){
@@ -95,21 +87,6 @@ public class EntityUtils {
         vec31 = vec31.normalize();
         double d1 = vec3.dot(vec31);
         return d1 > 1.0D - d / d0 ? looker.hasLineOfSight(entity) : false;
-    }
-
-    public static Predicate<Entity> allExcludeOwner(Entity owner){
-        return entity -> !entity.getUUID().equals(owner.getUUID());
-    }
-
-    public static Predicate<Entity> allExcludeEntities(Entity... entities){
-        return entity ->{
-            for (Entity otherEntity : entities) {
-                if (otherEntity.getUUID().equals(entity.getUUID())){
-                    return false;
-                }
-            }
-            return true;
-        };
     }
 
     public static <T extends Entity> List<T> getEntities(Class<T> entityClass, Level level, BlockPos pos, int radius, Predicate<? super T> predicate){
@@ -155,10 +132,6 @@ public class EntityUtils {
     }
 
 
-    public static boolean canBeTargeted(Player player){
-        return !player.isCreative() && !player.isSpectator();
-    }
-
     public static <T extends Entity & IEventEntity> void invokeEntityClientEvent(T entity,int event){
         if (entity.level.isClientSide){
             return;
@@ -166,9 +139,6 @@ public class EntityUtils {
         SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
     }
 
-    public static <T extends Entity> void forceInvokeEntityClientEvent(T entity,int event){
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
-    }
 
     public static void breakNearbyBlocks(LivingEntity entity, Vector3 size, int yOffset, int blockBreakChance) {
         if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(entity.level, entity) && !entity.level.isClientSide) {

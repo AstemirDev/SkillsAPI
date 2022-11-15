@@ -16,6 +16,8 @@ import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.BlockEventMessage;
 import org.astemir.example.SkillsAPIMod;
 
+import java.util.UUID;
+
 public class WorldUtils {
 
     public static Block[] UNBREAKABLE_BLOCKS = new Block[]{
@@ -36,6 +38,14 @@ public class WorldUtils {
 
     public static void invokeWorldEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
         SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new BlockEventMessage(pos,event,arguments));
+    }
+
+    public static Entity getEntity(UUID uuid, Level level){
+        if (!level.isClientSide){
+            ServerLevel serverLevel = (ServerLevel) level;
+            return serverLevel.getEntity(uuid);
+        }
+        return null;
     }
 
 
@@ -93,6 +103,15 @@ public class WorldUtils {
     }
 
     public static boolean isBlock(Block[] blocks,BlockState state) {
+        for (Block block : blocks) {
+            if (state.is(block)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isBlock(BlockState state,Block... blocks) {
         for (Block block : blocks) {
             if (state.is(block)) {
                 return true;

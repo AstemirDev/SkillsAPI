@@ -1,6 +1,7 @@
 package org.astemir.example.common.entity;
 
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
@@ -23,7 +24,12 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
     public static Animation ATTACK_2 = new Animation("animation.model.attack2",0.8f).priority(1).layer(1);
     public static Animation ATTACK_3 = new Animation("animation.model.attack3",0.92f).priority(1).layer(1);
 
-    public AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,WALK,RUN,ATTACK,ATTACK_2,ATTACK_3));
+    public static Animation FURY = new Animation("animation.model.fury",3.68f).priority(1).layer(1);
+    public static Animation START_1 = new Animation("animation.model.start1",1.52f).priority(1).layer(1);
+    public static Animation START_2 = new Animation("animation.model.start2",1.08f).priority(1).layer(1);
+
+
+    public AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,WALK,RUN,ATTACK,ATTACK_2,ATTACK_3,FURY,START_1,START_2));
 
     public EntityMinotaur(EntityType<? extends Zombie> p_34271_, Level p_34272_) {
         super(ModEntities.MINOTAUR.get(), p_34272_);
@@ -56,6 +62,11 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
 
 
     @Override
+    protected boolean isSunSensitive() {
+        return false;
+    }
+
+    @Override
     public void onAnimationTick(Animation animation, int tick) {
 
     }
@@ -82,5 +93,20 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
     @Override
     public long getTicks() {
         return tickCount;
+    }
+
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return null;
+    }
+
+    @Override
+    protected SoundEvent getHurtSound(DamageSource p_34327_) {
+        return null;
+    }
+
+    @Override
+    protected SoundEvent getDeathSound() {
+        return null;
     }
 }

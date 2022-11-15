@@ -1,0 +1,5 @@
+package org.astemir.api.data.misc;
+
+public enum DataBlockState {
+    DEFAULT,MIRRORED,HORIZONTAL,CHISELED,COLUMN,FENCE,FENCE_GATE,WALL,SLAB,BUTTON,PRESSURE_PLATE,STAIRS,EMPTY
+}

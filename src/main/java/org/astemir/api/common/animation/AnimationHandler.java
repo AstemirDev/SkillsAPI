@@ -64,6 +64,9 @@ public enum AnimationHandler {
         IAnimated animatable = factory.getAnimated();
         factory.getAnimationTicks().forEach((animation,ticks)->{
             int time = (int)(animation.getLength()*20/animation.getSpeed());
+            if (ticks == 0) {
+                MinecraftForge.EVENT_BUS.post(new AnimationEvent.Start<>(animatable, animation));
+            }
             if (ticks < time){
                 MinecraftForge.EVENT_BUS.post(new AnimationEvent.Tick(animatable, animation, ticks));
                 factory.getAnimationTicks().put(animation,ticks+1);

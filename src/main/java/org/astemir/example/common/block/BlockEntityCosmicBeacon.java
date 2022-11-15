@@ -48,6 +48,10 @@ public class BlockEntityCosmicBeacon extends AnimatedBlockEntity {
     }
 
     @Override
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override
     public AnimationFactory getAnimationFactory() {
         return animationFactory;
     }

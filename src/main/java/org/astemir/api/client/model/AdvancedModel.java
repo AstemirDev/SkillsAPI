@@ -192,9 +192,12 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
     public void setupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
+        float partialTicks = Minecraft.getInstance().getPartialTick();
         if (animated instanceof IAnimated) {
             if (!Minecraft.getInstance().isPaused()) {
-                float delta = (ticks - ((IAnimated) animated).getTicks()) / 1.5f;
+                float smoothness = 1.65f;
+                //float delta = (ticks - ((IAnimated) animated).getTicks()) / smoothness;
+                float delta = partialTicks/smoothness;
                 if (!animations.isEmpty()) {
                     reset();
                     AnimationDataHandler animationManager = AnimationDataHandler.getInstance();
@@ -261,7 +264,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
                 animate(animated, limbSwing, limbSwingAmount, ticks, delta, headYaw, headPitch);
             }
         }
-        customAnimate(animated,limbSwing,limbSwingAmount,ticks,Minecraft.getInstance().getPartialTick(),headYaw,headPitch);
+        customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
     }
 
 

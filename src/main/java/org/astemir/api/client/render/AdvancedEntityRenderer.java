@@ -7,6 +7,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix4f;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.inventory.HorseInventoryScreen;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.LightTexture;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -61,7 +62,6 @@ public abstract class AdvancedEntityRenderer<T extends Entity,M extends EntityMo
         p_115311_.scale(-1.0F, -1.0F, 1.0F);
         p_115311_.translate(0.0D, (double)-1.501F, 0.0D);
         entityModelWrapper.setupAnim(p_115308_,0,0,tickCount,f1,f2);
-
         VertexConsumer vertexconsumer = p_115312_.getBuffer(getRenderType(p_115308_));
         this.model.renderToBuffer(p_115311_, vertexconsumer, p_115313_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         if (!p_115308_.isSpectator()) {
@@ -70,7 +70,6 @@ public abstract class AdvancedEntityRenderer<T extends Entity,M extends EntityMo
             }
         }
         p_115311_.popPose();
-
         super.render(p_115308_, p_115309_, p_115310_, p_115311_, p_115312_, p_115313_);
     }
 

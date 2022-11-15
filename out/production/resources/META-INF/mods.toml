@@ -1,40 +1,24 @@
-
-modLoader="javafml" #mandatory
-loaderVersion = "[43,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+modLoader="javafml"
+loaderVersion = "[43,)"
 license="All rights reserved"
-# A URL to refer people to when problems occur with this mod
-#issueTrackerURL="https://change.me.to.your.issue.tracker.example.invalid/" #optional
-# A list of mods - how many allowed here is determined by the individual mod loader
-[[mods]] #mandatory
-# The modid of the mod
-modId="skillsapi" #mandatory
-# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
-# ${file.jarVersion} will substitute the value of the Implementation-Version as read from the mod's JAR file metadata
-# see the associated build.gradle script for how to populate this completely automatically during a build
-version="1.2" #mandatory
- # A display name for the mod
-displayName="Skills Mod's API" #mandatory
-# A URL to query for updates for this mod. See the JSON update specification https://mcforge.readthedocs.io/en/latest/gettingstarted/autoupdate/
-#updateJSONURL="https://change.me.example.invalid/updates.json" #optional
-# A URL for the "homepage" for this mod, displayed in the mod UI
-#displayURL="https://change.me.to.your.mods.homepage.example.invalid/" #optional
-# A file name (in the root of the mod JAR) containing a logo for display
-logoFile="examplemod.png" #optional
-# A text field displayed in the mod UI
-credits="Useful features and requirements for SkillSun's mods." #optional
-# A text field displayed in the mod UI
-authors="Astemir" #optional
-# The description text for the mod (multi line!) (#mandatory)
+[[mods]]
+modId="skillsapi"
+version="1.2"
+displayName="Skills Mod's API"
+logoFile="examplemod.png"
+credits="Useful features and requirements for SkillSun's mods."
+authors="Astemir"
 description=''''''
-[[dependencies.skillsapi]] #optional
-    modId="forge" #mandatory
-    mandatory=true #mandatory
-versionRange = "[43,)" #mandatory
+[[dependencies.skillsapi]]
+    modId="forge"
+    mandatory=true
+    versionRange = "[43,)"
     ordering="NONE"
     side="BOTH"
+
 [[dependencies.skillsapi]]
     modId="minecraft"
     mandatory=true
-versionRange = "[1.19.2,1.20)"
+    versionRange = "[1.19.2,1.20)"
     ordering="NONE"
     side="BOTH"

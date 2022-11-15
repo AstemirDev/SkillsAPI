@@ -24,6 +24,18 @@ public abstract class AnimatedBlockEntity extends BlockEntity implements ITESRMo
     }
 
     @Override
+    public void onAnimationTick(Animation animation, int tick) {
+    }
+
+    @Override
+    public void onAnimationEnd(Animation animation) {
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+    }
+
+    @Override
     public long getTicks() {
         return ticks;
     }

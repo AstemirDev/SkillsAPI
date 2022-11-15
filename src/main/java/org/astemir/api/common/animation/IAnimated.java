@@ -10,5 +10,8 @@ public interface IAnimated{
 
     void onAnimationEnd(Animation animation);
 
+    void onAnimationStart(Animation animation);
+
+
     AnimationFactory getAnimationFactory();
 }

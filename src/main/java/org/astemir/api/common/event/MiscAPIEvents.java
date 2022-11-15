@@ -62,6 +62,11 @@ public class MiscAPIEvents {
     }
 
     @SubscribeEvent
+    public static void onStartAnimation(AnimationEvent.Start e){
+        e.getEntity().onAnimationStart(e.getAnimation());
+    }
+
+    @SubscribeEvent
     public static void onEndAnimation(AnimationEvent.End e){
         e.getEntity().onAnimationEnd(e.getAnimation());
     }

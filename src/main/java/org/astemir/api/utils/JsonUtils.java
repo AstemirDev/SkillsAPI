@@ -3,17 +3,101 @@ package org.astemir.api.utils;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import net.minecraft.client.Minecraft;
+import net.minecraft.resources.ResourceLocation;
+import org.apache.commons.compress.utils.Sets;
+import org.astemir.api.client.animation.AnimationBone;
 import org.astemir.api.client.animation.AnimationFrame;
+import org.astemir.api.client.animation.AnimationTrack;
+import org.astemir.api.client.misc.AdvancedCubeRenderer;
+import org.astemir.api.common.animation.Animation;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.*;
 
 public class JsonUtils {
 
+
+    public static Set<AdvancedCubeRenderer> getModelRenderers(ResourceLocation resourceLocation){
+        Map<String,AdvancedCubeRenderer> renderers = new HashMap<>();
+        JsonParser parser = new JsonParser();
+        InputStream stream = null;
+        try {
+            stream = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JsonElement parsed = parser.parse(new InputStreamReader(stream));
+        JsonElement geometryJson = parsed.getAsJsonObject().get("minecraft:geometry").getAsJsonArray().get(0);
+        JsonObject descriptionJson = geometryJson.getAsJsonObject().get("description").getAsJsonObject();
+        Vector2 textureSize = new Vector2(JsonUtils.getIntOrDefault(descriptionJson,"texture_width",32),JsonUtils.getIntOrDefault(descriptionJson,"texture_height",32));
+        JsonArray bonesJson = geometryJson.getAsJsonObject().get("bones").getAsJsonArray();
+        for (JsonElement bone : bonesJson) {
+            JsonObject boneJson = bone.getAsJsonObject();
+            String name = boneJson.get("name").getAsString();
+            boolean isRoot = !boneJson.has("parent");
+            Vector3 rotationPoint = getBedrockPivot(bonesJson,boneJson,isRoot);
+            Vector3 rotation = JsonUtils.getVec3OrDefault(boneJson,"rotation",true,new Vector3(0,0,0));
+            AdvancedCubeRenderer cubeRenderer = new AdvancedCubeRenderer(name,(int)textureSize.x,(int)textureSize.y,0,0);
+            if (isRoot){
+                cubeRenderer = cubeRenderer.root();
+            }
+            cubeRenderer = cubeRenderer.rotationPoint(rotationPoint.x,rotationPoint.y,rotationPoint.z).defaultRotation(rotation.x,rotation.y,rotation.z);
+            if (boneJson.has("cubes")) {
+                for (JsonElement cubeElement : boneJson.get("cubes").getAsJsonArray()) {
+                    JsonObject cubeJson = cubeElement.getAsJsonObject();
+                    Vector3 pos = getBedrockOrigin(boneJson,cubeJson);
+                    Vector3 size = JsonUtils.getVec3OrDefault(cubeJson, "size", false, new Vector3(0, 0, 0));
+                    Vector2 uv = JsonUtils.getVec2OrDefault(cubeJson, "uv", false, new Vector2(0, 0));
+                    double inflate = JsonUtils.getDoubleOrDefault(cubeJson, "inflate", 0);
+                    boolean mirror = JsonUtils.getBoolOrDefault(cubeJson, "mirror", false);
+                    cubeRenderer.textureOffset((int) uv.x, (int) uv.y).cube(pos,size, (float) inflate,mirror);
+                }
+            }
+            renderers.put(name,cubeRenderer);
+        }
+        for (JsonElement bone : bonesJson){
+            JsonObject boneJson = bone.getAsJsonObject();
+            String name = boneJson.get("name").getAsString();
+            if (boneJson.has("parent")) {
+                String parentName = boneJson.get("parent").getAsString();
+                AdvancedCubeRenderer parent = renderers.get(parentName);
+                AdvancedCubeRenderer child = renderers.get(name).parent(parent);
+                parent.addChild(child);
+            }
+        }
+        return new HashSet<>(renderers.values());
+    }
+
+
+    public static Set<AnimationTrack> getAnimationTracks(ResourceLocation resourceLocation) {
+        Set<AnimationTrack> animationTracks = new HashSet<>();
+        InputStream stream = null;
+        try {
+            stream = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JsonElement parsed = JsonParser.parseReader(new InputStreamReader(stream));
+        for (Map.Entry<String, JsonElement> animationEntry : JsonUtils.getEntries(parsed, "animations")) {
+            String animationName = animationEntry.getKey();
+            JsonObject animationJson = animationEntry.getValue().getAsJsonObject();
+            AnimationTrack track = new AnimationTrack(animationName, Animation.Loop.parse(JsonUtils.getStringOrDefault(animationJson, "loop", "false")), JsonUtils.getDoubleOrDefault(animationJson, "animation_length", 0));
+            for (Map.Entry<String, JsonElement> bonesEntry : JsonUtils.getEntries(animationJson, "bones")) {
+                String boneName = bonesEntry.getKey();
+                JsonObject boneJsonObject = bonesEntry.getValue().getAsJsonObject();
+                AnimationBone bone = new AnimationBone(boneName, getAnimationProperty(boneJsonObject, "rotation", true), getAnimationProperty(boneJsonObject, "scale", false), getAnimationProperty(boneJsonObject, "position", false));
+                track.addBone(bone);
+            }
+            animationTracks.add(track);
+        }
+        return animationTracks;
+    }
 
     public static AnimationFrame[] getAnimationProperty(JsonObject bone, String name, boolean rad){
         if (bone.has(name)) {
@@ -71,6 +155,7 @@ public class JsonUtils {
         Vector3 mySize = JsonUtils.getVec3OrDefault(cube, "size", false, new Vector3(0, 0, 0));
         return new Vector3(myPos.x-myPivot.x,-myPos.y-mySize.y+myPivot.y, myPos.z-myPivot.z);
     }
+
 
     public static Vector3 getBedrockPivot(JsonArray bones,JsonObject bone,boolean isRoot){
         Vector3 myPivot = JsonUtils.getVec3OrDefault(bone,"pivot",false,new Vector3(0,0,0));

@@ -1,37 +1,25 @@
-package org.astemir.api.client.model;
+package org.astemir.api.client.wrapper;
 
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.HumanoidModel;
-import net.minecraft.client.model.PlayerModel;
-import net.minecraft.client.model.ZombieModel;
-import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
-import net.minecraft.client.model.geom.builders.MeshDefinition;
-import net.minecraft.client.model.geom.builders.PartDefinition;
-import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.ItemRenderer;
-import net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import org.astemir.api.client.render.AdvancedCubeRenderer;
-import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.client.model.AdvancedModel;
+import org.astemir.api.client.misc.AdvancedCubeRenderer;
+import org.astemir.api.client.misc.RenderCall;
 import org.astemir.api.common.animation.ITESRModel;
 import org.astemir.api.math.Vector3;
-import org.astemir.api.utils.MathUtils;
-import org.astemir.example.common.item.armor.TestArmor;
 
 public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends HumanoidModel<LivingEntity> implements IModelWrapper<T> {
 

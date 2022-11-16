@@ -1,4 +1,4 @@
-package org.astemir.api.client.render;
+package org.astemir.api.client.misc;
 
 import net.minecraft.core.Direction;
 

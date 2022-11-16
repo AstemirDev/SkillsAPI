@@ -1,4 +1,4 @@
-package org.astemir.api.client.render;
+package org.astemir.api.client.misc;
 
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -9,11 +9,12 @@ import com.mojang.math.Vector3f;
 import com.mojang.math.Vector4f;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
+import net.minecraft.client.model.geom.ModelPart;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.math.Transform;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
-
+import org.astemir.api.utils.MathUtils;
 
 
 public class AdvancedCubeRenderer {
@@ -22,9 +23,16 @@ public class AdvancedCubeRenderer {
     private final ObjectList<ModelBox> cubeList = new ObjectArrayList<>();
     private final ObjectList<AdvancedCubeRenderer> childModels = new ObjectArrayList<>();
 
+    private AdvancedCubeRenderer parent;
+
     public float rotationX;
     public float rotationY;
     public float rotationZ;
+
+    public float customRotationX;
+    public float customRotationY;
+    public float customRotationZ;
+
 
     public float positionX;
     public float positionY;
@@ -42,12 +50,25 @@ public class AdvancedCubeRenderer {
 
     public boolean mirror = false;
     public boolean showModel = true;
+    public boolean isRoot = false;
 
 
     public AdvancedCubeRenderer(String name, int textureWidthIn, int textureHeightIn, int textureOffsetXIn, int textureOffsetYIn) {
         this.name = name;
         this.textureSize(textureWidthIn, textureHeightIn);
         this.textureOffset(textureOffsetXIn, textureOffsetYIn);
+    }
+
+    public void copyProperties(ModelPart part){
+        this.rotationPoint.x = part.x;
+        this.rotationPoint.y = part.y;
+        this.rotationPoint.z = part.z;
+        this.rotationX = part.xRot;
+        this.rotationY = part.yRot;
+        this.rotationZ = part.zRot;
+        this.scaleX = part.xScale;
+        this.scaleY = part.yScale;
+        this.scaleZ = part.zScale;
     }
 
     public void apply(Transform transform){
@@ -74,17 +95,10 @@ public class AdvancedCubeRenderer {
         this.rotationZ = rot.z;
     }
 
-
-    public Vector3 getRotation(){
-        return new Vector3(rotationX,rotationY,rotationZ);
-    }
-
-    public Vector3 getScale(){
-        return new Vector3(scaleX,scaleY,scaleZ);
-    }
-
-    public Vector3 getPosition(){
-        return new Vector3(positionX,positionY,positionZ);
+    public void setCustomRotation(Vector3 rot){
+        this.customRotationX = rot.x;
+        this.customRotationY = rot.y;
+        this.customRotationZ = rot.z;
     }
 
 
@@ -100,35 +114,12 @@ public class AdvancedCubeRenderer {
         positionZ = 0;
     }
 
-
-    public AdvancedCubeRenderer cube(String name, float x, float y, float z, int width, int height, int depth, float delta, int texX, int texY) {
-        this.name = name;
-        this.textureOffset(texX, texY);
-        return cube((int)textureOffset.getX(), (int)textureOffset.getY(), x, y, z, (float)width, (float)height, (float)depth, delta, delta, delta, this.mirror);
+    public AdvancedCubeRenderer cube(Vector3 position,Vector3 size, float delta,boolean mirrorIn) {
+        return this.cube(new Vector2(textureOffset.getX(), textureOffset.getY()), position,size, new Vector3(delta, delta, delta),mirrorIn);
     }
 
-    public AdvancedCubeRenderer cube(float x, float y, float z, float width, float height, float depth) {
-        return cube((int)textureOffset.getX(), (int)textureOffset.getY(), x, y, z, width, height, depth, 0.0F, 0.0F, 0.0F, this.mirror);
-    }
-
-    public AdvancedCubeRenderer cube(float x, float y, float z, float width, float height, float depth, boolean mirrorIn) {
-        return cube((int)textureOffset.getX(), (int)textureOffset.getY(), x, y, z, width, height, depth, 0.0F, 0.0F, 0.0F, mirrorIn);
-    }
-
-    public AdvancedCubeRenderer cube(float x, float y, float z, float width, float height, float depth, float delta) {
-        return this.cube((int)textureOffset.getX(), (int)textureOffset.getY(), x, y, z, width, height, depth, delta, delta, delta, this.mirror);
-    }
-
-    public AdvancedCubeRenderer cube(float x, float y, float z, float width, float height, float depth, float deltaX, float deltaY, float deltaZ) {
-        return this.cube((int)textureOffset.getX(), (int)textureOffset.getY(), x, y, z, width, height, depth, deltaX, deltaY, deltaZ, this.mirror);
-    }
-
-    public AdvancedCubeRenderer cube(float x, float y, float z, float width, float height, float depth, float delta, boolean mirrorIn) {
-        return this.cube((int)textureOffset.getX(),(int) textureOffset.getY(), x, y, z, width, height, depth, delta, delta, delta, mirrorIn);
-    }
-
-    private AdvancedCubeRenderer cube(int texOffX, int texOffY, float x, float y, float z, float width, float height, float depth, float deltaX, float deltaY, float deltaZ, boolean mirorIn) {
-        this.cubeList.add(new ModelBox(texOffX, texOffY, x, y, z, width, height, depth, deltaX, deltaY, deltaZ, mirorIn, this.textureSize.getX(), this.textureSize.getY()));
+    private AdvancedCubeRenderer cube(Vector2 textureOffset,Vector3 position,Vector3 size, Vector3 delta,boolean mirrorIn) {
+        this.cubeList.add(new ModelBox((int)textureOffset.x, (int)textureOffset.y, position.x,position.y, position.z, size.x, size.y, size.z, delta.x, delta.y, delta.z, mirrorIn, this.textureSize.getX(), this.textureSize.getY()));
         return this;
     }
 
@@ -148,7 +139,7 @@ public class AdvancedCubeRenderer {
     }
 
 
-    public void render(AdvancedModel model, PoseStack matrixStackIn, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha,RenderCall renderCall,boolean resetBuffer) {
+    public void render(AdvancedModel model, PoseStack matrixStackIn, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha, RenderCall renderCall, boolean resetBuffer) {
         if (this.showModel) {
             matrixStackIn.pushPose();
             matrixStackIn.scale(scaleX,scaleY,scaleZ);
@@ -172,21 +163,21 @@ public class AdvancedCubeRenderer {
 
     public void translateRotate(PoseStack matrixStackIn) {
         matrixStackIn.translate((double)(rotationPoint.getX() / 16.0F)/scaleX, (double)(rotationPoint.getY() / 16.0F)/scaleY, (double)(rotationPoint.getZ() / 16.0F)/scaleZ);
-        if (defaultRotation.z+rotationZ != 0.0F) {
-            matrixStackIn.mulPose(Vector3f.ZP.rotation(defaultRotation.z+rotationZ));
+        if (defaultRotation.z+rotationZ+customRotationZ != 0.0F) {
+            matrixStackIn.mulPose(Vector3f.ZP.rotation(defaultRotation.z+rotationZ+customRotationZ));
         }
-        if (defaultRotation.y+rotationY != 0.0F) {
-            matrixStackIn.mulPose(Vector3f.YP.rotation(defaultRotation.y+rotationY));
+        if (defaultRotation.y+rotationY+customRotationY != 0.0F) {
+            matrixStackIn.mulPose(Vector3f.YP.rotation(defaultRotation.y+rotationY+customRotationY));
         }
-        if (defaultRotation.x+rotationX != 0.0F) {
-            matrixStackIn.mulPose(Vector3f.XP.rotation(defaultRotation.x+rotationX));
+        if (defaultRotation.x+rotationX+customRotationX != 0.0F) {
+            matrixStackIn.mulPose(Vector3f.XP.rotation(defaultRotation.x+rotationX+customRotationX));
         }
     }
 
-    public void doRender(PoseStack.Pose matrixEntryIn, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
-        Matrix4f matrix4f = matrixEntryIn.pose();
-        Matrix3f matrix3f = matrixEntryIn.normal();
+    public void doRender(PoseStack.Pose entry,VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
         for(ModelBox modelBox : this.cubeList) {
+            Matrix4f matrix4f = entry.pose();
+            Matrix3f matrix3f = entry.normal();
             for(TexturedQuad textureQuad : modelBox.getQuads()) {
                 Vector3f vector3f = textureQuad.normal.copy();
                 vector3f.transform(matrix3f);
@@ -206,7 +197,6 @@ public class AdvancedCubeRenderer {
                 }
             }
         }
-
     }
 
     public ObjectList<AdvancedCubeRenderer> getChildModels() {
@@ -222,19 +212,49 @@ public class AdvancedCubeRenderer {
         return false;
     }
 
-    public void addChild(AdvancedCubeRenderer renderer) {
+    public AdvancedCubeRenderer addChild(AdvancedCubeRenderer renderer) {
         this.childModels.add(renderer);
+        return this;
     }
 
-    public void addChild(AdvancedCubeRenderer... renderers) {
+    public AdvancedCubeRenderer addChildren(AdvancedCubeRenderer... renderers) {
         for (AdvancedCubeRenderer renderer : renderers) {
             addChild(renderer);
         }
+        return this;
+    }
+
+    public AdvancedCubeRenderer parent(AdvancedCubeRenderer parent) {
+        this.parent = parent;
+        return this;
+    }
+
+    public AdvancedCubeRenderer root() {
+        this.isRoot = true;
+        return this;
     }
 
     public AdvancedCubeRenderer defaultRotation(float x,float y,float z){
         this.defaultRotation = new Vector3(x,y,z);
         return this;
+    }
+
+    public AdvancedCubeRenderer getParent() {
+        return parent;
+    }
+
+    public Vector3 getCustomRotation(){
+        return new Vector3(customRotationX,customRotationY,customRotationZ);
+    }
+
+    public Vector3 getRotation(){
+        return new Vector3(rotationX,rotationY,rotationZ);
+    }
+
+    public Vector3 getScale() { return new Vector3(scaleX,scaleY,scaleZ); }
+
+    public Vector3 getPosition(){
+        return new Vector3(positionX,positionY,positionZ);
     }
 
     public Vector3 getDefaultRotation() {

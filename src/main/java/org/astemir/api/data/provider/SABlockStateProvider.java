@@ -122,6 +122,12 @@ public class SABlockStateProvider extends BlockStateProvider {
             this.material = material;
         }
 
+        public BlockStateHolder(DataBlockState type, Supplier<Block> material) {
+            this.type = type;
+            this.material = material.get();
+        }
+
+
         public DataBlockState getType() {
             return type;
         }

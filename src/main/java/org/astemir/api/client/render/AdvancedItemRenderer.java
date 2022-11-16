@@ -14,7 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.astemir.api.client.model.ItemModelWrapper;
+import org.astemir.api.client.wrapper.ItemModelWrapper;
 import org.astemir.api.common.animation.ITESRModel;
 
 import java.util.HashMap;

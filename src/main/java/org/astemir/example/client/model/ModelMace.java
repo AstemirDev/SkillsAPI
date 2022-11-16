@@ -14,7 +14,7 @@ public class ModelMace extends AdvancedModel<MaceItem> {
 	public static ResourceLocation MODEL = ResourceUtils.loadModel(SkillsAPIMod.MOD_ID,"item/mace.geo.json");
 
 	public ModelMace() {
-		super(RenderType::entityCutoutNoCull,MODEL,null);
+		super(RenderType::entityCutoutNoCull,MODEL);
 	}
 
 	@Override

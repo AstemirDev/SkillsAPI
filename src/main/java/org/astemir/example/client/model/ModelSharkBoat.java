@@ -6,14 +6,15 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.model.AdvancedModel;
-import org.astemir.api.client.render.AdvancedCubeRenderer;
-import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.client.misc.AdvancedCubeRenderer;
+import org.astemir.api.client.misc.RenderCall;
+import org.astemir.api.client.model.AnimatedAdvancedModel;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.SkillsAPIMod;
 import org.astemir.example.common.entity.EntitySharkBoat;
 
 
-public class ModelSharkBoat extends AdvancedModel<EntitySharkBoat> {
+public class ModelSharkBoat extends AnimatedAdvancedModel<EntitySharkBoat> {
 
 	public static ResourceLocation MODEL = ResourceUtils.loadModel(SkillsAPIMod.MOD_ID,"entity/shark_boat.geo.json");
 	public static ResourceLocation ANIMATIONS = ResourceUtils.loadAnimation(SkillsAPIMod.MOD_ID,"entity/shark_boat.animation.json");

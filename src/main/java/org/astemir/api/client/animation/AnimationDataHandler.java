@@ -1,7 +1,7 @@
 package org.astemir.api.client.animation;
 
 import org.astemir.api.client.ClientStateHandler;
-import org.astemir.api.client.render.AdvancedCubeRenderer;
+import org.astemir.api.client.misc.AdvancedCubeRenderer;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.common.animation.IAnimatedID;

@@ -1,4 +1,4 @@
-package org.astemir.api.client.model;
+package org.astemir.api.client.wrapper;
 
 
 
@@ -7,12 +7,10 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.blockentity.ChestRenderer;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.SculkCatalystBlockEntity;
-import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.client.model.AdvancedModel;
+import org.astemir.api.client.misc.RenderCall;
 import org.astemir.api.common.animation.ITESRModel;
 
 

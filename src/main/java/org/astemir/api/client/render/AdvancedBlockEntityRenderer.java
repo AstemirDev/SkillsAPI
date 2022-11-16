@@ -2,16 +2,12 @@ package org.astemir.api.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.LevelRenderer;
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
-import net.minecraft.world.level.block.BellBlock;
-import net.minecraft.world.level.block.entity.BellBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.astemir.api.client.model.BlockEntityModelWrapper;
+import org.astemir.api.client.wrapper.BlockEntityModelWrapper;
 import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.common.animation.ITESRModel;
 

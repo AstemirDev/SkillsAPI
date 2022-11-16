@@ -5,7 +5,7 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.model.AdvancedModel;
-import org.astemir.api.client.model.ItemModelWrapper;
+import org.astemir.api.client.wrapper.ItemModelWrapper;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.SkillsAPIMod;
 import org.astemir.example.client.model.ModelMace;

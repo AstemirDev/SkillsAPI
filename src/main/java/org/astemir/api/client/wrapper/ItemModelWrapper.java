@@ -1,4 +1,4 @@
-package org.astemir.api.client.model;
+package org.astemir.api.client.wrapper;
 
 
 
@@ -11,7 +11,8 @@ import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.client.model.AdvancedModel;
+import org.astemir.api.client.misc.RenderCall;
 import org.astemir.api.common.animation.ITESRModel;
 
 

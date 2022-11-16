@@ -1,7 +1,7 @@
-package org.astemir.api.client.render;
+package org.astemir.api.client.misc;
 
 import net.minecraft.world.item.Item;
-import org.astemir.api.client.model.ArmorModelWrapper;
+import org.astemir.api.client.wrapper.ArmorModelWrapper;
 
 import java.util.HashMap;
 import java.util.Map;

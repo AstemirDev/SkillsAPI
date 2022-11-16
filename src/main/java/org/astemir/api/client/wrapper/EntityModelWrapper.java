@@ -1,4 +1,4 @@
-package org.astemir.api.client.model;
+package org.astemir.api.client.wrapper;
 
 
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -8,12 +8,12 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.client.model.AdvancedModel;
+import org.astemir.api.client.misc.RenderCall;
 import org.astemir.api.common.animation.ITESRModel;
 
 public abstract class EntityModelWrapper<T extends Entity & ITESRModel> extends EntityModel<T> implements IModelWrapper<T> {

@@ -14,7 +14,7 @@ import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.ClientStateHandler;
 import org.astemir.api.client.render.AdvancedItemRenderer;
 import org.astemir.api.client.TESRModels;
-import org.astemir.api.client.render.ArmorModels;
+import org.astemir.api.client.misc.ArmorModels;
 import org.astemir.api.common.WorldEventHandler;
 import org.astemir.api.common.event.EventManager;
 import org.astemir.example.client.renderer.CosmicBeaconRenderer;
@@ -35,7 +35,7 @@ public class SkillsAPIMod extends SkillsAPI {
 
     public static SkillsAPIMod INSTANCE;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
 
     public SkillsAPIMod() {
         super(MOD_ID);

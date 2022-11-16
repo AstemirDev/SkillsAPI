@@ -8,7 +8,7 @@ java.lang.NullPointerException: Cannot invoke "net.minecraft.core.BlockPos.getX(
 	at org.astemir.api.common.animation.IAnimatedID.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.animation.AnimationDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:207) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.model.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.LivingEntityRenderer.render(LivingEntityRenderer.java:117) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:39) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:26) ~[%23186!/:?] {re:classloading}
@@ -45,7 +45,7 @@ Stacktrace:
 	at org.astemir.api.common.animation.IAnimatedID.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.animation.AnimationDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:207) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.model.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.LivingEntityRenderer.render(LivingEntityRenderer.java:117) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:39) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:26) ~[%23186!/:?] {re:classloading}

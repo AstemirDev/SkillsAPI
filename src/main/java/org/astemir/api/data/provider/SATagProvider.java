@@ -10,6 +10,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Supplier;
 
 public class SATagProvider<T> extends TagsProvider<T> {
 
@@ -26,8 +27,14 @@ public class SATagProvider<T> extends TagsProvider<T> {
         }
     }
 
-    public void addTag(T object,TagKey<T> tag){
-        tags.add(new Pair<>(object,tag));
+    public void addTag(Supplier<T> object, TagKey<T>... tags){
+        addTag(object.get(),tags);
+    }
+
+    public void addTag(T object,TagKey<T>... tags){
+        for (TagKey<T> tag : tags) {
+            this.tags.add(new Pair<>(object,tag));
+        }
     }
 
     public void register(DataGenerator gen) {

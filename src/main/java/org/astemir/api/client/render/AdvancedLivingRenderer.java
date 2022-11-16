@@ -20,7 +20,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
-import org.astemir.api.client.model.EntityModelWrapper;
+import org.astemir.api.client.wrapper.EntityModelWrapper;
 import org.jetbrains.annotations.Nullable;
 
 

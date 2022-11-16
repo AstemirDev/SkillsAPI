@@ -1,4 +1,4 @@
-package org.astemir.api.client.render;
+package org.astemir.api.client.misc;
 
 public enum RenderCall {
 

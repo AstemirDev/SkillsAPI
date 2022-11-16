@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.SARenderTypes;
-import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.client.misc.RenderCall;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.SkillsAPIMod;
 import org.astemir.example.client.wrapper.ModelWrapperMinotaur;

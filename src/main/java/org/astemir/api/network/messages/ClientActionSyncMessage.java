@@ -104,7 +104,7 @@ public class ClientActionSyncMessage {
                 }
                 if (machine != null){
                     for (ActionController controller : machine.getControllers()) {
-                        controller.setAction(controller.getActionState(),controller.getTicks());
+                        controller.setActionWithoutSync(controller.getActionState(),controller.getTicks());
                     }
                 }
             }

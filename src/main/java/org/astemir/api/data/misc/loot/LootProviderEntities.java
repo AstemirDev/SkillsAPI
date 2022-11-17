@@ -27,8 +27,6 @@ import java.util.Map;
 
 public abstract class LootProviderEntities extends EntityLoot implements ILootProvider<EntityType<?>> {
 
-    private Map<EntityType, MobLoot> mobsLoot = new HashMap<>();
-
     @Override
     protected void addTables() {
         addLoot();

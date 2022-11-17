@@ -74,6 +74,13 @@ public class SALootTableProvider extends LootTableProvider {
     }
 
 
+    public void addEntityDrops(Supplier<EntityType> entityType,LootProviderEntities.MobLoot loot){
+        this.mobsDrops.put(entityType.get(),loot);
+    }
+
+    public void addBlockDrops(Supplier<Block> block,LootProviderBlocks.BlockDrop drop) {
+        this.blocksDrops.put(block.get(), drop);
+    }
 
     public void addEntityDrops(EntityType entityType,LootProviderEntities.MobLoot loot){
         this.mobsDrops.put(entityType,loot);

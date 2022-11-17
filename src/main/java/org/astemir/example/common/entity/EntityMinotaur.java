@@ -5,16 +5,21 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Zombie;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
 import org.astemir.api.common.animation.*;
+import org.astemir.api.common.entity.SAEntityMonster;
+import org.astemir.api.common.state.Action;
+import org.astemir.api.common.state.ActionController;
+import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.utils.RandomUtils;
 
 import static org.astemir.api.utils.EntityUtils.isMoving;
 
 
-public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
+public class EntityMinotaur extends SAEntityMonster implements IAnimated, ITESRModel {
 
     public static Animation IDLE = new Animation("animation.model.idle",2.4f).loop().layer(0);
     public static Animation WALK = new Animation("animation.model.walk",2.08f).loop().layer(0);
@@ -31,7 +36,10 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
 
     public AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,WALK,RUN,ATTACK,ATTACK_2,ATTACK_3,FURY,START_1,START_2));
 
-    public EntityMinotaur(EntityType<? extends Zombie> p_34271_, Level p_34272_) {
+    private ActionController controller = new ActionController(this,"testController",TEST_ACTION);
+    public static final Action TEST_ACTION = new Action(0,"testAction",20);
+
+    public EntityMinotaur(EntityType<? extends Monster> p_34271_, Level p_34272_) {
         super(ModEntities.MINOTAUR.get(), p_34272_);
     }
 
@@ -61,10 +69,6 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
     }
 
 
-    @Override
-    protected boolean isSunSensitive() {
-        return false;
-    }
 
     @Override
     public void onAnimationTick(Animation animation, int tick) {
@@ -80,37 +84,9 @@ public class EntityMinotaur extends Zombie implements IAnimated, ITESRModel {
         }
     }
 
-    @Override
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override
-    public Packet<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
 
     @Override
     public AnimationFactory getAnimationFactory() {
         return animationFactory;
-    }
-
-    @Override
-    public long getTicks() {
-        return tickCount;
-    }
-
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getHurtSound(DamageSource p_34327_) {
-        return null;
-    }
-
-    @Override
-    protected SoundEvent getDeathSound() {
-        return null;
     }
 }

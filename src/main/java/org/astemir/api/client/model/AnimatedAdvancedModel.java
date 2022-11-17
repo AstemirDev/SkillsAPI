@@ -27,6 +27,8 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
 
     public Set<AnimationTrack> animations = new HashSet<>();
 
+    private float animationSmoothness = 2;
+
     public AnimatedAdvancedModel(Function<ResourceLocation, RenderType> p_103110_, ResourceLocation modelLoc, ResourceLocation animationsLoc) {
         super(p_103110_, modelLoc);
         if (animationsLoc != null) {
@@ -152,8 +154,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
     public void setupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (!Minecraft.getInstance().isPaused()) {
-            float smoothness = 2;
-            float delta = partialTicks/smoothness;
+            float delta = partialTicks/animationSmoothness;
             if (!animations.isEmpty()) {
                 reset();
                 AnimationDataHandler animationManager = AnimationDataHandler.getInstance();
@@ -222,4 +223,12 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
         customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
     }
 
+    public float getAnimationSmoothness() {
+        return animationSmoothness;
+    }
+
+    public AnimatedAdvancedModel animationSmoothness(float animationSmoothness) {
+        this.animationSmoothness = animationSmoothness;
+        return this;
+    }
 }

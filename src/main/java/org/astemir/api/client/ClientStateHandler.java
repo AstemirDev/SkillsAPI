@@ -1,5 +1,6 @@
 package org.astemir.api.client;
 
+import net.minecraft.client.Minecraft;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -13,6 +14,9 @@ public class ClientStateHandler {
 
     @SubscribeEvent
     public static void onMainRender(TickEvent.RenderTickEvent e){
+        if (Minecraft.getInstance().isPaused()){
+            return;
+        }
         ANIMATION_DATA_HANDLER.removeUnusedData();
     }
 

@@ -1,6 +1,7 @@
 package org.astemir.api.common.state;
 
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 
 import java.util.LinkedList;
 
@@ -27,30 +28,23 @@ public class ActionStateMachine {
     }
 
     public void read(CompoundTag tag){
-        CompoundTag tagDictionary = tag.getCompound("ActionMachine");
+        ListTag listTag = tag.getList("ActionMachine",10);
         for (int i = 0; i < controllers.size(); i++) {
-            if (tagDictionary.contains(String.valueOf(i))) {
-                CompoundTag controllerTag = tagDictionary.getCompound(String.valueOf(i));
-                ActionController controller = controllers.get(i);
-                controller.playAction(controller.getActionById(controllerTag.getInt("Id")), controllerTag.getInt("Ticks"));
-            }
+            CompoundTag controllerTag = listTag.getCompound(i);
+            ActionController controller = controllers.get(i);
+            controller.playAction(controller.getActionById(controllerTag.getInt("Id")), controllerTag.getInt("Ticks"));
         }
     }
 
     public void write(CompoundTag tag) {
-        CompoundTag tagDictionary = new CompoundTag();
-        if (tag.contains("ActionMachine")){
-            tagDictionary = tag.getCompound("ActionMachine");
-        }
+        ListTag listTag = new ListTag();
         for (int i = 0; i < controllers.size(); i++) {
             CompoundTag controllerTag = new CompoundTag();
-            if (controllerTag.contains(String.valueOf(i))){
-                controllerTag = tagDictionary.getCompound(String.valueOf(i));
-            }
             controllerTag.putInt("Id",controllers.get(i).getActionState().getId());
             controllerTag.putInt("Ticks",controllers.get(i).getTicks());
+            listTag.add(i,controllerTag);
         }
-        tag.put("ActionMachine",tagDictionary);
+        tag.put("ActionMachine",listTag);
     }
 
 }

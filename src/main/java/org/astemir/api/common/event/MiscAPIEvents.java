@@ -10,6 +10,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.astemir.api.common.animation.AnimationEvent;
 import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.IAnimated;
+import org.astemir.api.common.state.ActionController;
+import org.astemir.api.common.state.ActionStateMachine;
+import org.astemir.api.common.state.IActionListener;
 import org.astemir.example.SkillsAPIMod;
 
 public class MiscAPIEvents {
@@ -27,6 +30,12 @@ public class MiscAPIEvents {
                     factory.stopAll();
                 }
             }
+            if (blockEntity instanceof IActionListener){
+                ActionStateMachine machine = ((IActionListener)blockEntity).getActionStateMachine();
+                if (e.getLevel().isClientSide()){
+                    machine.sendClientSyncMessage((IActionListener) blockEntity);
+                }
+            }
         }
     }
 
@@ -38,6 +47,12 @@ public class MiscAPIEvents {
                 factory.syncClient();
             }else{
                 factory.stopAll();
+            }
+        }
+        if (e.getEntity() instanceof IActionListener){
+            ActionStateMachine machine = ((IActionListener)e.getEntity()).getActionStateMachine();
+            if (e.getLevel().isClientSide()){
+                machine.sendClientSyncMessage((IActionListener) e.getEntity());
             }
         }
     }

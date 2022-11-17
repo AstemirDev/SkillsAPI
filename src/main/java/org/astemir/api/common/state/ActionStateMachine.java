@@ -2,6 +2,15 @@ package org.astemir.api.common.state;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import org.astemir.api.common.animation.AnimationFactory;
+import org.astemir.api.network.AnimationTarget;
+import org.astemir.api.network.messages.ClientActionSyncMessage;
+import org.astemir.api.network.messages.ClientAnimationSyncMessage;
+import org.astemir.example.SkillsAPIMod;
 
 import java.util.LinkedList;
 
@@ -47,4 +56,22 @@ public class ActionStateMachine {
         tag.put("ActionMachine",listTag);
     }
 
+    public void sendClientSyncMessage(IActionListener listener){
+        if (listener instanceof Entity) {
+            Level level = ((Entity)listener).getLevel();
+            if (!level.isClientSide) {
+                return;
+            }
+            Entity entity = (Entity) listener;
+            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ClientActionSyncMessage(entity.getUUID()));
+        }else
+        if (listener instanceof BlockEntity) {
+            Level level = ((BlockEntity)listener).getLevel();
+            if (!level.isClientSide) {
+                return;
+            }
+            BlockEntity blockEntity = (BlockEntity)listener;
+            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ClientActionSyncMessage(blockEntity.getBlockPos()));
+        }
+    }
 }

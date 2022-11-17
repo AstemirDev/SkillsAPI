@@ -60,6 +60,7 @@ public abstract class SkillsAPI {
         network.registerMessage(5, ScreenShakeMessage.class, ScreenShakeMessage::encode, ScreenShakeMessage::decode, new ScreenShakeMessage.Handler());
         network.registerMessage(6, AnimationMessage.class,AnimationMessage::encode,AnimationMessage::decode,new AnimationMessage.Handler());
         network.registerMessage(7, ClientAnimationSyncMessage.class,ClientAnimationSyncMessage::encode,ClientAnimationSyncMessage::decode,new ClientAnimationSyncMessage.Handler());
+        network.registerMessage(8, ClientActionSyncMessage.class,ClientActionSyncMessage::encode,ClientActionSyncMessage::decode,new ClientActionSyncMessage.Handler());
     }
 
     public void initializeAPI(){

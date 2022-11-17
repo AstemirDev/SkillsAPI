@@ -36,7 +36,7 @@ public class EntityMinotaur extends SAEntityMonster implements IAnimated, ITESRM
 
     public AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,WALK,RUN,ATTACK,ATTACK_2,ATTACK_3,FURY,START_1,START_2));
 
-    private ActionController controller = new ActionController(this,"testController",TEST_ACTION);
+    public ActionController controller = new ActionController(this,"testController",TEST_ACTION);
     public static final Action TEST_ACTION = new Action(0,"testAction",20);
 
     public EntityMinotaur(EntityType<? extends Monster> p_34271_, Level p_34272_) {

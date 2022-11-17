@@ -2,6 +2,8 @@ package org.astemir.example;
 
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,7 +37,7 @@ public class SkillsAPIMod extends SkillsAPI {
 
     public static SkillsAPIMod INSTANCE;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
 
     public SkillsAPIMod() {
         super(MOD_ID);
@@ -49,12 +51,13 @@ public class SkillsAPIMod extends SkillsAPI {
         }
     }
 
-    @SubscribeEvent
+    @Override
     public void onCommonSetup(FMLCommonSetupEvent event) {
         defaultCommon();
     }
 
-    @SubscribeEvent
+    @Override
+    @OnlyIn(Dist.CLIENT)
     public void onClientSetup(FMLClientSetupEvent event) {
         WORLD_EVENTS = new WorldEventHandler();
         EventManager.registerForgeEventClass(ClientStateHandler.class);

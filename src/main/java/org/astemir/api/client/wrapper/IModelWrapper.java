@@ -11,11 +11,9 @@ public interface IModelWrapper<M extends ITESRModel> {
 
     MultiBufferSource getMultiBufferSource();
 
-    RenderType getRenderType(M renderTarget, ResourceLocation texture);
+    RenderType getRenderType();
 
-    AdvancedModel<M> getModel(M target);
-
-    ResourceLocation getTexture(M target);
+    AdvancedModel<M> getModel();
 
     M getRenderTarget();
 }

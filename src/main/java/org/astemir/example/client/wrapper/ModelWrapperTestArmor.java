@@ -3,18 +3,13 @@ package org.astemir.example.client.wrapper;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.wrapper.ArmorModelWrapper;
-import org.astemir.api.utils.ResourceUtils;
-import org.astemir.example.SkillsAPIMod;
 import org.astemir.example.client.model.ModelTestArmor;
 import org.astemir.example.common.item.armor.TestArmor;
 
 public class ModelWrapperTestArmor extends ArmorModelWrapper<TestArmor> {
 
-
-    public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPIMod.MOD_ID,"armor/test_armor.png");
     private final ModelTestArmor MODEL = new ModelTestArmor();
 
     @Override
@@ -23,12 +18,7 @@ public class ModelWrapperTestArmor extends ArmorModelWrapper<TestArmor> {
     }
 
     @Override
-    public AdvancedModel<TestArmor> getModel(TestArmor target) {
+    public AdvancedModel<TestArmor> getModel() {
         return MODEL;
-    }
-
-    @Override
-    public ResourceLocation getTexture(TestArmor target) {
-        return TEXTURE;
     }
 }

@@ -17,11 +17,8 @@ import org.astemir.api.math.Transform;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.utils.AnimationUtils;
 import org.astemir.api.utils.JsonUtils;
-
 import java.util.HashSet;
 import java.util.Set;
-import java.util.function.Function;
-
 
 public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> extends AdvancedModel<T> {
 
@@ -29,8 +26,8 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
 
     private float animationSmoothness = 2;
 
-    public AnimatedAdvancedModel(Function<ResourceLocation, RenderType> p_103110_, ResourceLocation modelLoc, ResourceLocation animationsLoc) {
-        super(p_103110_, modelLoc);
+    public AnimatedAdvancedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
+        super(modelLoc);
         if (animationsLoc != null) {
             animations = JsonUtils.getAnimationTracks(animationsLoc);
         }

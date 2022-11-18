@@ -3,18 +3,13 @@ package org.astemir.example.client.wrapper;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.wrapper.ItemModelWrapper;
-import org.astemir.api.utils.ResourceUtils;
-import org.astemir.example.SkillsAPIMod;
 import org.astemir.example.client.model.ModelMace;
 import org.astemir.example.common.item.MaceItem;
 
 public class ModelWrapperMace extends ItemModelWrapper<MaceItem> {
 
-
-    public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPIMod.MOD_ID,"item/mace_in_hand.png");
     private final ModelMace MODEL = new ModelMace();
 
     @Override
@@ -23,12 +18,7 @@ public class ModelWrapperMace extends ItemModelWrapper<MaceItem> {
     }
 
     @Override
-    public AdvancedModel<MaceItem> getModel(MaceItem target) {
+    public AdvancedModel<MaceItem> getModel() {
         return MODEL;
-    }
-
-    @Override
-    public ResourceLocation getTexture(MaceItem target) {
-        return TEXTURE;
     }
 }

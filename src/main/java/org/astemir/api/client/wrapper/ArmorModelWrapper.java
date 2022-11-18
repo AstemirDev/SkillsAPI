@@ -38,8 +38,8 @@ public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends Hum
         if (itemStack != null){
             hasFoil = itemStack.hasFoil();
         }
-        VertexConsumer consumer =  ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(getRenderTarget(),getTexture(getRenderTarget())), false, hasFoil);
-        AdvancedModel<T> model = getModel(renderTarget);
+        VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
+        AdvancedModel<T> model = getModel();
         model.modelWrapper = this;
         model.renderModel(p_103111_,consumer,p_103113_, p_103114_, p_103115_, p_103116_, p_103117_, p_103118_,renderCall,resetBuffer);
     }
@@ -52,7 +52,7 @@ public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends Hum
     public void setupAngles(LivingEntity entity, T target, ItemStack stack, EquipmentSlot equipmentSlot, HumanoidModel<?> original){
         this.renderTarget = target;
         this.itemStack = stack;
-        AdvancedModel<T> model = getModel(target);
+        AdvancedModel<T> model = getModel();
         AdvancedCubeRenderer bipedHead = model.getModelRenderer("bipedHead");
         AdvancedCubeRenderer bipedBody = model.getModelRenderer("bipedBody");
         AdvancedCubeRenderer bipedLeftArm = model.getModelRenderer("bipedLeftArm");
@@ -118,18 +118,17 @@ public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends Hum
     public void setupAnim(LivingEntity p_102866_, float p_102867_, float p_102868_, float p_102869_, float p_102870_, float p_102871_) {
     }
 
-    public RenderType getRenderType(T entity, ResourceLocation texture){
-        return RenderType.entityCutoutNoCull(texture);
-    }
-
-    public abstract AdvancedModel<T> getModel(T target);
-
-    public abstract ResourceLocation getTexture(T target);
-
+    @Override
     public T getRenderTarget() {
         return renderTarget;
     }
 
+    @Override
+    public RenderType getRenderType() {
+        return RenderType.entityCutoutNoCull(getModel().getTexture());
+    }
+
+    @Override
     public MultiBufferSource getMultiBufferSource() {
         return multiBufferSource;
     }

@@ -46,9 +46,7 @@ public abstract class SAEntityMonster extends Monster implements IAnimated, IAct
     @Override
     public void aiStep() {
         super.aiStep();
-        for (ActionController controller : actionStateMachine.getControllers()) {
-            controller.update();
-        }
+        actionStateMachine.update();
     }
 
     public void invokeEntityClientEvent(int event){

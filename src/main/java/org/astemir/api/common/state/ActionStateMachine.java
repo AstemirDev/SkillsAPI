@@ -28,6 +28,12 @@ public class ActionStateMachine {
         return 0;
     }
 
+    public void update(){
+        for (ActionController controller : controllers) {
+            controller.update();
+        }
+    }
+
     public void addController(ActionController controller){
         this.controllers.add(controller);
     }
@@ -40,38 +46,26 @@ public class ActionStateMachine {
         ListTag listTag = tag.getList("ActionMachine",10);
         for (int i = 0; i < controllers.size(); i++) {
             CompoundTag controllerTag = listTag.getCompound(i);
-            ActionController controller = controllers.get(i);
-            controller.playAction(controller.getActionById(controllerTag.getInt("Id")), controllerTag.getInt("Ticks"));
+            if (!controllerTag.isEmpty()) {
+                ActionController controller = controllers.get(i);
+                Action action = controller.getActionById(controllerTag.getInt("Id"));
+                controller.playAction(action, controllerTag.getInt("Ticks"));
+            }
         }
     }
 
     public void write(CompoundTag tag) {
         ListTag listTag = new ListTag();
         for (int i = 0; i < controllers.size(); i++) {
-            CompoundTag controllerTag = new CompoundTag();
-            controllerTag.putInt("Id",controllers.get(i).getActionState().getId());
-            controllerTag.putInt("Ticks",controllers.get(i).getTicks());
-            listTag.add(i,controllerTag);
+            ActionController controller = controllers.get(i);
+            if (!controller.isNoAction()) {
+                CompoundTag controllerTag = new CompoundTag();
+                controllerTag.putInt("Id", controllers.get(i).getActionState().getId());
+                controllerTag.putInt("Ticks", controllers.get(i).getTicks());
+                listTag.add(i, controllerTag);
+            }
         }
         tag.put("ActionMachine",listTag);
     }
 
-    public void sendClientSyncMessage(IActionListener listener){
-        if (listener instanceof Entity) {
-            Level level = ((Entity)listener).getLevel();
-            if (!level.isClientSide) {
-                return;
-            }
-            Entity entity = (Entity) listener;
-            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ClientActionSyncMessage(entity.getUUID()));
-        }else
-        if (listener instanceof BlockEntity) {
-            Level level = ((BlockEntity)listener).getLevel();
-            if (!level.isClientSide) {
-                return;
-            }
-            BlockEntity blockEntity = (BlockEntity)listener;
-            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ClientActionSyncMessage(blockEntity.getBlockPos()));
-        }
-    }
 }

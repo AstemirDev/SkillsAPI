@@ -57,7 +57,7 @@ public class AdvancedItemRenderer extends BlockEntityWithoutLevelRenderer {
                 wrapper.itemStack = p_108830_;
                 wrapper.transformType = p_108831_;
                 wrapper.multiBufferSource = p_108833_;
-                VertexConsumer consumer =  ItemRenderer.getFoilBufferDirect(p_108833_,wrapper.getRenderType(wrapper.getRenderTarget(),wrapper.getTexture((ITESRModel) wrapper.getRenderTarget())), false, p_108830_.hasFoil());
+                VertexConsumer consumer =  ItemRenderer.getFoilBufferDirect(p_108833_,wrapper.getRenderType(), false, p_108830_.hasFoil());
                 wrapper.renderItem(p_108830_,p_108831_,p_108832_,consumer,wrapper.getMultiBufferSource(),p_108834_,p_108835_,1,1,1,1);
             }
         }

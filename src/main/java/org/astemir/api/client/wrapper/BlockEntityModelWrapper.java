@@ -24,8 +24,8 @@ public abstract class BlockEntityModelWrapper<T extends BlockEntity & ITESRModel
         super(RenderType::entityCutoutNoCull);
     }
 
-    public void renderBlock(BlockEntity blockEntity, PoseStack p_103111_, VertexConsumer consumer,MultiBufferSource bufferSource, int p_103113_, int p_103114_,float r,float g,float b,float a) {
-        AdvancedModel<T> model = getModel((T) blockEntity);
+    public void renderBlock(PoseStack p_103111_, VertexConsumer consumer,MultiBufferSource bufferSource, int p_103113_, int p_103114_,float r,float g,float b,float a) {
+        AdvancedModel<T> model = getModel();
         model.modelWrapper = this;
         PoseStack stack = p_103111_;
         stack.pushPose();
@@ -35,15 +35,14 @@ public abstract class BlockEntityModelWrapper<T extends BlockEntity & ITESRModel
         stack.popPose();
     }
 
-
     @Override
-    public RenderType getRenderType(T renderTarget, ResourceLocation texture) {
-        return RenderType.entityCutoutNoCull(texture);
+    public RenderType getRenderType() {
+        return RenderType.entityCutoutNoCull(getModel().getTexture());
     }
 
     @Override
     public void renderToBuffer(PoseStack p_103111_, VertexConsumer p_103112_, int p_103113_, int p_103114_, float p_103115_, float p_103116_, float p_103117_, float p_103118_) {
-        renderBlock(renderTarget,p_103111_,p_103112_,multiBufferSource,p_103113_,p_103114_,p_103115_,p_103116_,p_103117_,p_103118_);
+        renderBlock(p_103111_,p_103112_,multiBufferSource,p_103113_,p_103114_,p_103115_,p_103116_,p_103117_,p_103118_);
     }
 
     public MultiBufferSource getMultiBufferSource() {
@@ -54,5 +53,4 @@ public abstract class BlockEntityModelWrapper<T extends BlockEntity & ITESRModel
     public T getRenderTarget() {
         return renderTarget;
     }
-
 }

@@ -29,7 +29,7 @@ public abstract class ItemModelWrapper<T extends Item & ITESRModel> extends Mode
     }
 
     public void renderItem(ItemStack p_108830_, ItemTransforms.TransformType p_108831_, PoseStack p_103111_, VertexConsumer consumer,MultiBufferSource bufferSource, int p_103113_, int p_103114_,float r,float g,float b,float a) {
-        AdvancedModel<T> model = getModel((T) p_108830_.getItem());
+        AdvancedModel<T> model = getModel();
         model.modelWrapper = this;
         PoseStack stack = p_103111_;
         stack.pushPose();
@@ -41,8 +41,8 @@ public abstract class ItemModelWrapper<T extends Item & ITESRModel> extends Mode
     }
 
     @Override
-    public RenderType getRenderType(T renderTarget, ResourceLocation texture) {
-        return RenderType.entityCutoutNoCull(texture);
+    public RenderType getRenderType() {
+        return RenderType.entityCutoutNoCull(getModel().getTexture());
     }
 
     @Override

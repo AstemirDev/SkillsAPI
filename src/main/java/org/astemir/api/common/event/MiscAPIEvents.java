@@ -30,12 +30,6 @@ public class MiscAPIEvents {
                     factory.stopAll();
                 }
             }
-            if (blockEntity instanceof IActionListener){
-                ActionStateMachine machine = ((IActionListener)blockEntity).getActionStateMachine();
-                if (e.getLevel().isClientSide()){
-                    machine.sendClientSyncMessage((IActionListener) blockEntity);
-                }
-            }
         }
     }
 
@@ -47,12 +41,6 @@ public class MiscAPIEvents {
                 factory.syncClient();
             }else{
                 factory.stopAll();
-            }
-        }
-        if (e.getEntity() instanceof IActionListener){
-            ActionStateMachine machine = ((IActionListener)e.getEntity()).getActionStateMachine();
-            if (e.getLevel().isClientSide()){
-                machine.sendClientSyncMessage((IActionListener) e.getEntity());
             }
         }
     }

@@ -11,6 +11,7 @@ import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.AnimationFactory;
+import org.astemir.api.common.animation.AnimationHandler;
 import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.network.AnimationTarget;
 import org.astemir.api.network.PacketUtils;
@@ -104,7 +105,7 @@ public class ClientAnimationSyncMessage {
                 }
                 if (factory != null){
                     for (Animation playingAnimation : factory.getPlayingAnimations()) {
-                        factory.setAnimation(playingAnimation,factory.getAnimationTick(playingAnimation),true);
+                        AnimationHandler.INSTANCE.sendServerSyncMessage(playerEntity,factory,playingAnimation,message.target, AnimationMessage.Action.START,factory.getAnimationTick(playingAnimation));
                     }
                 }
             }

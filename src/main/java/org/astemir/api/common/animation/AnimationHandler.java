@@ -3,7 +3,9 @@ package org.astemir.api.common.animation;
 
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.MinecraftForge;
@@ -18,8 +20,27 @@ public enum AnimationHandler {
 
     INSTANCE;
 
-    public <T extends IAnimated> void sendAnimationMessage(AnimationFactory factory, Animation animation, AnimationTarget target, AnimationMessage.Action type) {
-        sendAnimationMessage(factory,animation,target,type,0,false);
+
+
+    public <T extends IAnimated> void sendAnimationMessage(AnimationFactory factory, Animation animation, AnimationTarget target, AnimationMessage.Action type,int tick) {
+        Level level = target.getLevel(factory);
+        if (level.isClientSide) {
+            return;
+        }
+        if (type == AnimationMessage.Action.START) {
+            factory.addAnimation(animation);
+        } else if (type == AnimationMessage.Action.STOP) {
+            factory.removeAnimation(animation);
+        }
+        if (target == AnimationTarget.ENTITY) {
+            Entity entity = (Entity) factory.getAnimated();
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new AnimationMessage(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
+        }else
+        if (target == AnimationTarget.BLOCK){
+            BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
+            BlockPos pos = blockEntity.getBlockPos();
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new AnimationMessage(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
+        }
     }
 
     public void sendClientSyncMessage(AnimationFactory factory,AnimationTarget target){
@@ -37,26 +58,19 @@ public enum AnimationHandler {
         }
     }
 
-    public void sendAnimationMessage(AnimationFactory factory, Animation animation, AnimationTarget target, AnimationMessage.Action type,int tick,boolean clientSideOnly) {
+    public void sendServerSyncMessage(ServerPlayer player, AnimationFactory factory, Animation animation, AnimationTarget target, AnimationMessage.Action type, int tick) {
         Level level = target.getLevel(factory);
         if (level.isClientSide) {
             return;
         }
-        if (!clientSideOnly) {
-            if (type == AnimationMessage.Action.START) {
-                factory.addAnimation(animation);
-            } else if (type == AnimationMessage.Action.STOP) {
-                factory.removeAnimation(animation);
-            }
-        }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new AnimationMessage(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(() -> player), new AnimationMessage(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
             BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new AnimationMessage(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(()->player), new AnimationMessage(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
         }
     }
 

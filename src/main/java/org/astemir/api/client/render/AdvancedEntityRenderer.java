@@ -52,7 +52,7 @@ public abstract class AdvancedEntityRenderer<T extends Entity,M extends EntityMo
         p_115311_.scale(-1.0F, -1.0F, 1.0F);
         p_115311_.translate(0.0D, (double)-1.501F, 0.0D);
         entityModelWrapper.setupAnim(p_115308_,0,0,tickCount,f1,f2);
-        VertexConsumer vertexconsumer = p_115312_.getBuffer(getRenderType(p_115308_));
+        VertexConsumer vertexconsumer = p_115312_.getBuffer(entityModelWrapper.getRenderType());
         this.model.renderToBuffer(p_115311_, vertexconsumer, p_115313_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         if (!p_115308_.isSpectator()) {
             for(RenderLayer<T, M> renderlayer : this.layers) {
@@ -63,15 +63,10 @@ public abstract class AdvancedEntityRenderer<T extends Entity,M extends EntityMo
         super.render(p_115308_, p_115309_, p_115310_, p_115311_, p_115312_, p_115313_);
     }
 
-    public RenderType getRenderType(T entity) {
-        ResourceLocation texture = getTextureLocation(entity);
-        return entityModelWrapper.getRenderType(entity,texture);
-    }
-
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return entityModelWrapper.getTexture(entity);
+        return entityModelWrapper.getModel().getTexture();
     }
 
 

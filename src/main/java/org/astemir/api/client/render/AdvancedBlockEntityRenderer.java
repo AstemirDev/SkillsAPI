@@ -13,34 +13,31 @@ import org.astemir.api.common.animation.ITESRModel;
 
 public class AdvancedBlockEntityRenderer<T extends BlockEntity & ITESRModel> implements BlockEntityRenderer<T> {
 
-    private BlockEntityModelWrapper blockModelWrapper;
+    private BlockEntityModelWrapper<T> blockModelWrapper;
 
     public AdvancedBlockEntityRenderer(BlockEntityRendererProvider.Context p_173636_,BlockEntityModelWrapper wrapper) {
         this.blockModelWrapper = wrapper;
     }
 
     @Override
-    public void render(BlockEntity p_112307_, float p_112308_, PoseStack p_112309_, MultiBufferSource p_112310_, int p_112311_, int p_112312_) {
-        if (p_112307_ instanceof ITESRModel){
-            ITESRModel target = (ITESRModel) p_112307_;
-            if (target instanceof IAnimated){
-                float ticks = ((IAnimated) target).getTicks();
-                blockModelWrapper.getModel(target).setupAnim(target,0,0,ticks+p_112308_,0,0);
-            }
-            blockModelWrapper.renderTarget = p_112307_;
-            blockModelWrapper.multiBufferSource = p_112310_;
-            int i;
-            if (p_112307_.getLevel() != null) {
-                i = LevelRenderer.getLightColor(p_112307_.getLevel(), p_112307_.getBlockPos().above());
-            } else {
-                i = 15728880;
-            }
-            VertexConsumer consumer = p_112310_.getBuffer(blockModelWrapper.getRenderType((BlockEntity) target,blockModelWrapper.getTexture(target)));
-            blockModelWrapper.renderToBuffer(p_112309_,consumer,i,p_112312_,1,1,1,1);
+    public void render(T p_112307_, float p_112308_, PoseStack p_112309_, MultiBufferSource p_112310_, int p_112311_, int p_112312_) {
+        if (p_112307_ instanceof IAnimated){
+            float ticks = ((IAnimated) p_112307_).getTicks();
+            blockModelWrapper.getModel().setupAnim(p_112307_,0,0,ticks+p_112308_,0,0);
         }
+        blockModelWrapper.renderTarget = (T) p_112307_;
+        blockModelWrapper.multiBufferSource = p_112310_;
+        int i;
+        if (p_112307_.getLevel() != null) {
+            i = LevelRenderer.getLightColor(p_112307_.getLevel(), p_112307_.getBlockPos().above());
+        } else {
+            i = 15728880;
+        }
+        VertexConsumer consumer = p_112310_.getBuffer(blockModelWrapper.getRenderType());
+        blockModelWrapper.renderToBuffer(p_112309_,consumer,i,p_112312_,1,1,1,1);
     }
 
-    public BlockEntityModelWrapper getBlockModelWrapper() {
+    public BlockEntityModelWrapper<T> getBlockModelWrapper() {
         return blockModelWrapper;
     }
 }

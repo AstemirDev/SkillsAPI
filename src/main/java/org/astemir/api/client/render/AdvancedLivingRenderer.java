@@ -49,13 +49,12 @@ public abstract class AdvancedLivingRenderer<T extends LivingEntity,M extends En
     @Nullable
     @Override
     protected RenderType getRenderType(T entity, boolean p_115323_, boolean p_115324_, boolean p_115325_) {
-        ResourceLocation texture = getTextureLocation(entity);
-        return entityModelWrapper.getRenderType(entity,texture);
+        return entityModelWrapper.getRenderType();
     }
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return entityModelWrapper.getTexture(entity);
+        return entityModelWrapper.getModel().getTexture();
     }
 
 

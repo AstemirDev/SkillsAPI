@@ -10,32 +10,26 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.animal.Pig;
 import net.minecraft.world.item.ItemStack;
-import org.astemir.api.client.animation.*;
 import org.astemir.api.client.misc.AdvancedCubeRenderer;
 import org.astemir.api.client.misc.RenderCall;
 import org.astemir.api.client.wrapper.IModelWrapper;
-import org.astemir.api.common.animation.Animation;
-import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.common.animation.ITESRModel;
 import org.astemir.api.utils.JsonUtils;
 import org.astemir.api.utils.MathUtils;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
-
 import java.util.*;
-import java.util.function.Function;
 
 public abstract class AdvancedModel<T extends ITESRModel> extends Model {
 
     public Set<AdvancedCubeRenderer> renderers = new HashSet<>();
-    public IModelWrapper modelWrapper;
+    public IModelWrapper<T> modelWrapper;
 
     public Vector2 textureSize = new Vector2(64,32);
 
-    public AdvancedModel(Function<ResourceLocation, RenderType> p_103110_,ResourceLocation modelLoc) {
-        super(p_103110_);
+    public AdvancedModel(ResourceLocation modelLoc) {
+        super(RenderType::entityCutoutNoCull);
         if (modelLoc != null) {
             renderers = JsonUtils.getModelRenderers(modelLoc);
         }
@@ -93,7 +87,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
 
     public void onRenderModelCube(AdvancedCubeRenderer cube,PoseStack matrixStackIn, VertexConsumer bufferIn, RenderCall renderCall,int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha){}
 
-    public abstract void animate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch);
+    public void animate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){};
 
     public void customAnimate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){}
 
@@ -112,10 +106,6 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
         return renderers;
     }
 
-    public Vector2 getTextureSize() {
-        return textureSize;
-    }
-
 
     public Vector3 getRotationPoint(AdvancedCubeRenderer renderer){
         for (AdvancedCubeRenderer advancedCubeRenderer : renderers) {
@@ -127,7 +117,18 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
     public VertexConsumer returnDefaultBuffer(){
-        return modelWrapper.getMultiBufferSource().getBuffer(modelWrapper.getRenderType(modelWrapper.getRenderTarget(),modelWrapper.getTexture(modelWrapper.getRenderTarget())));
+        return modelWrapper.getMultiBufferSource().getBuffer(modelWrapper.getRenderType());
+    }
+
+    public abstract ResourceLocation getTexture();
+
+    public T getRenderTarget() {
+        return modelWrapper.getRenderTarget();
+    }
+
+
+    public Vector2 getTextureSize() {
+        return textureSize;
     }
 
     public IModelWrapper getModelWrapper() {

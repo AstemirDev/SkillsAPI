@@ -26,12 +26,12 @@ public class AnimationFactory {
                     stop(playingAnimation);
                 }
             }
-            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(), AnimationMessage.Action.START);
+            sendAnimation(animation,0);
         }
     }
 
-    public void setAnimation(Animation animation,int tick,boolean clientSide){
-        AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(), AnimationMessage.Action.START,tick,clientSide);
+    public void sendAnimation(Animation animation,int tick){
+        AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(), AnimationMessage.Action.START,tick);
     }
 
     public void syncClient(){
@@ -40,7 +40,7 @@ public class AnimationFactory {
 
     public void stop(Animation animation){
         if (isPlaying(animation)) {
-            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(),AnimationMessage.Action.STOP);
+            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(),AnimationMessage.Action.STOP,0);
         }
     }
 
@@ -50,19 +50,6 @@ public class AnimationFactory {
         }
     }
 
-    public Map<String,Integer> save(){
-        Map<String,Integer> map = new HashMap<>();
-        for (Animation playingAnimation : getPlayingAnimations()) {
-            map.put(playingAnimation.getName(),getAnimationTick(playingAnimation));
-        }
-        return map;
-    }
-
-    public void load(Map<String,Integer> map){
-        map.forEach((key,tick)->{
-
-        });
-    }
 
     private AnimationTarget getTarget(){
         if (animated instanceof Entity){

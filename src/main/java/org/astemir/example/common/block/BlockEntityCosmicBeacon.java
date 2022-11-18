@@ -10,6 +10,7 @@ import org.astemir.api.common.animation.AnimationList;
 
 public class BlockEntityCosmicBeacon extends AnimatedBlockEntity {
 
+
     public static Animation IDLE = new Animation("animation.model.rotation",2.08f).loop().layer(0);
     public static Animation OPEN_IDLE = new Animation("animation.model.loop",0.52f).loop().layer(0);
     public static Animation OPEN = new Animation("animation.model.open",2.6f).layer(1);

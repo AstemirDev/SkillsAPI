@@ -18,7 +18,7 @@ public class ModelMace extends AdvancedModel<MaceItem> {
 	}
 
 	@Override
-	public ResourceLocation getTexture() {
+	public ResourceLocation getTexture(MaceItem item) {
 		return TEXTURE;
 	}
 }

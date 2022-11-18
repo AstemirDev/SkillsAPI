@@ -24,7 +24,7 @@ public class ModelWrapperMinotaur extends EntityModelWrapper<EntityMinotaur> {
 
 
     @Override
-    public AdvancedModel<EntityMinotaur> getModel() {
+    public AdvancedModel<EntityMinotaur> getModel(EntityMinotaur minotaur) {
         return MODEL;
     }
 }

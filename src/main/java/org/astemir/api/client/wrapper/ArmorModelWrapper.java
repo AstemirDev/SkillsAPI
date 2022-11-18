@@ -39,7 +39,7 @@ public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends Hum
             hasFoil = itemStack.hasFoil();
         }
         VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
-        AdvancedModel<T> model = getModel();
+        AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
         model.renderModel(p_103111_,consumer,p_103113_, p_103114_, p_103115_, p_103116_, p_103117_, p_103118_,renderCall,resetBuffer);
     }
@@ -52,7 +52,7 @@ public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends Hum
     public void setupAngles(LivingEntity entity, T target, ItemStack stack, EquipmentSlot equipmentSlot, HumanoidModel<?> original){
         this.renderTarget = target;
         this.itemStack = stack;
-        AdvancedModel<T> model = getModel();
+        AdvancedModel<T> model = getModel(target);
         AdvancedCubeRenderer bipedHead = model.getModelRenderer("bipedHead");
         AdvancedCubeRenderer bipedBody = model.getModelRenderer("bipedBody");
         AdvancedCubeRenderer bipedLeftArm = model.getModelRenderer("bipedLeftArm");
@@ -125,7 +125,7 @@ public abstract class ArmorModelWrapper<T extends Item & ITESRModel> extends Hum
 
     @Override
     public RenderType getRenderType() {
-        return RenderType.entityCutoutNoCull(getModel().getTexture());
+        return RenderType.entityCutoutNoCull(getModel(renderTarget).getTexture(renderTarget));
     }
 
     @Override

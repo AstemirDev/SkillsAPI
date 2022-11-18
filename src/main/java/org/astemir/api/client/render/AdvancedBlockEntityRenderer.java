@@ -23,7 +23,7 @@ public class AdvancedBlockEntityRenderer<T extends BlockEntity & ITESRModel> imp
     public void render(T p_112307_, float p_112308_, PoseStack p_112309_, MultiBufferSource p_112310_, int p_112311_, int p_112312_) {
         if (p_112307_ instanceof IAnimated){
             float ticks = ((IAnimated) p_112307_).getTicks();
-            blockModelWrapper.getModel().setupAnim(p_112307_,0,0,ticks+p_112308_,0,0);
+            blockModelWrapper.getModel(p_112307_).setupAnim(p_112307_,0,0,ticks+p_112308_,0,0);
         }
         blockModelWrapper.renderTarget = (T) p_112307_;
         blockModelWrapper.multiBufferSource = p_112310_;

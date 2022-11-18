@@ -28,7 +28,7 @@ public class ModelSharkBoat extends AnimatedAdvancedModel<EntitySharkBoat> {
 	}
 
 	@Override
-	public ResourceLocation getTexture() {
+	public ResourceLocation getTexture(EntitySharkBoat sharkBoat) {
 		return TEXTURE;
 	}
 }

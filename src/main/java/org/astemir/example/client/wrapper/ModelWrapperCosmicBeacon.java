@@ -12,7 +12,7 @@ public class ModelWrapperCosmicBeacon extends BlockEntityModelWrapper<BlockEntit
 
 
     @Override
-    public AdvancedModel<BlockEntityCosmicBeacon> getModel() {
+    public AdvancedModel<BlockEntityCosmicBeacon> getModel(BlockEntityCosmicBeacon cosmicBeacon) {
         return MODEL;
     }
 }

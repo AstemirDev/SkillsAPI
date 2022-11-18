@@ -27,7 +27,7 @@ public class ModelMinotaur extends AnimatedAdvancedModel<EntityMinotaur> {
 	}
 
 	@Override
-	public ResourceLocation getTexture() {
+	public ResourceLocation getTexture(EntityMinotaur minotaur) {
 		return TEXTURE;
 	}
 }

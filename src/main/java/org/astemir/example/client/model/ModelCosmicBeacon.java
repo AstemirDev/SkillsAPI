@@ -18,7 +18,7 @@ public class ModelCosmicBeacon extends AnimatedAdvancedModel<BlockEntityCosmicBe
 	}
 
 	@Override
-	public ResourceLocation getTexture() {
+	public ResourceLocation getTexture(BlockEntityCosmicBeacon target) {
 		return TEXTURE;
 	}
 }

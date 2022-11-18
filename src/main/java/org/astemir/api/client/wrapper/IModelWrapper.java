@@ -13,7 +13,7 @@ public interface IModelWrapper<M extends ITESRModel> {
 
     RenderType getRenderType();
 
-    AdvancedModel<M> getModel();
+    AdvancedModel<M> getModel(M target);
 
     M getRenderTarget();
 }

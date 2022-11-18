@@ -18,7 +18,7 @@ public class ModelWrapperTestArmor extends ArmorModelWrapper<TestArmor> {
     }
 
     @Override
-    public AdvancedModel<TestArmor> getModel() {
+    public AdvancedModel<TestArmor> getModel(TestArmor armor) {
         return MODEL;
     }
 }

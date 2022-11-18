@@ -18,7 +18,7 @@ public class ModelTestArmor extends AdvancedModel<TestArmor> {
 	}
 
 	@Override
-	public ResourceLocation getTexture() {
+	public ResourceLocation getTexture(TestArmor armor) {
 		return TEXTURE;
 	}
 }

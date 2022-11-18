@@ -26,7 +26,7 @@ public abstract class EntityModelWrapper<T extends Entity & ITESRModel> extends 
     }
 
     public void renderWrapper(PoseStack p_103111_, VertexConsumer p_103112_, int p_103113_, int p_103114_, float p_103115_, float p_103116_, float p_103117_, float p_103118_, RenderCall renderCall,boolean resetBuffer) {
-        AdvancedModel<T> model = getModel();
+        AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
         model.renderModel(p_103111_,p_103112_,p_103113_, p_103114_, p_103115_, p_103116_, p_103117_, p_103118_,renderCall,resetBuffer);
     }
@@ -38,24 +38,23 @@ public abstract class EntityModelWrapper<T extends Entity & ITESRModel> extends 
 
     @Override
     public void setupAnim(T p_102618_, float p_102619_, float p_102620_, float p_102621_, float p_102622_, float p_102623_) {
-        getModel().setupAnim(p_102618_,p_102619_,p_102620_,p_102621_,p_102622_,p_102623_);
+        getModel(p_102618_).setupAnim(p_102618_,p_102619_,p_102620_,p_102621_,p_102622_,p_102623_);
     }
 
     public RenderType getDefaultRenderType(){
-        return RenderType.entityCutoutNoCull(getModel().getTexture());
+        return RenderType.entityCutoutNoCull(getModel(getRenderTarget()).getTexture(getRenderTarget()));
     }
 
     @Override
     public RenderType getRenderType() {
-        T entity = getRenderTarget();
-        if (hasInvisibility() || entity.isInvisible()){
-            return RenderType.entityTranslucent(getModel().getTexture());
+        if (hasInvisibility() || renderTarget.isInvisible()){
+            return RenderType.entityTranslucent(getModel(renderTarget).getTexture(renderTarget));
         }
         return getDefaultRenderType();
     }
 
     public float calculateClientAlpha(){
-        if (getRenderTarget().isInvisible() || hasInvisibility()){
+        if (renderTarget.isInvisible() || hasInvisibility()){
             LocalPlayer player = Minecraft.getInstance().player;
             if (player != null && player.isSpectator()){
                 return 0.15f;
@@ -67,7 +66,7 @@ public abstract class EntityModelWrapper<T extends Entity & ITESRModel> extends 
     }
 
     private boolean hasInvisibility(){
-        if (getRenderTarget() instanceof LivingEntity){
+        if (renderTarget instanceof LivingEntity){
             if (((LivingEntity)getRenderTarget()).hasEffect(MobEffects.INVISIBILITY)){
                 return true;
             }

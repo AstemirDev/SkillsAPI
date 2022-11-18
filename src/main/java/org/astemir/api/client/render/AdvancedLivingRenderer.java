@@ -21,10 +21,11 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.client.wrapper.EntityModelWrapper;
+import org.astemir.api.common.animation.ITESRModel;
 import org.jetbrains.annotations.Nullable;
 
 
-public abstract class AdvancedLivingRenderer<T extends LivingEntity,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
+public abstract class AdvancedLivingRenderer<T extends LivingEntity & ITESRModel,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
 
     private EntityModelWrapper entityModelWrapper;
 
@@ -54,7 +55,7 @@ public abstract class AdvancedLivingRenderer<T extends LivingEntity,M extends En
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return entityModelWrapper.getModel().getTexture();
+        return entityModelWrapper.getModel(entity).getTexture(entity);
     }
 
 

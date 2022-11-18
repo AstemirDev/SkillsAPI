@@ -18,7 +18,7 @@ public class ModelWrapperMace extends ItemModelWrapper<MaceItem> {
     }
 
     @Override
-    public AdvancedModel<MaceItem> getModel() {
+    public AdvancedModel<MaceItem> getModel(MaceItem item) {
         return MODEL;
     }
 }

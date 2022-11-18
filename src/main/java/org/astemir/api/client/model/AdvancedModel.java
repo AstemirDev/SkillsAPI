@@ -120,7 +120,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
         return modelWrapper.getMultiBufferSource().getBuffer(modelWrapper.getRenderType());
     }
 
-    public abstract ResourceLocation getTexture();
+    public abstract ResourceLocation getTexture(T target);
 
     public T getRenderTarget() {
         return modelWrapper.getRenderTarget();

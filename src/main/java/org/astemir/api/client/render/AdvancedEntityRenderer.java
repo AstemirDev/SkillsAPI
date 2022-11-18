@@ -19,11 +19,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import org.astemir.api.client.wrapper.EntityModelWrapper;
+import org.astemir.api.common.animation.ITESRModel;
 
 import java.util.List;
 
 
-public abstract class AdvancedEntityRenderer<T extends Entity,M extends EntityModel<T>> extends EntityRenderer<T> {
+public abstract class AdvancedEntityRenderer<T extends Entity & ITESRModel,M extends EntityModel<T>> extends EntityRenderer<T> {
 
     private EntityModelWrapper entityModelWrapper;
     private M model;
@@ -66,7 +67,7 @@ public abstract class AdvancedEntityRenderer<T extends Entity,M extends EntityMo
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {
-        return entityModelWrapper.getModel().getTexture();
+        return entityModelWrapper.getModel(entity).getTexture(entity);
     }
 
 

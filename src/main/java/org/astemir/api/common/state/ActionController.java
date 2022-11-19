@@ -15,7 +15,7 @@ public class ActionController<T extends IActionListener> {
     public static final Action NO_ACTION = new Action(-1,"noAction",-1);
 
     private Action[] actions;
-    private Action action = NO_ACTION;
+    private Action currentAction = NO_ACTION;
     private T owner;
     private String name;
     private int actionTick = 0;
@@ -52,7 +52,7 @@ public class ActionController<T extends IActionListener> {
 
     @Deprecated
     public void setAction(Action action,int ticks) {
-        if (!getLevel().isClientSide && (!is(action) || action.isCanOverrideSelf())) {
+        if (!getLevel().isClientSide && (!is(currentAction) || currentAction.isCanOverrideSelf())) {
             if (ticks > 0) {
                 setActionWithoutSync(action, ticks + delay);
             }else{
@@ -64,7 +64,7 @@ public class ActionController<T extends IActionListener> {
     }
 
     public void setActionWithoutSync(Action action,int ticks){
-        this.action = action;
+        this.currentAction = action;
         this.actionTick = ticks;
     }
 
@@ -94,15 +94,16 @@ public class ActionController<T extends IActionListener> {
 
     public void update(){
         if (!getLevel().isClientSide) {
+            Action previous = currentAction;
             if (!isNoAction()) {
                 if (actionTick > 0) {
-                    owner.onActionTick(this,action, actionTick);
+                    owner.onActionTick(this,currentAction, actionTick);
                     sendUpdatePacket();
                     actionTick--;
                 }else {
                     if (actionTick != -1) {
-                        owner.onActionEnd(this,action);
-                        if (is(action) && actionTick != -1) {
+                        owner.onActionEnd(this,currentAction);
+                        if (is(previous) && actionTick != -1) {
                             playAction(NO_ACTION);
                         }
                     }
@@ -124,18 +125,27 @@ public class ActionController<T extends IActionListener> {
     public void sendUpdatePacket(){
         if (owner instanceof Entity) {
             Entity entity = (Entity)owner;
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ActionControllerMessage(entity.getId(), owner.getActionStateMachine().getIdByName(getName()), action.getId(),actionTick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ActionControllerMessage(entity.getId(), owner.getActionStateMachine().getIdByName(getName()), currentAction.getId(),actionTick));
         }
 
         if (owner instanceof BlockEntity){
             BlockEntity blockEntity = (BlockEntity) owner;
             BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ActionControllerMessage(pos, owner.getActionStateMachine().getIdByName(getName()), action.getId(),actionTick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ActionControllerMessage(pos, owner.getActionStateMachine().getIdByName(getName()), currentAction.getId(),actionTick));
         }
     }
 
     public Action[] getActions() {
         return actions;
+    }
+
+    public Action getActionByName(String name){
+        for (Action action : actions) {
+            if (action.getName().equals(name)){
+                return action;
+            }
+        }
+        return NO_ACTION;
     }
 
     public Action getActionById(int id){
@@ -151,6 +161,6 @@ public class ActionController<T extends IActionListener> {
     }
 
     public Action getActionState() {
-        return action;
+        return currentAction;
     }
 }

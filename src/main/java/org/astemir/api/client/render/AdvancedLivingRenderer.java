@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -42,7 +43,7 @@ public abstract class AdvancedLivingRenderer<T extends LivingEntity & ITESRModel
         if (p_115308_ instanceof Mob) {
             Entity entity = ((Mob)p_115308_).getLeashHolder();
             if (entity != null) {
-                this.renderLeash(p_115308_, Minecraft.getInstance().getPartialTick(), p_115311_, p_115312_, entity);
+                this.renderLeash(p_115308_, p_115310_, p_115311_, p_115312_, entity);
             }
         }
     }

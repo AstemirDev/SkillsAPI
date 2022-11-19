@@ -43,29 +43,29 @@ public class ActionStateMachine {
     }
 
     public void read(CompoundTag tag){
-        ListTag listTag = tag.getList("ActionMachine",10);
-        for (int i = 0; i < controllers.size(); i++) {
-            CompoundTag controllerTag = listTag.getCompound(i);
-            if (!controllerTag.isEmpty()) {
-                ActionController controller = controllers.get(i);
-                Action action = controller.getActionById(controllerTag.getInt("Id"));
-                controller.playAction(action, controllerTag.getInt("Ticks"));
+        CompoundTag actionMachineTag = tag.getCompound("ActionMachine");
+        for (ActionController controller : controllers) {
+            if (actionMachineTag.contains(controller.getName())) {
+                CompoundTag controllerTag = actionMachineTag.getCompound(controller.getName());
+                if (!controllerTag.isEmpty()) {
+                    Action action = controller.getActionByName(controllerTag.getString("Name"));
+                    controller.playAction(action, controllerTag.getInt("Ticks"));
+                }
             }
         }
     }
 
     public void write(CompoundTag tag) {
-        ListTag listTag = new ListTag();
-        for (int i = 0; i < controllers.size(); i++) {
-            ActionController controller = controllers.get(i);
+        CompoundTag actionMachineTag = new CompoundTag();
+        for (ActionController controller : controllers) {
             if (!controller.isNoAction()) {
                 CompoundTag controllerTag = new CompoundTag();
-                controllerTag.putInt("Id", controllers.get(i).getActionState().getId());
-                controllerTag.putInt("Ticks", controllers.get(i).getTicks());
-                listTag.add(i, controllerTag);
+                controllerTag.putString("Action",controller.getActionState().getName());
+                controllerTag.putInt("Ticks",controller.getTicks());
+                actionMachineTag.put(controller.getName(),controllerTag);
             }
         }
-        tag.put("ActionMachine",listTag);
+        tag.put("ActionMachine",actionMachineTag);
     }
 
 }

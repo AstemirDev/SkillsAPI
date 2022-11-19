@@ -30,7 +30,7 @@ public class AnimationDataHandler {
                 }
             }else
             if (states.getKey().getUniqueID() != null){
-                if (globalTick - tick > 200) {
+                if (globalTick - tick > 300) {
                     data.remove(states);
                 }
             }

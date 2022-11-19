@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 import org.astemir.api.client.TESRModels;
 import org.astemir.api.client.render.AdvancedItemRenderer;
 import org.astemir.api.common.GlobalTaskHandler;
-import org.astemir.api.common.PlayerScreenShaker;
+import org.astemir.api.common.gfx.PlayerGFXEffectManager;
 import org.astemir.api.common.WorldEventHandler;
 import org.astemir.api.common.entity.EntityRegisterEvents;
 import org.astemir.api.common.event.CommandsRegisterEvents;
@@ -34,7 +34,7 @@ public abstract class SkillsAPI {
 
     public static GlobalTaskHandler GLOBAL_TASK_HANDLER;
 
-    public static PlayerScreenShaker SCREEN_SHAKER = new PlayerScreenShaker();
+    public static PlayerGFXEffectManager GFX_EFFECT_HANDLER;
 
     public SkillsAPI(String modId) {
         MOD_ID = modId;
@@ -57,7 +57,7 @@ public abstract class SkillsAPI {
         network.registerMessage(2, ActionControllerMessage.class, ActionControllerMessage::encode, ActionControllerMessage::decode, new ActionControllerMessage.Handler());
         network.registerMessage(3, BlockEventMessage.class, BlockEventMessage::encode, BlockEventMessage::decode, new BlockEventMessage.Handler());
         network.registerMessage(4, BlockClickMessage.class, BlockClickMessage::encode, BlockClickMessage::decode, new BlockClickMessage.Handler());
-        network.registerMessage(5, ScreenShakeMessage.class, ScreenShakeMessage::encode, ScreenShakeMessage::decode, new ScreenShakeMessage.Handler());
+        network.registerMessage(5, PlayerEffectMessage.class, PlayerEffectMessage::encode, PlayerEffectMessage::decode, new PlayerEffectMessage.Handler());
         network.registerMessage(6, AnimationMessage.class,AnimationMessage::encode,AnimationMessage::decode,new AnimationMessage.Handler());
         network.registerMessage(7, ClientAnimationSyncMessage.class,ClientAnimationSyncMessage::encode,ClientAnimationSyncMessage::decode,new ClientAnimationSyncMessage.Handler());
         network.registerMessage(8, ClientActionSyncMessage.class,ClientActionSyncMessage::encode,ClientActionSyncMessage::decode,new ClientActionSyncMessage.Handler());

@@ -1,6 +1,7 @@
 package org.astemir.api.math;
 
 import com.mojang.math.Vector3f;
+import net.minecraft.world.phys.Vec3;
 import org.astemir.api.utils.MathUtils;
 
 public class Color {
@@ -48,6 +49,11 @@ public class Color {
     public Vector3f toVector3f(){
         return new Vector3f(r,g,b);
     }
+
+    public Vec3 toVec3(){
+        return new Vec3(r,g,b);
+    }
+
 
     public static Color fromArray(int[] array){
         return convert(array[0],array[1],array[2],array[3]);

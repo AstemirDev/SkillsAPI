@@ -1,8 +1,6 @@
 package org.astemir.api.common.commands.build;
 
-import com.mojang.brigadier.arguments.ArgumentType;
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.arguments.*;
 import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.RequiredArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
@@ -13,9 +11,13 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.arguments.EntitySummonArgument;
 import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
+import net.minecraft.commands.arguments.coordinates.Vec3Argument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.phys.Vec3;
+import org.astemir.api.math.Color;
+import org.checkerframework.checker.units.qual.C;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -39,7 +41,16 @@ public class CommandArgument extends CommandPart{
     }
 
     public static CommandArgument integer(String name){
+
         return new CommandArgument(name, IntegerArgumentType.integer());
+    }
+
+    public static CommandArgument bool(String name){
+        return new CommandArgument(name, BoolArgumentType.bool());
+    }
+
+    public static CommandArgument doubl(String name){
+        return new CommandArgument(name, DoubleArgumentType.doubleArg());
     }
 
     public static CommandArgument integer(String name,int min,int max){
@@ -71,12 +82,30 @@ public class CommandArgument extends CommandPart{
         return new CommandArgument(name, EntitySummonArgument.id());
     }
 
+    public static CommandArgument vector3(String name){
+        return new CommandArgument(name,Vec3Argument.vec3());
+    }
+
     public int getInt(CommandContext<CommandSourceStack> context){
         return IntegerArgumentType.getInteger(context,getArgumentName());
     }
 
+
+    public boolean getBoolean(CommandContext<CommandSourceStack> context){
+        return BoolArgumentType.getBool(context,getArgumentName());
+    }
+
+
+    public double getDouble(CommandContext<CommandSourceStack> context){
+        return DoubleArgumentType.getDouble(context,getArgumentName());
+    }
+
     public String getString(CommandContext<CommandSourceStack> context){
         return StringArgumentType.getString(context,getArgumentName());
+    }
+
+    public Vec3 getVector3(CommandContext<CommandSourceStack> context){
+        return Vec3Argument.getVec3(context,getArgumentName());
     }
 
     public ResourceLocation getSummonArgument(CommandContext<CommandSourceStack> context){

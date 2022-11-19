@@ -19,6 +19,7 @@ import org.astemir.api.client.TESRModels;
 import org.astemir.api.client.misc.ArmorModels;
 import org.astemir.api.common.WorldEventHandler;
 import org.astemir.api.common.event.EventManager;
+import org.astemir.api.common.gfx.PlayerGFXEffectManager;
 import org.astemir.example.client.renderer.CosmicBeaconRenderer;
 import org.astemir.example.client.renderer.MinotaurRenderer;
 import org.astemir.example.client.renderer.SharkBoatRenderer;
@@ -60,6 +61,7 @@ public class SkillsAPIMod extends SkillsAPI {
     @OnlyIn(Dist.CLIENT)
     public void onClientSetup(FMLClientSetupEvent event) {
         WORLD_EVENTS = new WorldEventHandler();
+        GFX_EFFECT_HANDLER = new PlayerGFXEffectManager();
         EventManager.registerForgeEventClass(ClientStateHandler.class);
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModelWrapperTestArmor testArmor = new ModelWrapperTestArmor();

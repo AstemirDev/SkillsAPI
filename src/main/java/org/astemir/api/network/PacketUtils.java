@@ -4,6 +4,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.AnimationFactory;
+import org.astemir.api.math.Color;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,21 +24,19 @@ public class PacketUtils {
         buffer.writeDouble(vec3.z);
     }
 
-    public static void writeAnimationsMap(Map<String,Integer> map,FriendlyByteBuf buffer){
-        buffer.writeInt(map.size());
-        map.forEach((key,tick)->{
-            buffer.writeUtf(key);
-            buffer.writeInt(tick);
-        });
+    public static Color readColor(FriendlyByteBuf buffer){
+        float r = buffer.readFloat();
+        float g = buffer.readFloat();
+        float b = buffer.readFloat();
+        float a = buffer.readFloat();
+        return new Color(r,g,b,a);
     }
 
-    public static Map<String,Integer> readAnimationsMap(FriendlyByteBuf buffer){
-        Map<String,Integer> animationsMap = new HashMap<>();
-        int count = buffer.readInt();
-        for (int i = 0;i<count;i++){
-            animationsMap.put(buffer.readUtf(),buffer.readInt());
-        }
-        return animationsMap;
+    public static void writeColor(FriendlyByteBuf buffer,Color color){
+        buffer.writeFloat(color.r);
+        buffer.writeFloat(color.g);
+        buffer.writeFloat(color.b);
+        buffer.writeFloat(color.a);
     }
 
 }

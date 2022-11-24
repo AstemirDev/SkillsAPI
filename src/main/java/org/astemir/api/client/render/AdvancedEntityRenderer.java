@@ -48,9 +48,10 @@ public abstract class AdvancedEntityRenderer<T extends Entity & ITESRModel,M ext
         float f1 = Mth.rotLerp(p_115310_, p_115308_.yRotO, p_115308_.getYRot());
         float f2 = Mth.rotLerp(p_115310_, p_115308_.xRotO, p_115308_.getXRot());
         p_115311_.pushPose();
-        p_115311_.mulPose(Vector3f.YP.rotationDegrees(180.0F - f1));
         float tickCount = ((float)entityModelWrapper.getRenderTarget().tickCount)+Minecraft.getInstance().getPartialTick();
+        setupRotations(p_115308_,p_115311_,f1,f2,p_115310_);
         p_115311_.scale(-1.0F, -1.0F, 1.0F);
+        scale(p_115308_,p_115311_,p_115310_);
         p_115311_.translate(0.0D, (double)-1.501F, 0.0D);
         entityModelWrapper.setupAnim(p_115308_,0,0,tickCount,f1,f2);
         VertexConsumer vertexconsumer = p_115312_.getBuffer(entityModelWrapper.getRenderType());
@@ -64,6 +65,11 @@ public abstract class AdvancedEntityRenderer<T extends Entity & ITESRModel,M ext
         super.render(p_115308_, p_115309_, p_115310_, p_115311_, p_115312_, p_115313_);
     }
 
+    protected void setupRotations(T entity, PoseStack stack, float yaw, float pitch, float partialTicks) {
+        stack.mulPose(Vector3f.YP.rotationDegrees(180.0F - yaw));
+    }
+
+    protected void scale(T entity,PoseStack stack, float partialTicks){}
 
     @Override
     public ResourceLocation getTextureLocation(T entity) {

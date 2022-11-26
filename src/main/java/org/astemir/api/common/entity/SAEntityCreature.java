@@ -15,6 +15,7 @@ import org.astemir.api.common.state.Action;
 import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.common.state.IActionListener;
+import org.astemir.api.network.PacketArgument;
 import org.astemir.api.utils.EntityUtils;
 
 public abstract class SAEntityCreature extends PathfinderMob implements IAnimated, IActionListener,IEventEntity, ITESRModel {
@@ -55,6 +56,10 @@ public abstract class SAEntityCreature extends PathfinderMob implements IAnimate
     }
 
     @Override
+    public void onHandleClientEvent(int event, PacketArgument[] arguments) {
+        onHandleClientEvent(event);
+    }
+
     public void onHandleClientEvent(int event) {
     }
 

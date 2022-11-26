@@ -17,6 +17,7 @@ import org.astemir.api.common.state.Action;
 import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.common.state.IActionListener;
+import org.astemir.api.network.PacketArgument;
 import org.astemir.api.utils.EntityUtils;
 import org.jetbrains.annotations.Nullable;
 
@@ -64,6 +65,10 @@ public abstract class SAEntityAnimal extends Animal implements IAnimated, IActio
     }
 
     @Override
+    public void onHandleClientEvent(int event, PacketArgument[] arguments) {
+        onHandleClientEvent(event);
+    }
+
     public void onHandleClientEvent(int event) {
     }
 

@@ -1,4 +1,4 @@
-package org.astemir.api.common;
+package org.astemir.api.utils;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -8,7 +8,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import org.astemir.api.common.entity.EntityProperties;
 
-public abstract class RegisterHelper {
+public class RegisterUtils {
 
     public static final <T extends Entity> RegistryObject<EntityType<T>> register(DeferredRegister<EntityType<?>> registry,String modId,String id, EntityProperties<T> properties) {
         return registry.register(id,()->properties.build(modId,id));

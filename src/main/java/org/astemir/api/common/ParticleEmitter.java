@@ -21,7 +21,6 @@ public class ParticleEmitter {
 
     private Vector3 size = new Vector3(0,0,0);
 
-
     public ParticleEmitter(ParticleOptions particle) {
         this.particle = particle;
     }
@@ -30,11 +29,15 @@ public class ParticleEmitter {
         ticks++;
     }
 
-
     public void emit(Level level,Vector3 position,Vector3 speed){
         for (int i = 0;i<count;i++) {
-            level.addParticle(particle, position.getX()+getXOffset(), position.getY()+getYOffset(), position.getZ()+getZOffset(), speed.getX(), speed.getY(), speed.getZ());
+            Vector3 pos = new Vector3(position.getX()+getXOffset(), position.getY()+getYOffset(), position.getZ()+getZOffset());
+            renderParticle(level,pos,speed);
         }
+    }
+
+    public void renderParticle(Level level,Vector3 point,Vector3 speed){
+        level.addParticle(particle, point.getX(),point.getY(),point.getZ(), speed.getX(), speed.getY(), speed.getZ());
     }
 
     public ParticleEmitter size(Vector3 size){

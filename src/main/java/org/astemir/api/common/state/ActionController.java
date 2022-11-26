@@ -92,6 +92,16 @@ public class ActionController<T extends IActionListener> {
         return getActionState() == state;
     }
 
+    public boolean is(Action... states){
+        for (Action state : states) {
+            if (is(state)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
     public void update(){
         if (!getLevel().isClientSide) {
             Action previous = currentAction;
@@ -158,6 +168,14 @@ public class ActionController<T extends IActionListener> {
             }
         }
         return NO_ACTION;
+    }
+
+    public int getDelay() {
+        return delay;
+    }
+
+    public T getOwner() {
+        return owner;
     }
 
     public Action getActionState() {

@@ -126,7 +126,6 @@ public class SALootTableProvider extends LootTableProvider {
                         case STEM -> add(block,createStemDrops(block,loot.getOtherDrop().asItem()));
                         case SHEARS -> add(block,createShearsOnlyDrop(block.asItem()));
                         case OTHER_SHEARS -> add(block,createShearsOnlyDrop(loot.getOtherDrop()));
-
                     }
                 });
             }

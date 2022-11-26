@@ -43,23 +43,15 @@ public abstract class LootProviderEntities extends EntityLoot implements ILootPr
         private List<ItemDrop> items = new ArrayList<>();
 
 
-        public ItemDrop addDrop(Item item, int min, int max){
-            ItemDrop drop = new ItemDrop(item);
-            drop.count(min,max);
+        public MobLoot addDrop(ItemDrop drop){
             this.items.add(drop);
-            return drop;
+            return this;
         }
 
-        public ItemDrop addDrop(Item item){
-            ItemDrop drop = new ItemDrop(item);
-            this.items.add(drop);
-            return drop;
-        }
 
         public List<ItemDrop> getItems() {
             return items;
         }
-
 
         public LootTable.Builder build(){
             LootTable.Builder builder = LootTable.lootTable();
@@ -67,6 +59,17 @@ public abstract class LootProviderEntities extends EntityLoot implements ILootPr
                 builder = builder.withPool(item.toPool());
             }
             return builder;
+        }
+
+        public static ItemDrop itemDrop(Item item){
+            ItemDrop drop = new ItemDrop(item);
+            return drop;
+        }
+
+        public static ItemDrop itemDrop(Item item,int min,int max){
+            ItemDrop drop = new ItemDrop(item);
+            drop.count(min,max);
+            return drop;
         }
     }
 

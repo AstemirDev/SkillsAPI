@@ -1,6 +1,7 @@
 package org.astemir.api.common.animation;
 
 import net.minecraft.resources.ResourceLocation;
+import org.astemir.api.utils.ResourceUtils;
 
 public class AnimatedResourceLocation {
 
@@ -12,7 +13,7 @@ public class AnimatedResourceLocation {
         this.speed = speed;
         frames = new ResourceLocation[count];
         for (int i = 0;i<count;i++){
-            frames[i] = new ResourceLocation(modId,String.format(path,i));
+            frames[i] = ResourceUtils.loadTexture(modId,String.format(path,i));
         }
     }
 

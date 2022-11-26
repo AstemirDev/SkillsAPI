@@ -3,6 +3,8 @@ package org.astemir.api.network;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.UUID;
+
 public class PacketArgument {
 
     private Object value;
@@ -20,12 +22,17 @@ public class PacketArgument {
             case DOUBLE -> buf.writeDouble((double)value);
             case FLOAT -> buf.writeFloat((float) value);
             case INT -> buf.writeInt((int)value);
+            case STRING -> buf.writeUtf((String)value);
+            case UUID -> buf.writeUUID((UUID)value);
         }
     }
 
     public static PacketArgument read(FriendlyByteBuf buf){
         ArgumentType type = buf.readEnum(ArgumentType.class);
         switch (type){
+            case STRING ->{
+                return new PacketArgument(type,buf.readUtf());
+            }
             case VEC3 -> {
                 return new PacketArgument(type,PacketUtils.readVec3(buf));
             }
@@ -37,6 +44,9 @@ public class PacketArgument {
             }
             case INT -> {
                 return new PacketArgument(type,buf.readInt());
+            }
+            case UUID ->{
+                return new PacketArgument(type,buf.readUUID());
             }
         }
         return null;
@@ -52,6 +62,8 @@ public class PacketArgument {
 
     public int asInt(){return (int)value;}
 
+    public String asString(){return (String)value;}
+
     public double asDouble(){
         return (double)value;
     }
@@ -66,7 +78,7 @@ public class PacketArgument {
     }
 
     public enum ArgumentType{
-        VEC3,FLOAT,DOUBLE,INT;
+        VEC3,FLOAT,DOUBLE,INT,STRING,UUID;
     }
 
 }

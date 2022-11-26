@@ -33,6 +33,7 @@ public class SAItemModelProvider extends ItemModelProvider {
         for (Pair<Item, DataItemModel> pair : itemModels) {
             switch (pair.getValue()){
                 case GENERATED -> generatedItem(pair.getKey());
+                case HANDHELD -> handheld(pair.getKey());
                 case SPAWN_EGG -> spawnEgg(pair.getKey());
                 case BLOCK_ITEM -> block(pair.getKey());
                 case WALL_ITEM -> wall(pair.getKey());
@@ -73,6 +74,14 @@ public class SAItemModelProvider extends ItemModelProvider {
                 .parent(createModelFile("item/generated"))
                 .texture("layer0", getItemTexture(location));
     }
+
+    public ItemModelBuilder handheld(Item item) {
+        ResourceLocation location = getItemLocation(item);
+        return getBuilder(location.toString())
+                .parent(createModelFile("item/handheld"))
+                .texture("layer0", getItemTexture(location));
+    }
+
 
 
     @Override

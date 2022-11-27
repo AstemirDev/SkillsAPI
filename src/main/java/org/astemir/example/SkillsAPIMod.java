@@ -60,8 +60,6 @@ public class SkillsAPIMod extends SkillsAPI {
     @Override
     @OnlyIn(Dist.CLIENT)
     public void onClientSetup(FMLClientSetupEvent event) {
-        WORLD_EVENTS = new WorldEventHandler();
-        GFX_EFFECT_HANDLER = new PlayerGFXEffectManager();
         EventManager.registerForgeEventClass(ClientStateHandler.class);
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModelWrapperTestArmor testArmor = new ModelWrapperTestArmor();

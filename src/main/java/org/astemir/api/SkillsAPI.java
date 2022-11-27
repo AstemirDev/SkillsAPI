@@ -30,19 +30,12 @@ public abstract class SkillsAPI {
 
     public final String MOD_ID;
 
-    public static WorldEventHandler WORLD_EVENTS;
-
-    public static GlobalTaskHandler GLOBAL_TASK_HANDLER;
-
-    public static PlayerGFXEffectManager GFX_EFFECT_HANDLER;
-
     public SkillsAPI(String modId) {
         MOD_ID = modId;
     }
 
     protected void defaultInit(){
         initializeAPI();
-        GLOBAL_TASK_HANDLER = new GlobalTaskHandler();
         EventManager.registerForgeEventClass(MiscAPIEvents.class);
         EventManager.registerForgeEventClass(CommandsRegisterEvents.class);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () ->{

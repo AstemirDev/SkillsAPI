@@ -24,13 +24,13 @@ public class ClientStateHandler {
         if (Minecraft.getInstance().isPaused()){
             return;
         }
-        SkillsAPIMod.INSTANCE.GFX_EFFECT_HANDLER.update();
+        PlayerGFXEffectManager.getInstance().update();
         ANIMATION_DATA_HANDLER.removeUnusedData();
     }
 
     @SubscribeEvent
     public static void onRenderScreen(RenderGuiOverlayEvent.Pre e){
-        PlayerGFXEffectManager gfxEffectHandler = SkillsAPIMod.INSTANCE.GFX_EFFECT_HANDLER;
+        PlayerGFXEffectManager gfxEffectHandler = PlayerGFXEffectManager.getInstance();
         if (e.getOverlay().id().equals(VanillaGuiOverlay.CROSSHAIR.id())) {
             for (GFXEffect effect : gfxEffectHandler.getEffects()) {
                 Color color = null;
@@ -60,7 +60,7 @@ public class ClientStateHandler {
 
     @SubscribeEvent
     public static void onCameraRotate(ViewportEvent.ComputeCameraAngles e){
-        PlayerGFXEffectManager gfxEffectHandler = SkillsAPIMod.INSTANCE.GFX_EFFECT_HANDLER;
+        PlayerGFXEffectManager gfxEffectHandler = PlayerGFXEffectManager.getInstance();
         for (GFXEffect effect : gfxEffectHandler.getEffects()) {
             if (effect.getEffectType() == GFXEffectType.SCREEN_SHAKE){
                 GFXScreenShake screenShake = (GFXScreenShake) effect;

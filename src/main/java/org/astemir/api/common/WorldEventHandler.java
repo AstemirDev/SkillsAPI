@@ -14,11 +14,13 @@ import java.util.List;
 
 public class WorldEventHandler {
 
+    public static WorldEventHandler INSTANCE = new WorldEventHandler();
+
     private List<IWorldEventListener> listeners = new ArrayList<>();
 
 
     public static WorldEventHandler getInstance(){
-        return SkillsAPIMod.INSTANCE.WORLD_EVENTS;
+        return INSTANCE;
     }
 
     public void addListener(IWorldEventListener listener){

@@ -5,6 +5,7 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.gfx.GFXEffect;
 import org.astemir.api.common.gfx.GFXEffectType;
+import org.astemir.api.common.gfx.PlayerGFXEffectManager;
 import org.astemir.example.SkillsAPIMod;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -42,7 +43,7 @@ public class PlayerEffectMessage {
         public void accept(PlayerEffectMessage message, Supplier<NetworkEvent.Context> contextSupplier) {
             final NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
-                SkillsAPIMod.INSTANCE.GFX_EFFECT_HANDLER.addGFXEffect(message.gfxEffect,message.replace);
+                PlayerGFXEffectManager.getInstance().addGFXEffect(message.gfxEffect,message.replace);
             });
             context.setPacketHandled(true);
         }

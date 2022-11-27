@@ -8,6 +8,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class GlobalTaskHandler {
 
+    public static GlobalTaskHandler INSTANCE = new GlobalTaskHandler();
+
     private CopyOnWriteArrayList<EntityTask> tasks = new CopyOnWriteArrayList<>();
 
 
@@ -39,6 +41,6 @@ public class GlobalTaskHandler {
     }
 
     public static GlobalTaskHandler getInstance(){
-        return SkillsAPIMod.INSTANCE.GLOBAL_TASK_HANDLER;
+        return INSTANCE;
     }
 }

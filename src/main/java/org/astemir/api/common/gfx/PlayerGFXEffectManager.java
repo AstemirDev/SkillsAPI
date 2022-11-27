@@ -9,6 +9,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 public class PlayerGFXEffectManager {
 
+    public static final PlayerGFXEffectManager INSTANCE = new PlayerGFXEffectManager();
+
     private CopyOnWriteArrayList<GFXEffect> effects = new CopyOnWriteArrayList<>();
 
     public static void addGFXEffect(ServerPlayer player, GFXEffect effect,boolean replace){
@@ -37,6 +39,9 @@ public class PlayerGFXEffectManager {
         effects.add(effect);
     }
 
+    public static PlayerGFXEffectManager getInstance() {
+        return INSTANCE;
+    }
 
     public CopyOnWriteArrayList<GFXEffect> getEffects() {
         return effects;

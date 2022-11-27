@@ -7,6 +7,7 @@ import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.level.ChunkEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.astemir.api.common.GlobalTaskHandler;
 import org.astemir.api.common.animation.AnimationEvent;
 import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.IAnimated;
@@ -48,7 +49,7 @@ public class MiscAPIEvents {
     @SubscribeEvent
     public static void onWorldUpdate(TickEvent.LevelTickEvent e) {
         if (e.phase == TickEvent.Phase.END) {
-            SkillsAPIMod.INSTANCE.GLOBAL_TASK_HANDLER.update();
+            GlobalTaskHandler.getInstance().update();
         }
     }
 

@@ -7,10 +7,16 @@ import net.minecraft.network.syncher.EntityDataSerializer;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.AxeItem;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
@@ -20,6 +26,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.math.Vector3;
+import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.EntityEventMessage;
 import org.astemir.example.SkillsAPIMod;
 import java.util.List;
@@ -27,6 +34,50 @@ import java.util.function.Predicate;
 
 public class EntityUtils {
 
+
+    public static void damageEntity(LivingEntity damager,Entity target){
+        damageEntity(damager,target,1,false);
+    }
+
+    public static void damageEntity(LivingEntity damager,Entity target,boolean breakShield){
+        damageEntity(damager,target,1,breakShield);
+    }
+
+    public static void damageEntity(LivingEntity damager,Entity target,float multiplier){
+        damageEntity(damager,target,multiplier,false);
+    }
+
+    public static void damageEntity(LivingEntity damager,Entity target,float multiplier,boolean breakShield){
+        float f = (float)damager.getAttributeValue(Attributes.ATTACK_DAMAGE);
+        float f1 = (float)damager.getAttributeValue(Attributes.ATTACK_KNOCKBACK);
+        if (target instanceof LivingEntity) {
+            f += EnchantmentHelper.getDamageBonus(damager.getMainHandItem(), ((LivingEntity)target).getMobType());
+            f1 += (float)EnchantmentHelper.getKnockbackBonus(damager);
+        }
+        int i = EnchantmentHelper.getFireAspect(damager);
+        if (i > 0) {
+            target.setSecondsOnFire(i * 4);
+        }
+        boolean flag = target.hurt(DamageSource.mobAttack(damager), f*multiplier);
+        if (target instanceof Player) {
+            Player player = (Player)target;
+            ItemStack mainHand = damager.getMainHandItem();
+            ItemStack usingItem = player.isUsingItem() ? player.getUseItem() : ItemStack.EMPTY;
+            if (((!mainHand.isEmpty() && mainHand.getItem() instanceof AxeItem) || breakShield) && usingItem.is(Items.SHIELD)) {
+                player.getCooldowns().addCooldown(Items.SHIELD, 100);
+                player.stopUsingItem();
+                damager.level.broadcastEntityEvent(player, (byte)30);
+            }
+        }
+        if (flag) {
+            if (f1 > 0.0F && target instanceof LivingEntity) {
+                ((LivingEntity)target).knockback(f1 * 0.5F, Mth.sin(damager.getYRot() * ((float)Math.PI / 180F)), -Mth.cos(damager.getYRot() * ((float)Math.PI / 180F)));
+                damager.setDeltaMovement(damager.getDeltaMovement().multiply(0.6D, 1.0D, 0.6D));
+            }
+            damager.doEnchantDamageEffects(damager, target);
+            damager.setLastHurtMob(target);
+        }
+    }
 
     public static boolean canBeTargeted(Player player){
         return !player.isCreative() && !player.isSpectator();
@@ -132,11 +183,11 @@ public class EntityUtils {
     }
 
 
-    public static <T extends Entity & IEventEntity> void invokeEntityClientEvent(T entity,int event){
+    public static <T extends Entity & IEventEntity> void invokeEntityClientEvent(T entity, int event, PacketArgument... arguments){
         if (entity.level.isClientSide){
             return;
         }
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event));
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event,arguments));
     }
 
 

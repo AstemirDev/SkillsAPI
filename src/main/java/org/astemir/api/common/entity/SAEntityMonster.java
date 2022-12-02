@@ -50,10 +50,9 @@ public abstract class SAEntityMonster extends Monster implements IAnimated, IAct
         actionStateMachine.update();
     }
 
-    public void invokeEntityClientEvent(int event){
-        EntityUtils.invokeEntityClientEvent(this,event);
+    public void invokeEntityClientEvent(int event,PacketArgument... arguments){
+        EntityUtils.invokeEntityClientEvent(this,event,arguments);
     }
-
     @Override
     public void onActionBegin(ActionController controller, Action state) {
     }

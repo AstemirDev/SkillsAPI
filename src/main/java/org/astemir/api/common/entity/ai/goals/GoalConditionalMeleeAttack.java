@@ -5,11 +5,11 @@ import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 
 import java.util.function.BooleanSupplier;
 
-public class ConditionalMeleeAttackGoal extends MeleeAttackGoal {
+public class GoalConditionalMeleeAttack extends MeleeAttackGoal {
 
     private BooleanSupplier condition;
 
-    public ConditionalMeleeAttackGoal(PathfinderMob p_25552_, double p_25553_, boolean p_25554_, BooleanSupplier predicate) {
+    public GoalConditionalMeleeAttack(PathfinderMob p_25552_, double p_25553_, boolean p_25554_, BooleanSupplier predicate) {
         super(p_25552_, p_25553_, p_25554_);
         this.condition = predicate;
     }

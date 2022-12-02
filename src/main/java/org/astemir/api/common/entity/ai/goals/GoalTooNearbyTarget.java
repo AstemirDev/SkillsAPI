@@ -11,7 +11,7 @@ import net.minecraft.world.phys.AABB;
 import java.util.EnumSet;
 import java.util.function.Predicate;
 
-public class IrritatingTargetGoal<T extends LivingEntity> extends TargetGoal {
+public class GoalTooNearbyTarget<T extends LivingEntity> extends TargetGoal {
 
     protected final Class<T> targetType;
     protected final int randomInterval;
@@ -19,19 +19,19 @@ public class IrritatingTargetGoal<T extends LivingEntity> extends TargetGoal {
     protected LivingEntity target;
     protected TargetingConditions targetConditions;
 
-    public IrritatingTargetGoal(Mob p_26060_, Class<T> p_26061_, boolean p_26062_) {
+    public GoalTooNearbyTarget(Mob p_26060_, Class<T> p_26061_, boolean p_26062_) {
         this(p_26060_, p_26061_, 10, p_26062_, false, (Predicate<LivingEntity>) null);
     }
 
-    public IrritatingTargetGoal(Mob p_199891_, Class<T> p_199892_, boolean p_199893_, Predicate<LivingEntity> p_199894_) {
+    public GoalTooNearbyTarget(Mob p_199891_, Class<T> p_199892_, boolean p_199893_, Predicate<LivingEntity> p_199894_) {
         this(p_199891_, p_199892_, 10, p_199893_, false, p_199894_);
     }
 
-    public IrritatingTargetGoal(Mob p_26064_, Class<T> p_26065_, boolean p_26066_, boolean p_26067_) {
+    public GoalTooNearbyTarget(Mob p_26064_, Class<T> p_26065_, boolean p_26066_, boolean p_26067_) {
         this(p_26064_, p_26065_, 10, p_26066_, p_26067_, (Predicate<LivingEntity>) null);
     }
 
-    public IrritatingTargetGoal(Mob p_26053_, Class<T> p_26054_, int p_26055_, boolean p_26056_, boolean p_26057_, @javax.annotation.Nullable Predicate<LivingEntity> p_26058_) {
+    public GoalTooNearbyTarget(Mob p_26053_, Class<T> p_26054_, int p_26055_, boolean p_26056_, boolean p_26057_, @javax.annotation.Nullable Predicate<LivingEntity> p_26058_) {
         super(p_26053_, p_26056_, p_26057_);
         this.targetType = p_26054_;
         this.randomInterval = reducedTickDelay(p_26055_);

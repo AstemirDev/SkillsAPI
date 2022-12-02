@@ -60,8 +60,8 @@ public abstract class SAEntityAnimal extends Animal implements IAnimated, IActio
         }
     }
 
-    public void invokeEntityClientEvent(int event){
-        EntityUtils.invokeEntityClientEvent(this,event);
+    public void invokeEntityClientEvent(int event,PacketArgument... arguments){
+        EntityUtils.invokeEntityClientEvent(this,event,arguments);
     }
 
     @Override

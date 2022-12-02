@@ -49,10 +49,9 @@ public abstract class SAEntityHorse extends AbstractHorse implements IAnimated, 
         }
     }
 
-    public void invokeEntityClientEvent(int event){
-        EntityUtils.invokeEntityClientEvent(this,event);
+    public void invokeEntityClientEvent(int event,PacketArgument... arguments){
+        EntityUtils.invokeEntityClientEvent(this,event,arguments);
     }
-
 
     @Override
     public void onHandleClientEvent(int event, PacketArgument[] arguments) {

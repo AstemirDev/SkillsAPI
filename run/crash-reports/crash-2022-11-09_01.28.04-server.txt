@@ -5,8 +5,8 @@ Time: 2022-11-09 01:28:04
 Description: Ticking entity
 
 java.lang.NullPointerException: Cannot read field "xxa" because "player" is null
-	at org.astemir.example.common.entity.EntitySharkBoat.setInput(SharkBoat.java:847) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.common.entity.EntitySharkBoat.tick(SharkBoat.java:308) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.EntityExampleSharkBoat.setInput(SharkBoat.java:847) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.EntityExampleSharkBoat.tick(SharkBoat.java:308) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:658) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:323) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
@@ -26,8 +26,8 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Server thread
 Stacktrace:
-	at org.astemir.example.common.entity.EntitySharkBoat.setInput(SharkBoat.java:847) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.common.entity.EntitySharkBoat.tick(SharkBoat.java:308) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.EntityExampleSharkBoat.setInput(SharkBoat.java:847) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.EntityExampleSharkBoat.tick(SharkBoat.java:308) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:658) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:323) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
@@ -35,7 +35,7 @@ Stacktrace:
 	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:303) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 -- Entity being ticked --
 Details:
-	Entity Type: animationapi:shark_boat (org.astemir.example.common.entity.EntitySharkBoat)
+	Entity Type: animationapi:shark_boat (org.astemir.example.common.entity.EntityExampleSharkBoat)
 	Entity ID: 3
 	Entity Name: entity.animationapi.shark_boat
 	Entity's Exact location: -1194.42, -60.00, -995.48

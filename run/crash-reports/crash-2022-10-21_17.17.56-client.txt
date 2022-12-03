@@ -7,10 +7,10 @@ Description: Rendering entity in world
 java.lang.NullPointerException: Cannot invoke "org.astemir.api.client.animation.AnimationTrack.hasBone(String)" because "track" is null
 	at org.astemir.api.client.model.AdvancedModel.checkCanRotate(AdvancedModel.java:117) ~[%2379!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:232) ~[%2379!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperEntity.setupAnim(EntityModelWrapper.java:36) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.LivingEntityRenderer.render(LivingEntityRenderer.java:117) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:39) ~[%2379!/:?] {re:classloading}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:26) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:39) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:26) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.EntityRenderDispatcher.render(EntityRenderDispatcher.java:129) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderEntity(LevelRenderer.java:1423) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderLevel(LevelRenderer.java:1218) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:runtimedistcleaner:A}
@@ -42,10 +42,10 @@ Thread: Render thread
 Stacktrace:
 	at org.astemir.api.client.model.AdvancedModel.checkCanRotate(AdvancedModel.java:117) ~[%2379!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:232) ~[%2379!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperEntity.setupAnim(EntityModelWrapper.java:36) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.LivingEntityRenderer.render(LivingEntityRenderer.java:117) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:39) ~[%2379!/:?] {re:classloading}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:26) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:39) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:26) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.EntityRenderDispatcher.render(EntityRenderDispatcher.java:129) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderEntity(LevelRenderer.java:1423) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderLevel(LevelRenderer.java:1218) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:runtimedistcleaner:A}

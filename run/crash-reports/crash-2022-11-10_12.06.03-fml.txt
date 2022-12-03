@@ -50,8 +50,8 @@ Stacktrace:
 	at java.util.Optional.get(Optional.java:143) ~[?:?] {}
 	at org.astemir.api.client.model.AdvancedModel.loadModelFile(AdvancedModel.java:384) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.<init>(AdvancedModel.java:53) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.client.model.ModelMace.<init>(ModelMace.java:16) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.client.wrapper.ModelWrapperMace.<init>(ModelWrapperMace.java:16) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.client.render.mace.ModelExampleMace.<init>(ModelMace.java:16) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.client.render.mace.WrapperExampleMace.<init>(ModelWrapperMace.java:16) ~[%23186!/:?] {re:classloading}
 	at org.astemir.example.SkillsAPIMod.onClientSetup(ExampleAnimationAPIMod.java:51) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.SkillsAPI.clientSetup(SkillsAPI.java:83) ~[%23186!/:?] {re:classloading}
 	at net.minecraftforge.eventbus.EventBus.doCastFilter(EventBus.java:260) ~[eventbus-6.0.3.jar%23106!/:?] {}

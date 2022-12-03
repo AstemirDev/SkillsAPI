@@ -14,19 +14,17 @@ import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.ClientStateHandler;
-import org.astemir.api.client.render.AdvancedItemRenderer;
+import org.astemir.api.client.render.AdvancedRendererItem;
 import org.astemir.api.client.TESRModels;
-import org.astemir.api.client.misc.ArmorModels;
-import org.astemir.api.common.WorldEventHandler;
+import org.astemir.api.client.ArmorModels;
 import org.astemir.api.common.event.EventManager;
-import org.astemir.api.common.gfx.PlayerGFXEffectManager;
-import org.astemir.example.client.renderer.CosmicBeaconRenderer;
-import org.astemir.example.client.renderer.MinotaurRenderer;
-import org.astemir.example.client.renderer.SharkBoatRenderer;
-import org.astemir.example.client.wrapper.ModelWrapperMace;
-import org.astemir.example.client.wrapper.ModelWrapperTestArmor;
+import org.astemir.example.client.render.mace.WrapperExampleMace;
+import org.astemir.example.client.render.minotaur.RendererExampleMinotaur;
+import org.astemir.example.client.render.beacon.RendererExampleCosmicBeacon;
+import org.astemir.example.client.render.sharkboat.RendererExampleSharkBoat;
+import org.astemir.example.client.render.armor.ModelWrapperTestArmor;
 import org.astemir.example.common.block.ModBlocks;
-import org.astemir.example.common.entity.ModEntities;
+import org.astemir.example.common.entity.ExampleModEntities;
 import org.astemir.example.common.item.ModItems;
 import static org.astemir.example.SkillsAPIMod.MOD_ID;
 
@@ -38,7 +36,7 @@ public class SkillsAPIMod extends SkillsAPI {
 
     public static SkillsAPIMod INSTANCE;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
 
     public SkillsAPIMod() {
         super(MOD_ID);
@@ -47,7 +45,7 @@ public class SkillsAPIMod extends SkillsAPI {
         if (INITIALIZE_EXAMPLE_FEATURES) {
             ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModBlocks.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
-            ModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+            ExampleModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
     }
@@ -67,10 +65,10 @@ public class SkillsAPIMod extends SkillsAPI {
             ArmorModels.addModel(ModItems.TEST_CHESTPLATE.get(), testArmor);
             ArmorModels.addModel(ModItems.TEST_LEGGINGS.get(), testArmor);
             ArmorModels.addModel(ModItems.TEST_BOOTS.get(), testArmor);
-            AdvancedItemRenderer.addModel(ModItems.MACE.get(), new ModelWrapperMace());
-            BlockEntityRenderers.register(ModBlocks.COSMIC_BEACON_ENTITY.get(), CosmicBeaconRenderer::new);
-            EntityRenderers.register(ModEntities.MINOTAUR.get(), MinotaurRenderer::new);
-            EntityRenderers.register(ModEntities.SHARK_BOAT.get(), SharkBoatRenderer::new);
+            AdvancedRendererItem.addModel(ModItems.MACE.get(), new WrapperExampleMace());
+            BlockEntityRenderers.register(ModBlocks.COSMIC_BEACON_ENTITY.get(), RendererExampleCosmicBeacon::new);
+            EntityRenderers.register(ExampleModEntities.MINOTAUR.get(), RendererExampleMinotaur::new);
+            EntityRenderers.register(ExampleModEntities.SHARK_BOAT.get(), RendererExampleSharkBoat::new);
         }
     }
 

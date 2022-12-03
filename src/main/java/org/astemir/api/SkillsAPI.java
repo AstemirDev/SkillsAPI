@@ -11,14 +11,11 @@ import net.minecraftforge.network.simple.SimpleChannel;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.astemir.api.client.TESRModels;
-import org.astemir.api.client.render.AdvancedItemRenderer;
-import org.astemir.api.common.GlobalTaskHandler;
-import org.astemir.api.common.gfx.PlayerGFXEffectManager;
-import org.astemir.api.common.WorldEventHandler;
-import org.astemir.api.common.entity.EntityRegisterEvents;
-import org.astemir.api.common.event.CommandsRegisterEvents;
+import org.astemir.api.client.render.AdvancedRendererItem;
+import org.astemir.api.common.event.EventEntityRegister;
+import org.astemir.api.common.event.EventCommandRegister;
 import org.astemir.api.common.event.EventManager;
-import org.astemir.api.common.event.MiscAPIEvents;
+import org.astemir.api.common.event.EventMisc;
 import org.astemir.api.network.messages.*;
 import org.astemir.api.utils.NetworkUtils;
 
@@ -36,24 +33,24 @@ public abstract class SkillsAPI {
 
     protected void defaultInit(){
         initializeAPI();
-        EventManager.registerForgeEventClass(MiscAPIEvents.class);
-        EventManager.registerForgeEventClass(CommandsRegisterEvents.class);
+        EventManager.registerForgeEventClass(EventMisc.class);
+        EventManager.registerForgeEventClass(EventCommandRegister.class);
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,() -> () ->{
-            EventManager.registerFMLEvent(AdvancedItemRenderer::onRegisterReloadListener);
+            EventManager.registerFMLEvent(AdvancedRendererItem::onRegisterReloadListener);
         });
-        EventManager.registerFMLEvent(EntityRegisterEvents::onAttributesLoad);
+        EventManager.registerFMLEvent(EventEntityRegister::onAttributesLoad);
     }
 
     protected void defaultCommon(){
         network = NetworkUtils.createNetworkChannel(MOD_ID,"api_network_channel");
-        network.registerMessage(1, EntityEventMessage.class, EntityEventMessage::encode, EntityEventMessage::decode, new EntityEventMessage.Handler());
-        network.registerMessage(2, ActionControllerMessage.class, ActionControllerMessage::encode, ActionControllerMessage::decode, new ActionControllerMessage.Handler());
-        network.registerMessage(3, BlockEventMessage.class, BlockEventMessage::encode, BlockEventMessage::decode, new BlockEventMessage.Handler());
-        network.registerMessage(4, BlockClickMessage.class, BlockClickMessage::encode, BlockClickMessage::decode, new BlockClickMessage.Handler());
-        network.registerMessage(5, PlayerEffectMessage.class, PlayerEffectMessage::encode, PlayerEffectMessage::decode, new PlayerEffectMessage.Handler());
-        network.registerMessage(6, AnimationMessage.class,AnimationMessage::encode,AnimationMessage::decode,new AnimationMessage.Handler());
-        network.registerMessage(7, ClientAnimationSyncMessage.class,ClientAnimationSyncMessage::encode,ClientAnimationSyncMessage::decode,new ClientAnimationSyncMessage.Handler());
-        network.registerMessage(8, ClientActionSyncMessage.class,ClientActionSyncMessage::encode,ClientActionSyncMessage::decode,new ClientActionSyncMessage.Handler());
+        network.registerMessage(1, ClientMessageEntityEvent.class, ClientMessageEntityEvent::encode, ClientMessageEntityEvent::decode, new ClientMessageEntityEvent.Handler());
+        network.registerMessage(2, ClientMessageActionController.class, ClientMessageActionController::encode, ClientMessageActionController::decode, new ClientMessageActionController.Handler());
+        network.registerMessage(3, ClientMessageBlockEvent.class, ClientMessageBlockEvent::encode, ClientMessageBlockEvent::decode, new ClientMessageBlockEvent.Handler());
+        network.registerMessage(4, ServerPlayerInteractMessage.class, ServerPlayerInteractMessage::encode, ServerPlayerInteractMessage::decode, new ServerPlayerInteractMessage.Handler());
+        network.registerMessage(5, ClientMessagePlayerEffect.class, ClientMessagePlayerEffect::encode, ClientMessagePlayerEffect::decode, new ClientMessagePlayerEffect.Handler());
+        network.registerMessage(6, ClientMessageAnimation.class, ClientMessageAnimation::encode, ClientMessageAnimation::decode,new ClientMessageAnimation.Handler());
+        network.registerMessage(7, ServerMessageAnimationSync.class, ServerMessageAnimationSync::encode, ServerMessageAnimationSync::decode,new ServerMessageAnimationSync.Handler());
+        network.registerMessage(8, ServerMessageActionSync.class, ServerMessageActionSync::encode, ServerMessageActionSync::decode,new ServerMessageActionSync.Handler());
     }
 
     public void initializeAPI(){

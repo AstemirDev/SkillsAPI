@@ -6,6 +6,8 @@ public class MathUtils {
 
     public static float PI = 3.14159265358979323846f;
 
+    public static float abs(float value){ return Math.abs(value);}
+
     public static float rad(float angle) {
         return angle * PI / 180;
     }
@@ -66,6 +68,10 @@ public class MathUtils {
         float diff = Math.abs(b - a);
         float tolerance = 0.1f/100 * b;
         return diff < tolerance;
+    }
+
+    public static float progressOfTime(float ticks,float value){
+        return ((float) (ticks % value)) / value;
     }
 
     public static float arrange(float oldMin, float oldMax, float newMin, float newMax, float value){

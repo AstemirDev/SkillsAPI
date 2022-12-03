@@ -2,7 +2,7 @@ package org.astemir.api.common.gfx;
 
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.network.messages.PlayerEffectMessage;
+import org.astemir.api.network.messages.ClientMessagePlayerEffect;
 import org.astemir.example.SkillsAPIMod;
 
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -14,7 +14,7 @@ public class PlayerGFXEffectManager {
     private CopyOnWriteArrayList<GFXEffect> effects = new CopyOnWriteArrayList<>();
 
     public static void addGFXEffect(ServerPlayer player, GFXEffect effect,boolean replace){
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(()->player), new PlayerEffectMessage(effect,replace));
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(()->player), new ClientMessagePlayerEffect(effect,replace));
     }
 
     public void update() {

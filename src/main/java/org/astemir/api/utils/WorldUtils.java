@@ -13,7 +13,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.network.PacketArgument;
-import org.astemir.api.network.messages.BlockEventMessage;
+import org.astemir.api.network.messages.ClientMessageBlockEvent;
 import org.astemir.example.SkillsAPIMod;
 
 import java.util.UUID;
@@ -37,7 +37,7 @@ public class WorldUtils {
     };
 
     public static void invokeWorldEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new BlockEventMessage(pos,event,arguments));
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new ClientMessageBlockEvent(pos,event,arguments));
     }
 
     public static Entity getEntity(UUID uuid, Level level){

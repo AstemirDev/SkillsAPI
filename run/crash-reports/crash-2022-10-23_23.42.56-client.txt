@@ -6,12 +6,12 @@ Description: Rendering entity in world
 
 java.lang.NullPointerException: Cannot invoke "net.minecraft.core.BlockPos.getX()" because "otherPos" is null
 	at org.astemir.api.common.animation.IAnimatedID.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.animation.AnimationDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.animation.AnimatorDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:207) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperEntity.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.LivingEntityRenderer.render(LivingEntityRenderer.java:117) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:39) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:26) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:39) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:26) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.EntityRenderDispatcher.render(EntityRenderDispatcher.java:136) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderEntity(LevelRenderer.java:1439) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderLevel(LevelRenderer.java:1223) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
@@ -43,12 +43,12 @@ A detailed walkthrough of the error, its code path and all known details is as f
 Thread: Render thread
 Stacktrace:
 	at org.astemir.api.common.animation.IAnimatedID.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.animation.AnimationDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.animation.AnimatorDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:207) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.EntityModelWrapper.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperEntity.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.LivingEntityRenderer.render(LivingEntityRenderer.java:117) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:39) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.render.AdvancedLivingRenderer.render(AdvancedLivingRenderer.java:26) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:39) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.render.AdvancedRendererLivingEntity.render(AdvancedLivingRenderer.java:26) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.EntityRenderDispatcher.render(EntityRenderDispatcher.java:136) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderEntity(LevelRenderer.java:1439) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.LevelRenderer.renderLevel(LevelRenderer.java:1223) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}

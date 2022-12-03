@@ -6,11 +6,10 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
-import org.apache.commons.compress.utils.Sets;
 import org.astemir.api.client.animation.AnimationBone;
 import org.astemir.api.client.animation.AnimationFrame;
 import org.astemir.api.client.animation.AnimationTrack;
-import org.astemir.api.client.misc.AdvancedCubeRenderer;
+import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
@@ -23,8 +22,8 @@ import java.util.*;
 public class JsonUtils {
 
 
-    public static Set<AdvancedCubeRenderer> getModelRenderers(ResourceLocation resourceLocation){
-        Map<String,AdvancedCubeRenderer> renderers = new HashMap<>();
+    public static Set<ModelElement> getModelRenderers(ResourceLocation resourceLocation){
+        Map<String, ModelElement> renderers = new HashMap<>();
         JsonParser parser = new JsonParser();
         InputStream stream = null;
         try {
@@ -44,7 +43,7 @@ public class JsonUtils {
                 boolean isRoot = !boneJson.has("parent");
                 Vector3 rotationPoint = getBedrockPivot(bonesJson, boneJson, isRoot);
                 Vector3 rotation = JsonUtils.getVec3OrDefault(boneJson, "rotation", true, new Vector3(0, 0, 0));
-                AdvancedCubeRenderer cubeRenderer = new AdvancedCubeRenderer(name, (int) textureSize.x, (int) textureSize.y, 0, 0);
+                ModelElement cubeRenderer = new ModelElement(name, (int) textureSize.x, (int) textureSize.y, 0, 0);
                 if (isRoot) {
                     cubeRenderer = cubeRenderer.root();
                 }
@@ -67,8 +66,8 @@ public class JsonUtils {
                 String name = boneJson.get("name").getAsString();
                 if (boneJson.has("parent")) {
                     String parentName = boneJson.get("parent").getAsString();
-                    AdvancedCubeRenderer parent = renderers.get(parentName);
-                    AdvancedCubeRenderer child = renderers.get(name).parent(parent);
+                    ModelElement parent = renderers.get(parentName);
+                    ModelElement child = renderers.get(name).parent(parent);
                     parent.addChild(child);
                 }
             }

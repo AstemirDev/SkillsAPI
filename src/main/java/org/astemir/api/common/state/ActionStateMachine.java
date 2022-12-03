@@ -1,16 +1,6 @@
 package org.astemir.api.common.state;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import org.astemir.api.common.animation.AnimationFactory;
-import org.astemir.api.network.AnimationTarget;
-import org.astemir.api.network.messages.ClientActionSyncMessage;
-import org.astemir.api.network.messages.ClientAnimationSyncMessage;
-import org.astemir.example.SkillsAPIMod;
 
 import java.util.LinkedList;
 
@@ -48,8 +38,9 @@ public class ActionStateMachine {
             if (actionMachineTag.contains(controller.getName())) {
                 CompoundTag controllerTag = actionMachineTag.getCompound(controller.getName());
                 if (!controllerTag.isEmpty()) {
-                    Action action = controller.getActionByName(controllerTag.getString("Name"));
-                    controller.playAction(action, controllerTag.getInt("Ticks"));
+                    Action action = controller.getActionByName(controllerTag.getString("Action"));
+                    int ticks = controllerTag.getInt("Ticks");
+                    controller.playAction(action,ticks);
                 }
             }
         }

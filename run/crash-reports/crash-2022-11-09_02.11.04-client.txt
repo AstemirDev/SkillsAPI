@@ -6,7 +6,7 @@ Description: Ticking entity
 
 java.lang.ClassCastException: class net.minecraft.world.entity.animal.Pig cannot be cast to class net.minecraft.world.entity.player.Player (net.minecraft.world.entity.animal.Pig and net.minecraft.world.entity.player.Player are in module minecraft@1.19.2 of loader 'TRANSFORMER' @53c1179a)
 	at org.astemir.api.utils.EntityUtils.isMoving(EntityUtils.java:65) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.common.entity.EntitySharkBoat.tick(SharkBoat.java:276) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.EntityExampleSharkBoat.tick(SharkBoat.java:276) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:269) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:251) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
@@ -39,7 +39,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 Thread: Render thread
 Stacktrace:
 	at org.astemir.api.utils.EntityUtils.isMoving(EntityUtils.java:65) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.common.entity.EntitySharkBoat.tick(SharkBoat.java:276) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.EntityExampleSharkBoat.tick(SharkBoat.java:276) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:269) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.world.level.Level.guardEntityTick(Level.java:457) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:accesstransformer:B}
 	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:251) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
@@ -47,7 +47,7 @@ Stacktrace:
 	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:249) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 -- Entity being ticked --
 Details:
-	Entity Type: animationapi:shark_boat (org.astemir.example.common.entity.EntitySharkBoat)
+	Entity Type: animationapi:shark_boat (org.astemir.example.common.entity.EntityExampleSharkBoat)
 	Entity ID: 17
 	Entity Name: entity.animationapi.shark_boat
 	Entity's Exact location: -1204.83, -60.00, -968.97

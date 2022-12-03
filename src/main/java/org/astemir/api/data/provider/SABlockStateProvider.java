@@ -8,7 +8,7 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.astemir.api.data.misc.DataBlockState;
-import org.astemir.api.math.Pair;
+import org.astemir.api.math.Couple;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +20,7 @@ import static org.astemir.api.utils.ResourceUtils.*;
 
 public class SABlockStateProvider extends BlockStateProvider {
 
-    private List<Pair<Block, BlockStateHolder>> blockStates = new ArrayList<>();
+    private List<Couple<Block, BlockStateHolder>> blockStates = new ArrayList<>();
 
     public SABlockStateProvider(DataGenerator gen, String modId, ExistingFileHelper exFileHelper) {
         super(gen, modId, exFileHelper);
@@ -28,7 +28,7 @@ public class SABlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-        for (Pair<Block, BlockStateHolder> blockStatePair : blockStates) {
+        for (Couple<Block, BlockStateHolder> blockStatePair : blockStates) {
             Block block = blockStatePair.getKey();
             BlockStateHolder blockStateHolder = blockStatePair.getValue();
             switch (blockStateHolder.getType()){
@@ -55,19 +55,19 @@ public class SABlockStateProvider extends BlockStateProvider {
     }
 
     public void addState(Block block, DataBlockState type){
-        this.blockStates.add(new Pair<>(block,new BlockStateHolder(type)));
+        this.blockStates.add(new Couple<>(block,new BlockStateHolder(type)));
     }
 
     public void addState(Supplier<Block> blockSupplier, DataBlockState type){
-        this.blockStates.add(new Pair<>(blockSupplier.get(),new BlockStateHolder(type)));
+        this.blockStates.add(new Couple<>(blockSupplier.get(),new BlockStateHolder(type)));
     }
 
     public void addState(Block block, DataBlockState type, Block material){
-        this.blockStates.add(new Pair<>(block,new BlockStateHolder(type,material)));
+        this.blockStates.add(new Couple<>(block,new BlockStateHolder(type,material)));
     }
 
     public void addState(Supplier<Block> blockSupplier, DataBlockState type, Block material){
-        this.blockStates.add(new Pair<>(blockSupplier.get(),new BlockStateHolder(type,material)));
+        this.blockStates.add(new Couple<>(blockSupplier.get(),new BlockStateHolder(type,material)));
     }
 
     public void mirroredBlock(Block block){

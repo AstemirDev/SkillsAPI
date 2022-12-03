@@ -42,7 +42,7 @@ net.minecraftforge.fml.ModLoadingException: Skills Mod's API (skillsapi) encount
 Caused by: java.lang.NullPointerException: Registry Object not present: skillsapi:minotaur
 	at java.util.Objects.requireNonNull(Objects.java:334) ~[?:?] {}
 	at net.minecraftforge.registries.RegistryObject.get(RegistryObject.java:204) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
-	at org.astemir.example.common.entity.ModEntities.registerAttributes(ModEntities.java:30) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.common.entity.ExampleModEntities.registerAttributes(ModEntities.java:30) ~[%23186!/:?] {re:classloading}
 	at org.astemir.example.common.entity.__ModEntities_registerAttributes_EntityAttributeCreationEvent.invoke(.dynamic) ~[%23186!/:?] {re:classloading,pl:eventbus:B}
 	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.3.jar%23106!/:?] {}
 	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.3.jar%23106!/:?] {}

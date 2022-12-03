@@ -11,8 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
-import org.astemir.api.client.misc.AdvancedCubeRenderer;
-import org.astemir.api.client.misc.RenderCall;
+import org.astemir.api.client.render.cube.ModelElement;
+import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.wrapper.IModelWrapper;
 import org.astemir.api.common.animation.ITESRModel;
 import org.astemir.api.utils.JsonUtils;
@@ -23,7 +23,7 @@ import java.util.*;
 
 public abstract class AdvancedModel<T extends ITESRModel> extends Model {
 
-    public Set<AdvancedCubeRenderer> renderers = new HashSet<>();
+    public Set<ModelElement> renderers = new HashSet<>();
     public IModelWrapper<T> modelWrapper;
 
     public Vector2 textureSize = new Vector2(64,32);
@@ -53,7 +53,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
     public void renderModel(PoseStack stack, VertexConsumer vertexConsumer, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha, RenderCall renderCall, boolean resetBuffer) {
-        for (AdvancedCubeRenderer modelRenderer : renderers) {
+        for (ModelElement modelRenderer : renderers) {
             if (modelRenderer.isRoot) {
                 modelRenderer.render(this, stack, vertexConsumer, packedLightIn, packedOverlayIn, red, green, blue, alpha, renderCall, resetBuffer);
             }
@@ -61,7 +61,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
     public void reset(){
-        for (AdvancedCubeRenderer renderer : renderers) {
+        for (ModelElement renderer : renderers) {
             renderer.reset();
         }
     }
@@ -76,7 +76,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
         customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
     }
 
-    public void lookAt(AdvancedCubeRenderer renderer,float headPitch,float headYaw){
+    public void lookAt(ModelElement renderer, float headPitch, float headYaw){
         renderer.setCustomRotation(new Vector3(MathUtils.rad(headPitch),MathUtils.rad(headYaw),0));
     }
 
@@ -85,15 +85,15 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
 
-    public void onRenderModelCube(AdvancedCubeRenderer cube,PoseStack matrixStackIn, VertexConsumer bufferIn, RenderCall renderCall,int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha){}
+    public void onRenderModelCube(ModelElement cube, PoseStack matrixStackIn, VertexConsumer bufferIn, RenderCall renderCall, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha){}
 
     public void animate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){};
 
     public void customAnimate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){}
 
 
-    public AdvancedCubeRenderer getModelRenderer(String name){
-        for (AdvancedCubeRenderer renderer : renderers) {
+    public ModelElement getModelRenderer(String name){
+        for (ModelElement renderer : renderers) {
             if (renderer.getName().equals(name)){
                 return renderer;
             }
@@ -102,13 +102,13 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
 
-    public Set<AdvancedCubeRenderer> getRenderers() {
+    public Set<ModelElement> getRenderers() {
         return renderers;
     }
 
 
-    public Vector3 getRotationPoint(AdvancedCubeRenderer renderer){
-        for (AdvancedCubeRenderer advancedCubeRenderer : renderers) {
+    public Vector3 getRotationPoint(ModelElement renderer){
+        for (ModelElement advancedCubeRenderer : renderers) {
             if (advancedCubeRenderer.isChild(renderer)){
                 return getRotationPoint(advancedCubeRenderer).add(renderer.rotationPoint);
             }

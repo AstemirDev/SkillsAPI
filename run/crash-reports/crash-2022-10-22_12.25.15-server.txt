@@ -6,7 +6,7 @@ Description: Ticking block entity
 
 java.lang.NullPointerException: Cannot invoke "java.util.UUID.getMostSignificantBits()" because "p_130078_" is null
 	at net.minecraft.network.FriendlyByteBuf.writeUUID(FriendlyByteBuf.java:371) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading}
-	at org.astemir.api.network.messages.AnimationMessage.encode(AnimationMessage.java:42) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.network.messages.ClientMessageAnimation.encode(AnimationMessage.java:42) ~[%2379!/:?] {re:classloading}
 	at net.minecraftforge.network.simple.IndexedMessageCodec.lambda$tryEncode$4(IndexedMessageCodec.java:120) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2374%2380!/:?] {re:classloading}
 	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
 	at net.minecraftforge.network.simple.IndexedMessageCodec.tryEncode(IndexedMessageCodec.java:118) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2374%2380!/:?] {re:classloading}
@@ -42,7 +42,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 Thread: Server thread
 Stacktrace:
 	at net.minecraft.network.FriendlyByteBuf.writeUUID(FriendlyByteBuf.java:371) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading}
-	at org.astemir.api.network.messages.AnimationMessage.encode(AnimationMessage.java:42) ~[%2379!/:?] {re:classloading}
+	at org.astemir.api.network.messages.ClientMessageAnimation.encode(AnimationMessage.java:42) ~[%2379!/:?] {re:classloading}
 	at net.minecraftforge.network.simple.IndexedMessageCodec.lambda$tryEncode$4(IndexedMessageCodec.java:120) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2374%2380!/:?] {re:classloading}
 	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
 	at net.minecraftforge.network.simple.IndexedMessageCodec.tryEncode(IndexedMessageCodec.java:118) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2374%2380!/:?] {re:classloading}
@@ -65,7 +65,7 @@ Stacktrace:
 	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:327) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B}
 -- Block entity being ticked --
 Details:
-	Name: animationapi:cosmic_beacon // org.astemir.example.common.block.BlockEntityCosmicBeacon
+	Name: animationapi:cosmic_beacon // org.astemir.example.common.block.BlockEntityExampleCosmicBeacon
 	Block: Block{animationapi:cosmic_beacon}
 	Block location: World: (-1154,-60,-1157), Section: (at 14,4,11 in -73,-4,-73; chunk contains blocks -1168,-64,-1168 to -1153,319,-1153), Region: (-3,-3; contains chunks -96,-96 to -65,-65, blocks -1536,-64,-1536 to -1025,319,-1025)
 	Block: Block{animationapi:cosmic_beacon}

@@ -5,7 +5,7 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
 import net.minecraft.tags.TagKey;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.astemir.api.math.Pair;
+import org.astemir.api.math.Couple;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import java.util.function.Supplier;
 
 public class SATagProvider<T> extends TagsProvider<T> {
 
-    private List<Pair<T, TagKey<T>>> tags = new ArrayList<>();
+    private List<Couple<T, TagKey<T>>> tags = new ArrayList<>();
 
     public SATagProvider(DataGenerator p_126546_, Registry p_126547_, String modId, @Nullable ExistingFileHelper existingFileHelper) {
         super(p_126546_, p_126547_, modId, existingFileHelper);
@@ -22,7 +22,7 @@ public class SATagProvider<T> extends TagsProvider<T> {
 
     @Override
     protected void addTags() {
-        for (Pair<T, TagKey<T>> tagPair : tags) {
+        for (Couple<T, TagKey<T>> tagPair : tags) {
             tag(tagPair.getValue()).add(tagPair.getKey());
         }
     }
@@ -33,7 +33,7 @@ public class SATagProvider<T> extends TagsProvider<T> {
 
     public void addTag(T object,TagKey<T>... tags){
         for (TagKey<T> tag : tags) {
-            this.tags.add(new Pair<>(object,tag));
+            this.tags.add(new Couple<>(object,tag));
         }
     }
 

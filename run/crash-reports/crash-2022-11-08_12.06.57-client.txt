@@ -6,11 +6,11 @@ Description: Rendering entity in world
 
 java.lang.NullPointerException: Cannot invoke "net.minecraft.client.renderer.MultiBufferSource.getBuffer(net.minecraft.client.renderer.RenderType)" because the return value of "org.astemir.api.client.wrapper.IModelWrapper.getMultiBufferSource()" is null
 	at org.astemir.api.client.model.AdvancedModel.returnDefaultBuffer(AdvancedModel.java:376) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.misc.AdvancedCubeRenderer.render(AdvancedCubeRenderer.java:161) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.render.cube.ModelElement.render(AdvancedCubeRenderer.java:161) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.renderModel(AdvancedModel.java:80) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.ArmorModelWrapper.renderWrapper(ArmorModelWrapper.java:39) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.ArmorModelWrapper.renderToBuffer(ArmorModelWrapper.java:44) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.client.wrapper.ModelWrapperTestArmor.renderToBuffer(ModelWrapperTestArmor.java:23) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperArmor.renderWrapper(ArmorModelWrapper.java:39) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperArmor.renderToBuffer(ArmorModelWrapper.java:44) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.client.render.armor.ModelWrapperTestArmor.renderToBuffer(ModelWrapperTestArmor.java:23) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderModel(HumanoidArmorLayer.java:96) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderArmorPiece(HumanoidArmorLayer.java:60) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.render(HumanoidArmorLayer.java:39) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
@@ -56,11 +56,11 @@ A detailed walkthrough of the error, its code path and all known details is as f
 Thread: Render thread
 Stacktrace:
 	at org.astemir.api.client.model.AdvancedModel.returnDefaultBuffer(AdvancedModel.java:376) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.misc.AdvancedCubeRenderer.render(AdvancedCubeRenderer.java:161) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.render.cube.ModelElement.render(AdvancedCubeRenderer.java:161) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.renderModel(AdvancedModel.java:80) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.ArmorModelWrapper.renderWrapper(ArmorModelWrapper.java:39) ~[%23186!/:?] {re:classloading}
-	at org.astemir.api.client.wrapper.ArmorModelWrapper.renderToBuffer(ArmorModelWrapper.java:44) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.client.wrapper.ModelWrapperTestArmor.renderToBuffer(ModelWrapperTestArmor.java:23) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperArmor.renderWrapper(ArmorModelWrapper.java:39) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.client.wrapper.AbstractModelWrapperArmor.renderToBuffer(ArmorModelWrapper.java:44) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.client.render.armor.ModelWrapperTestArmor.renderToBuffer(ModelWrapperTestArmor.java:23) ~[%23186!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderModel(HumanoidArmorLayer.java:96) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.renderArmorPiece(HumanoidArmorLayer.java:60) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.render(HumanoidArmorLayer.java:39) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}

@@ -8,7 +8,7 @@ java.util.NoSuchElementException: No value present
 	at java.util.Optional.get(Optional.java:143) ~[?:?] {}
 	at org.astemir.api.client.model.AdvancedModel.loadModelFile(AdvancedModel.java:383) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.<init>(AdvancedModel.java:53) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.client.model.ModelTestArmor.<init>(ModelTestArmor.java:16) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.client.render.armor.ModelExampleTestArmor.<init>(ModelTestArmor.java:16) ~[%23186!/:?] {re:classloading}
 	at org.astemir.example.common.item.armor.TestArmor$1.getGenericArmorModel(TestArmor.java:31) ~[%23186!/:?] {re:classloading}
 	at net.minecraftforge.client.ForgeHooksClient.getArmorModel(ForgeHooksClient.java:328) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.getArmorModelHook(HumanoidArmorLayer.java:119) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}
@@ -58,7 +58,7 @@ Stacktrace:
 	at java.util.Optional.get(Optional.java:143) ~[?:?] {}
 	at org.astemir.api.client.model.AdvancedModel.loadModelFile(AdvancedModel.java:383) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.<init>(AdvancedModel.java:53) ~[%23186!/:?] {re:classloading}
-	at org.astemir.example.client.model.ModelTestArmor.<init>(ModelTestArmor.java:16) ~[%23186!/:?] {re:classloading}
+	at org.astemir.example.client.render.armor.ModelExampleTestArmor.<init>(ModelTestArmor.java:16) ~[%23186!/:?] {re:classloading}
 	at org.astemir.example.common.item.armor.TestArmor$1.getGenericArmorModel(TestArmor.java:31) ~[%23186!/:?] {re:classloading}
 	at net.minecraftforge.client.ForgeHooksClient.getArmorModel(ForgeHooksClient.java:328) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23180%23187!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer.getArmorModelHook(HumanoidArmorLayer.java:119) ~[forge-1.19.2-43.1.43_mapped_official_1.19.2-recomp.jar%23181!/:?] {re:classloading,pl:runtimedistcleaner:A}

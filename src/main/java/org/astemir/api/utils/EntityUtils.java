@@ -2,10 +2,6 @@ package org.astemir.api.utils;
 
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.syncher.EntityDataAccessor;
-import net.minecraft.network.syncher.EntityDataSerializer;
-import net.minecraft.network.syncher.SynchedEntityData;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -27,7 +23,7 @@ import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.network.PacketArgument;
-import org.astemir.api.network.messages.EntityEventMessage;
+import org.astemir.api.network.messages.ClientMessageEntityEvent;
 import org.astemir.example.SkillsAPIMod;
 import java.util.List;
 import java.util.function.Predicate;
@@ -187,7 +183,7 @@ public class EntityUtils {
         if (entity.level.isClientSide){
             return;
         }
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new EntityEventMessage(entity.getId(),event,arguments));
+        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new ClientMessageEntityEvent(entity.getId(),event,arguments));
     }
 
 

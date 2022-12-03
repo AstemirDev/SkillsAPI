@@ -8,8 +8,8 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import org.astemir.api.client.wrapper.ArmorModelWrapper;
-import org.astemir.api.client.misc.ArmorModels;
+import org.astemir.api.client.wrapper.AbstractModelWrapperArmor;
+import org.astemir.api.client.ArmorModels;
 import org.astemir.api.common.animation.ITESRModel;
 import org.jetbrains.annotations.NotNull;
 
@@ -27,13 +27,13 @@ public class SAArmorItem extends ArmorItem implements ITESRModel {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                ArmorModelWrapper wrapper = ArmorModels.getModel(itemStack.getItem());
+                AbstractModelWrapperArmor wrapper = ArmorModels.getModel(itemStack.getItem());
                 wrapper.setupAngles(livingEntity,itemStack.getItem(),itemStack,equipmentSlot,original);
                 return wrapper;
             }
             @Override
             public @NotNull Model getGenericArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                ArmorModelWrapper wrapper = ArmorModels.getModel(itemStack.getItem());
+                AbstractModelWrapperArmor wrapper = ArmorModels.getModel(itemStack.getItem());
                 wrapper.setupAngles(livingEntity,itemStack.getItem(),itemStack,equipmentSlot,original);
                 return wrapper;
             }

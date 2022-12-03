@@ -2,13 +2,12 @@ package org.astemir.api.client.model;
 
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.animation.AnimationBone;
-import org.astemir.api.client.animation.AnimationDataHandler;
+import org.astemir.api.client.animation.AnimatorDataHandler;
 import org.astemir.api.client.animation.AnimationFrame;
 import org.astemir.api.client.animation.AnimationTrack;
-import org.astemir.api.client.misc.AdvancedCubeRenderer;
+import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.IAnimated;
@@ -34,7 +33,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
     }
 
 
-    public boolean isRendererUsed(IAnimated animated,AdvancedCubeRenderer renderer){
+    public boolean isRendererUsed(IAnimated animated, ModelElement renderer){
         for (AnimationTrack track : animations) {
             if (isPlayingTrack(animated,track)){
                 if (track.hasBone(renderer.getName())){
@@ -115,7 +114,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
         return true;
     }
 
-    private boolean isRotatingInAnyTrack(T animated,AdvancedCubeRenderer renderer){
+    private boolean isRotatingInAnyTrack(T animated, ModelElement renderer){
         for (Animation playingAnimation : animated.getAnimationFactory().getPlayingAnimations()) {
             AnimationTrack track = getTrack(playingAnimation.getName());
             if (track.hasBone(renderer.getName())){
@@ -126,7 +125,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
     }
 
 
-    private boolean isPositioningInAnyTrack(T animated,AdvancedCubeRenderer renderer){
+    private boolean isPositioningInAnyTrack(T animated, ModelElement renderer){
         for (Animation playingAnimation : animated.getAnimationFactory().getPlayingAnimations()) {
             AnimationTrack track = getTrack(playingAnimation.getName());
             if (track.hasBone(renderer.getName())){
@@ -137,7 +136,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
     }
 
 
-    private boolean isScalingInAnyTrack(T animated,AdvancedCubeRenderer renderer){
+    private boolean isScalingInAnyTrack(T animated, ModelElement renderer){
         for (Animation playingAnimation : animated.getAnimationFactory().getPlayingAnimations()) {
             AnimationTrack track = getTrack(playingAnimation.getName());
             if (track.hasBone(renderer.getName())){
@@ -154,15 +153,15 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
             float delta = partialTicks/animationSmoothness;
             if (!animations.isEmpty()) {
                 reset();
-                AnimationDataHandler animationManager = AnimationDataHandler.getInstance();
-                AnimationDataHandler.BoneStates data = animationManager.getOrCreateData(animated);
+                AnimatorDataHandler animationManager = AnimatorDataHandler.getInstance();
+                AnimatorDataHandler.BoneStates data = animationManager.getOrCreateData(animated);
                 float deltaTime = (data.getTempTick() - data.getPrevTempTick()) / 20f;
                 if (deltaTime < 0) {
                     deltaTime = 0;
                 }
                 data.update(animated, ticks, deltaTime);
 
-                for (AdvancedCubeRenderer renderer : getRenderers()) {
+                for (ModelElement renderer : getRenderers()) {
                     Transform rendererTransform = animationManager.getTransformData(animated, renderer);
 
                     Vector3 rot = rendererTransform.getRotation();

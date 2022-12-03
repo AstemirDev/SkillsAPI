@@ -13,6 +13,10 @@ public class EntityPredicates {
         return entity -> entity instanceof Animal;
     }
 
+    public static <T extends LivingEntity> Predicate<T> entitiesOfClass(Class<T> entityClass){
+        return entity-> entityClass.isInstance(entity);
+    }
+
     public static Predicate<LivingEntity> livingEntities(){
         return entity -> entity.getType() != EntityType.ARMOR_STAND;
     }

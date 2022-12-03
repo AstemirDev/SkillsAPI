@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class WeightedRandom<T> {
 
-    private final List<Pair<Double, T>> table = new ArrayList<>();
+    private final List<Couple<Double, T>> table = new ArrayList<>();
     private final Random random;
     private double totalWeight;
     private boolean resultCanBeNull = false;
@@ -22,7 +22,7 @@ public class WeightedRandom<T> {
     }
 
     public WeightedRandom add(double chance, T element) {
-        table.add(new Pair<>(chance, element));
+        table.add(new Couple<>(chance, element));
         return this;
     }
 
@@ -42,7 +42,7 @@ public class WeightedRandom<T> {
 
     public void calculateTotalWeight() {
         this.totalWeight = 0;
-        for (Pair<Double, T> pair : this.table) {
+        for (Couple<Double, T> pair : this.table) {
             this.totalWeight += pair.getKey();
         }
     }
@@ -54,7 +54,7 @@ public class WeightedRandom<T> {
 
     private double maxCommonElement() {
         double maxChance = 0;
-        for (Pair<Double, T> drop : table) {
+        for (Couple<Double, T> drop : table) {
             if (drop.getKey() > maxChance) {
                 maxChance = drop.getKey();
             }
@@ -64,7 +64,7 @@ public class WeightedRandom<T> {
 
     public <M> T random(M m) {
         double num = this.random.nextDouble() * totalWeight;
-        for (Pair<Double, T> pair : table) {
+        for (Couple<Double, T> pair : table) {
             double chance = pair.getKey();
             if (num <= chance) {
                 return pair.getValue();

@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import org.astemir.api.client.render.AdvancedItemRenderer;
+import org.astemir.api.client.render.AdvancedRendererItem;
 import org.astemir.api.common.animation.ITESRModel;
 
 
@@ -23,7 +23,7 @@ public class MaceItem extends Item implements ITESRModel {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return AdvancedItemRenderer.INSTANCE;
+                return AdvancedRendererItem.INSTANCE;
             }
         });
     }

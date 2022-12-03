@@ -147,9 +147,9 @@ Caused by: java.lang.IllegalStateException: Not a JSON Object: [0,0,0]
 	at org.astemir.api.utils.JsonUtils.getAnimationProperty(JsonUtils.java:35) ~[%2379!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.loadAnimationsFile(AdvancedModel.java:449) ~[%2379!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.<init>(AdvancedModel.java:57) ~[%2379!/:?] {re:classloading}
-	at org.astemir.example.client.model.ModelMinotaur.<init>(ModelMinotaur.java:19) ~[%2379!/:?] {re:classloading}
-	at org.astemir.example.client.wrapper.ModelWrapperMinotaur.<init>(ModelWrapperMinotaur.java:14) ~[%2379!/:?] {re:classloading}
-	at org.astemir.example.client.renderer.MinotaurRenderer.<init>(MinotaurRenderer.java:12) ~[%2379!/:?] {re:classloading}
+	at org.astemir.example.client.render.minotaur.ModelExampleMinotaur.<init>(ModelMinotaur.java:19) ~[%2379!/:?] {re:classloading}
+	at org.astemir.example.client.render.minotaur.WrapperExampleMinotaur.<init>(ModelWrapperMinotaur.java:14) ~[%2379!/:?] {re:classloading}
+	at org.astemir.example.client.render.minotaur.RendererExampleMinotaur.<init>(MinotaurRenderer.java:12) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.EntityRenderers.lambda$createEntityRenderers$2(EntityRenderers.java:39) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	... 136 more
 

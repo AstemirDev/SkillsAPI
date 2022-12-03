@@ -3,7 +3,7 @@ package org.astemir.api.common.gfx;
 import net.minecraft.network.FriendlyByteBuf;
 import org.astemir.api.math.Color;
 import org.astemir.api.math.InterpoleValue;
-import org.astemir.api.network.PacketUtils;
+import org.astemir.api.utils.NetworkUtils;
 
 public class GFXBlackOut extends GFXEffect{
 
@@ -26,13 +26,13 @@ public class GFXBlackOut extends GFXEffect{
 
     @Override
     public void read(FriendlyByteBuf buf) {
-        this.color = PacketUtils.readColor(buf);
+        this.color = NetworkUtils.readColor(buf);
         this.speed = buf.readDouble();
     }
 
     @Override
     public void write(FriendlyByteBuf buf) {
-        PacketUtils.writeColor(buf,color);
+        NetworkUtils.writeColor(buf,color);
         buf.writeDouble(speed);
     }
 

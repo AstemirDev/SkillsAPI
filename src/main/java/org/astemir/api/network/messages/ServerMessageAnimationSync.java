@@ -13,7 +13,6 @@ import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.AnimationHandler;
 import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.network.AnimationTarget;
-import org.astemir.api.network.PacketUtils;
 
 
 import java.util.UUID;

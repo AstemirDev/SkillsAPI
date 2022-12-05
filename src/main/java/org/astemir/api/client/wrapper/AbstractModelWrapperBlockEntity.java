@@ -4,6 +4,8 @@ package org.astemir.api.client.wrapper;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import com.mojang.math.Vector3f;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
@@ -29,9 +31,18 @@ public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & IT
         PoseStack stack = p_103111_;
         stack.pushPose();
         stack.translate(0.5, 1.5f, 0.5f);
-        stack.scale(-1,-1,1);
+        scale(getRenderTarget(),stack, Minecraft.getInstance().getPartialTick());
+        setupRotations(getRenderTarget(),stack, Minecraft.getInstance().getPartialTick());
         model.renderModel(p_103111_,consumer,p_103113_,p_103114_,r,g,b,a,RenderCall.MODEL,false);
         stack.popPose();
+    }
+
+
+    protected void setupRotations(T blockEntity, PoseStack stack, float partialTicks) {
+    }
+
+    protected void scale(T entity,PoseStack stack, float partialTicks){
+        stack.scale(-1,-1,1);
     }
 
     @Override

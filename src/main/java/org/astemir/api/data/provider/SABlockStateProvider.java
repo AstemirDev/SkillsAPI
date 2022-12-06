@@ -37,6 +37,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
                 case EMPTY -> createEmptyBlock(block);
                 case LOG -> logBlock((RotatedPillarBlock) block);
                 case DOOR -> createDoorBlock(block);
+                case LEAVES -> createLeavesBlock(block);
                 case DEFAULT -> simpleBlock(block);
                 case TRAPDOOR -> createTrapdoorBlock(block);
                 case MIRRORED -> createMirroredBlock(block);
@@ -118,6 +119,13 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
 
     public void createChiseledBlock(Block block, ResourceLocation side, ResourceLocation end) {
         simpleBlock(block, new ConfiguredModel(models().cubeColumn(getBlockId(block), side, end)));
+    }
+
+    public BlockModelBuilder createLeavesBlock(Block block) {
+        ResourceLocation location = getBlockLocation(block);
+        return models().getBuilder(location.toString())
+                .parent(createModelFile("block/leaves"))
+                .texture("all", getBlockTexture(location)).renderType("cutout_mipped");
     }
 
     public BlockModelBuilder createCubeMirroredAll(Block block) {

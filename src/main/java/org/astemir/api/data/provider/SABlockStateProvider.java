@@ -128,7 +128,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
         ResourceLocation location = getBlockLocation(block);
         return models().getBuilder(location.toString()+"_inventory")
                 .parent(createModelFile("block/wall_inventory"))
-                .texture("wall", getBlockTexture(stateHolder.getMaterial()));
+                .texture("wall", stateHolder.getMaterial());
     }
 
 

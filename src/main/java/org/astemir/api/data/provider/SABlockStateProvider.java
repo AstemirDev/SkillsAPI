@@ -137,16 +137,16 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
 
         public BlockStateHolder(DataBlockState type, Block... blocks) {
             this.type = type;
-            this.materials = new ResourceLocation[materials.length];
-            for (int i = 0; i < this.materials.length; i++) {
+            this.materials = new ResourceLocation[blocks.length];
+            for (int i = 0; i < blocks.length; i++) {
                 materials[i] = ResourceUtils.getBlockTexture(blocks[i]);
             }
         }
 
         public BlockStateHolder(DataBlockState type, Supplier<Block>... blocks) {
             this.type = type;
-            this.materials = new ResourceLocation[materials.length];
-            for (int i = 0; i < this.materials.length; i++) {
+            this.materials = new ResourceLocation[blocks.length];
+            for (int i = 0; i < blocks.length; i++) {
                 materials[i] = ResourceUtils.getBlockTexture(blocks[i].get());
             }
         }

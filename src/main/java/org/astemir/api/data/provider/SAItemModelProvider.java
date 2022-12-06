@@ -35,8 +35,9 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider{
                 case GENERATED -> generatedItem(pair.getKey());
                 case HANDHELD -> handheld(pair.getKey());
                 case SPAWN_EGG -> spawnEgg(pair.getKey());
-                case BLOCK_ITEM -> block(pair.getKey());
-                case WALL_ITEM -> wall(pair.getKey());
+                case BLOCK_ITEM,FENCE_GATE_ITEM,BUTTON_ITEM -> block(pair.getKey());
+                case TRAPDOOR_ITEM -> trapdoor(pair.getKey());
+                case WALL_ITEM, FENCE_ITEM -> blockInventory(pair.getKey());
             }
         }
     }
@@ -55,11 +56,18 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider{
                 .parent(createModelFile(modId,"block/"+location.getPath()));
     }
 
-    public ItemModelBuilder wall(Item item){
+    public ItemModelBuilder blockInventory(Item item){
         ResourceLocation location = getItemLocation(item);
         return getBuilder(location.toString())
                 .parent(createModelFile(modId,"block/"+location.getPath()+"_inventory"));
     }
+
+    public ItemModelBuilder trapdoor(Item item){
+        ResourceLocation location = getItemLocation(item);
+        return getBuilder(location.toString())
+                .parent(createModelFile(modId,"block/"+location.getPath()+"_bottom"));
+    }
+
 
 
     public ItemModelBuilder spawnEgg(Item item){

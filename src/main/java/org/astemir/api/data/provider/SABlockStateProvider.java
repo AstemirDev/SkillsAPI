@@ -1,5 +1,6 @@
 package org.astemir.api.data.provider;
 
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -89,7 +90,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
     public void createDoorBlock(Block block){
         ResourceLocation top = new ResourceLocation(ResourceUtils.getBlockTexture(block)+"_top");
         ResourceLocation bottom = new ResourceLocation(ResourceUtils.getBlockTexture(block)+"_bottom");
-        doorBlock((DoorBlock) block,bottom,top);
+        doorBlockWithRenderType((DoorBlock) block,bottom,top,"cutout");
     }
 
     public void createWallBlock(WallBlock block, BlockStateHolder stateHolder,ResourceLocation texture) {
@@ -98,7 +99,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
     }
 
     public void createTrapdoorBlock(Block block){
-        trapdoorBlock((TrapDoorBlock) block,ResourceUtils.getBlockTexture(block),true);
+        trapdoorBlockWithRenderType((TrapDoorBlock) block,ResourceUtils.getBlockTexture(block),true,"cutout");
     }
 
     public void createEmptyBlock(Block block){

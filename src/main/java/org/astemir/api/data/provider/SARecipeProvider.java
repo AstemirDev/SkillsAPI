@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class SARecipeProvider extends RecipeProvider {
+public class SARecipeProvider extends RecipeProvider implements IProvider{
 
     private List<DataRecipeHolder> recipes = new ArrayList<>();
 

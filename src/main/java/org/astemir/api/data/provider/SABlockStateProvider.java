@@ -9,6 +9,7 @@ import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.astemir.api.data.misc.DataBlockState;
 import org.astemir.api.math.Couple;
+import org.astemir.api.utils.ResourceUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ import java.util.function.Supplier;
 import static org.astemir.api.utils.ResourceUtils.*;
 
 
-public class SABlockStateProvider extends BlockStateProvider {
+public class SABlockStateProvider extends BlockStateProvider implements IProvider{
 
     private List<Couple<Block, BlockStateHolder>> blockStates = new ArrayList<>();
 
@@ -33,18 +34,21 @@ public class SABlockStateProvider extends BlockStateProvider {
             BlockStateHolder blockStateHolder = blockStatePair.getValue();
             switch (blockStateHolder.getType()){
                 case EMPTY -> emptyBlock(block);
+                case LOG -> logBlock((RotatedPillarBlock) block);
+                case DOOR -> doorBlock(block);
                 case DEFAULT -> simpleBlock(block);
+                case TRAPDOOR -> trapdoorBlock(block);
                 case MIRRORED -> mirroredBlock(block);
-                case HORIZONTAL -> horizontalBlock(block, getBlockTexture(block),getBlockTexture(block),getBlockTexture(blockStateHolder.getMaterial()));
-                case CHISELED -> chiseledBlock(block,getBlockTexture(block),getBlockTexture(blockStateHolder.getMaterial()));
-                case COLUMN -> axisBlock((RotatedPillarBlock) block,getBlockTexture(block),getBlockTexture(blockStateHolder.getMaterial()));
-                case SLAB -> slabBlock((SlabBlock) block, getBlockTexture(blockStateHolder.getMaterial()),getBlockTexture(blockStateHolder.getMaterial()));
-                case BUTTON -> buttonBlock((ButtonBlock) block,getBlockTexture(blockStateHolder.getMaterial()));
-                case FENCE -> fenceBlock((FenceBlock) block, getBlockTexture(blockStateHolder.getMaterial()));
-                case FENCE_GATE -> fenceGateBlock((FenceGateBlock) block, getBlockTexture(blockStateHolder.getMaterial()));
-                case WALL -> wallBlock((WallBlock) block, blockStateHolder,getBlockTexture(blockStateHolder.getMaterial()));
-                case STAIRS -> stairsBlock((StairBlock) block, getBlockTexture(blockStateHolder.getMaterial()));
-                case PRESSURE_PLATE -> pressurePlateBlock((PressurePlateBlock) block, getBlockTexture(blockStateHolder.getMaterial()));
+                case HORIZONTAL -> horizontalBlock(block, getBlockTexture(block),getBlockTexture(block),blockStateHolder.getMaterial());
+                case CHISELED -> chiseledBlock(block,getBlockTexture(block),blockStateHolder.getMaterial());
+                case COLUMN -> axisBlock((RotatedPillarBlock) block,getBlockTexture(block),blockStateHolder.getMaterial());
+                case SLAB -> slabBlock((SlabBlock) block, blockStateHolder.getMaterial(),blockStateHolder.getMaterial());
+                case BUTTON -> buttonBlock((ButtonBlock) block,blockStateHolder.getMaterial());
+                case FENCE -> fenceBlock((FenceBlock) block, blockStateHolder.getMaterial());
+                case FENCE_GATE -> fenceGateBlock((FenceGateBlock) block, blockStateHolder.getMaterial());
+                case WALL -> wallBlock((WallBlock) block, blockStateHolder.getMaterial());
+                case STAIRS -> stairsBlock((StairBlock) block, blockStateHolder.getMaterial());
+                case PRESSURE_PLATE -> pressurePlateBlock((PressurePlateBlock) block, blockStateHolder.getMaterial());
             }
         }
     }
@@ -52,6 +56,10 @@ public class SABlockStateProvider extends BlockStateProvider {
     public void wallBlock(WallBlock block, BlockStateHolder stateHolder,ResourceLocation texture) {
         wallBlock(block,texture);
         wallInventory(block,stateHolder);
+    }
+
+    public void addState(Block block, BlockStateHolder customHolder){
+        this.blockStates.add(new Couple<>(block,customHolder));
     }
 
     public void addState(Block block, DataBlockState type){
@@ -72,6 +80,16 @@ public class SABlockStateProvider extends BlockStateProvider {
 
     public void mirroredBlock(Block block){
         simpleBlock(block,new ConfiguredModel(cubeAll(block)),new ConfiguredModel(cubeMirroredAll(block)),new ConfiguredModel(cubeAll(block),0,180,false),new ConfiguredModel(cubeMirroredAll(block),0,180,false));
+    }
+
+    public void doorBlock(Block block){
+        ResourceLocation top = new ResourceLocation(ResourceUtils.getBlockTexture(block)+"_top");
+        ResourceLocation bottom = new ResourceLocation(ResourceUtils.getBlockTexture(block)+"_bottom");
+        doorBlock((DoorBlock) block,bottom,top);
+    }
+
+    public void trapdoorBlock(Block block){
+        trapdoorBlock((TrapDoorBlock) block,ResourceUtils.getBlockTexture(block),true);
     }
 
     public void emptyBlock(Block block){
@@ -111,29 +129,47 @@ public class SABlockStateProvider extends BlockStateProvider {
     private class BlockStateHolder{
 
         private DataBlockState type;
-        private Block material;
+        private ResourceLocation[] materials;
 
         public BlockStateHolder(DataBlockState type) {
             this.type = type;
         }
 
-        public BlockStateHolder(DataBlockState type, Block material) {
+        public BlockStateHolder(DataBlockState type, Block... blocks) {
             this.type = type;
-            this.material = material;
+            this.materials = new ResourceLocation[materials.length];
+            for (int i = 0; i < this.materials.length; i++) {
+                materials[i] = ResourceUtils.getBlockTexture(blocks[i]);
+            }
         }
 
-        public BlockStateHolder(DataBlockState type, Supplier<Block> material) {
+        public BlockStateHolder(DataBlockState type, Supplier<Block>... blocks) {
             this.type = type;
-            this.material = material.get();
+            this.materials = new ResourceLocation[materials.length];
+            for (int i = 0; i < this.materials.length; i++) {
+                materials[i] = ResourceUtils.getBlockTexture(blocks[i].get());
+            }
         }
 
+        public BlockStateHolder(DataBlockState type, ResourceLocation... materials) {
+            this.type = type;
+            this.materials = materials;
+        }
 
         public DataBlockState getType() {
             return type;
         }
 
-        public Block getMaterial() {
-            return material;
+        public ResourceLocation getMaterial() {
+            return materials[0];
+        }
+
+        public ResourceLocation getMaterial(int id) {
+            return materials[id];
+        }
+
+        public ResourceLocation[] getMaterials() {
+            return materials;
         }
     }
 }

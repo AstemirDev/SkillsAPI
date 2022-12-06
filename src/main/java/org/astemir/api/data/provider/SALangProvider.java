@@ -7,7 +7,7 @@ import org.astemir.api.data.misc.DataLangDictionary;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SALangProvider {
+public class SALangProvider implements IProvider {
 
     private Map<String, DataLangDictionary> langs = new HashMap<>();
 

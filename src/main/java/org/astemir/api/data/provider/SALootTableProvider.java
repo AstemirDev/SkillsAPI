@@ -24,7 +24,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-public class SALootTableProvider extends LootTableProvider {
+public class SALootTableProvider extends LootTableProvider implements IProvider{
 
     private List<Pair<Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>>, LootContextParamSet>> lootProviders =  new ArrayList<>();
 

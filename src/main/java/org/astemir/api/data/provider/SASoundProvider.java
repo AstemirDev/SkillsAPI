@@ -13,7 +13,7 @@ import org.astemir.api.utils.ResourceUtils;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SASoundProvider extends SoundDefinitionsProvider {
+public class SASoundProvider extends SoundDefinitionsProvider implements IProvider {
 
     private Map<String,SoundDefinition> soundsToRegister = new HashMap<>();
     private String modId;

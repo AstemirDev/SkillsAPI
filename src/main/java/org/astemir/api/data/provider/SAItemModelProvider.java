@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 import static org.astemir.api.utils.ResourceUtils.*;
 
 
-public class SAItemModelProvider extends ItemModelProvider {
+public class SAItemModelProvider extends ItemModelProvider implements IProvider{
 
 
     private List<Couple<Item, DataItemModel>> itemModels = new ArrayList<>();

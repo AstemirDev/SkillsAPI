@@ -3,6 +3,7 @@ package org.astemir.api.data.provider;
 import net.minecraft.core.Registry;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.TagKey;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.astemir.api.math.Couple;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class SATagProvider<T> extends TagsProvider<T> {
+public class SATagProvider<T> extends TagsProvider<T> implements IProvider{
 
     private List<Couple<T, TagKey<T>>> tags = new ArrayList<>();
 

@@ -44,8 +44,8 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
                 case CHISELED -> createChiseledBlock(block,getBlockTexture(block),blockStateHolder.getMaterial());
                 case COLUMN -> axisBlock((RotatedPillarBlock) block,getBlockTexture(block),blockStateHolder.getMaterial());
                 case SLAB -> slabBlock((SlabBlock) block, blockStateHolder.getMaterial(),blockStateHolder.getMaterial());
-                case BUTTON -> buttonBlock((ButtonBlock) block,blockStateHolder.getMaterial());
-                case FENCE -> fenceBlock((FenceBlock) block, blockStateHolder.getMaterial());
+                case BUTTON -> createButtonBlock((ButtonBlock) block,blockStateHolder,blockStateHolder.getMaterial());
+                case FENCE -> createFenceBlock((FenceBlock) block, blockStateHolder,blockStateHolder.getMaterial());
                 case FENCE_GATE -> fenceGateBlock((FenceGateBlock) block, blockStateHolder.getMaterial());
                 case WALL -> createWallBlock((WallBlock) block, blockStateHolder,blockStateHolder.getMaterial());
                 case STAIRS -> stairsBlock((StairBlock) block, blockStateHolder.getMaterial());
@@ -93,6 +93,16 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
         doorBlockWithRenderType((DoorBlock) block,bottom,top,"cutout");
     }
 
+    public void createButtonBlock(ButtonBlock block, BlockStateHolder stateHolder,ResourceLocation texture){
+        buttonBlock(block,texture);
+        createButtonInventory(block,stateHolder);
+    }
+
+    public void createFenceBlock(FenceBlock block, BlockStateHolder stateHolder,ResourceLocation texture){
+        fenceBlock(block,texture);
+        createFenceInventory(block,stateHolder);
+    }
+
     public void createWallBlock(WallBlock block, BlockStateHolder stateHolder,ResourceLocation texture) {
         wallBlock(block,texture);
         createWallInventory(block,stateHolder);
@@ -129,6 +139,20 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
         return models().getBuilder(location.toString()+"_inventory")
                 .parent(createModelFile("block/wall_inventory"))
                 .texture("wall", stateHolder.getMaterial());
+    }
+
+    public BlockModelBuilder createButtonInventory(Block block,BlockStateHolder stateHolder) {
+        ResourceLocation location = getBlockLocation(block);
+        return models().getBuilder(location.toString()+"_inventory")
+                .parent(createModelFile("block/button_inventory"))
+                .texture("texture", stateHolder.getMaterial());
+    }
+
+    public BlockModelBuilder createFenceInventory(Block block,BlockStateHolder stateHolder) {
+        ResourceLocation location = getBlockLocation(block);
+        return models().getBuilder(location.toString()+"_inventory")
+                .parent(createModelFile("block/fence_inventory"))
+                .texture("texture", stateHolder.getMaterial());
     }
 
 

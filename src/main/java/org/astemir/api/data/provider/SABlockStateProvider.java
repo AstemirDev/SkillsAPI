@@ -37,7 +37,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
                 case EMPTY -> createEmptyBlock(block);
                 case LOG -> logBlock((RotatedPillarBlock) block);
                 case DOOR -> createDoorBlock(block);
-                case LEAVES -> createLeavesBlock(block);
+                case LEAVES -> simpleBlock(block,createLeavesBlock(block));
                 case DEFAULT -> simpleBlock(block);
                 case TRAPDOOR -> createTrapdoorBlock(block);
                 case MIRRORED -> createMirroredBlock(block);

@@ -35,6 +35,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
             BlockStateHolder blockStateHolder = blockStatePair.getValue();
             switch (blockStateHolder.getType()){
                 case EMPTY -> createEmptyBlock(block);
+                case CROSS -> simpleBlock(block,createCrossBlock(block));
                 case LOG -> logBlock((RotatedPillarBlock) block);
                 case DOOR -> createDoorBlock(block);
                 case LEAVES -> simpleBlock(block,createLeavesBlock(block));
@@ -119,6 +120,13 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
 
     public void createChiseledBlock(Block block, ResourceLocation side, ResourceLocation end) {
         simpleBlock(block, new ConfiguredModel(models().cubeColumn(getBlockId(block), side, end)));
+    }
+
+    public BlockModelBuilder createCrossBlock(Block block) {
+        ResourceLocation location = getBlockLocation(block);
+        return models().getBuilder(location.toString())
+                .parent(createModelFile("block/cross"))
+                .texture("cross", getBlockTexture(location)).renderType("cutout");
     }
 
     public BlockModelBuilder createLeavesBlock(Block block) {

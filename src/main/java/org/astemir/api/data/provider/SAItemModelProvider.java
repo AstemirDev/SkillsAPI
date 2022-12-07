@@ -35,9 +35,9 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider{
                 case GENERATED -> generatedItem(pair.getKey());
                 case HANDHELD -> handheld(pair.getKey());
                 case SPAWN_EGG -> spawnEgg(pair.getKey());
-                case BLOCK_ITEM,FENCE_GATE_ITEM,BUTTON_ITEM -> block(pair.getKey());
+                case BLOCK_ITEM,FENCE_GATE_ITEM -> block(pair.getKey());
                 case TRAPDOOR_ITEM -> trapdoor(pair.getKey());
-                case WALL_ITEM, FENCE_ITEM -> blockInventory(pair.getKey());
+                case WALL_ITEM, FENCE_ITEM,BUTTON_ITEM -> blockInventory(pair.getKey());
             }
         }
     }

@@ -52,6 +52,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
                 case WALL -> createWallBlock((WallBlock) block, blockStateHolder,blockStateHolder.getMaterial());
                 case STAIRS -> stairsBlock((StairBlock) block, blockStateHolder.getMaterial());
                 case PRESSURE_PLATE -> pressurePlateBlock((PressurePlateBlock) block, blockStateHolder.getMaterial());
+                case CUSTOM -> blockStateHolder.customBuild();
             }
         }
     }
@@ -213,6 +214,8 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
             this.type = type;
             this.materials = materials;
         }
+
+        public void customBuild(){}
 
         public DataBlockState getType() {
             return type;

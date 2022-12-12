@@ -57,11 +57,15 @@ public class SARecipeProvider extends RecipeProvider implements IProvider{
     }
 
     public DataRecipeHolder slab(ItemLike result,ItemLike material,int count){
-        return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("#  ","###").put("#",material)),result,count);
+        return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("###").put("#",material)),result,count);
     }
 
     public DataRecipeHolder trapdoor(ItemLike result,ItemLike material,int count){
-        return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("#","###","###").put("#",material)),result,count);
+        return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("###","###").put("#",material)),result,count);
+    }
+
+    public DataRecipeHolder boat(ItemLike result,ItemLike material,int count){
+        return new DataRecipeHolder(new DataRecipeType.Shaped(new RecipePattern("# #","###").put("#",material)),result,count);
     }
 
     public DataRecipeHolder sign(ItemLike result,ItemLike material,ItemLike stick,int count){

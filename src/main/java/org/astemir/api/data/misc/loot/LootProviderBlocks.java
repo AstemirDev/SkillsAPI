@@ -37,7 +37,6 @@ public abstract class LootProviderBlocks extends BlockLoot implements ILootProvi
         this.add(block,createSilkTouchDispatchTable(block, applyExplosionDecay(block, LootItem.lootTableItem(drop).apply(SetItemCountFunction.setCount(UniformGenerator.between(minCount, maxCount))).apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE)))));
     }
 
-
     protected void cropDrops(Block block, Item drop, Item seeds, int minAge, IntegerProperty property) {
         LootItemCondition.Builder conditionBuilder = LootItemBlockStatePropertyCondition.hasBlockStateProperties(block).setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(property, minAge));
         this.add(block, createCropDrops(block, drop, seeds, conditionBuilder));
@@ -90,6 +89,8 @@ public abstract class LootProviderBlocks extends BlockLoot implements ILootProvi
             return this;
         }
 
+        public LootTable.Builder customBuild(){return null;};
+
         public UniformInt getCount() {
             return count;
         }
@@ -105,6 +106,6 @@ public abstract class LootProviderBlocks extends BlockLoot implements ILootProvi
 
 
     public enum BlockDropType{
-        SELF,SILK_TOUCH,SHEARS,ITEM,OTHER_SHEARS,OTHER_BLOCK,OTHER_BLOCK_SILK_TOUCH,ORE,FLOWER_POT,SLAB,DOOR,CROPS,LEAVES,STEM,
+        SELF,GRASS_BLOCK,SILK_TOUCH,SHEARS,ITEM,OTHER_SHEARS,OTHER_BLOCK,OTHER_BLOCK_SILK_TOUCH,ORE,FLOWER_POT,SLAB,DOOR,CROPS,LEAVES,STEM,CUSTOM
     }
 }

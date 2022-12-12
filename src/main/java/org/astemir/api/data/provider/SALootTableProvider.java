@@ -49,6 +49,10 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
         return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.SELF);
     }
 
+    public LootProviderBlocks.BlockDrop custom(){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.CUSTOM);
+    }
+
     public LootProviderBlocks.BlockDrop dropOther(ItemLike other){
         return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.OTHER_BLOCK).otherDrop(other);
     }
@@ -69,9 +73,18 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
         return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.OTHER_BLOCK_SILK_TOUCH).otherDrop(other);
     }
 
+    public LootProviderBlocks.BlockDrop dropOre(ItemLike drop,int minCount,int maxCount){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.ORE).otherDrop(drop).count(minCount,maxCount);
+    }
+
     public LootProviderBlocks.BlockDrop dropOtherShears(ItemLike other){
         return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.OTHER_SHEARS).otherDrop(other);
     }
+
+    public LootProviderBlocks.BlockDrop leaves(Block sapling){
+        return new LootProviderBlocks.BlockDrop(LootProviderBlocks.BlockDropType.LEAVES).otherDrop(sapling);
+    }
+
 
 
     public void addEntityDrops(Supplier<EntityType> entityType,LootProviderEntities.MobLoot loot){
@@ -106,13 +119,13 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
         }, LootContextParamSets.ENTITY);
     }
 
-    public void loadBlockDrops(DeferredRegister<Block> blocks){
+    public void loadBlock3Drops(DeferredRegister<Block> blocks){
         addLootProvider(()->new LootProviderBlocks() {
             @Override
             public void addLoot() {
                 blocksDrops.forEach((block,loot)->{
                     switch (loot.getType()){
-                        case SELF -> dropSelf(block);
+                        case SELF ->dropSelf(block);
                         case SILK_TOUCH -> dropWhenSilkTouch(block);
                         case OTHER_BLOCK -> dropOther(block,loot.getOtherDrop());
                         case OTHER_BLOCK_SILK_TOUCH -> otherWhenSilkTouch(block, (Block) loot.getOtherDrop());
@@ -126,6 +139,8 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
                         case STEM -> add(block,createStemDrops(block,loot.getOtherDrop().asItem()));
                         case SHEARS -> add(block,createShearsOnlyDrop(block.asItem()));
                         case OTHER_SHEARS -> add(block,createShearsOnlyDrop(loot.getOtherDrop()));
+                        case GRASS_BLOCK -> add(block,createSingleItemTableWithSilkTouch(block,loot.getOtherDrop()));
+                        case CUSTOM -> add(block,loot.customBuild());
                     }
                 });
             }

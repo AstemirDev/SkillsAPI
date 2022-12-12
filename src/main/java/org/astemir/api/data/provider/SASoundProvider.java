@@ -46,6 +46,15 @@ public class SASoundProvider extends SoundDefinitionsProvider implements IProvid
         soundsToRegister.put(soundEvent.get().getLocation().getPath(),definition);
     }
 
+
+    public DataSoundResource[] sounds(String... paths){
+        DataSoundResource[] res = new DataSoundResource[paths.length];
+        for (int i = 0; i < paths.length; i++) {
+            res[i] = new DataSoundResource(paths[i]);
+        }
+        return res;
+    }
+
     public SoundDefinition createDefinition(DataSoundResource... resources){
         SoundDefinition definition = definition();
         for (DataSoundResource resource : resources) {

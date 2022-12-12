@@ -119,7 +119,7 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
         }, LootContextParamSets.ENTITY);
     }
 
-    public void loadBlock3Drops(DeferredRegister<Block> blocks){
+    public void loadBlockDrops(DeferredRegister<Block> blocks){
         addLootProvider(()->new LootProviderBlocks() {
             @Override
             public void addLoot() {
@@ -140,6 +140,7 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
                         case SHEARS -> add(block,createShearsOnlyDrop(block.asItem()));
                         case OTHER_SHEARS -> add(block,createShearsOnlyDrop(loot.getOtherDrop()));
                         case GRASS_BLOCK -> add(block,createSingleItemTableWithSilkTouch(block,loot.getOtherDrop()));
+                        case EMPTY->add(block,noDrop());
                         case CUSTOM -> add(block,loot.customBuild());
                     }
                 });
@@ -149,7 +150,7 @@ public class SALootTableProvider extends LootTableProvider implements IProvider{
             public DeferredRegister<Block> getRegistry() {
                 return blocks;
             }
-        }, LootContextParamSets.ENTITY);
+        }, LootContextParamSets.BLOCK);
     }
 
     public void addLootProvider(Supplier<Consumer<BiConsumer<ResourceLocation, LootTable.Builder>>> provider,LootContextParamSet paramSet){

@@ -195,12 +195,12 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
                             }
                         }
                     } else {
-                        rot = rot.lerp(new Vector3(0, 0, 0), delta);
+                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta);
                         scale = scale.lerp(new Vector3(1, 1, 1), delta);
                         pos = pos.lerp(new Vector3(0, 0, 0), delta);
                     }
                     if (!isRotatingInAnyTrack(animated, renderer)) {
-                        rot = rot.lerp(new Vector3(0, 0, 0), delta);
+                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta);
                     }
                     if (!isScalingInAnyTrack(animated, renderer)) {
                         scale = scale.lerp(new Vector3(1, 1, 1), delta);

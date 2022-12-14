@@ -1,9 +1,7 @@
 package org.astemir.api.data.samples;
 
 
-import net.minecraft.nbt.Tag;
 import net.minecraft.tags.TagKey;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

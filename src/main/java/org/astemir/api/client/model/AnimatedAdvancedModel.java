@@ -161,7 +161,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
                 }
                 data.update(animated, ticks, deltaTime);
 
-                for (ModelElement renderer : getRenderers()) {
+                for (ModelElement renderer : getElements()) {
                     Transform rendererTransform = animationManager.getTransformData(animated, renderer);
 
                     Vector3 rot = rendererTransform.getRotation();
@@ -217,10 +217,6 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
             animate(animated, limbSwing, limbSwingAmount, ticks, delta, headYaw, headPitch);
         }
         customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
-    }
-
-    public float getAnimationSmoothness() {
-        return animationSmoothness;
     }
 
     public AnimatedAdvancedModel animationSmoothness(float animationSmoothness) {

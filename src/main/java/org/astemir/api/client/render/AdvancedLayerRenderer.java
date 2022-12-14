@@ -31,7 +31,7 @@ public class AdvancedLayerRenderer<T extends Entity & ITESRModel, M extends Abst
 
     public void renderWrapper(PoseStack p_117349_,MultiBufferSource source,int p_117351_, T p_117352_, float p_117353_, float p_117354_, float r, float g, float b, float a){
         VertexConsumer vertexconsumer = source.getBuffer(getBuffer(p_117352_));
-        this.getParentModel().renderWrapper(p_117349_, vertexconsumer, getEyeLight(), OverlayTexture.NO_OVERLAY, r, g, b, a, RenderCall.LAYER,false);
+        this.getParentModel().renderWrapper(p_117349_, vertexconsumer, getEyeLight(p_117351_), OverlayTexture.NO_OVERLAY, r, g, b, a, RenderCall.LAYER,false);
     }
 
     public RenderType getBuffer(T entity){
@@ -39,7 +39,7 @@ public class AdvancedLayerRenderer<T extends Entity & ITESRModel, M extends Abst
     }
 
 
-    public int getEyeLight(){
+    public int getEyeLight(int light){
         return 15728640;
     }
 }

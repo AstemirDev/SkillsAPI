@@ -20,7 +20,7 @@ public class ModelExampleMinotaur extends AnimatedAdvancedModel<EntityExampleMin
 
 	@Override
 	public void animate(EntityExampleMinotaur animated, float limbSwing, float limbSwingAmount, float ticks, float delta, float headYaw, float headPitch) {
-		ModelElement head = getModelRenderer("head");
+		ModelElement head = getModelElement("head");
 		if (head != null) {
 			lookAt(head, headPitch, headYaw);
 		}

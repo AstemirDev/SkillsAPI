@@ -5,7 +5,13 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import org.astemir.api.data.provider.*;
+import org.astemir.api.data.blockstate.SABlockStateProvider;
+import org.astemir.api.data.lang.SALangProvider;
+import org.astemir.api.data.loot.SALootTableProvider;
+import org.astemir.api.data.model.SAItemModelProvider;
+import org.astemir.api.data.recipe.SARecipeProvider;
+import org.astemir.api.data.sound.SASoundProvider;
+import org.astemir.api.data.tag.SATagProvider;
 
 public class MainDataProvider {
 

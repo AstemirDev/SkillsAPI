@@ -19,6 +19,7 @@ public class ClientStateHandler {
     public static AnimatorDataHandler ANIMATION_DATA_HANDLER = new AnimatorDataHandler();
 
     public static ResourceLocation BLACKOUT_TEXTURE = ResourceUtils.loadTexture(SkillsAPIMod.MOD_ID,"ui/blackout.png");
+
     @SubscribeEvent
     public static void onMainRender(TickEvent.RenderTickEvent e){
         if (Minecraft.getInstance().isPaused()){

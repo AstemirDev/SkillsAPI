@@ -92,7 +92,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     public void customAnimate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){}
 
 
-    public ModelElement getModelRenderer(String name){
+    public ModelElement getModelElement(String name){
         for (ModelElement renderer : renderers) {
             if (renderer.getName().equals(name)){
                 return renderer;
@@ -102,7 +102,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
 
-    public Set<ModelElement> getRenderers() {
+    public Set<ModelElement> getElements() {
         return renderers;
     }
 

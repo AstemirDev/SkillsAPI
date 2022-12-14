@@ -35,6 +35,11 @@ public class DataBlockStateHolder {
         return this;
     }
 
+    public DataBlockStateHolder material(String name, Supplier<Block> block){
+        this.materials.put(name, ResourceUtils.getBlockTexture(block.get()));
+        return this;
+    }
+
     public DataBlockStateHolder material(String name, ResourceLocation texture){
         this.materials.put(name,texture);
         return this;

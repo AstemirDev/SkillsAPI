@@ -57,6 +57,10 @@ public class LootProviderBlocks extends BlockLoot implements ILootProvider<Block
         }
     }
 
+    public void addDrop(DataBlockDrop drop){
+        blocksDrops.add(drop);
+    }
+
     public DataBlockDrop createDropSelf(Block block){
         return new DataBlockDrop(block, DataBlockDropType.SELF);
     }

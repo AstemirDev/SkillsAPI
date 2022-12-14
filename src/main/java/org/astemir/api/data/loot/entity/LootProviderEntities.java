@@ -4,6 +4,7 @@ import net.minecraft.data.loot.EntityLoot;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import org.astemir.api.data.loot.ILootProvider;
+import org.astemir.api.data.loot.block.DataBlockDrop;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,11 @@ public class LootProviderEntities extends EntityLoot implements ILootProvider<En
 
     public LootProviderEntities(DeferredRegister<EntityType<?>> registry) {
         this.registry = registry;
+    }
+
+
+    public void addDrop(DataMobDrop drop){
+        mobDrops.add(drop);
     }
 
     @Override

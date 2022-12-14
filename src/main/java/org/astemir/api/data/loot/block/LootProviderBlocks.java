@@ -35,8 +35,9 @@ public class LootProviderBlocks extends BlockLoot implements ILootProvider<Block
     @Override
     public void addLoot() {
         for (DataBlockDrop blocksDrop : blocksDrops) {
+            Block block = blocksDrop.getBlock();
             switch (blocksDrop.getType()) {
-                case SELF -> createDropSelf(blocksDrop.getBlock());
+                case SELF -> dropSelf(blocksDrop.getBlock());
                 case SILK_TOUCH -> dropWhenSilkTouch(blocksDrop.getBlock());
                 case OTHER_BLOCK -> dropOther(blocksDrop.getBlock(), blocksDrop.getDrop("other"));
                 case OTHER_BLOCK_SILK_TOUCH -> otherWhenSilkTouch(blocksDrop.getBlock(), (Block) blocksDrop.getDrop("other"));
@@ -97,7 +98,7 @@ public class LootProviderBlocks extends BlockLoot implements ILootProvider<Block
         return new DataBlockDrop(block, DataBlockDropType.OTHER_SHEARS).otherDrop("other",other);
     }
 
-    public DataBlockDrop createLeaves(Block block, Block sapling){
+    public DataBlockDrop createDropLeaves(Block block, Block sapling){
         return new DataBlockDrop(block, DataBlockDropType.LEAVES).otherDrop("sapling",sapling);
     }
 

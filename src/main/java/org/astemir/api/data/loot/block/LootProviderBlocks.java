@@ -99,7 +99,7 @@ public class LootProviderBlocks extends BlockLoot implements ILootProvider<Block
     }
 
     public DataBlockDrop createDropLeaves(Block block, Block sapling){
-        return new DataBlockDrop(block, DataBlockDropType.LEAVES).otherDrop("sapling",sapling);
+        return new DataBlockDrop(block, DataBlockDropType.LEAVES).otherDrop("other",sapling);
     }
 
 

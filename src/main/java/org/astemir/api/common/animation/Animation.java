@@ -12,6 +12,7 @@ public class Animation {
     private int priority = 0;
     private int layer = 0;
     private float speed = 1;
+    private float smoothness = 2;
 
 
     public Animation(String name, float length) {
@@ -26,6 +27,11 @@ public class Animation {
 
     public Animation layer(int layer){
         this.layer = layer;
+        return this;
+    }
+
+    public Animation smoothness(float smoothness){
+        this.smoothness = smoothness;
         return this;
     }
 
@@ -73,6 +79,9 @@ public class Animation {
         return priority;
     }
 
+    public float getSmoothness() {
+        return smoothness;
+    }
 
     public int getUniqueId() {
         return uniqueId;

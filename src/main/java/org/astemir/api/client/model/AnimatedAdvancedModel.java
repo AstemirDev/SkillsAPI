@@ -23,7 +23,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
 
     public Set<AnimationTrack> animations = new HashSet<>();
 
-    private float animationSmoothness = 2;
+    private float smoothness = 2;
 
     public AnimatedAdvancedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
         super(modelLoc);
@@ -150,7 +150,7 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
     public void setupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (!Minecraft.getInstance().isPaused()) {
-            float delta = partialTicks/animationSmoothness;
+            float delta = partialTicks/smoothness;
             if (!animations.isEmpty()) {
                 reset();
                 AnimatorDataHandler animationManager = AnimatorDataHandler.getInstance();
@@ -174,22 +174,23 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
                             if (track.hasBone(renderer.getName())) {
                                 AnimationBone bone = track.getBone(renderer.getName());
                                 float animationTick = data.getAnimationTick(animation);
+                                float deltaAnimation = partialTicks/animation.getSmoothness();
                                 if (bone.getRotations() != null) {
                                     if (checkCanRotate(animated, animation, bone)) {
                                         AnimationFrame[] frames = bone.getRotations();
-                                        rot = rot.rotLerp(AnimationUtils.interpolatePoints(frames, animationTick), delta);
+                                        rot = rot.rotLerp(AnimationUtils.interpolatePoints(frames, animationTick), deltaAnimation);
                                     }
                                 }
                                 if (bone.getScales() != null) {
                                     if (checkCanScale(animated, animation, bone)) {
                                         AnimationFrame[] frames = bone.getScales();
-                                        scale = scale.lerp(AnimationUtils.interpolatePoints(frames, animationTick), delta);
+                                        scale = scale.lerp(AnimationUtils.interpolatePoints(frames, animationTick), deltaAnimation);
                                     }
                                 }
                                 if (bone.getPositions() != null) {
                                     if (checkCanMove(animated, animation, bone)) {
                                         AnimationFrame[] frames = bone.getPositions();
-                                        pos = pos.lerp(AnimationUtils.interpolatePoints(frames, animationTick), delta);
+                                        pos = pos.lerp(AnimationUtils.interpolatePoints(frames, animationTick), deltaAnimation);
                                     }
                                 }
                             }
@@ -219,8 +220,8 @@ public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> ex
         customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
     }
 
-    public AnimatedAdvancedModel animationSmoothness(float animationSmoothness) {
-        this.animationSmoothness = animationSmoothness;
+    public AnimatedAdvancedModel smoothness(float smoothness) {
+        this.smoothness = smoothness;
         return this;
     }
 }

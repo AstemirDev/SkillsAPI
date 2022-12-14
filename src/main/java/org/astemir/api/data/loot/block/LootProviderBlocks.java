@@ -37,23 +37,23 @@ public class LootProviderBlocks extends BlockLoot implements ILootProvider<Block
         for (DataBlockDrop blocksDrop : blocksDrops) {
             Block block = blocksDrop.getBlock();
             switch (blocksDrop.getType()) {
-                case SELF -> dropSelf(blocksDrop.getBlock());
-                case SILK_TOUCH -> dropWhenSilkTouch(blocksDrop.getBlock());
-                case OTHER_BLOCK -> dropOther(blocksDrop.getBlock(), blocksDrop.getDrop("other"));
-                case OTHER_BLOCK_SILK_TOUCH -> otherWhenSilkTouch(blocksDrop.getBlock(), (Block) blocksDrop.getDrop("other"));
-                case ORE -> oreDrops(blocksDrop.getBlock(), (Item) blocksDrop.getDrop("other"), blocksDrop.getCount().getMinValue(), blocksDrop.getCount().getMaxValue());
-                case FLOWER_POT -> dropPottedContents(blocksDrop.getBlock());
-                case SLAB -> add(blocksDrop.getBlock(), createSlabItemTable(blocksDrop.getBlock()));
-                case DOOR -> add(blocksDrop.getBlock(), createDoorTable(blocksDrop.getBlock()));
-                case ITEM -> add(blocksDrop.getBlock(), createSingleItemTable(blocksDrop.getDrop("item"), UniformGenerator.between(blocksDrop.getCount().getMinValue(), blocksDrop.getCount().getMaxValue())));
-                case CROPS -> cropDrops(blocksDrop.getBlock(),((DataCropsDrop)blocksDrop).getCrops().asItem(), ((DataCropsDrop) blocksDrop).getSeeds().asItem(), ((DataCropsDrop) blocksDrop).getMinAge(), ((DataCropsDrop) blocksDrop).getAgeProperty());
-                case LEAVES -> add(blocksDrop.getBlock(), createLeavesDrops(blocksDrop.getBlock(), (Block) blocksDrop.getDrop("other"), new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F}));
-                case STEM -> add(blocksDrop.getBlock(), createStemDrops(blocksDrop.getBlock(), blocksDrop.getDrop("other").asItem()));
-                case SHEARS -> add(blocksDrop.getBlock(), createShearsOnlyDrop(blocksDrop.getBlock().asItem()));
-                case OTHER_SHEARS -> add(blocksDrop.getBlock(), createShearsOnlyDrop(blocksDrop.getDrop("other")));
-                case GRASS_BLOCK -> add(blocksDrop.getBlock(), createSingleItemTableWithSilkTouch(blocksDrop.getBlock(), blocksDrop.getDrop("other")));
-                case EMPTY -> add(blocksDrop.getBlock(), noDrop());
-                case CUSTOM -> add(blocksDrop.getBlock(), blocksDrop.customBuild());
+                case SELF -> dropSelf(block);
+                case SILK_TOUCH -> dropWhenSilkTouch(block);
+                case OTHER_BLOCK -> dropOther(block, blocksDrop.getDrop("other"));
+                case OTHER_BLOCK_SILK_TOUCH -> otherWhenSilkTouch(block, (Block) blocksDrop.getDrop("other"));
+                case ORE -> oreDrops(block, (Item) blocksDrop.getDrop("other"), blocksDrop.getCount().getMinValue(), blocksDrop.getCount().getMaxValue());
+                case FLOWER_POT -> dropPottedContents(block);
+                case SLAB -> add(block, createSlabItemTable(block));
+                case DOOR -> add(block, createDoorTable(block));
+                case ITEM -> add(block, createSingleItemTable(blocksDrop.getDrop("item"), UniformGenerator.between(blocksDrop.getCount().getMinValue(), blocksDrop.getCount().getMaxValue())));
+                case CROPS -> cropDrops(block,((DataCropsDrop)blocksDrop).getCrops().asItem(), ((DataCropsDrop) blocksDrop).getSeeds().asItem(), ((DataCropsDrop) blocksDrop).getMinAge(), ((DataCropsDrop) blocksDrop).getAgeProperty());
+                case LEAVES -> add(block, createLeavesDrops(block, (Block) blocksDrop.getDrop("other"), new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F}));
+                case STEM -> add(block, createStemDrops(block, blocksDrop.getDrop("other").asItem()));
+                case SHEARS -> add(block, createShearsOnlyDrop(block.asItem()));
+                case OTHER_SHEARS -> add(block, createShearsOnlyDrop(blocksDrop.getDrop("other")));
+                case GRASS_BLOCK -> add(block, createSingleItemTableWithSilkTouch(block, blocksDrop.getDrop("other")));
+                case EMPTY -> add(block, noDrop());
+                case CUSTOM -> add(block, blocksDrop.customBuild());
             }
         }
     }

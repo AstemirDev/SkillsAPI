@@ -3,6 +3,7 @@ package org.astemir.api.data.model;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -37,6 +38,8 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider 
                 case SPAWN_EGG -> spawnEgg(pair.getKey());
                 case BLOCK_ITEM,FENCE_GATE_ITEM -> block(pair.getKey());
                 case TRAPDOOR_ITEM -> trapdoor(pair.getKey());
+                case TALL_GRASS -> tallGrass(pair.getKey());
+                case GRASS -> grass(pair.getKey());
                 case WALL_ITEM, FENCE_ITEM,BUTTON_ITEM -> blockInventory(pair.getKey());
             }
         }
@@ -66,6 +69,22 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider 
         ResourceLocation location = getItemLocation(item);
         return getBuilder(location.toString())
                 .parent(createModelFile(modId,"block/"+location.getPath()+"_bottom"));
+    }
+
+    public ItemModelBuilder tallGrass(Item item){
+        ResourceLocation location = getItemLocation(item);
+        ResourceLocation blockTexture = getBlockTexture(((BlockItem)item).getBlock());
+        return getBuilder(location.toString())
+                .parent(createModelFile("item/generated"))
+                .texture("layer0",blockTexture+"_top");
+    }
+
+    public ItemModelBuilder grass(Item item){
+        ResourceLocation location = getItemLocation(item);
+        ResourceLocation blockTexture = getBlockTexture(((BlockItem)item).getBlock());
+        return getBuilder(location.toString())
+                .parent(createModelFile("item/generated"))
+                .texture("layer0",blockTexture);
     }
 
 

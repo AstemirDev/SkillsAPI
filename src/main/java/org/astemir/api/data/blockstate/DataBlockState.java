@@ -11,6 +11,8 @@ public enum DataBlockState {
     COLUMN,
     FENCE,
     FENCE_GATE,
+    TALL_GRASS,
+    GRASS,
     WALL,
     SLAB,
     BUTTON,

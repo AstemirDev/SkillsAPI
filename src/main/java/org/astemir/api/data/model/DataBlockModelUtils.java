@@ -10,6 +10,20 @@ import static org.astemir.api.utils.ResourceUtils.*;
 public class DataBlockModelUtils {
 
 
+    public static BlockModelBuilder createTintedCross(BlockStateProvider provider, DataBlockStateHolder stateHolder,String topOrBottom) {
+        ResourceLocation location = getBlockLocation(stateHolder.getBlock());
+        return provider.models().getBuilder(location.toString()+"_"+topOrBottom)
+                .parent(createModelFile("block/tinted_cross"))
+                .texture("cross", stateHolder.getMaterial(topOrBottom)).renderType("cutout");
+    }
+
+    public static BlockModelBuilder createTintedCross(BlockStateProvider provider, DataBlockStateHolder stateHolder) {
+        ResourceLocation location = getBlockLocation(stateHolder.getBlock());
+        return provider.models().getBuilder(location.toString())
+                .parent(createModelFile("block/tinted_cross"))
+                .texture("cross", stateHolder.getMaterial("texture")).renderType("cutout");
+    }
+
     public static BlockModelBuilder createCrossBlock(BlockStateProvider provider, DataBlockStateHolder stateHolder) {
         ResourceLocation location = getBlockLocation(stateHolder.getBlock());
         return provider.models().getBuilder(location.toString())

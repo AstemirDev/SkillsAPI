@@ -3,6 +3,7 @@ package org.astemir.api.data.blockstate;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.function.Supplier;
 
 
+import static org.astemir.api.data.model.DataBlockModelUtils.createTintedCross;
 import static org.astemir.api.utils.ResourceUtils.*;
 
 
@@ -46,6 +48,8 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
                 case FENCE -> createFenceBlock(blockStateHolder);
                 case FENCE_GATE -> fenceGateBlock((FenceGateBlock) block,blockStateHolder.getMaterial("texture"));
                 case WALL -> createWallBlock(blockStateHolder);
+                case TALL_GRASS -> createDoublePlant(blockStateHolder);
+                case GRASS -> createGrass(blockStateHolder);
                 case STAIRS -> stairsBlock((StairBlock) blockStateHolder.getBlock(),blockStateHolder.getMaterial("texture"));
                 case PRESSURE_PLATE -> pressurePlateBlock((PressurePlateBlock) block,blockStateHolder.getMaterial("texture"));
                 case CUSTOM -> blockStateHolder.customBuild();
@@ -87,6 +91,17 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
     public void createChiseledBlock(DataBlockStateHolder stateHolder) {
         simpleBlock(stateHolder.getBlock(), new ConfiguredModel(models().cubeColumn(getBlockId(stateHolder.getBlock()), stateHolder.getMaterial("side"), stateHolder.getMaterial("end"))));
     }
+
+    public void createDoublePlant(DataBlockStateHolder stateHolder){
+        getVariantBuilder(stateHolder.getBlock()).
+                partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).addModels(new ConfiguredModel(createTintedCross(this,stateHolder,"bottom"))).
+                partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER).addModels(new ConfiguredModel(createTintedCross(this,stateHolder,"top")));
+    }
+
+    public void createGrass(DataBlockStateHolder stateHolder){
+        simpleBlock(stateHolder.getBlock(),createTintedCross(this, stateHolder));
+    }
+
 
 
     public DataBlockStateHolder addState(DataBlockStateHolder customHolder){

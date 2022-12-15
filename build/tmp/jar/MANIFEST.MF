@@ -3,7 +3,7 @@ Specification-Title: examplemod
 Specification-Vendor: examplemodsareus
 Specification-Version: 1
 Implementation-Title: SkillsAPI
-Implementation-Version: 1.2
+Implementation-Version: 1.3
 Implementation-Vendor: examplemodsareus
-Implementation-Timestamp: 2022-12-07T19:15:12+0300
+Implementation-Timestamp: 2022-12-15T02:36:27+0300
 

@@ -17,15 +17,15 @@ import java.util.function.Supplier;
 
 public class ClientMessageAnimation {
 
-    private UUID uuid;
+    private int id;
     private BlockPos pos;
     private Action action;
     private AnimationTarget target;
     private int animationId;
     private int tick = 0;
 
-    public ClientMessageAnimation(AnimationTarget target, UUID uuid, Action action, int animationId, int tick) {
-        this.uuid = uuid;
+    public ClientMessageAnimation(AnimationTarget target, int id, Action action, int animationId, int tick) {
+        this.id = id;
         this.action = action;
         this.target = target;
         this.animationId = animationId;
@@ -40,8 +40,8 @@ public class ClientMessageAnimation {
         this.tick = tick;
     }
 
-    public ClientMessageAnimation(AnimationTarget target, UUID uuid, Action action, int animationId) {
-        this.uuid = uuid;
+    public ClientMessageAnimation(AnimationTarget target, int id, Action action, int animationId) {
+        this.id = id;
         this.action = action;
         this.target = target;
         this.animationId = animationId;
@@ -57,7 +57,7 @@ public class ClientMessageAnimation {
     public static void encode(ClientMessageAnimation message, FriendlyByteBuf buf) {
         buf.writeEnum(message.target);
         if (message.target == AnimationTarget.ENTITY) {
-            buf.writeUUID(message.uuid);
+            buf.writeInt(message.id);
         }else
         if (message.target == AnimationTarget.BLOCK){
             buf.writeBlockPos(message.pos);
@@ -70,7 +70,7 @@ public class ClientMessageAnimation {
     public static ClientMessageAnimation decode(FriendlyByteBuf buf) {
         AnimationTarget target = buf.readEnum(AnimationTarget.class);
         if (target == AnimationTarget.ENTITY) {
-            return new ClientMessageAnimation(target, buf.readUUID(), buf.readEnum(Action.class), buf.readInt(),buf.readInt());
+            return new ClientMessageAnimation(target, buf.readInt(), buf.readEnum(Action.class), buf.readInt(),buf.readInt());
         }else
         if (target == AnimationTarget.BLOCK){
             return new ClientMessageAnimation(target, buf.readBlockPos(), buf.readEnum(Action.class), buf.readInt(),buf.readInt());
@@ -89,13 +89,8 @@ public class ClientMessageAnimation {
                 AnimationFactory factory = null;
                 switch (message.target){
                     case ENTITY:{
-                        for (Entity entity : Minecraft.getInstance().level.entitiesForRendering()) {
-                            if (entity instanceof IAnimated){
-                                IAnimated animatedEntity = (IAnimated)entity;
-                                if (((Entity)animatedEntity).getUUID().equals(message.uuid)){
-                                    factory = animatedEntity.getAnimationFactory();
-                                }
-                            }
+                        if (Minecraft.getInstance().level.getEntity(message.id) instanceof IAnimated animatedEntity){
+                            factory = animatedEntity.getAnimationFactory();
                         }
                         break;
                     }

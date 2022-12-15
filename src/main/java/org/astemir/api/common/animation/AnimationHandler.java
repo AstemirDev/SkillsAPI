@@ -33,7 +33,7 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getId(), type, animation.getUniqueId(),tick));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
@@ -64,7 +64,7 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(() -> player), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getUUID(), type, animation.getUniqueId(),tick));
+            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(() -> player), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getId(), type, animation.getUniqueId(),tick));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();

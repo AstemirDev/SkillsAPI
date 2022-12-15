@@ -49,7 +49,7 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ServerMessageAnimationSync(target,entity.getUUID()));
+            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ServerMessageAnimationSync(target,entity.getId()));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();

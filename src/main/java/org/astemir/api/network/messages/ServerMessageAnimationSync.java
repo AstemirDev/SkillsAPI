@@ -22,12 +22,12 @@ import java.util.function.Supplier;
 
 public class ServerMessageAnimationSync {
 
-    private UUID uuid;
+    private int id;
     private BlockPos pos;
     private AnimationTarget target;
 
-    public ServerMessageAnimationSync(AnimationTarget target, UUID uuid) {
-        this.uuid = uuid;
+    public ServerMessageAnimationSync(AnimationTarget target, int id) {
+        this.id = id;
         this.target = target;
     }
 
@@ -39,7 +39,7 @@ public class ServerMessageAnimationSync {
     public static void encode(ServerMessageAnimationSync message, FriendlyByteBuf buf) {
         buf.writeEnum(message.target);
         if (message.target == AnimationTarget.ENTITY) {
-            buf.writeUUID(message.uuid);
+            buf.writeInt(message.id);
         }else
         if (message.target == AnimationTarget.BLOCK){
             buf.writeBlockPos(message.pos);
@@ -49,7 +49,7 @@ public class ServerMessageAnimationSync {
     public static ServerMessageAnimationSync decode(FriendlyByteBuf buf) {
         AnimationTarget target = buf.readEnum(AnimationTarget.class);
         if (target == AnimationTarget.ENTITY) {
-            return new ServerMessageAnimationSync(target, buf.readUUID());
+            return new ServerMessageAnimationSync(target, buf.readInt());
         }else
         if (target == AnimationTarget.BLOCK){
             return new ServerMessageAnimationSync(target, buf.readBlockPos());
@@ -84,13 +84,8 @@ public class ServerMessageAnimationSync {
                 AnimationFactory factory = null;
                 switch (message.target){
                     case ENTITY:{
-                        for (Entity entity : playerEntity.level.getEntities(playerEntity,playerEntity.getBoundingBox().inflate(100,100,100))) {
-                            if (entity instanceof IAnimated){
-                                IAnimated animatedEntity = (IAnimated)entity;
-                                if (((Entity)animatedEntity).getUUID().equals(message.uuid)){
-                                    factory = animatedEntity.getAnimationFactory();
-                                }
-                            }
+                        if (playerEntity.level.getEntity(message.id) instanceof IAnimated animatedEntity){
+                            factory = animatedEntity.getAnimationFactory();
                         }
                         break;
                     }

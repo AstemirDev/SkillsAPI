@@ -29,7 +29,7 @@ public class AnimatorDataHandler {
                     data.remove(states);
                 }
             }else
-            if (states.getKey().getUniqueID() != null){
+            if (states.getKey().getId() != -1){
                 if (globalTick - tick > 300) {
                     data.remove(states);
                 }

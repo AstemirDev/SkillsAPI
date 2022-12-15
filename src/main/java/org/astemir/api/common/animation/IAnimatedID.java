@@ -8,12 +8,12 @@ import java.util.UUID;
 
 public class IAnimatedID {
 
-    private UUID uuid;
+    private int id = -1;
     private BlockPos pos;
 
     public IAnimatedID(IAnimated animated) {
         if (animated instanceof Entity){
-            uuid = ((Entity)animated).getUUID();
+            id = ((Entity)animated).getId();
         }
         if (animated instanceof BlockEntity){
             pos = ((BlockEntity)animated).getBlockPos();
@@ -21,8 +21,8 @@ public class IAnimatedID {
     }
 
     public IAnimatedID(Object key) {
-        if (key instanceof UUID){
-            uuid = (UUID) key;
+        if (key instanceof Integer){
+            id = (int) key;
         }
         if (key instanceof BlockPos){
             pos = (BlockPos) key;
@@ -34,12 +34,12 @@ public class IAnimatedID {
             return false;
         }
 
-        if (uuid != null) {
+        if (id != -1) {
             if (object instanceof IAnimatedID){
-                return uuid.equals(((IAnimatedID)object).getUniqueID());
+                return id == (((IAnimatedID)object).getId());
             }
-            if (object instanceof UUID) {
-                return uuid.equals(object);
+            if (object instanceof Integer) {
+                return id == (int)object;
             }
         }
         if (pos != null) {
@@ -57,8 +57,8 @@ public class IAnimatedID {
         return false;
     }
 
-    public UUID getUniqueID() {
-        return uuid;
+    public int getId() {
+        return id;
     }
 
     public BlockPos getPos() {

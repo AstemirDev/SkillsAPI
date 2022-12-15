@@ -37,4 +37,8 @@ public class AnimationList {
         }
         return null;
     }
+
+    public Set<Animation> getAnimations() {
+        return animations;
+    }
 }

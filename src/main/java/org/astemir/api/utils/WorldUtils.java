@@ -38,10 +38,16 @@ public class WorldUtils {
     };
 
     public static void invokeWorldClientEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+        if (level.isClientSide){
+            return;
+        }
         SkillsAPI.API_NETWORK.send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new ClientMessageWorldPosEvent(pos,event,arguments));
     }
 
     public static void invokeWorldServerEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+        if (!level.isClientSide){
+            return;
+        }
         SkillsAPI.API_NETWORK.sendToServer(new ServerMessageWorldPosEvent(pos,event,arguments));
     }
 

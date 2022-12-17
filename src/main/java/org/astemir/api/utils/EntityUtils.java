@@ -189,7 +189,7 @@ public class EntityUtils {
     }
 
     public static <T extends Entity & IEventEntity> void invokeEntityServerEvent(T entity, int event, PacketArgument... arguments){
-        if (entity.level.isClientSide){
+        if (!entity.level.isClientSide){
             return;
         }
         SkillsAPI.API_NETWORK.sendToServer(new ServerMessageEntityEvent(entity.getId(),event,arguments));

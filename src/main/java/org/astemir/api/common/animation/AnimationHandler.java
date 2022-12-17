@@ -9,6 +9,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.network.PacketDistributor;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ClientMessageAnimation;
 import org.astemir.api.network.AnimationTarget;
 import org.astemir.api.network.messages.ServerMessageAnimationSync;
@@ -33,12 +34,12 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getId(), type, animation.getUniqueId(),tick));
+            SkillsAPI.API_NETWORK.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getId(), type, animation.getUniqueId(),tick));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
             BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ClientMessageAnimation(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
+            SkillsAPI.API_NETWORK.send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ClientMessageAnimation(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
         }
     }
 
@@ -49,11 +50,11 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ServerMessageAnimationSync(target,entity.getId()));
+            SkillsAPI.API_NETWORK.sendToServer(new ServerMessageAnimationSync(target,entity.getId()));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().sendToServer(new ServerMessageAnimationSync(target,blockEntity.getBlockPos()));
+            SkillsAPI.API_NETWORK.sendToServer(new ServerMessageAnimationSync(target,blockEntity.getBlockPos()));
         }
     }
 
@@ -64,12 +65,12 @@ public enum AnimationHandler {
         }
         if (target == AnimationTarget.ENTITY) {
             Entity entity = (Entity) factory.getAnimated();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(() -> player), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getId(), type, animation.getUniqueId(),tick));
+            SkillsAPI.API_NETWORK.send(PacketDistributor.PLAYER.with(() -> player), new ClientMessageAnimation(AnimationTarget.ENTITY,entity.getId(), type, animation.getUniqueId(),tick));
         }else
         if (target == AnimationTarget.BLOCK){
             BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
             BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.PLAYER.with(()->player), new ClientMessageAnimation(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
+            SkillsAPI.API_NETWORK.send(PacketDistributor.PLAYER.with(()->player), new ClientMessageAnimation(AnimationTarget.BLOCK,pos, type, animation.getUniqueId(),tick));
         }
     }
 

@@ -20,10 +20,12 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.PacketDistributor;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.ClientMessageEntityEvent;
+import org.astemir.api.network.messages.ServerMessageEntityEvent;
 import org.astemir.example.SkillsAPIMod;
 import java.util.List;
 import java.util.function.Predicate;
@@ -183,7 +185,14 @@ public class EntityUtils {
         if (entity.level.isClientSide){
             return;
         }
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new ClientMessageEntityEvent(entity.getId(),event,arguments));
+        SkillsAPI.API_NETWORK.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(()->entity),new ClientMessageEntityEvent(entity.getId(),event,arguments));
+    }
+
+    public static <T extends Entity & IEventEntity> void invokeEntityServerEvent(T entity, int event, PacketArgument... arguments){
+        if (entity.level.isClientSide){
+            return;
+        }
+        SkillsAPI.API_NETWORK.sendToServer(new ServerMessageEntityEvent(entity.getId(),event,arguments));
     }
 
 

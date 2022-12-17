@@ -50,9 +50,33 @@ public abstract class SAEntityMonster extends Monster implements IAnimated, IAct
         actionStateMachine.update();
     }
 
+
     public void invokeEntityClientEvent(int event,PacketArgument... arguments){
         EntityUtils.invokeEntityClientEvent(this,event,arguments);
     }
+
+
+    public void invokeEntityServerEvent(int event,PacketArgument... arguments){
+        EntityUtils.invokeEntityServerEvent(this,event,arguments);
+    }
+
+    @Override
+    public void onHandleClientEvent(int event, PacketArgument[] arguments) {
+        onHandleClientEvent(event);
+    }
+
+    public void onHandleClientEvent(int event) {
+    }
+
+    @Override
+    public void onHandleServerEvent(int event, PacketArgument[] arguments) {
+        onHandleServerEvent(event);
+    }
+
+    public void onHandleServerEvent(int event) {
+    }
+
+
     @Override
     public void onActionBegin(ActionController controller, Action state) {
     }
@@ -82,13 +106,6 @@ public abstract class SAEntityMonster extends Monster implements IAnimated, IAct
     public void onAnimationEnd(Animation animation) {
     }
 
-    @Override
-    public void onHandleClientEvent(int event, PacketArgument[] arguments) {
-        onHandleClientEvent(event);
-    }
-
-    public void onHandleClientEvent(int event) {
-    }
 
     @Override
     public ActionStateMachine getActionStateMachine() {

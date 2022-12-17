@@ -10,6 +10,7 @@ import org.astemir.api.common.animation.*;
 import org.astemir.api.common.entity.SAEntityMonster;
 import org.astemir.api.common.state.Action;
 import org.astemir.api.common.state.ActionController;
+import org.astemir.api.network.PacketArgument;
 import org.astemir.api.utils.RandomUtils;
 
 import static org.astemir.api.utils.EntityUtils.isMoving;
@@ -39,6 +40,9 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
     public ActionController moveController = new ActionController(this,"moveController",ACTION_INFINITE);
     public static final Action ACTION_INFINITE = new Action(0,"infinite",-1);
 
+    private float testValue = 0;
+
+
 
     public EntityExampleMinotaur(EntityType<? extends Monster> p_34271_, Level p_34272_) {
         super(ExampleModEntities.MINOTAUR.get(), p_34272_);
@@ -47,6 +51,7 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
     @Override
     public void tick() {
         super.tick();
+        System.out.println(testValue);
         if (controller.is(ACTION_FURY)){
             animationFactory.play(ANIMATION_FURY);
         }
@@ -96,6 +101,14 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
         }
     }
 
+    @Override
+    public void onHandleClientEvent(int event, PacketArgument[] arguments) {
+    }
+
+    @Override
+    public void onHandleServerEvent(int event, PacketArgument[] arguments) {
+
+    }
 
     @Override
     public AnimationFactory getAnimationFactory() {

@@ -19,12 +19,12 @@ import java.util.function.Supplier;
 
 public class ServerMessageActionSync {
 
-    private UUID uuid;
+    private int entityId;
     private BlockPos pos;
     private ClientMessageActionController.Type type;
 
-    public ServerMessageActionSync(UUID uuid) {
-        this.uuid = uuid;
+    public ServerMessageActionSync(int id) {
+        this.entityId = id;
         this.type = ClientMessageActionController.Type.ENTITY;
     }
 
@@ -36,7 +36,7 @@ public class ServerMessageActionSync {
     public static void encode(ServerMessageActionSync message, FriendlyByteBuf buf) {
         buf.writeEnum(message.type);
         if (message.type == ClientMessageActionController.Type.ENTITY) {
-            buf.writeUUID(message.uuid);
+            buf.writeInt(message.entityId);
         }else
         if (message.type == ClientMessageActionController.Type.BLOCK) {
             buf.writeBlockPos(message.pos);
@@ -46,7 +46,7 @@ public class ServerMessageActionSync {
     public static ServerMessageActionSync decode(FriendlyByteBuf buf) {
         ClientMessageActionController.Type type = buf.readEnum(ClientMessageActionController.Type.class);
         if (type == ClientMessageActionController.Type.ENTITY) {
-            return new ServerMessageActionSync(buf.readUUID());
+            return new ServerMessageActionSync(buf.readInt());
         }else
         if (type == ClientMessageActionController.Type.BLOCK) {
             return new ServerMessageActionSync(buf.readBlockPos());
@@ -84,7 +84,7 @@ public class ServerMessageActionSync {
                         for (Entity entity : playerEntity.level.getEntities(playerEntity,playerEntity.getBoundingBox().inflate(100,100,100))) {
                             if (entity instanceof IActionListener){
                                 IActionListener actionListener = (IActionListener)entity;
-                                if (((Entity)actionListener).getUUID().equals(message.uuid)){
+                                if (((Entity)actionListener).getUUID().equals(message.entityId)){
                                     machine = actionListener.getActionStateMachine();
                                 }
                             }

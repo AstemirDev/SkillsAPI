@@ -55,12 +55,26 @@ public abstract class SAEntityCreature extends PathfinderMob implements IAnimate
         EntityUtils.invokeEntityClientEvent(this,event,arguments);
     }
 
+
+    public void invokeEntityServerEvent(int event,PacketArgument... arguments){
+        EntityUtils.invokeEntityServerEvent(this,event,arguments);
+    }
+
     @Override
     public void onHandleClientEvent(int event, PacketArgument[] arguments) {
         onHandleClientEvent(event);
     }
 
     public void onHandleClientEvent(int event) {
+        onHandleServerEvent(event);
+    }
+
+    @Override
+    public void onHandleServerEvent(int event, PacketArgument[] arguments) {
+
+    }
+
+    public void onHandleServerEvent(int event) {
     }
 
     @Override

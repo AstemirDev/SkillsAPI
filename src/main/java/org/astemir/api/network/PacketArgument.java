@@ -1,5 +1,6 @@
 package org.astemir.api.network;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.math.Color;
@@ -27,6 +28,7 @@ public class PacketArgument {
             case STRING -> buf.writeUtf((String)value);
             case UUID -> buf.writeUUID((UUID)value);
             case COLOR -> NetworkUtils.writeColor(buf,(Color)value);
+            case NBT -> buf.writeNbt((CompoundTag) value);
         }
     }
 
@@ -54,6 +56,9 @@ public class PacketArgument {
             case COLOR ->{
                 return new PacketArgument(type,NetworkUtils.readColor(buf));
             }
+            case NBT -> {
+                return new PacketArgument(type,buf.readAnySizeNbt());
+            }
         }
         return null;
     }
@@ -74,11 +79,14 @@ public class PacketArgument {
         return (double)value;
     }
 
+    public Color asColor(){return (Color)value;}
+
+    public CompoundTag asNBT(){return (CompoundTag) value;}
+
+
     public Object getValue() {
         return value;
     }
-
-    public Color getColor(){return (Color)value;}
 
     public ArgumentType getType() {
         return type;
@@ -89,7 +97,7 @@ public class PacketArgument {
     }
 
     public enum ArgumentType{
-        VEC3,FLOAT,DOUBLE,INT,STRING,UUID,COLOR;
+        VEC3,FLOAT,DOUBLE,INT,STRING,UUID,COLOR,NBT
     }
 
 }

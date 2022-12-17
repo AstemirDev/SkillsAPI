@@ -12,9 +12,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.network.PacketDistributor;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.PacketArgument;
-import org.astemir.api.network.messages.ClientMessageBlockEvent;
-import org.astemir.example.SkillsAPIMod;
+import org.astemir.api.network.messages.ClientMessageWorldPosEvent;
+import org.astemir.api.network.messages.ServerMessageWorldPosEvent;
 
 import java.util.UUID;
 
@@ -36,8 +37,12 @@ public class WorldUtils {
             Blocks.NETHER_PORTAL
     };
 
-    public static void invokeWorldEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
-        SkillsAPIMod.INSTANCE.getAPINetwork().send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new ClientMessageBlockEvent(pos,event,arguments));
+    public static void invokeWorldClientEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+        SkillsAPI.API_NETWORK.send(PacketDistributor.NEAR.with(() -> new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,level.dimension())), new ClientMessageWorldPosEvent(pos,event,arguments));
+    }
+
+    public static void invokeWorldServerEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+        SkillsAPI.API_NETWORK.sendToServer(new ServerMessageWorldPosEvent(pos,event,arguments));
     }
 
     public static Entity getEntity(UUID uuid, Level level){

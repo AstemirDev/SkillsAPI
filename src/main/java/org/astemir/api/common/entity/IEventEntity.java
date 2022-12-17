@@ -5,5 +5,7 @@ import org.astemir.api.network.PacketArgument;
 
 public interface IEventEntity {
 
+    void onHandleServerEvent(int event,PacketArgument[] arguments);
+
     void onHandleClientEvent(int event, PacketArgument[] arguments);
 }

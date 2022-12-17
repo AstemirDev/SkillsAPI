@@ -97,7 +97,8 @@ public class AnimatorDataHandler {
                 if (playingAnimations.contains(animation)){
                     float animationTick = getAnimationTick(animation);
                     float deltaSpeed = (delta*animation.getSpeed());
-                    if (animationTick < animation.getLength()) {
+                    float squaredDelta = deltaSpeed*deltaSpeed;
+                    if (animationTick+squaredDelta < animation.getLength()) {
                         animationTicks.put(animation,animationTick+deltaSpeed);
                     }else{
                         if (animation.getLoop() != Animation.Loop.HOLD_ON_LAST_FRAME) {

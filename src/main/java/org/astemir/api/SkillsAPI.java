@@ -23,7 +23,7 @@ public abstract class SkillsAPI {
 
     public static final Logger LOGGER = LogManager.getLogger();
 
-    private SimpleChannel network;
+    public static final SimpleChannel API_NETWORK = NetworkUtils.createNetworkChannel("skillsapi","api_network_channel");
 
     public final String MOD_ID;
 
@@ -42,15 +42,16 @@ public abstract class SkillsAPI {
     }
 
     protected void defaultCommon(){
-        network = NetworkUtils.createNetworkChannel(MOD_ID,"api_network_channel");
-        network.registerMessage(1, ClientMessageEntityEvent.class, ClientMessageEntityEvent::encode, ClientMessageEntityEvent::decode, new ClientMessageEntityEvent.Handler());
-        network.registerMessage(2, ClientMessageActionController.class, ClientMessageActionController::encode, ClientMessageActionController::decode, new ClientMessageActionController.Handler());
-        network.registerMessage(3, ClientMessageBlockEvent.class, ClientMessageBlockEvent::encode, ClientMessageBlockEvent::decode, new ClientMessageBlockEvent.Handler());
-        network.registerMessage(4, ServerPlayerInteractMessage.class, ServerPlayerInteractMessage::encode, ServerPlayerInteractMessage::decode, new ServerPlayerInteractMessage.Handler());
-        network.registerMessage(5, ClientMessagePlayerEffect.class, ClientMessagePlayerEffect::encode, ClientMessagePlayerEffect::decode, new ClientMessagePlayerEffect.Handler());
-        network.registerMessage(6, ClientMessageAnimation.class, ClientMessageAnimation::encode, ClientMessageAnimation::decode,new ClientMessageAnimation.Handler());
-        network.registerMessage(7, ServerMessageAnimationSync.class, ServerMessageAnimationSync::encode, ServerMessageAnimationSync::decode,new ServerMessageAnimationSync.Handler());
-        network.registerMessage(8, ServerMessageActionSync.class, ServerMessageActionSync::encode, ServerMessageActionSync::decode,new ServerMessageActionSync.Handler());
+        API_NETWORK.registerMessage(1, ClientMessageEntityEvent.class, ClientMessageEntityEvent::encode, ClientMessageEntityEvent::decode, new ClientMessageEntityEvent.Handler());
+        API_NETWORK.registerMessage(2, ClientMessageActionController.class, ClientMessageActionController::encode, ClientMessageActionController::decode, new ClientMessageActionController.Handler());
+        API_NETWORK.registerMessage(3, ClientMessageWorldPosEvent.class, ClientMessageWorldPosEvent::encode, ClientMessageWorldPosEvent::decode, new ClientMessageWorldPosEvent.Handler());
+        API_NETWORK.registerMessage(4, ServerPlayerInteractMessage.class, ServerPlayerInteractMessage::encode, ServerPlayerInteractMessage::decode, new ServerPlayerInteractMessage.Handler());
+        API_NETWORK.registerMessage(5, ClientMessagePlayerEffect.class, ClientMessagePlayerEffect::encode, ClientMessagePlayerEffect::decode, new ClientMessagePlayerEffect.Handler());
+        API_NETWORK.registerMessage(6, ClientMessageAnimation.class, ClientMessageAnimation::encode, ClientMessageAnimation::decode,new ClientMessageAnimation.Handler());
+        API_NETWORK.registerMessage(7, ServerMessageAnimationSync.class, ServerMessageAnimationSync::encode, ServerMessageAnimationSync::decode,new ServerMessageAnimationSync.Handler());
+        API_NETWORK.registerMessage(8, ServerMessageActionSync.class, ServerMessageActionSync::encode, ServerMessageActionSync::decode,new ServerMessageActionSync.Handler());
+        API_NETWORK.registerMessage(9, ServerMessageWorldPosEvent.class, ServerMessageWorldPosEvent::encode, ServerMessageWorldPosEvent::decode,new ServerMessageWorldPosEvent.Handler());
+        API_NETWORK.registerMessage(10, ServerMessageEntityEvent.class, ServerMessageEntityEvent::encode, ServerMessageEntityEvent::decode,new ServerMessageEntityEvent.Handler());
     }
 
     public void initializeAPI(){
@@ -97,8 +98,4 @@ public abstract class SkillsAPI {
     protected void onProcessIMC(InterModProcessEvent event){};
 
     protected void onUnsafeClientSetup(){};
-
-    public SimpleChannel getAPINetwork() {
-        return network;
-    }
 }

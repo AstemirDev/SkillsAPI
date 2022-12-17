@@ -45,11 +45,11 @@ public class PlayAnimationCommand {
         CommandArgument pos = CommandArgument.blockPos("pos");
         CommandArgument name = CommandArgument.word("name");
         CommandBuilder builder = new CommandBuilder("playanimation")
-                .variants(new CommandVariant(targets,name).execute((p)->{
+                .variants(
+                   new CommandVariant(targets,name).execute((p)->{
                     playAnimation(p.getSource(),targets.getEntities(p),name.getString(p));
                     return 0;
-                })).
-                variants(new CommandVariant(pos,name).execute((p)->{
+                }),new CommandVariant(pos,name).execute((p)->{
                     playAnimation(p.getSource(),pos.getBlockPos(p),name.getString(p));
                     return 0;
                 }));

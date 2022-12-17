@@ -11,8 +11,9 @@ public class NetworkUtils {
 
     public static SimpleChannel createNetworkChannel(String modId,String name){
         String networkVersion = "1.3";
-        SimpleChannel channel = NetworkRegistry.newSimpleChannel(new ResourceLocation(modId,name), () -> networkVersion, (v) -> v.equals(networkVersion), (v) -> v.equals(networkVersion));
-        return channel;
+        NetworkRegistry.ChannelBuilder channel = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(modId,name));
+        channel = channel.clientAcceptedVersions(networkVersion::equals);
+        return channel.serverAcceptedVersions(networkVersion::equals).networkProtocolVersion(() -> networkVersion).simpleChannel();
     }
 
     public static Vec3 readVec3(FriendlyByteBuf buffer){

@@ -21,14 +21,15 @@ public class PacketArgument {
     public void write(FriendlyByteBuf buf){
         buf.writeEnum(type);
         switch (type){
-            case VEC3 -> NetworkUtils.writeVec3(buf, (Vec3) value);
-            case DOUBLE -> buf.writeDouble((double)value);
-            case FLOAT -> buf.writeFloat((float) value);
-            case INT -> buf.writeInt((int)value);
-            case STRING -> buf.writeUtf((String)value);
-            case UUID -> buf.writeUUID((UUID)value);
-            case COLOR -> NetworkUtils.writeColor(buf,(Color)value);
-            case NBT -> buf.writeNbt((CompoundTag) value);
+            case VEC3 -> NetworkUtils.writeVec3(buf, asVec3());
+            case DOUBLE -> buf.writeDouble(asDouble());
+            case FLOAT -> buf.writeFloat(asFloat());
+            case INT -> buf.writeInt(asInt());
+            case STRING -> buf.writeUtf(asString());
+            case UUID -> buf.writeUUID(asUUID());
+            case COLOR -> NetworkUtils.writeColor(buf,asColor());
+            case NBT -> buf.writeNbt(asNBT());
+            case BOOL -> buf.writeBoolean(asBoolean());
         }
     }
 
@@ -53,6 +54,9 @@ public class PacketArgument {
             case UUID ->{
                 return new PacketArgument(type,buf.readUUID());
             }
+            case BOOL -> {
+                return new PacketArgument(type,buf.readBoolean());
+            }
             case COLOR ->{
                 return new PacketArgument(type,NetworkUtils.readColor(buf));
             }
@@ -73,6 +77,8 @@ public class PacketArgument {
 
     public int asInt(){return (int)value;}
 
+    public boolean asBoolean(){return (boolean)value;}
+
     public String asString(){return (String)value;}
 
     public double asDouble(){
@@ -80,6 +86,8 @@ public class PacketArgument {
     }
 
     public Color asColor(){return (Color)value;}
+
+    public UUID asUUID(){return (UUID)value;}
 
     public CompoundTag asNBT(){return (CompoundTag) value;}
 
@@ -97,7 +105,7 @@ public class PacketArgument {
     }
 
     public enum ArgumentType{
-        VEC3,FLOAT,DOUBLE,INT,STRING,UUID,COLOR,NBT
+        VEC3,FLOAT,DOUBLE,INT,STRING,UUID,COLOR,NBT,BOOL
     }
 
 }

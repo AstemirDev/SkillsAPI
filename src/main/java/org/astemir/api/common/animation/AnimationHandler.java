@@ -13,7 +13,6 @@ import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ClientMessageAnimation;
 import org.astemir.api.network.AnimationTarget;
 import org.astemir.api.network.messages.ServerMessageAnimationSync;
-import org.astemir.example.SkillsAPIMod;
 
 
 public enum AnimationHandler {

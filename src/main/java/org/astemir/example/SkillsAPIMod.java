@@ -18,6 +18,7 @@ import org.astemir.api.client.render.AdvancedRendererItem;
 import org.astemir.api.client.TESRModels;
 import org.astemir.api.client.ArmorModels;
 import org.astemir.api.common.event.EventManager;
+import org.astemir.api.network.messages.*;
 import org.astemir.example.client.render.mace.WrapperExampleMace;
 import org.astemir.example.client.render.minotaur.RendererExampleMinotaur;
 import org.astemir.example.client.render.beacon.RendererExampleCosmicBeacon;
@@ -36,7 +37,11 @@ public class SkillsAPIMod extends SkillsAPI {
 
     public static SkillsAPIMod INSTANCE;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
+
+    static{
+        initializeNetwork();
+    }
 
     public SkillsAPIMod() {
         super(MOD_ID);
@@ -52,7 +57,6 @@ public class SkillsAPIMod extends SkillsAPI {
 
     @Override
     public void onCommonSetup(FMLCommonSetupEvent event) {
-        defaultCommon();
     }
 
     @Override

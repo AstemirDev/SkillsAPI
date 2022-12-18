@@ -40,7 +40,6 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
     public ActionController moveController = new ActionController(this,"moveController",ACTION_INFINITE);
     public static final Action ACTION_INFINITE = new Action(0,"infinite",-1);
 
-    private float testValue = 0;
 
 
 
@@ -51,7 +50,6 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
     @Override
     public void tick() {
         super.tick();
-        System.out.println(testValue);
         if (controller.is(ACTION_FURY)){
             animationFactory.play(ANIMATION_FURY);
         }

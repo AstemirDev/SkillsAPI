@@ -27,6 +27,8 @@ public abstract class SkillsAPI {
 
     public final String MOD_ID;
 
+    public static volatile boolean INITIALIZED = false;
+
     public SkillsAPI(String modId) {
         MOD_ID = modId;
     }
@@ -41,17 +43,23 @@ public abstract class SkillsAPI {
         EventManager.registerFMLEvent(EventEntityRegister::onAttributesLoad);
     }
 
-    protected void defaultCommon(){
-        API_NETWORK.registerMessage(1, ClientMessageEntityEvent.class, ClientMessageEntityEvent::encode, ClientMessageEntityEvent::decode, new ClientMessageEntityEvent.Handler());
-        API_NETWORK.registerMessage(2, ClientMessageActionController.class, ClientMessageActionController::encode, ClientMessageActionController::decode, new ClientMessageActionController.Handler());
-        API_NETWORK.registerMessage(3, ClientMessageWorldPosEvent.class, ClientMessageWorldPosEvent::encode, ClientMessageWorldPosEvent::decode, new ClientMessageWorldPosEvent.Handler());
-        API_NETWORK.registerMessage(4, ServerPlayerInteractMessage.class, ServerPlayerInteractMessage::encode, ServerPlayerInteractMessage::decode, new ServerPlayerInteractMessage.Handler());
-        API_NETWORK.registerMessage(5, ClientMessagePlayerEffect.class, ClientMessagePlayerEffect::encode, ClientMessagePlayerEffect::decode, new ClientMessagePlayerEffect.Handler());
-        API_NETWORK.registerMessage(6, ClientMessageAnimation.class, ClientMessageAnimation::encode, ClientMessageAnimation::decode,new ClientMessageAnimation.Handler());
-        API_NETWORK.registerMessage(7, ServerMessageAnimationSync.class, ServerMessageAnimationSync::encode, ServerMessageAnimationSync::decode,new ServerMessageAnimationSync.Handler());
-        API_NETWORK.registerMessage(8, ServerMessageActionSync.class, ServerMessageActionSync::encode, ServerMessageActionSync::decode,new ServerMessageActionSync.Handler());
-        API_NETWORK.registerMessage(9, ServerMessageWorldPosEvent.class, ServerMessageWorldPosEvent::encode, ServerMessageWorldPosEvent::decode,new ServerMessageWorldPosEvent.Handler());
-        API_NETWORK.registerMessage(10, ServerMessageEntityEvent.class, ServerMessageEntityEvent::encode, ServerMessageEntityEvent::decode,new ServerMessageEntityEvent.Handler());
+
+
+    public static synchronized void initializeNetwork(){
+        if (!INITIALIZED) {
+            int id = 0;
+            API_NETWORK.registerMessage(id++, ClientMessageEntityEvent.class, ClientMessageEntityEvent::encode, ClientMessageEntityEvent::decode, new ClientMessageEntityEvent.Handler());
+            API_NETWORK.registerMessage(id++, ClientMessageActionController.class, ClientMessageActionController::encode, ClientMessageActionController::decode, new ClientMessageActionController.Handler());
+            API_NETWORK.registerMessage(id++, ClientMessageWorldPosEvent.class, ClientMessageWorldPosEvent::encode, ClientMessageWorldPosEvent::decode, new ClientMessageWorldPosEvent.Handler());
+            API_NETWORK.registerMessage(id++, ServerPlayerInteractMessage.class, ServerPlayerInteractMessage::encode, ServerPlayerInteractMessage::decode, new ServerPlayerInteractMessage.Handler());
+            API_NETWORK.registerMessage(id++, ClientMessagePlayerEffect.class, ClientMessagePlayerEffect::encode, ClientMessagePlayerEffect::decode, new ClientMessagePlayerEffect.Handler());
+            API_NETWORK.registerMessage(id++, ClientMessageAnimation.class, ClientMessageAnimation::encode, ClientMessageAnimation::decode, new ClientMessageAnimation.Handler());
+            API_NETWORK.registerMessage(id++, ServerMessageAnimationSync.class, ServerMessageAnimationSync::encode, ServerMessageAnimationSync::decode, new ServerMessageAnimationSync.Handler());
+            API_NETWORK.registerMessage(id++, ServerMessageActionSync.class, ServerMessageActionSync::encode, ServerMessageActionSync::decode, new ServerMessageActionSync.Handler());
+            API_NETWORK.registerMessage(id++, ServerMessageWorldPosEvent.class, ServerMessageWorldPosEvent::encode, ServerMessageWorldPosEvent::decode, new ServerMessageWorldPosEvent.Handler());
+            API_NETWORK.registerMessage(id++, ServerMessageEntityEvent.class, ServerMessageEntityEvent::encode, ServerMessageEntityEvent::decode, new ServerMessageEntityEvent.Handler());
+            INITIALIZED = true;
+        }
     }
 
     public void initializeAPI(){

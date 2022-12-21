@@ -88,3 +88,13 @@
 [21дек.2022 07:01:30.989] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
 [21дек.2022 07:01:30.994] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
 [21дек.2022 07:01:30.996] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[21дек.2022 07:02:46.520] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[21дек.2022 07:02:46.536] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[21дек.2022 07:02:46.557] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[21дек.2022 07:02:48.647] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[21дек.2022 07:02:48.733] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[21дек.2022 07:02:48.734] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[21дек.2022 07:02:48.788] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Новый мир): All chunks are saved
+[21дек.2022 07:02:48.791] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[21дек.2022 07:02:48.791] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[21дек.2022 07:02:48.791] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

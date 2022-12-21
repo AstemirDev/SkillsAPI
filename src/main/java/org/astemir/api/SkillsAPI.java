@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.network.simple.IndexedMessageCodec;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.astemir.api.client.ArmorModels;
 import org.astemir.api.client.ClientStateHandler;
@@ -37,11 +38,11 @@ public class SkillsAPI extends ForgeMod {
 
     public static volatile boolean INITIALIZED = false;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
 
 
     static{
-        initializeNetwork();
+        initialize();
     }
 
 
@@ -59,7 +60,7 @@ public class SkillsAPI extends ForgeMod {
     }
 
 
-    private static synchronized void initializeNetwork(){
+    synchronized public static void initialize(){
         if (!INITIALIZED) {
             int id = 0;
             API_NETWORK.registerMessage(id++, ClientMessageEntityEvent.class, ClientMessageEntityEvent::encode, ClientMessageEntityEvent::decode, new ClientMessageEntityEvent.Handler());
@@ -72,8 +73,8 @@ public class SkillsAPI extends ForgeMod {
             API_NETWORK.registerMessage(id++, ServerMessageActionSync.class, ServerMessageActionSync::encode, ServerMessageActionSync::decode, new ServerMessageActionSync.Handler());
             API_NETWORK.registerMessage(id++, ServerMessageWorldPosEvent.class, ServerMessageWorldPosEvent::encode, ServerMessageWorldPosEvent::decode, new ServerMessageWorldPosEvent.Handler());
             API_NETWORK.registerMessage(id++, ServerMessageEntityEvent.class, ServerMessageEntityEvent::encode, ServerMessageEntityEvent::decode, new ServerMessageEntityEvent.Handler());
-            INITIALIZED = true;
         }
+        INITIALIZED = true;
     }
 
     @Override

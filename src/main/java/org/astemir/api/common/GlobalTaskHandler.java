@@ -2,7 +2,6 @@ package org.astemir.api.common;
 
 import net.minecraft.world.entity.Entity;
 import org.astemir.api.common.entity.ai.EntityTask;
-import org.astemir.example.SkillsAPIMod;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 

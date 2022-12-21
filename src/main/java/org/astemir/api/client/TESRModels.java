@@ -10,16 +10,19 @@ import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.astemir.api.utils.ResourceUtils;
 import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
 public class TESRModels {
@@ -46,6 +49,18 @@ public class TESRModels {
     public static void addModelReplacement(String itemPath,String handModelPath){
         MODELS.put(itemPath,handModelPath);
     }
+
+
+    public static void addModelReplacement(Item item, String handModelPath){
+        MODELS.put(ResourceUtils.getItemId(item),handModelPath);
+    }
+
+
+    public static void addModelReplacement(Supplier<Item> item, String handModelPath){
+        MODELS.put(ResourceUtils.getItemId(item.get()),handModelPath);
+    }
+
+
 
 
     private static void bakeModelReplacement(Map<ResourceLocation, BakedModel> modelsMap, String inventoryPath, String inHandPath) {

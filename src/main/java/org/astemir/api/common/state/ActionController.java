@@ -8,7 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ClientMessageActionController;
-import org.astemir.example.SkillsAPIMod;
+
 
 
 public class ActionController<T extends IActionListener> {

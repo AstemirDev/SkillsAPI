@@ -11,10 +11,7 @@ import org.astemir.api.common.GlobalTaskHandler;
 import org.astemir.api.common.animation.AnimationEvent;
 import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.state.ActionController;
-import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.common.state.IActionListener;
-import org.astemir.example.SkillsAPIMod;
 
 public class EventMisc {
 

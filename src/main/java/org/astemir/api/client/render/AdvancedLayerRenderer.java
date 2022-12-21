@@ -13,10 +13,6 @@ import net.minecraft.world.entity.Entity;
 import org.astemir.api.client.SARenderTypes;
 import org.astemir.api.client.wrapper.AbstractModelWrapperEntity;
 import org.astemir.api.common.animation.ITESRModel;
-import org.astemir.api.utils.ResourceUtils;
-import org.astemir.example.SkillsAPIMod;
-import org.astemir.example.client.render.minotaur.WrapperExampleMinotaur;
-import org.astemir.example.common.entity.EntityExampleMinotaur;
 
 public class AdvancedLayerRenderer<T extends Entity & ITESRModel, M extends AbstractModelWrapperEntity<T>> extends RenderLayer<T, M> {
 

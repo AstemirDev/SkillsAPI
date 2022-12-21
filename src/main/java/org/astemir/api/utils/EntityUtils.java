@@ -26,7 +26,6 @@ import org.astemir.api.math.Vector3;
 import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.ClientMessageEntityEvent;
 import org.astemir.api.network.messages.ServerMessageEntityEvent;
-import org.astemir.example.SkillsAPIMod;
 import java.util.List;
 import java.util.function.Predicate;
 

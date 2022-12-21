@@ -5,7 +5,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ServerMessageActionSync;
-import org.astemir.example.SkillsAPIMod;
 
 public interface IActionListener {
 

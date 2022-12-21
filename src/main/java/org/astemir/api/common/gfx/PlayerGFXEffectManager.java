@@ -4,7 +4,6 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ClientMessagePlayerEffect;
-import org.astemir.example.SkillsAPIMod;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 

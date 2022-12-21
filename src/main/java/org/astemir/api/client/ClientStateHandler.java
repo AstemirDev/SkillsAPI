@@ -7,18 +7,19 @@ import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.animation.AnimatorDataHandler;
 import org.astemir.api.common.gfx.*;
 import org.astemir.api.math.Color;
 import org.astemir.api.utils.RenderUtils;
 import org.astemir.api.utils.ResourceUtils;
-import org.astemir.example.SkillsAPIMod;
+
 
 public class ClientStateHandler {
 
     public static AnimatorDataHandler ANIMATION_DATA_HANDLER = new AnimatorDataHandler();
 
-    public static ResourceLocation BLACKOUT_TEXTURE = ResourceUtils.loadTexture(SkillsAPIMod.MOD_ID,"ui/blackout.png");
+    public static ResourceLocation BLACKOUT_TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"ui/blackout.png");
 
     @SubscribeEvent
     public static void onMainRender(TickEvent.RenderTickEvent e){

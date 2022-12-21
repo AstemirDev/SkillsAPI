@@ -4,7 +4,7 @@ license="All rights reserved"
 [[mods]]
 modId="skillsapi"
 version="1.3"
-displayName="Skills Mod's API"
+displayName="Skills API"
 logoFile="pack.png"
 credits="Useful features and requirements for SkillSun's mods."
 authors="Astemir"

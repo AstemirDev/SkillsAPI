@@ -32,7 +32,7 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
     }
 
 
-    public void renderWrapper(PoseStack p_103111_, VertexConsumer p_103112_, int p_103113_, int p_103114_, float p_103115_, float p_103116_, float p_103117_, float p_103118_, RenderCall renderCall,boolean resetBuffer) {
+    public void renderWrapper(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float r, float g, float b, float a, RenderCall renderCall,boolean resetBuffer) {
         boolean hasFoil = false;
         if (itemStack != null){
             hasFoil = itemStack.hasFoil();
@@ -40,12 +40,12 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
         VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
         AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
-        model.renderModel(p_103111_,consumer,p_103113_, p_103114_, p_103115_, p_103116_, p_103117_, p_103118_,renderCall,resetBuffer);
+        model.renderModel(poseStack,consumer,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }
 
     @Override
-    public void renderToBuffer(PoseStack p_103111_, VertexConsumer p_103112_, int p_103113_, int p_103114_, float p_103115_, float p_103116_, float p_103117_, float p_103118_) {
-        renderWrapper(p_103111_,p_103112_,p_103113_,p_103114_,p_103115_,p_103116_,p_103117_,p_103118_,RenderCall.MODEL,false);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float r, float g, float b, float a) {
+        renderWrapper(poseStack,vertexConsumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
     }
 
     public void setupAngles(LivingEntity entity, T target, ItemStack stack, EquipmentSlot equipmentSlot, HumanoidModel<?> original){
@@ -114,7 +114,7 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
     }
 
     @Override
-    public void setupAnim(LivingEntity p_102866_, float p_102867_, float p_102868_, float p_102869_, float p_102870_, float p_102871_) {
+    public void setupAnim(LivingEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
     }
 
     @Override

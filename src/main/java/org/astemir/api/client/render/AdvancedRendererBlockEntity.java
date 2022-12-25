@@ -15,26 +15,26 @@ public class AdvancedRendererBlockEntity<T extends BlockEntity & ISARendered> im
 
     private AbstractModelWrapperBlockEntity<T> blockModelWrapper;
 
-    public AdvancedRendererBlockEntity(BlockEntityRendererProvider.Context p_173636_, AbstractModelWrapperBlockEntity wrapper) {
+    public AdvancedRendererBlockEntity(BlockEntityRendererProvider.Context context, AbstractModelWrapperBlockEntity wrapper) {
         this.blockModelWrapper = wrapper;
     }
 
     @Override
-    public void render(T p_112307_, float p_112308_, PoseStack p_112309_, MultiBufferSource p_112310_, int p_112311_, int p_112312_) {
-        if (p_112307_ instanceof IAnimated){
-            float ticks = ((IAnimated) p_112307_).getTicks();
-            blockModelWrapper.getModel(p_112307_).setupAnim(p_112307_,0,0,ticks+p_112308_,0,0);
+    public void render(T blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
+        if (blockEntity instanceof IAnimated){
+            float ticks = ((IAnimated) blockEntity).getTicks();
+            blockModelWrapper.getModel(blockEntity).setupAnim(blockEntity,0,0,ticks+partialTick,0,0);
         }
-        blockModelWrapper.renderTarget = (T) p_112307_;
-        blockModelWrapper.multiBufferSource = p_112310_;
-        int i;
-        if (p_112307_.getLevel() != null) {
-            i = LevelRenderer.getLightColor(p_112307_.getLevel(), p_112307_.getBlockPos().above());
+        blockModelWrapper.renderTarget = (T) blockEntity;
+        blockModelWrapper.multiBufferSource = bufferSource;
+        int light = 0;
+        if (blockEntity.getLevel() != null) {
+            light = LevelRenderer.getLightColor(blockEntity.getLevel(), blockEntity.getBlockPos().above());
         } else {
-            i = 15728880;
+            light = 15728880;
         }
-        VertexConsumer consumer = p_112310_.getBuffer(blockModelWrapper.getRenderType());
-        blockModelWrapper.renderToBuffer(p_112309_,consumer,i,p_112312_,1,1,1,1);
+        VertexConsumer consumer = bufferSource.getBuffer(blockModelWrapper.getRenderType());
+        blockModelWrapper.renderToBuffer(poseStack,consumer,light,packedOverlay,1,1,1,1);
     }
 
     public AbstractModelWrapperBlockEntity<T> getBlockModelWrapper() {

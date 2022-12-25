@@ -14,19 +14,20 @@ import org.astemir.api.common.animation.ISARendered;
 
 public class AdvancedLayerRenderer<T extends Entity & ISARendered, M extends AbstractModelWrapperEntity<T>> extends RenderLayer<T, M> {
 
-    public AdvancedLayerRenderer(RenderLayerParent<T, M> p_117346_) {
-        super(p_117346_);
+    public AdvancedLayerRenderer(RenderLayerParent<T, M> parent) {
+        super(parent);
     }
 
     @Override
-    public void render(PoseStack p_117349_, MultiBufferSource p_117350_, int p_117351_, T p_117352_, float p_117353_, float p_117354_, float p_117355_, float p_117356_, float p_117357_, float p_117358_) {
-        renderWrapper(p_117349_, p_117350_, p_117351_, p_117352_, p_117353_, p_117354_, p_117355_, p_117356_, p_117357_, p_117358_);
+    public void render(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, T entity, float limbSwing, float swingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch) {
+        renderWrapper(poseStack, bufferSource, packedLight, entity, limbSwing, swingAmount, partialTick, ageInTicks, netHeadYaw, headPitch,1,1,1,1);
     }
 
-    public void renderWrapper(PoseStack p_117349_,MultiBufferSource source,int p_117351_, T p_117352_, float p_117353_, float p_117354_, float r, float g, float b, float a){
-        VertexConsumer vertexconsumer = source.getBuffer(getBuffer(p_117352_));
-        this.getParentModel().renderWrapper(p_117349_, vertexconsumer, getEyeLight(p_117351_), OverlayTexture.NO_OVERLAY, r, g, b, a, RenderCall.LAYER,false);
+    public void renderWrapper(PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, T entity, float limbSwing, float swingAmount, float partialTick, float ageInTicks, float netHeadYaw, float headPitch, float r, float g, float b, float a){
+        VertexConsumer vertexconsumer = bufferSource.getBuffer(getBuffer(entity));
+        this.getParentModel().renderWrapper(poseStack, vertexconsumer, getEyeLight(packedLight), OverlayTexture.NO_OVERLAY, r, g, b, a, RenderCall.LAYER,false);
     }
+
 
     public RenderType getBuffer(T entity){
         return SARenderTypes.eyesTransparent(getTextureLocation(entity));

@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
+import org.astemir.api.common.animation.HolderKey;
 import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.common.state.IActionListener;
@@ -19,39 +20,19 @@ import java.util.function.Supplier;
 
 public class ServerMessageActionSync {
 
-    private int entityId;
-    private BlockPos pos;
-    private ClientMessageActionController.Type type;
 
-    public ServerMessageActionSync(int id) {
-        this.entityId = id;
-        this.type = ClientMessageActionController.Type.ENTITY;
-    }
+    private HolderKey holderKey;
 
-    public ServerMessageActionSync(BlockPos pos) {
-        this.pos = pos;
-        this.type = ClientMessageActionController.Type.BLOCK;
+    public ServerMessageActionSync(HolderKey key) {
+        this.holderKey = key;
     }
 
     public static void encode(ServerMessageActionSync message, FriendlyByteBuf buf) {
-        buf.writeEnum(message.type);
-        if (message.type == ClientMessageActionController.Type.ENTITY) {
-            buf.writeInt(message.entityId);
-        }else
-        if (message.type == ClientMessageActionController.Type.BLOCK) {
-            buf.writeBlockPos(message.pos);
-        }
+        message.holderKey.write(buf);
     }
 
     public static ServerMessageActionSync decode(FriendlyByteBuf buf) {
-        ClientMessageActionController.Type type = buf.readEnum(ClientMessageActionController.Type.class);
-        if (type == ClientMessageActionController.Type.ENTITY) {
-            return new ServerMessageActionSync(buf.readInt());
-        }else
-        if (type == ClientMessageActionController.Type.BLOCK) {
-            return new ServerMessageActionSync(buf.readBlockPos());
-        }
-        return null;
+        return new ServerMessageActionSync(HolderKey.read(buf));
     }
 
 
@@ -79,12 +60,12 @@ public class ServerMessageActionSync {
         private static void processMessage(ServerMessageActionSync message, ServerPlayer playerEntity) {
             if (playerEntity != null) {
                 ActionStateMachine machine = null;
-                switch (message.type){
+                switch (message.holderKey.getTarget()){
                     case ENTITY:{
                         for (Entity entity : playerEntity.level.getEntities(playerEntity,playerEntity.getBoundingBox().inflate(100,100,100))) {
                             if (entity instanceof IActionListener){
                                 IActionListener actionListener = (IActionListener)entity;
-                                if (((Entity)actionListener).getUUID().equals(message.entityId)){
+                                if (((Entity)actionListener).getUUID().equals(message.holderKey.getId())){
                                     machine = actionListener.getActionStateMachine();
                                 }
                             }
@@ -92,7 +73,7 @@ public class ServerMessageActionSync {
                         break;
                     }
                     case BLOCK:{
-                        BlockEntity blockEntity = playerEntity.level.getBlockEntity(message.pos);
+                        BlockEntity blockEntity = playerEntity.level.getBlockEntity(message.holderKey.getPos());
                         if (blockEntity instanceof IActionListener){
                             machine = ((IActionListener) blockEntity).getActionStateMachine();
                         }

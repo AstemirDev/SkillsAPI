@@ -28,16 +28,16 @@ public class AnimationFactory {
     }
 
     public void sendAnimation(Animation animation,int tick){
-        AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new IAnimatedKey(animated), ClientMessageAnimation.Action.START,tick);
+        AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new HolderKey(animated), ClientMessageAnimation.Action.START,tick);
     }
 
     public void syncClient(){
-        AnimationHandler.INSTANCE.sendClientSyncMessage(this,new IAnimatedKey(animated));
+        AnimationHandler.INSTANCE.sendClientSyncMessage(this,new HolderKey(animated));
     }
 
     public void stop(Animation animation){
         if (isPlaying(animation)) {
-            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new IAnimatedKey(animated), ClientMessageAnimation.Action.STOP,0);
+            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new HolderKey(animated), ClientMessageAnimation.Action.STOP,0);
         }
     }
 

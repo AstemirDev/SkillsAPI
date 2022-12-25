@@ -36,35 +36,35 @@ public abstract class AdvancedRendererEntity<T extends Entity & ISARendered,M ex
         this.model = (M) entityModel;
     }
 
-    public final boolean addLayer(RenderLayer<T, M> p_115327_) {
-        return this.layers.add(p_115327_);
+    public final boolean addLayer(RenderLayer<T, M> layer) {
+        return this.layers.add(layer);
     }
 
     @Override
-    public void render(T p_115308_, float p_115309_, float p_115310_, PoseStack p_115311_, MultiBufferSource p_115312_, int p_115313_) {
-        entityModelWrapper.renderTarget = p_115308_;
-        entityModelWrapper.multiBufferSource = p_115312_;
-        float f1 = Mth.rotLerp(p_115310_, p_115308_.yRotO, p_115308_.getYRot());
-        float f2 = Mth.rotLerp(p_115310_, p_115308_.xRotO, p_115308_.getXRot());
-        p_115311_.pushPose();
+    public void render(T entity, float yaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+        entityModelWrapper.renderTarget = entity;
+        entityModelWrapper.multiBufferSource = bufferSource;
+        float f1 = Mth.rotLerp(partialTick, entity.yRotO, entity.getYRot());
+        float f2 = Mth.rotLerp(partialTick, entity.xRotO, entity.getXRot());
+        poseStack.pushPose();
         float tickCount = ((float)entityModelWrapper.getRenderTarget().tickCount)+Minecraft.getInstance().getPartialTick();
-        setupRotations(p_115308_,p_115311_,f1,f2,p_115310_);
-        p_115311_.scale(-1.0F, -1.0F, 1.0F);
-        scale(p_115308_,p_115311_,p_115310_);
-        p_115311_.translate(0.0D, (double)-1.501F, 0.0D);
-        entityModelWrapper.setupAnim(p_115308_,0,0,tickCount,f1,f2);
-        VertexConsumer vertexconsumer = p_115312_.getBuffer(entityModelWrapper.getRenderType());
-        this.model.renderToBuffer(p_115311_, vertexconsumer, p_115313_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-        if (!p_115308_.isSpectator()) {
+        setupRotations(entity,poseStack,yaw,partialTick);
+        poseStack.scale(-1.0F, -1.0F, 1.0F);
+        scale(entity,poseStack,partialTick);
+        poseStack.translate(0.0D, (double)-1.501F, 0.0D);
+        entityModelWrapper.setupAnim(entity,0,0,tickCount,f1,f2);
+        VertexConsumer vertexconsumer = bufferSource.getBuffer(entityModelWrapper.getRenderType());
+        this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        if (!entity.isSpectator()) {
             for(RenderLayer<T, M> renderlayer : this.layers) {
-                renderlayer.render(p_115311_, p_115312_, p_115313_, p_115308_, 0, 0, p_115310_, 0, f1, f2);
+                renderlayer.render(poseStack, bufferSource, packedLight, entity, 0, 0, partialTick, 0, f1, f2);
             }
         }
-        p_115311_.popPose();
-        super.render(p_115308_, p_115309_, p_115310_, p_115311_, p_115312_, p_115313_);
+        poseStack.popPose();
+        super.render(entity, yaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
-    protected void setupRotations(T entity, PoseStack stack, float yaw, float pitch, float partialTicks) {
+    protected void setupRotations(T entity, PoseStack stack, float yaw, float partialTicks) {
         stack.mulPose(Vector3f.YP.rotationDegrees(180.0F - yaw));
     }
 
@@ -77,18 +77,18 @@ public abstract class AdvancedRendererEntity<T extends Entity & ISARendered,M ex
 
 
     @Override
-    protected boolean shouldShowName(T p_115506_) {
-        return super.shouldShowName(p_115506_) && (p_115506_.shouldShowName() || p_115506_.hasCustomName() && p_115506_ == this.entityRenderDispatcher.crosshairPickEntity);
+    protected boolean shouldShowName(T entity) {
+        return super.shouldShowName(entity) && (entity.shouldShowName() || entity.hasCustomName() && entity == this.entityRenderDispatcher.crosshairPickEntity);
     }
 
     @Override
-    public boolean shouldRender(T p_115468_, Frustum p_115469_, double p_115470_, double p_115471_, double p_115472_) {
-        if (super.shouldRender(p_115468_, p_115469_, p_115470_, p_115471_, p_115472_)) {
+    public boolean shouldRender(T entity, Frustum camera, double camX, double camY, double camZ) {
+        if (super.shouldRender(entity, camera, camX, camY, camZ)) {
             return true;
         } else {
-            if (p_115468_ instanceof Mob){
-                Entity entity = ((Mob)p_115468_).getLeashHolder();
-                return entity != null ? p_115469_.isVisible(entity.getBoundingBoxForCulling()) : false;
+            if (entity instanceof Mob mob){
+                Entity leashHolder = mob.getLeashHolder();
+                return leashHolder != null ? camera.isVisible(entity.getBoundingBoxForCulling()) : false;
             }
         }
         return false;

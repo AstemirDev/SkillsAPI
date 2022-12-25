@@ -29,11 +29,11 @@ public class SkillsAPI extends SAForgeMod {
 
     public static final SimpleChannel API_NETWORK = NetworkUtils.createNetworkChannel(MOD_ID,"main_channel",PROTOCOL_VERSION);
 
-    public static SkillsAPI INSTANCE;
-
     public static volatile boolean INITIALIZED = false;
 
     public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
+
+    public static SkillsAPI INSTANCE;
 
 
     public SkillsAPI() {
@@ -83,7 +83,7 @@ public class SkillsAPI extends SAForgeMod {
         EventManager.registerFMLEvent(TESRModels::onModelBakeEvent);
         EventManager.registerFMLEvent(AdvancedRendererItem::onRegisterReloadListener);
         if (isInitializeExampleFeatures()) {
-            TESRModels.addModelReplacement(ExampleModItems.MACE, "skillsapi:mace_in_hand");
+            TESRModels.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
         }
     }
 

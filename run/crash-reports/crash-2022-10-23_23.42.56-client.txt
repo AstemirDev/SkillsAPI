@@ -5,7 +5,7 @@ Time: 2022-10-23 23:42:56
 Description: Rendering entity in world
 
 java.lang.NullPointerException: Cannot invoke "net.minecraft.core.BlockPos.getX()" because "otherPos" is null
-	at org.astemir.api.common.animation.IAnimatedKey.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.common.animation.HolderKey.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.animation.AnimatorDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:207) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.wrapper.AbstractModelWrapperEntity.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}
@@ -42,7 +42,7 @@ A detailed walkthrough of the error, its code path and all known details is as f
 -- Head --
 Thread: Render thread
 Stacktrace:
-	at org.astemir.api.common.animation.IAnimatedKey.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
+	at org.astemir.api.common.animation.HolderKey.equalsKey(IAnimatedID.java:44) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.animation.AnimatorDataHandler.getOrCreateData(AnimationDataHandler.java:55) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.model.AdvancedModel.setupAnim(AdvancedModel.java:207) ~[%23186!/:?] {re:classloading}
 	at org.astemir.api.client.wrapper.AbstractModelWrapperEntity.setupAnim(EntityModelWrapper.java:36) ~[%23186!/:?] {re:classloading}

@@ -42,22 +42,22 @@ public class AdvancedRendererItem extends BlockEntityWithoutLevelRenderer {
     }
 
     @Override
-    public void onResourceManagerReload(ResourceManager p_172555_) {
+    public void onResourceManagerReload(ResourceManager resourceManager) {
     }
 
 
 
     @Override
-    public void renderByItem(ItemStack p_108830_, ItemTransforms.TransformType p_108831_, PoseStack p_108832_, MultiBufferSource p_108833_, int p_108834_, int p_108835_) {
+    public void renderByItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         for (Item item : itemModels.keySet()) {
-            if (p_108830_.is(item)){
+            if (itemStack.is(item)){
                 AbstractModelWrapperItem wrapper = itemModels.get(item);
-                wrapper.renderTarget = p_108830_.getItem();
-                wrapper.itemStack = p_108830_;
-                wrapper.transformType = p_108831_;
-                wrapper.multiBufferSource = p_108833_;
-                VertexConsumer consumer =  ItemRenderer.getFoilBufferDirect(p_108833_,wrapper.getRenderType(), false, p_108830_.hasFoil());
-                wrapper.renderItem(p_108830_,p_108831_,p_108832_,consumer,wrapper.getMultiBufferSource(),p_108834_,p_108835_,1,1,1,1);
+                wrapper.renderTarget = itemStack.getItem();
+                wrapper.itemStack = itemStack;
+                wrapper.transformType = transformType;
+                wrapper.multiBufferSource = bufferSource;
+                VertexConsumer consumer =  ItemRenderer.getFoilBufferDirect(bufferSource,wrapper.getRenderType(), false, itemStack.hasFoil());
+                wrapper.renderItem(itemStack,transformType,poseStack,consumer,wrapper.getMultiBufferSource(),packedLight,packedOverlay,1,1,1,1);
             }
         }
     }

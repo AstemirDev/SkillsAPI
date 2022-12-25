@@ -27,16 +27,15 @@ public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> ext
         super(RenderType::itemEntityTranslucentCull);
     }
 
-    public void renderItem(ItemStack p_108830_, ItemTransforms.TransformType p_108831_, PoseStack p_103111_, VertexConsumer consumer,MultiBufferSource bufferSource, int p_103113_, int p_103114_,float r,float g,float b,float a) {
+    public void renderItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack poseStack, VertexConsumer consumer,MultiBufferSource bufferSource, int packedLight, int packedOverlay,float r,float g,float b,float a) {
         AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
-        PoseStack stack = p_103111_;
-        stack.pushPose();
-        stack.translate(0, 0.01f, 0);
-        stack.translate(0.5, 2, 0.5f);
-        stack.scale(-1,-1,1);
-        model.renderModel(p_103111_,consumer,p_103113_,p_103114_,r,g,b,a,RenderCall.MODEL,false);
-        stack.popPose();
+        poseStack.pushPose();
+        poseStack.translate(0, 0.01f, 0);
+        poseStack.translate(0.5, 2, 0.5f);
+        poseStack.scale(-1,-1,1);
+        model.renderModel(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
+        poseStack.popPose();
     }
 
     @Override
@@ -45,8 +44,8 @@ public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> ext
     }
 
     @Override
-    public void renderToBuffer(PoseStack p_103111_, VertexConsumer p_103112_, int p_103113_, int p_103114_, float p_103115_, float p_103116_, float p_103117_, float p_103118_) {
-        renderItem(itemStack,transformType,p_103111_,p_103112_,multiBufferSource,p_103113_,p_103114_,p_103115_,p_103116_,p_103117_,p_103118_);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float r, float g, float b, float a) {
+        renderItem(itemStack,transformType,poseStack,vertexConsumer,multiBufferSource,packedLight,packedOverlay,r,g,b,a);
     }
 
     public MultiBufferSource getMultiBufferSource() {

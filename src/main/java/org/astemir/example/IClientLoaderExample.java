@@ -1,7 +1,11 @@
 package org.astemir.example;
 
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.LivingEntityRenderer;
+import net.minecraft.client.searchtree.SearchRegistry;
+import net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator;
 import org.astemir.api.ISafeClientLoader;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.ArmorModels;

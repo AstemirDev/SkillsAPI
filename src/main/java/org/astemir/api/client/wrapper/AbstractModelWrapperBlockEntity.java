@@ -24,16 +24,16 @@ public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & IS
         super(RenderType::entityCutoutNoCull);
     }
 
-    public void renderBlock(PoseStack p_103111_, VertexConsumer consumer,MultiBufferSource bufferSource, int p_103113_, int p_103114_,float r,float g,float b,float a) {
+    public void renderBlock(PoseStack poseStack, VertexConsumer consumer,MultiBufferSource bufferSource, int packedLight, int packedOverlay,float r,float g,float b,float a) {
+        float partialTicks = Minecraft.getInstance().getPartialTick();
         AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
-        PoseStack stack = p_103111_;
-        stack.pushPose();
-        stack.translate(0.5, 1.5f, 0.5f);
-        scale(getRenderTarget(),stack, Minecraft.getInstance().getPartialTick());
-        setupRotations(getRenderTarget(),stack, Minecraft.getInstance().getPartialTick());
-        model.renderModel(p_103111_,consumer,p_103113_,p_103114_,r,g,b,a,RenderCall.MODEL,false);
-        stack.popPose();
+        poseStack.pushPose();
+        poseStack.translate(0.5, 1.5f, 0.5f);
+        scale(getRenderTarget(),poseStack, partialTicks);
+        setupRotations(getRenderTarget(),poseStack, partialTicks);
+        model.renderModel(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
+        poseStack.popPose();
     }
 
 
@@ -50,8 +50,8 @@ public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & IS
     }
 
     @Override
-    public void renderToBuffer(PoseStack p_103111_, VertexConsumer p_103112_, int p_103113_, int p_103114_, float p_103115_, float p_103116_, float p_103117_, float p_103118_) {
-        renderBlock(p_103111_,p_103112_,multiBufferSource,p_103113_,p_103114_,p_103115_,p_103116_,p_103117_,p_103118_);
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a) {
+        renderBlock(poseStack,bufferSource,multiBufferSource,packedLight,packedOverlay,r,g,b,a);
     }
 
     public MultiBufferSource getMultiBufferSource() {

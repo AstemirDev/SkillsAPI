@@ -12,6 +12,7 @@ import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ClientMessageAnimation;
 import org.astemir.api.network.messages.ServerMessageAnimationSync;
+import org.astemir.api.utils.NetworkUtils;
 
 
 public enum AnimationHandler {
@@ -20,7 +21,7 @@ public enum AnimationHandler {
 
 
 
-    public <T extends IAnimated> void sendAnimationMessage(AnimationFactory factory, Animation animation, IAnimatedKey targetId, ClientMessageAnimation.Action type, int tick) {
+    public <T extends IAnimated> void sendAnimationMessage(AnimationFactory factory, Animation animation, HolderKey targetId, ClientMessageAnimation.Action type, int tick) {
         Level level = targetId.getTarget().getLevel(factory);
         if (level.isClientSide) {
             return;
@@ -30,31 +31,23 @@ public enum AnimationHandler {
         } else if (type == ClientMessageAnimation.Action.STOP) {
             factory.removeAnimation(animation);
         }
-        if (targetId.getTarget() == AnimationTarget.ENTITY) {
-            Entity entity = (Entity) factory.getAnimated();
-            SkillsAPI.API_NETWORK.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> entity), new ClientMessageAnimation(targetId, type, animation.getUniqueId(),tick));
-        }else
-        if (targetId.getTarget() == AnimationTarget.BLOCK){
-            BlockEntity blockEntity = (BlockEntity)factory.getAnimated();
-            BlockPos pos = blockEntity.getBlockPos();
-            SkillsAPI.API_NETWORK.send(PacketDistributor.NEAR.with(()->new PacketDistributor.TargetPoint(pos.getX(),pos.getY(),pos.getZ(),128,blockEntity.getLevel().dimension())), new ClientMessageAnimation(targetId, type, animation.getUniqueId(),tick));
-        }
+        NetworkUtils.sendToAllPlayers(new ClientMessageAnimation(targetId, type, animation.getUniqueId(),tick));
     }
 
-    public void sendClientSyncMessage(AnimationFactory factory, IAnimatedKey targetId){
+    public void sendClientSyncMessage(AnimationFactory factory, HolderKey targetId){
         Level level = targetId.getTarget().getLevel(factory);
         if (!level.isClientSide) {
             return;
         }
-        SkillsAPI.API_NETWORK.sendToServer(new ServerMessageAnimationSync(targetId));
+        NetworkUtils.sendToServer(new ServerMessageAnimationSync(targetId));
     }
 
-    public void sendServerSyncMessage(ServerPlayer player, AnimationFactory factory, Animation animation, IAnimatedKey targetId, ClientMessageAnimation.Action type, int tick) {
+    public void sendServerSyncMessage(ServerPlayer player, AnimationFactory factory, Animation animation, HolderKey targetId, ClientMessageAnimation.Action type, int tick) {
         Level level = targetId.getTarget().getLevel(factory);
         if (level.isClientSide) {
             return;
         }
-        SkillsAPI.API_NETWORK.send(PacketDistributor.PLAYER.with(() -> player), new ClientMessageAnimation(targetId, type, animation.getUniqueId(),tick));
+        NetworkUtils.sendToPlayer(player,new ClientMessageAnimation(targetId, type, animation.getUniqueId(),tick));
     }
 
     public void updateAnimations(AnimationFactory factory) {

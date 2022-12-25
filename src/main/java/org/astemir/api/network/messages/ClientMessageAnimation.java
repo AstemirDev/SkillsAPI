@@ -12,12 +12,12 @@ import java.util.function.Supplier;
 public class ClientMessageAnimation {
 
     private Action action;
-    private IAnimatedKey targetId;
+    private HolderKey holderKey;
     private int animationId;
     private int tick = 0;
 
-    public ClientMessageAnimation(IAnimatedKey targetId, Action action, int animationId, int tick) {
-        this.targetId = targetId;
+    public ClientMessageAnimation(HolderKey targetId, Action action, int animationId, int tick) {
+        this.holderKey = targetId;
         this.action = action;
         this.animationId = animationId;
         this.tick = tick;
@@ -25,14 +25,15 @@ public class ClientMessageAnimation {
 
 
     public static void encode(ClientMessageAnimation message, FriendlyByteBuf buf) {
-        message.targetId.write(buf);
+        message.holderKey.write(buf);
         buf.writeEnum(message.action);
         buf.writeInt(message.animationId);
         buf.writeInt(message.tick);
     }
 
     public static ClientMessageAnimation decode(FriendlyByteBuf buf) {
-        return new ClientMessageAnimation(IAnimatedKey.read(buf), buf.readEnum(Action.class), buf.readInt(),buf.readInt());
+        HolderKey key = HolderKey.read(buf);
+        return new ClientMessageAnimation(key, buf.readEnum(Action.class), buf.readInt(),buf.readInt());
     }
 
 
@@ -44,15 +45,15 @@ public class ClientMessageAnimation {
             final NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
                 AnimationFactory factory = null;
-                switch (message.targetId.getTarget()){
+                switch (message.holderKey.getTarget()){
                     case ENTITY:{
-                        if (Minecraft.getInstance().level.getEntity(message.targetId.getId()) instanceof IAnimated animatedEntity){
+                        if (Minecraft.getInstance().level.getEntity(message.holderKey.getId()) instanceof IAnimated animatedEntity){
                             factory = animatedEntity.getAnimationFactory();
                         }
                         break;
                     }
                     case BLOCK:{
-                        BlockEntity blockEntity = Minecraft.getInstance().level.getBlockEntity(message.targetId.getPos());
+                        BlockEntity blockEntity = Minecraft.getInstance().level.getBlockEntity(message.holderKey.getPos());
                         if (blockEntity instanceof IAnimated){
                             factory = ((IAnimated)blockEntity).getAnimationFactory();
                         }

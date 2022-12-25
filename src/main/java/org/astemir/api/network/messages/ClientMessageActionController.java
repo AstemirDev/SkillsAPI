@@ -2,11 +2,12 @@ package org.astemir.api.network.messages;
 
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
+import org.astemir.api.common.animation.HolderTarget;
+import org.astemir.api.common.animation.HolderKey;
 import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.IActionListener;
 
@@ -16,9 +17,8 @@ import java.util.function.Supplier;
 public class ClientMessageActionController {
 
 
-    private int entityId = -1;
 
-    private BlockPos blockPos;
+    private HolderKey holderKey;
 
     private int controllerId;
 
@@ -26,49 +26,23 @@ public class ClientMessageActionController {
 
     private int ticks;
 
-    private Type type;
-
-    public ClientMessageActionController(int entityId, int controllerId, int stateId, int ticks) {
-        this.type = Type.ENTITY;
-        this.entityId = entityId;
+    public ClientMessageActionController(HolderKey holderKey, int controllerId,int stateId, int ticks) {
+        this.holderKey = holderKey;
         this.controllerId = controllerId;
         this.stateId = stateId;
         this.ticks = ticks;
     }
 
-
-    public ClientMessageActionController(BlockPos pos, int controllerId, int stateId, int ticks) {
-        this.type = Type.BLOCK;
-        this.blockPos = pos;
-        this.controllerId = controllerId;
-        this.stateId = stateId;
-        this.ticks = ticks;
-    }
 
     public static void encode(ClientMessageActionController message, FriendlyByteBuf buf) {
-        buf.writeEnum(message.type);
-        if (message.entityId != -1) {
-            buf.writeInt(message.entityId);
-        }
-        if (message.blockPos != null){
-            buf.writeBlockPos(message.blockPos);
-        }
+        message.holderKey.write(buf);
         buf.writeInt(message.controllerId);
         buf.writeInt(message.stateId);
         buf.writeInt(message.ticks);
     }
 
     public static ClientMessageActionController decode(FriendlyByteBuf buf) {
-        Type type = buf.readEnum(Type.class);
-        switch (type){
-            case ENTITY:{
-                return new ClientMessageActionController(buf.readInt(), buf.readInt(),buf.readInt(),buf.readInt());
-            }
-            case BLOCK:{
-                return new ClientMessageActionController(buf.readBlockPos(), buf.readInt(),buf.readInt(),buf.readInt());
-            }
-        }
-        return null;
+        return new ClientMessageActionController(HolderKey.read(buf),buf.readInt(),buf.readInt(),buf.readInt());
     }
 
 
@@ -79,8 +53,8 @@ public class ClientMessageActionController {
             final NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
                 Minecraft minecraft = Minecraft.getInstance();
-                if (message.type == Type.ENTITY) {
-                    Entity entity = minecraft.level.getEntity(message.entityId);
+                if (message.holderKey.getTarget() == HolderTarget.ENTITY) {
+                    Entity entity = minecraft.level.getEntity(message.holderKey.getId());
                     if (entity != null) {
                         if (entity instanceof IActionListener) {
                             ActionController controller = ((IActionListener) entity).getActionStateMachine().getControllers().get(message.controllerId);
@@ -88,8 +62,8 @@ public class ClientMessageActionController {
                         }
                     }
                 }else
-                if (message.type == Type.BLOCK){
-                    BlockEntity block = minecraft.level.getBlockEntity(message.blockPos);
+                if (message.holderKey.getTarget() == HolderTarget.BLOCK) {
+                    BlockEntity block = minecraft.level.getBlockEntity(message.holderKey.getPos());
                     if (block != null){
                         if (block instanceof IActionListener){
                             ActionController controller = ((IActionListener) block).getActionStateMachine().getControllers().get(message.controllerId);
@@ -100,9 +74,5 @@ public class ClientMessageActionController {
             });
             context.setPacketHandled(true);
         }
-    }
-
-    public static enum Type{
-        ENTITY,BLOCK
     }
 }

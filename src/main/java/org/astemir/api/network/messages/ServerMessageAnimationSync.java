@@ -15,9 +15,9 @@ import java.util.function.Supplier;
 
 public class ServerMessageAnimationSync {
 
-    private IAnimatedKey targetId;
+    private HolderKey targetId;
 
-    public ServerMessageAnimationSync(IAnimatedKey id) {
+    public ServerMessageAnimationSync(HolderKey id) {
         this.targetId = id;
     }
 
@@ -27,7 +27,7 @@ public class ServerMessageAnimationSync {
     }
 
     public static ServerMessageAnimationSync decode(FriendlyByteBuf buf) {
-        return new ServerMessageAnimationSync(IAnimatedKey.read(buf));
+        return new ServerMessageAnimationSync(HolderKey.read(buf));
     }
 
 

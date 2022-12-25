@@ -1,6 +1,6 @@
 package org.astemir.api.data.blockstate;
 
-public enum DataBlockState {
+public enum BlockStateType {
     DEFAULT,
     LEAVES,
     DOOR,

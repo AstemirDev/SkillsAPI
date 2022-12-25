@@ -2,6 +2,7 @@ package org.astemir.api;
 
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.astemir.api.client.ClientStateHandler;
@@ -14,9 +15,9 @@ import org.astemir.api.common.event.EventMisc;
 import org.astemir.api.network.messages.*;
 import org.astemir.api.utils.NetworkUtils;
 import org.astemir.example.IClientLoaderExample;
-import org.astemir.example.common.block.ModBlocks;
+import org.astemir.example.common.block.ExampleModBlocks;
 import org.astemir.example.common.entity.ExampleModEntities;
-import org.astemir.example.common.item.ModItems;
+import org.astemir.example.common.item.ExampleModItems;
 import static org.astemir.api.SkillsAPI.MOD_ID;
 
 @Mod(MOD_ID)
@@ -24,7 +25,9 @@ public class SkillsAPI extends SAForgeMod {
 
     public final static String MOD_ID = "skillsapi";
 
-    public static final SimpleChannel API_NETWORK = NetworkUtils.createNetworkChannel(MOD_ID,"api_network_channel");
+    public final static String PROTOCOL_VERSION = Integer.toString(1);
+
+    public static final SimpleChannel API_NETWORK = NetworkUtils.createNetworkChannel(MOD_ID,"main_channel",PROTOCOL_VERSION);
 
     public static SkillsAPI INSTANCE;
 
@@ -33,18 +36,13 @@ public class SkillsAPI extends SAForgeMod {
     public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
 
 
-    static{
-        initialize();
-    }
-
-
     public SkillsAPI() {
         INSTANCE = this;
         if (isInitializeExampleFeatures()) {
-            ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
-            ModBlocks.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
+            ExampleModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+            ExampleModBlocks.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ExampleModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
-            ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+            ExampleModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
         EventManager.registerForgeEventClass(EventMisc.class);
         EventManager.registerForgeEventClass(EventCommandRegister.class);
@@ -70,6 +68,11 @@ public class SkillsAPI extends SAForgeMod {
     }
 
     @Override
+    protected void onCommonSetup(FMLCommonSetupEvent event) {
+        initialize();
+    }
+
+    @Override
     protected void onClientSetup(FMLClientSetupEvent event) {
         EventManager.registerForgeEventClass(ClientStateHandler.class);
     }
@@ -80,12 +83,12 @@ public class SkillsAPI extends SAForgeMod {
         EventManager.registerFMLEvent(TESRModels::onModelBakeEvent);
         EventManager.registerFMLEvent(AdvancedRendererItem::onRegisterReloadListener);
         if (isInitializeExampleFeatures()) {
-            TESRModels.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
+            TESRModels.addModelReplacement(ExampleModItems.MACE, "skillsapi:mace_in_hand");
         }
     }
 
     @Override
-    public ISafeClientsideBullshitLoader getClientLoader() {
+    public ISafeClientLoader getClientLoader() {
         return new IClientLoaderExample();
     }
 

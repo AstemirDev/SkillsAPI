@@ -20,11 +20,11 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.client.wrapper.AbstractModelWrapperEntity;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 import org.jetbrains.annotations.Nullable;
 
 
-public abstract class AdvancedRendererLivingEntity<T extends LivingEntity & ITESRModel,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
+public abstract class AdvancedRendererLivingEntity<T extends LivingEntity & ISARendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
 
     private AbstractModelWrapperEntity entityModelWrapper;
 

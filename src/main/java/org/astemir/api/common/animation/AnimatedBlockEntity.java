@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
-public abstract class AnimatedBlockEntity extends BlockEntity implements ITESRModel,IAnimated{
+public abstract class AnimatedBlockEntity extends BlockEntity implements ISARendered,IAnimated{
 
     private long ticks;
 

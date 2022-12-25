@@ -23,6 +23,14 @@ public class SALangProvider implements IProvider {
         return res;
     }
 
+    public DataLangDictionary getOrAddLang(String lang){
+        if (langs.containsKey(lang)){
+            return langs.get(lang);
+        }else{
+            return addLang(lang);
+        }
+    }
+
     public void register(DataGenerator gen){
         langs.forEach((lang,data)->{
             LanguageProvider provider = new LanguageProvider(gen, modId,lang) {

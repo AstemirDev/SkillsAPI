@@ -5,9 +5,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.wrapper.AbstractModelWrapperItem;
-import org.astemir.example.common.item.MaceItem;
+import org.astemir.example.common.item.ItemExampleMace;
 
-public class WrapperExampleMace extends AbstractModelWrapperItem<MaceItem> {
+public class WrapperExampleMace extends AbstractModelWrapperItem<ItemExampleMace> {
 
     private final ModelExampleMace MODEL = new ModelExampleMace();
 
@@ -17,7 +17,7 @@ public class WrapperExampleMace extends AbstractModelWrapperItem<MaceItem> {
     }
 
     @Override
-    public AdvancedModel<MaceItem> getModel(MaceItem item) {
+    public AdvancedModel<ItemExampleMace> getModel(ItemExampleMace item) {
         return MODEL;
     }
 }

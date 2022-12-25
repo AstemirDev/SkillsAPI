@@ -9,13 +9,13 @@ import org.astemir.api.math.Color;
 
 public class NetworkUtils {
 
-    public static SimpleChannel createNetworkChannel(String modId,String name){
-        String networkVersion = "1.3";
-        NetworkRegistry.ChannelBuilder channel = NetworkRegistry.ChannelBuilder.named(new ResourceLocation(modId,name));
-        channel = channel.clientAcceptedVersions(networkVersion::equals);
-        channel = channel.serverAcceptedVersions(networkVersion::equals);
-        channel = channel.networkProtocolVersion(() -> networkVersion);
-        return channel.simpleChannel();
+    public static SimpleChannel createNetworkChannel(String modId,String name,String protocolVersion){
+        return NetworkRegistry.ChannelBuilder.
+                named(new ResourceLocation(modId,name)).
+                clientAcceptedVersions(protocolVersion::equals).
+                serverAcceptedVersions(protocolVersion::equals).
+                networkProtocolVersion(() -> protocolVersion).
+                simpleChannel();
     }
 
     public static Vec3 readVec3(FriendlyByteBuf buffer){

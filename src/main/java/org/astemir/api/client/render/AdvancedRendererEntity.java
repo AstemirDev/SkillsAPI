@@ -18,12 +18,12 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
 import org.astemir.api.client.wrapper.AbstractModelWrapperEntity;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
 import java.util.List;
 
 
-public abstract class AdvancedRendererEntity<T extends Entity & ITESRModel,M extends EntityModel<T>> extends EntityRenderer<T> {
+public abstract class AdvancedRendererEntity<T extends Entity & ISARendered,M extends EntityModel<T>> extends EntityRenderer<T> {
 
     private AbstractModelWrapperEntity entityModelWrapper;
     private M model;

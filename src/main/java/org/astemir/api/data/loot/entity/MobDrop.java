@@ -22,25 +22,25 @@ import org.astemir.api.data.loot.ItemDrop;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataMobDrop {
+public class MobDrop {
 
     protected static final EntityPredicate.Builder ENTITY_ON_FIRE = EntityPredicate.Builder.entity().flags(EntityFlagsPredicate.Builder.flags().setOnFire(true).build());
 
-    private List<ItemDrop<DataMobDropParameters>> items = new ArrayList<>();
+    private List<ItemDrop<MobDropParameters>> items = new ArrayList<>();
 
     private EntityType<?> type;
 
-    public DataMobDrop(EntityType<?> type) {
+    public MobDrop(EntityType<?> type) {
         this.type = type;
     }
 
-    public DataMobDrop addDrop(ItemDrop drop){
+    public MobDrop addDrop(ItemDrop drop){
         this.items.add(drop);
         return this;
     }
 
 
-    public LootTable.Builder build(){
+    public LootTable.Builder build(LootProviderEntities lootProviderEntities){
         LootTable.Builder builder = LootTable.lootTable();
         for (ItemDrop item : items) {
             builder = builder.withPool(buildDrop(item));
@@ -59,19 +59,23 @@ public class DataMobDrop {
         return drop;
     }
 
-    public LootPool.Builder buildDrop(ItemDrop<DataMobDropParameters> drop){
+    public LootPool.Builder buildDrop(ItemDrop<MobDropParameters> drop){
         LootPool.Builder itemPoolBuilder = LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F));
         LootPoolSingletonContainer.Builder itemContainerBuilder = LootItem.lootTableItem(drop.getItem());
         itemContainerBuilder = itemContainerBuilder.apply(SetItemCountFunction.setCount(UniformGenerator.between(drop.getCount().getMinValue(),drop.getCount().getMaxValue())));
-        if (drop.getParameters().isCanBeCooked()){
-            itemContainerBuilder = itemContainerBuilder.apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE)));
-        }
-        if (drop.getParameters().getLooting() != null){
-            itemContainerBuilder = itemContainerBuilder.apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(drop.getParameters().getLooting().getMinValue(), drop.getParameters().getLooting().getMaxValue())).when(LootItemKilledByPlayerCondition.killedByPlayer()));
+        if (drop.getParameters() != null) {
+            if (drop.getParameters().isCanBeCooked()) {
+                itemContainerBuilder = itemContainerBuilder.apply(SmeltItemFunction.smelted().when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.THIS, ENTITY_ON_FIRE)));
+            }
+            if (drop.getParameters().getLooting() != null) {
+                itemContainerBuilder = itemContainerBuilder.apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(drop.getParameters().getLooting().getMinValue(), drop.getParameters().getLooting().getMaxValue())).when(LootItemKilledByPlayerCondition.killedByPlayer()));
+            }
         }
         itemPoolBuilder = itemPoolBuilder.add(itemContainerBuilder);
-        if (drop.getParameters().getNeedToBeKilledBy() != null){
-            itemPoolBuilder = itemPoolBuilder.when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.KILLER, EntityPredicate.Builder.entity().of(drop.getParameters().getNeedToBeKilledBy())));
+        if (drop.getParameters() != null) {
+            if (drop.getParameters().getNeedToBeKilledBy() != null) {
+                itemPoolBuilder = itemPoolBuilder.when(LootItemEntityPropertyCondition.hasProperties(LootContext.EntityTarget.KILLER, EntityPredicate.Builder.entity().of(drop.getParameters().getNeedToBeKilledBy())));
+            }
         }
         if (drop.getChance() != 1){
             itemPoolBuilder = itemPoolBuilder.when(LootItemRandomChanceCondition.randomChance(drop.getChance()));
@@ -83,7 +87,7 @@ public class DataMobDrop {
         return type;
     }
 
-    public List<ItemDrop<DataMobDropParameters>> getItems() {
+    public List<ItemDrop<MobDropParameters>> getItems() {
         return items;
     }
 }

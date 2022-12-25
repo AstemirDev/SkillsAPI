@@ -14,6 +14,4 @@ public interface IRegistry<T> {
     static <B> void register(DeferredRegister<B> register){
         register.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
-
-    DeferredRegister<T> getRegistry();
 }

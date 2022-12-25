@@ -22,7 +22,7 @@ public class BlockEntityExampleCosmicBeacon extends AnimatedBlockEntity {
     ));
 
     public BlockEntityExampleCosmicBeacon(BlockPos pos, BlockState state) {
-        super(ModBlocks.COSMIC_BEACON_ENTITY.get(), pos, state);
+        super(ExampleModBlocks.COSMIC_BEACON_ENTITY.get(), pos, state);
     }
 
     @Override

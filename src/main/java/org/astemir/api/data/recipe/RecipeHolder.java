@@ -4,35 +4,35 @@ package org.astemir.api.data.recipe;
 
 import net.minecraft.world.level.ItemLike;
 
-public class DataRecipeHolder {
+public class RecipeHolder {
 
     private ItemLike result;
     private String customName = "";
     private String group = "";
     private int count = 1;
-    private DataRecipeType recipeType;
+    private RecipeType recipeType;
 
-    public DataRecipeHolder(DataRecipeType recipeType,ItemLike result, int count) {
+    public RecipeHolder(RecipeType recipeType, ItemLike result, int count) {
         this.recipeType = recipeType;
         this.result = result;
         this.count = count;
     }
 
-    public DataRecipeHolder(DataRecipeType recipeType,ItemLike result) {
+    public RecipeHolder(RecipeType recipeType, ItemLike result) {
         this(recipeType,result,1);
     }
 
-    public DataRecipeHolder name(String name){
+    public RecipeHolder name(String name){
         this.customName = name;
         return this;
     }
 
-    public DataRecipeHolder group(String group){
+    public RecipeHolder group(String group){
         this.group = group;
         return this;
     }
 
-    public DataRecipeType getRecipeType() {
+    public RecipeType getRecipeType() {
         return recipeType;
     }
 

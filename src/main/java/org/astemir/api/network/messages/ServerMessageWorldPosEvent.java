@@ -5,15 +5,9 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.WorldEventHandler;
-import org.astemir.api.common.animation.Animation;
-import org.astemir.api.common.animation.AnimationFactory;
-import org.astemir.api.common.animation.AnimationHandler;
-import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.network.AnimationTarget;
 import org.astemir.api.network.PacketArgument;
 
 import java.util.function.BiConsumer;

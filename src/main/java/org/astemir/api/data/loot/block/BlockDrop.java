@@ -8,30 +8,30 @@ import net.minecraft.world.level.storage.loot.LootTable;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataBlockDrop {
+public class BlockDrop {
 
-    private DataBlockDropType type;
+    private BlockDropType type;
     private Block block;
     private Map<String,ItemLike> drops = new HashMap<>();
     private UniformInt count;
 
-    public DataBlockDrop(Block block, DataBlockDropType dropType) {
+    public BlockDrop(Block block, BlockDropType dropType) {
         this.block = block;
         this.type = dropType;
         this.count = UniformInt.of(1,1);
     }
 
-    public DataBlockDrop otherDrop(String name, ItemLike otherDrop) {
+    public BlockDrop otherDrop(String name, ItemLike otherDrop) {
         this.drops.put(name,otherDrop);
         return this;
     }
 
-    public DataBlockDrop otherDrop(ItemLike otherDrop) {
+    public BlockDrop otherDrop(ItemLike otherDrop) {
         this.drops.put("other",otherDrop);
         return this;
     }
 
-    public DataBlockDrop count(int minCount, int maxCount) {
+    public BlockDrop count(int minCount, int maxCount) {
         this.count = UniformInt.of(minCount,maxCount);
         return this;
     }
@@ -48,10 +48,10 @@ public class DataBlockDrop {
         return drops.get(name);
     }
 
-    public DataBlockDropType getType() {
+    public BlockDropType getType() {
         return type;
     }
 
-    public LootTable.Builder customBuild(){return null;};
+    public LootTable.Builder customBuild(LootProviderBlocks providerBlocks){return null;};
 
 }

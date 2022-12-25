@@ -5,9 +5,9 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.wrapper.AbstractModelWrapperArmor;
-import org.astemir.example.common.item.armor.TestArmor;
+import org.astemir.example.common.item.armor.ArmorItemExample;
 
-public class ModelWrapperTestArmor extends AbstractModelWrapperArmor<TestArmor> {
+public class ModelWrapperTestArmor extends AbstractModelWrapperArmor<ArmorItemExample> {
 
     private final ModelExampleTestArmor MODEL = new ModelExampleTestArmor();
 
@@ -17,7 +17,7 @@ public class ModelWrapperTestArmor extends AbstractModelWrapperArmor<TestArmor> 
     }
 
     @Override
-    public AdvancedModel<TestArmor> getModel(TestArmor armor) {
+    public AdvancedModel<ArmorItemExample> getModel(ArmorItemExample armor) {
         return MODEL;
     }
 }

@@ -51,7 +51,7 @@ import static org.astemir.api.utils.EntityUtils.isMoving;
 import static org.astemir.api.utils.EntityUtils.isMovingByPlayer;
 
 
-public class EntityExampleSharkBoat extends Entity implements IAnimated, ITESRModel, net.minecraftforge.common.extensions.IForgeBoat{
+public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARendered, net.minecraftforge.common.extensions.IForgeBoat{
 
     public static Animation IDLE = new Animation("animation.model.idle",4.16f).loop().layer(0);
     public static Animation SWIM = new Animation("animation.model.swim",0.36f).loop().layer(0);

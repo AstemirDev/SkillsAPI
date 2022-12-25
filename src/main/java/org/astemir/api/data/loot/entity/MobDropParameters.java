@@ -4,23 +4,23 @@ import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import org.astemir.api.data.loot.IDropParameters;
 
-public class DataMobDropParameters implements IDropParameters {
+public class MobDropParameters implements IDropParameters {
 
     private UniformInt looting;
     private boolean canBeCooked = false;
     private EntityType needToBeKilledBy;
 
-    public DataMobDropParameters canBeCooked(){
+    public MobDropParameters canBeCooked(){
         this.canBeCooked = true;
         return this;
     }
 
-    public DataMobDropParameters looting(int minBonus, int maxBonus){
+    public MobDropParameters looting(int minBonus, int maxBonus){
         this.looting = UniformInt.of(minBonus,maxBonus);
         return this;
     }
 
-    public DataMobDropParameters killerCondition(EntityType killer){
+    public MobDropParameters killerCondition(EntityType killer){
         this.needToBeKilledBy = killer;
         return this;
     }

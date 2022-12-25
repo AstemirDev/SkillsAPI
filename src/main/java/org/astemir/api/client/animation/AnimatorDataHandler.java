@@ -3,8 +3,8 @@ package org.astemir.api.client.animation;
 import org.astemir.api.client.ClientStateHandler;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
+import org.astemir.api.common.animation.IAnimatedKey;
 import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.animation.IAnimatedID;
 import org.astemir.api.math.Transform;
 
 import java.util.*;
@@ -58,11 +58,11 @@ public class AnimatorDataHandler {
 
     public BoneStates getOrCreateData(IAnimated animated){
         for (BoneStates states : data) {
-            if (states.getKey().equalsKey(new IAnimatedID(animated))){
+            if (states.getKey().equalsKey(new IAnimatedKey(animated))){
                 return states;
             }
         }
-        BoneStates newStates = new BoneStates(new IAnimatedID(animated));
+        BoneStates newStates = new BoneStates(new IAnimatedKey(animated));
         data.add(newStates);
         return newStates;
     }
@@ -70,14 +70,14 @@ public class AnimatorDataHandler {
     public class BoneStates{
 
         private Set<BoneStateHolder> boneStates = new HashSet<>();
-        private IAnimatedID key;
+        private IAnimatedKey key;
         private int lastTick;
         private float tempTick;
         private float prevTempTick;
         private ConcurrentHashMap<Animation,Float> animationTicks = new ConcurrentHashMap<>();
 
 
-        public BoneStates(IAnimatedID key) {
+        public BoneStates(IAnimatedKey key) {
             this.key = key;
         }
 
@@ -139,7 +139,7 @@ public class AnimatorDataHandler {
             }
         }
 
-        public IAnimatedID getKey() {
+        public IAnimatedKey getKey() {
             return key;
         }
 

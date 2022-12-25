@@ -17,10 +17,10 @@ import net.minecraft.world.item.ItemStack;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 import org.astemir.api.math.Vector3;
 
-public abstract class AbstractModelWrapperArmor<T extends Item & ITESRModel> extends HumanoidModel<LivingEntity> implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T> {
 
 
     public T renderTarget;

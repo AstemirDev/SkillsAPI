@@ -55,7 +55,7 @@ public class SAForgeMod {
 
     protected void onUnsafeClientSetup(){};
 
-    public ISafeClientsideBullshitLoader getClientLoader(){
+    public ISafeClientLoader getClientLoader(){
         return null;
     }
 }

@@ -1,5 +1,5 @@
 package org.astemir.api.data.loot.block;
 
-public enum DataBlockDropType {
+public enum BlockDropType {
     EMPTY,SELF,GRASS_BLOCK,SILK_TOUCH,SHEARS,ITEM,OTHER_SHEARS,OTHER_BLOCK,OTHER_BLOCK_SILK_TOUCH,ORE,FLOWER_POT,SLAB,DOOR,CROPS,LEAVES,STEM,CUSTOM
 }

@@ -4,13 +4,13 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-public class DataCropsDrop extends DataBlockDrop {
+public class CropsDrop extends BlockDrop {
 
     private int minAge = 1;
     private IntegerProperty ageProperty;
 
-    public DataCropsDrop(Block block, ItemLike crops, ItemLike seeds, int minAge, IntegerProperty ageProperty) {
-        super(block, DataBlockDropType.CROPS);
+    public CropsDrop(Block block, ItemLike crops, ItemLike seeds, int minAge, IntegerProperty ageProperty) {
+        super(block, BlockDropType.CROPS);
         this.minAge = minAge;
         this.ageProperty = ageProperty;
         otherDrop("crops",crops);

@@ -9,9 +9,9 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.client.wrapper.AbstractModelWrapperBlockEntity;
 import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
-public class AdvancedRendererBlockEntity<T extends BlockEntity & ITESRModel> implements BlockEntityRenderer<T> {
+public class AdvancedRendererBlockEntity<T extends BlockEntity & ISARendered> implements BlockEntityRenderer<T> {
 
     private AbstractModelWrapperBlockEntity<T> blockModelWrapper;
 

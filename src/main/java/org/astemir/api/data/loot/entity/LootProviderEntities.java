@@ -4,14 +4,13 @@ import net.minecraft.data.loot.EntityLoot;
 import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import org.astemir.api.data.loot.ILootProvider;
-import org.astemir.api.data.loot.block.DataBlockDrop;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LootProviderEntities extends EntityLoot implements ILootProvider<EntityType<?>> {
 
-    private List<DataMobDrop> mobDrops = new ArrayList<>();
+    private List<MobDrop> mobDrops = new ArrayList<>();
     private DeferredRegister<EntityType<?>> registry;
 
     public LootProviderEntities(DeferredRegister<EntityType<?>> registry) {
@@ -19,14 +18,14 @@ public class LootProviderEntities extends EntityLoot implements ILootProvider<En
     }
 
 
-    public void addDrop(DataMobDrop drop){
+    public void addDrop(MobDrop drop){
         mobDrops.add(drop);
     }
 
     @Override
     public void addLoot() {
-        for (DataMobDrop mobDrop : mobDrops) {
-            add(mobDrop.getType(), mobDrop.build());
+        for (MobDrop mobDrop : mobDrops) {
+            add(mobDrop.getType(), mobDrop.build(this));
         }
     }
 

@@ -8,20 +8,20 @@ import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.astemir.api.data.IProvider;
-import org.astemir.api.data.model.DataBlockModelUtils;
+import org.astemir.api.data.model.BlockModelUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
 
-import static org.astemir.api.data.model.DataBlockModelUtils.createTintedCross;
+import static org.astemir.api.data.model.BlockModelUtils.createTintedCross;
 import static org.astemir.api.utils.ResourceUtils.*;
 
 
 public class SABlockStateProvider extends BlockStateProvider implements IProvider {
 
-    private List<DataBlockStateHolder> blockStates = new ArrayList<>();
+    private List<BlockStateHolder> blockStates = new ArrayList<>();
 
     public SABlockStateProvider(DataGenerator gen, String modId, ExistingFileHelper exFileHelper) {
         super(gen, modId, exFileHelper);
@@ -29,14 +29,14 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
 
     @Override
     protected void registerStatesAndModels() {
-        for (DataBlockStateHolder blockStateHolder : blockStates) {
+        for (BlockStateHolder blockStateHolder : blockStates) {
             Block block = blockStateHolder.getBlock();
             switch (blockStateHolder.getType()){
                 case EMPTY -> createEmptyBlock(blockStateHolder);
-                case CROSS -> simpleBlock(block, DataBlockModelUtils.createCrossBlock(this,blockStateHolder));
+                case CROSS -> simpleBlock(block, BlockModelUtils.createCrossBlock(this,blockStateHolder));
                 case LOG -> logBlock((RotatedPillarBlock) block);
                 case DOOR -> createDoorBlock(blockStateHolder);
-                case LEAVES -> simpleBlock(block, DataBlockModelUtils.createLeavesBlock(this,blockStateHolder));
+                case LEAVES -> simpleBlock(block, BlockModelUtils.createLeavesBlock(this,blockStateHolder));
                 case DEFAULT -> simpleBlock(block);
                 case TRAPDOOR -> createTrapdoorBlock(blockStateHolder);
                 case MIRRORED -> createMirroredBlock(blockStateHolder);
@@ -57,73 +57,67 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
         }
     }
 
-    public void createMirroredBlock(DataBlockStateHolder stateHolder){
-        simpleBlock(stateHolder.getBlock(),new ConfiguredModel(cubeAll(stateHolder.getBlock())),new ConfiguredModel(DataBlockModelUtils.createCubeMirroredAll(this,stateHolder)),new ConfiguredModel(cubeAll(stateHolder.getBlock()),0,180,false),new ConfiguredModel(DataBlockModelUtils.createCubeMirroredAll(this,stateHolder),0,180,false));
+    public void createMirroredBlock(BlockStateHolder stateHolder){
+        simpleBlock(stateHolder.getBlock(),new ConfiguredModel(cubeAll(stateHolder.getBlock())),new ConfiguredModel(BlockModelUtils.createCubeMirroredAll(this,stateHolder)),new ConfiguredModel(cubeAll(stateHolder.getBlock()),0,180,false),new ConfiguredModel(BlockModelUtils.createCubeMirroredAll(this,stateHolder),0,180,false));
     }
 
-    public void createDoorBlock(DataBlockStateHolder stateHolder){
+    public void createDoorBlock(BlockStateHolder stateHolder){
         doorBlockWithRenderType((DoorBlock) stateHolder.getBlock(),stateHolder.getMaterial("bottom"),stateHolder.getMaterial("top"),"cutout");
     }
 
-    public void createButtonBlock(DataBlockStateHolder stateHolder){
+    public void createButtonBlock(BlockStateHolder stateHolder){
         buttonBlock((ButtonBlock) stateHolder.getBlock(),stateHolder.getMaterial("texture"));
-        DataBlockModelUtils.createButtonInventory(this,stateHolder);
+        BlockModelUtils.createButtonInventory(this,stateHolder);
     }
 
-    public void createFenceBlock(DataBlockStateHolder stateHolder){
+    public void createFenceBlock(BlockStateHolder stateHolder){
         fenceBlock((FenceBlock) stateHolder.getBlock(),stateHolder.getMaterial("texture"));
-        DataBlockModelUtils.createFenceInventory(this,stateHolder);
+        BlockModelUtils.createFenceInventory(this,stateHolder);
     }
 
-    public void createWallBlock(DataBlockStateHolder stateHolder) {
+    public void createWallBlock(BlockStateHolder stateHolder) {
         wallBlock((WallBlock) stateHolder.getBlock(),stateHolder.getMaterial("texture"));
-        DataBlockModelUtils.createWallInventory(this,stateHolder);
+        BlockModelUtils.createWallInventory(this,stateHolder);
     }
 
-    public void createTrapdoorBlock(DataBlockStateHolder stateHolder){
+    public void createTrapdoorBlock(BlockStateHolder stateHolder){
         trapdoorBlockWithRenderType((TrapDoorBlock) stateHolder.getBlock(),stateHolder.getMaterial("texture"),true,"cutout");
     }
 
-    public void createEmptyBlock(DataBlockStateHolder stateHolder){
-        simpleBlock(stateHolder.getBlock(),new ConfiguredModel(DataBlockModelUtils.createEmpty(this,stateHolder)));
+    public void createEmptyBlock(BlockStateHolder stateHolder){
+        simpleBlock(stateHolder.getBlock(),new ConfiguredModel(BlockModelUtils.createEmpty(this,stateHolder)));
     }
 
-    public void createChiseledBlock(DataBlockStateHolder stateHolder) {
+    public void createChiseledBlock(BlockStateHolder stateHolder) {
         simpleBlock(stateHolder.getBlock(), new ConfiguredModel(models().cubeColumn(getBlockId(stateHolder.getBlock()), stateHolder.getMaterial("side"), stateHolder.getMaterial("end"))));
     }
 
-    public void createDoublePlant(DataBlockStateHolder stateHolder){
+    public void createDoublePlant(BlockStateHolder stateHolder){
         getVariantBuilder(stateHolder.getBlock()).
                 partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.LOWER).addModels(new ConfiguredModel(createTintedCross(this,stateHolder,"bottom"))).
                 partialState().with(DoublePlantBlock.HALF, DoubleBlockHalf.UPPER).addModels(new ConfiguredModel(createTintedCross(this,stateHolder,"top")));
     }
 
-    public void createGrass(DataBlockStateHolder stateHolder){
+    public void createGrass(BlockStateHolder stateHolder){
         simpleBlock(stateHolder.getBlock(),createTintedCross(this, stateHolder));
     }
 
 
 
-    public DataBlockStateHolder addState(DataBlockStateHolder customHolder){
+    public BlockStateHolder addState(BlockStateHolder customHolder){
         this.blockStates.add(customHolder);
         return customHolder;
     }
 
-    public DataBlockStateHolder addState(Block block, DataBlockState type){
-        DataBlockStateHolder holder = new DataBlockStateHolder(block,type);
-        ResourceLocation texture = getBlockTexture(block);
-        holder.material("texture",texture);
-        holder.material("particle",texture);
-        holder.material("side",texture);
-        holder.material("front",texture);
-        holder.material("top",new ResourceLocation(texture.getNamespace(),texture.getPath()+"_top"));
-        holder.material("bottom",new ResourceLocation(texture.getNamespace(),texture.getPath()+"_bottom"));
-        holder.material("double",texture);
+
+    public BlockStateHolder addState(Block block, BlockStateType type){
+        BlockStateHolder holder = new BlockStateHolder(block,type);
+        holder.loadDefaultTexturePaths();
         this.blockStates.add(holder);
         return holder;
     }
 
-    public DataBlockStateHolder addState(Supplier<Block> block, DataBlockState type){
+    public BlockStateHolder addState(Supplier<Block> block, BlockStateType type){
         return addState(block.get(),type);
     }
 
@@ -132,7 +126,7 @@ public class SABlockStateProvider extends BlockStateProvider implements IProvide
         gen.addProvider(true,this);
     }
 
-    public DataBlockStateHolder createHolder(Block block, DataBlockState type){
-        return new DataBlockStateHolder(block,type);
+    public BlockStateHolder createHolder(Block block, BlockStateType type){
+        return new BlockStateHolder(block,type);
     }
 }

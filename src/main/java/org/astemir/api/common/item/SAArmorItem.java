@@ -11,13 +11,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.astemir.api.client.wrapper.AbstractModelWrapperArmor;
 import org.astemir.api.client.ArmorModels;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class SAArmorItem extends ArmorItem implements ITESRModel {
+public class SAArmorItem extends ArmorItem implements ISARendered {
 
 
     public SAArmorItem(ArmorMaterial p_40386_, EquipmentSlot p_40387_, Properties p_40388_) {

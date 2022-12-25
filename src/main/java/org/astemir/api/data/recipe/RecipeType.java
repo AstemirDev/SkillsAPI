@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
-public abstract class DataRecipeType {
+public abstract class RecipeType {
 
-    public static class StoneCutter extends DataRecipeType {
+    public static class StoneCutter extends RecipeType {
 
         private ItemLike material;
 
@@ -24,7 +24,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             SingleItemRecipeBuilder newBuilder = SingleItemRecipeBuilder.stonecutting(Ingredient.of(material),holder.getResult(),holder.getCount());
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
@@ -38,7 +38,7 @@ public abstract class DataRecipeType {
         }
     }
 
-    public static class SmithTable extends DataRecipeType{
+    public static class SmithTable extends RecipeType {
 
         private ItemLike upgradable;
         private ItemLike material;
@@ -49,7 +49,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             UpgradeRecipeBuilder newBuilder = UpgradeRecipeBuilder.smithing(Ingredient.of(upgradable),Ingredient.of(material),holder.getResult().asItem()).unlocks(getHasName(material),has(material));
             if (holder.getCustomName().isEmpty()) {
                 newBuilder.save(consumer, ResourceUtils.getItemId(holder.getResult().asItem()) + "_smithing");
@@ -72,7 +72,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
@@ -97,7 +97,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.smoking(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
@@ -122,7 +122,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.blasting(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
@@ -147,7 +147,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             SimpleCookingRecipeBuilder newBuilder = SimpleCookingRecipeBuilder.smelting(Ingredient.of(getMaterial()),holder.getResult(),getExperience(),getCookingTime()).unlockedBy(getHasName(getMaterial()),has(getMaterial()));
             if (!holder.getGroup().isEmpty()){
                 newBuilder = newBuilder.group(holder.getGroup());
@@ -160,16 +160,16 @@ public abstract class DataRecipeType {
         }
     }
 
-    public static class Shaped extends DataRecipeType{
+    public static class Shaped extends RecipeType {
 
-        private DataRecipePattern pattern;
+        private RecipePattern pattern;
 
-        public Shaped(DataRecipePattern pattern) {
+        public Shaped(RecipePattern pattern) {
             this.pattern = pattern;
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             ShapedRecipeBuilder newBuilder = new ShapedRecipeBuilder(holder.getResult(),holder.getCount());
             pattern.build(newBuilder);
             if (!holder.getGroup().isEmpty()){
@@ -184,7 +184,7 @@ public abstract class DataRecipeType {
     }
 
 
-    public static class Shapeless extends DataRecipeType{
+    public static class Shapeless extends RecipeType {
 
         private ItemLike[] materials;
 
@@ -193,7 +193,7 @@ public abstract class DataRecipeType {
         }
 
         @Override
-        public void build(DataRecipeHolder holder, Consumer<FinishedRecipe> consumer) {
+        public void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer) {
             ShapelessRecipeBuilder newBuilder = new ShapelessRecipeBuilder(holder.getResult(),holder.getCount());
             List<String> criterionTags = new ArrayList<>();
             for (ItemLike material : materials) {
@@ -215,7 +215,7 @@ public abstract class DataRecipeType {
         }
     }
 
-    public abstract static class AbstractFurnaceRecipe extends DataRecipeType{
+    public abstract static class AbstractFurnaceRecipe extends RecipeType {
 
         private ItemLike material;
         private int cookingTime = 200;
@@ -244,7 +244,7 @@ public abstract class DataRecipeType {
         }
     }
 
-    public abstract void build(DataRecipeHolder holder,Consumer<FinishedRecipe> consumer);
+    public abstract void build(RecipeHolder holder, Consumer<FinishedRecipe> consumer);
 
 
     protected static String getConversionRecipeName(ItemLike p_176518_, ItemLike p_176519_) {

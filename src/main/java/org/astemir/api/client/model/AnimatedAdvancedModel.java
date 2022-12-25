@@ -11,7 +11,7 @@ import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.AnimationFactory;
 import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 import org.astemir.api.math.Transform;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.utils.AnimationUtils;
@@ -19,7 +19,7 @@ import org.astemir.api.utils.JsonUtils;
 import java.util.HashSet;
 import java.util.Set;
 
-public abstract class AnimatedAdvancedModel<T extends ITESRModel & IAnimated> extends AdvancedModel<T> {
+public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> extends AdvancedModel<T> {
 
     public Set<AnimationTrack> animations = new HashSet<>();
 

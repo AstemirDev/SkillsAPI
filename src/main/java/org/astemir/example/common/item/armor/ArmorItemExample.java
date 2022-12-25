@@ -7,9 +7,9 @@ import net.minecraft.world.item.CreativeModeTab;
 import org.astemir.api.common.item.SAArmorItem;
 
 
-public class TestArmor extends SAArmorItem {
+public class ArmorItemExample extends SAArmorItem {
 
-    public TestArmor(EquipmentSlot p_40387_) {
+    public ArmorItemExample(EquipmentSlot p_40387_) {
         super(ArmorMaterials.LEATHER, p_40387_, new Properties().tab(CreativeModeTab.TAB_COMBAT));
     }
 

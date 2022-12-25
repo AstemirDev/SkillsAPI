@@ -20,7 +20,7 @@ import static org.astemir.api.utils.ResourceUtils.*;
 public class SAItemModelProvider extends ItemModelProvider implements IProvider {
 
 
-    private List<Couple<Item, DataItemModel>> itemModels = new ArrayList<>();
+    private List<Couple<Item, ItemModel>> itemModels = new ArrayList<>();
 
     private String modId;
 
@@ -31,7 +31,7 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider 
 
     @Override
     protected void registerModels() {
-        for (Couple<Item, DataItemModel> pair : itemModels) {
+        for (Couple<Item, ItemModel> pair : itemModels) {
             switch (pair.getValue()){
                 case GENERATED -> generatedItem(pair.getKey());
                 case HANDHELD -> handheld(pair.getKey());
@@ -45,11 +45,11 @@ public class SAItemModelProvider extends ItemModelProvider implements IProvider 
         }
     }
 
-    public void addModel(Item item, DataItemModel type){
+    public void addModel(Item item, ItemModel type){
         this.itemModels.add(new Couple<>(item,type));
     }
 
-    public void addModel(Supplier<Item> itemSupplier, DataItemModel type){
+    public void addModel(Supplier<Item> itemSupplier, ItemModel type){
         this.itemModels.add(new Couple<>(itemSupplier.get(),type));
     }
 

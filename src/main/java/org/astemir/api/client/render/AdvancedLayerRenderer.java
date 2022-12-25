@@ -2,19 +2,17 @@ package org.astemir.api.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import org.astemir.api.client.SARenderTypes;
 import org.astemir.api.client.wrapper.AbstractModelWrapperEntity;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
-public class AdvancedLayerRenderer<T extends Entity & ITESRModel, M extends AbstractModelWrapperEntity<T>> extends RenderLayer<T, M> {
+public class AdvancedLayerRenderer<T extends Entity & ISARendered, M extends AbstractModelWrapperEntity<T>> extends RenderLayer<T, M> {
 
     public AdvancedLayerRenderer(RenderLayerParent<T, M> p_117346_) {
         super(p_117346_);

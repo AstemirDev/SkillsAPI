@@ -1,16 +1,14 @@
 package org.astemir.api.common.entity;
 
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.entity.IEntityAdditionalSpawnData;
 import net.minecraftforge.network.NetworkHooks;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 import org.astemir.api.common.state.Action;
 import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.ActionStateMachine;
@@ -18,7 +16,7 @@ import org.astemir.api.common.state.IActionListener;
 import org.astemir.api.network.PacketArgument;
 import org.astemir.api.utils.EntityUtils;
 
-public abstract class SAEntityMonster extends Monster implements IAnimated, IActionListener,IEventEntity,ITESRModel {
+public abstract class SAEntityMonster extends Monster implements IAnimated, IActionListener,IEventEntity, ISARendered {
 
     private ActionStateMachine actionStateMachine = new ActionStateMachine();
 

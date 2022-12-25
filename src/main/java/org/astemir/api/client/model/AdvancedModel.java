@@ -14,14 +14,14 @@ import net.minecraft.world.item.ItemStack;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.wrapper.IModelWrapper;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 import org.astemir.api.utils.JsonUtils;
 import org.astemir.api.utils.MathUtils;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
 import java.util.*;
 
-public abstract class AdvancedModel<T extends ITESRModel> extends Model {
+public abstract class AdvancedModel<T extends ISARendered> extends Model {
 
     public Set<ModelElement> renderers = new HashSet<>();
     public IModelWrapper<T> modelWrapper;
@@ -36,7 +36,7 @@ public abstract class AdvancedModel<T extends ITESRModel> extends Model {
     }
 
     public void renderItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack matrixStack, int packedLightIn){
-        ITESRModel renderTarget = modelWrapper.getRenderTarget();
+        ISARendered renderTarget = modelWrapper.getRenderTarget();
         int overlayCoords = 0;
         if (renderTarget instanceof LivingEntity){
             LivingEntity livingEntity = (LivingEntity)renderTarget;

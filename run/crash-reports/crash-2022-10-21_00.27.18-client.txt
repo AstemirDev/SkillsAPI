@@ -11,7 +11,7 @@ java.lang.IllegalStateException: Not a JSON Array: {"north":{"uv":[25,25],"uv_si
 	at org.astemir.api.client.model.AdvancedModel.<init>(AdvancedModel.java:55) ~[%2379!/:?] {re:classloading}
 	at org.astemir.example.client.render.mace.ModelExampleMace.<init>(ModelMace.java:15) ~[%2379!/:?] {re:classloading}
 	at org.astemir.example.client.render.mace.WrapperExampleMace.<init>(ModelWrapperMace.java:14) ~[%2379!/:?] {re:classloading}
-	at org.astemir.example.common.item.MaceItem$1.getItemStackRenderer(MaceItem.java:29) ~[%2379!/:?] {re:classloading}
+	at org.astemir.example.common.item.ItemExampleMace$1.getItemStackRenderer(MaceItem.java:29) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:159) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:230) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.ItemInHandRenderer.renderItem(ItemInHandRenderer.java:123) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:runtimedistcleaner:A}
@@ -50,7 +50,7 @@ Stacktrace:
 	at org.astemir.api.client.model.AdvancedModel.<init>(AdvancedModel.java:55) ~[%2379!/:?] {re:classloading}
 	at org.astemir.example.client.render.mace.ModelExampleMace.<init>(ModelMace.java:15) ~[%2379!/:?] {re:classloading}
 	at org.astemir.example.client.render.mace.WrapperExampleMace.<init>(ModelWrapperMace.java:14) ~[%2379!/:?] {re:classloading}
-	at org.astemir.example.common.item.MaceItem$1.getItemStackRenderer(MaceItem.java:29) ~[%2379!/:?] {re:classloading}
+	at org.astemir.example.common.item.ItemExampleMace$1.getItemStackRenderer(MaceItem.java:29) ~[%2379!/:?] {re:classloading}
 	at net.minecraft.client.renderer.entity.ItemRenderer.render(ItemRenderer.java:159) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.entity.ItemRenderer.renderStatic(ItemRenderer.java:230) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:accesstransformer:B,pl:runtimedistcleaner:A}
 	at net.minecraft.client.renderer.ItemInHandRenderer.renderItem(ItemInHandRenderer.java:123) ~[forge-1.18.2-40.1.25_mapped_official_1.18.2-recomp.jar%2375!/:?] {re:classloading,pl:runtimedistcleaner:A}

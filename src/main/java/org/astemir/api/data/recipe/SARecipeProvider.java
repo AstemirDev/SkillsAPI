@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 
 public class SARecipeProvider extends RecipeProvider implements IProvider {
 
-    private List<DataRecipeHolder> recipes = new ArrayList<>();
+    private List<RecipeHolder> recipes = new ArrayList<>();
 
     public SARecipeProvider(DataGenerator p_125973_) {
         super(p_125973_);
@@ -20,108 +20,108 @@ public class SARecipeProvider extends RecipeProvider implements IProvider {
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> p_176532_) {
-        for (DataRecipeHolder recipe : recipes) {
+        for (RecipeHolder recipe : recipes) {
             recipe.getRecipeType().build(recipe,p_176532_);
         }
     }
-    public void addRecipe(DataRecipeHolder recipe){
+    public void addRecipe(RecipeHolder recipe){
         recipes.add(recipe);
     }
 
-    public DataRecipeHolder oneToOne(ItemLike result,int count,ItemLike material) {
+    public RecipeHolder oneToOne(ItemLike result, int count, ItemLike material) {
         return shapeless(result,count,material);
     }
 
-    public DataRecipeHolder fourBlock(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("##","##").put("#",material));
+    public RecipeHolder fourBlock(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("##","##").put("#",material));
     }
 
-    public DataRecipeHolder chiseled(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("#","#").put("#",material));
+    public RecipeHolder chiseled(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("#","#").put("#",material));
     }
 
-    public DataRecipeHolder nineBlock(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("###","###","###").put("#",material));
+    public RecipeHolder nineBlock(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("###","###","###").put("#",material));
     }
 
-    public DataRecipeHolder chest(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("###","# #","###").put("#",material));
+    public RecipeHolder chest(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("###","# #","###").put("#",material));
     }
 
-    public DataRecipeHolder stairs(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("#  ","## ","###").put("#",material));
+    public RecipeHolder stairs(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("#  ","## ","###").put("#",material));
     }
 
-    public DataRecipeHolder slab(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("###").put("#",material));
+    public RecipeHolder slab(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("###").put("#",material));
     }
 
-    public DataRecipeHolder trapdoor(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("###","###").put("#",material));
+    public RecipeHolder trapdoor(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("###","###").put("#",material));
     }
 
-    public DataRecipeHolder boat(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("# #","###").put("#",material));
+    public RecipeHolder boat(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("# #","###").put("#",material));
     }
 
-    public DataRecipeHolder sign(ItemLike result,int count,ItemLike material,ItemLike stick){
-        return shaped(result,count,new DataRecipePattern("###","###"," X ").put("#",material).put("X",stick)).group("sign");
+    public RecipeHolder sign(ItemLike result, int count, ItemLike material, ItemLike stick){
+        return shaped(result,count,new RecipePattern("###","###"," X ").put("#",material).put("X",stick)).group("sign");
     }
 
-    public DataRecipeHolder fence(ItemLike result,int count,ItemLike material,ItemLike stick){
-        return shaped(result,count,new DataRecipePattern("W#W","W#W").put("W",material).put("#",stick));
+    public RecipeHolder fence(ItemLike result, int count, ItemLike material, ItemLike stick){
+        return shaped(result,count,new RecipePattern("W#W","W#W").put("W",material).put("#",stick));
     }
 
-    public DataRecipeHolder fenceGate(ItemLike result,int count,ItemLike material,ItemLike stick){
-        return shaped(result,count,new DataRecipePattern("#W#","#W#").put("W",material).put("#",stick));
+    public RecipeHolder fenceGate(ItemLike result, int count, ItemLike material, ItemLike stick){
+        return shaped(result,count,new RecipePattern("#W#","#W#").put("W",material).put("#",stick));
     }
 
-    public DataRecipeHolder pressurePlate(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("##").put("#",material));
+    public RecipeHolder pressurePlate(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("##").put("#",material));
     }
 
-    public DataRecipeHolder wall(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("###","###").put("#",material));
+    public RecipeHolder wall(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("###","###").put("#",material));
     }
 
-    public DataRecipeHolder door(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("##","##","##").put("#",material));
+    public RecipeHolder door(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("##","##","##").put("#",material));
     }
 
-    public DataRecipeHolder slabToBlock(ItemLike result,int count,ItemLike material){
-        return shaped(result,count,new DataRecipePattern("#").put("#",material));
+    public RecipeHolder slabToBlock(ItemLike result, int count, ItemLike material){
+        return shaped(result,count,new RecipePattern("#").put("#",material));
     }
 
-    public DataRecipeHolder stoneCut(ItemLike result,int count,ItemLike material){
-        return new DataRecipeHolder(new DataRecipeType.StoneCutter(material),result,count);
+    public RecipeHolder stoneCut(ItemLike result, int count, ItemLike material){
+        return new RecipeHolder(new RecipeType.StoneCutter(material),result,count);
     }
 
-    public DataRecipeHolder upgrade(ItemLike result,ItemLike tool,ItemLike material){
-        return new DataRecipeHolder(new DataRecipeType.SmithTable(tool,material),result,1);
+    public RecipeHolder upgrade(ItemLike result, ItemLike tool, ItemLike material){
+        return new RecipeHolder(new RecipeType.SmithTable(tool,material),result,1);
     }
 
-    public DataRecipeHolder campfire(ItemLike result,int count,ItemLike material,int time,float exp){
-        return new DataRecipeHolder(new DataRecipeType.Campfire(material,time,exp),result,count);
+    public RecipeHolder campfire(ItemLike result, int count, ItemLike material, int time, float exp){
+        return new RecipeHolder(new RecipeType.Campfire(material,time,exp),result,count);
     }
 
-    public DataRecipeHolder shaped(ItemLike result, int count, DataRecipePattern pattern){
-        return new DataRecipeHolder(new DataRecipeType.Shaped(pattern),result,count);
+    public RecipeHolder shaped(ItemLike result, int count, RecipePattern pattern){
+        return new RecipeHolder(new RecipeType.Shaped(pattern),result,count);
     }
 
-    public DataRecipeHolder shapeless(ItemLike result,int count,ItemLike... materials){
-        return new DataRecipeHolder(new DataRecipeType.Shapeless(materials),result,count);
+    public RecipeHolder shapeless(ItemLike result, int count, ItemLike... materials){
+        return new RecipeHolder(new RecipeType.Shapeless(materials),result,count);
     }
 
-    public DataRecipeHolder smeltingOrCooking(ItemLike result, int count, ItemLike material,int cookingTime,float experience){
-        return new DataRecipeHolder(new DataRecipeType.Furnace(material,cookingTime,experience),result,count);
+    public RecipeHolder smeltingOrCooking(ItemLike result, int count, ItemLike material, int cookingTime, float experience){
+        return new RecipeHolder(new RecipeType.Furnace(material,cookingTime,experience),result,count);
     }
 
-    public DataRecipeHolder cooking(ItemLike result, int count, ItemLike material,int cookingTime,float experience){
-        return new DataRecipeHolder(new DataRecipeType.SmokerFurnace(material,cookingTime,experience),result,count);
+    public RecipeHolder cooking(ItemLike result, int count, ItemLike material, int cookingTime, float experience){
+        return new RecipeHolder(new RecipeType.SmokerFurnace(material,cookingTime,experience),result,count);
     }
 
-    public DataRecipeHolder smelting(ItemLike result, int count, ItemLike material,int cookingTime,float experience){
-        return new DataRecipeHolder(new DataRecipeType.MetalFurnace(material,cookingTime,experience),result,count);
+    public RecipeHolder smelting(ItemLike result, int count, ItemLike material, int cookingTime, float experience){
+        return new RecipeHolder(new RecipeType.MetalFurnace(material,cookingTime,experience),result,count);
     }
 
 

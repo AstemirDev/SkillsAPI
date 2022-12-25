@@ -1,11 +1,7 @@
 package org.astemir.api.common.animation;
 
 
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.network.messages.ClientMessageAnimation;
-import org.astemir.api.network.AnimationTarget;
-
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,16 +28,16 @@ public class AnimationFactory {
     }
 
     public void sendAnimation(Animation animation,int tick){
-        AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(), ClientMessageAnimation.Action.START,tick);
+        AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new IAnimatedKey(animated), ClientMessageAnimation.Action.START,tick);
     }
 
     public void syncClient(){
-        AnimationHandler.INSTANCE.sendClientSyncMessage(this,getTarget());
+        AnimationHandler.INSTANCE.sendClientSyncMessage(this,new IAnimatedKey(animated));
     }
 
     public void stop(Animation animation){
         if (isPlaying(animation)) {
-            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,getTarget(), ClientMessageAnimation.Action.STOP,0);
+            AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new IAnimatedKey(animated), ClientMessageAnimation.Action.STOP,0);
         }
     }
 
@@ -49,17 +45,6 @@ public class AnimationFactory {
         for (Animation playingAnimation : getPlayingAnimations()) {
             stop(playingAnimation);
         }
-    }
-
-
-    private AnimationTarget getTarget(){
-        if (animated instanceof Entity){
-            return AnimationTarget.ENTITY;
-        }else
-        if (animated instanceof BlockEntity){
-            return AnimationTarget.BLOCK;
-        }
-        return AnimationTarget.ENTITY;
     }
 
     @Deprecated

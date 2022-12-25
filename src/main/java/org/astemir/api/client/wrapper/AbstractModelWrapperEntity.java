@@ -13,9 +13,9 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
-public abstract class AbstractModelWrapperEntity<T extends Entity & ITESRModel> extends EntityModel<T> implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered> extends EntityModel<T> implements IModelWrapper<T> {
 
     public T renderTarget;
     public MultiBufferSource multiBufferSource;

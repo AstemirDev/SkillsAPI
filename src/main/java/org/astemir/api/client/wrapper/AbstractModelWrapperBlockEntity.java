@@ -4,7 +4,6 @@ package org.astemir.api.client.wrapper;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.Model;
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -12,10 +11,10 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
 
-public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & ITESRModel> extends Model implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & ISARendered> extends Model implements IModelWrapper<T> {
 
     public T renderTarget;
     public MultiBufferSource multiBufferSource;

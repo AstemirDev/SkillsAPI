@@ -1,9 +1,8 @@
-package org.astemir.api.network;
+package org.astemir.api.common.animation;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.astemir.api.common.animation.AnimationFactory;
 
 public enum AnimationTarget {
 

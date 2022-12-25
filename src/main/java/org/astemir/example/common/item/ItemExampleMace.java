@@ -5,15 +5,15 @@ import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.astemir.api.client.render.AdvancedRendererItem;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
 
 import java.util.function.Consumer;
 
-public class MaceItem extends Item implements ITESRModel {
+public class ItemExampleMace extends Item implements ISARendered {
 
 
-    public MaceItem() {
+    public ItemExampleMace() {
         super(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT));
     }
 

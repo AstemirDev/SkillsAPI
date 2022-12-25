@@ -12,10 +12,10 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ITESRModel;
+import org.astemir.api.common.animation.ISARendered;
 
 
-public abstract class AbstractModelWrapperItem<T extends Item & ITESRModel> extends Model implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> extends Model implements IModelWrapper<T> {
 
     public T renderTarget;
     public ItemStack itemStack;

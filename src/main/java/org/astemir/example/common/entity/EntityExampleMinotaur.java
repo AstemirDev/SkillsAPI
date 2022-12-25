@@ -16,7 +16,7 @@ import org.astemir.api.utils.RandomUtils;
 import static org.astemir.api.utils.EntityUtils.isMoving;
 
 
-public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated, ITESRModel {
+public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated, ISARendered {
 
     public static Animation ANIMATION_IDLE = new Animation("animation.model.idle",2.4f).loop().layer(0);
     public static Animation ANIMATION_WALK = new Animation("animation.model.walk",2.08f).loop().layer(0);

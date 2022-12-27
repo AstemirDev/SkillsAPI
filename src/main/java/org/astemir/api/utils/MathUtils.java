@@ -45,6 +45,13 @@ public class MathUtils {
        return a + t * wrap;
     }
 
+    public static float floatSafe(float f){
+        if (Float.isNaN(f)){
+            return 0;
+        }
+        return f;
+    }
+
     public static float shortestAngle(float a,float b){
         return ((b-a) + 180) % 360 - 180;
     }

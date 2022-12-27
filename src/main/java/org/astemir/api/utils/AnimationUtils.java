@@ -61,20 +61,24 @@ public class AnimationUtils {
     }
 
     public static Vector3 interpolatePointsCatmullRom(AnimationFrame[] frames, float position){
-        float value = 1.0f;
-        int i = Math.max(0, Mth.binarySearch(0, frames.length, (p_232315_) -> {
-            return position <= frames[p_232315_].getPosition();
-        }) - 1);
-        int j = Math.min(frames.length - 1, i + 1);
-        AnimationFrame keyframe = frames[i];
-        AnimationFrame keyframe1 = frames[j];
-        float f1 = position - keyframe.getPosition();
-        float f2 = Mth.clamp(f1 / (keyframe1.getPosition() - keyframe.getPosition()), 0.0F, 1.0F);
-        Vector3 previousValue = frames[Math.max(0, i - 1)].getValue();
-        Vector3 currentValue = frames[i].getValue();
-        Vector3 nextValue = frames[j].getValue();
-        Vector3 nextNextValue = frames[Math.min(frames.length - 1, j + 1)].getValue();
-        return new Vector3(catmullrom(previousValue.x, currentValue.x, nextValue.x, nextNextValue.x,f2) * value, catmullrom(previousValue.y, currentValue.y, nextValue.y, nextNextValue.y,f2) * value, catmullrom(previousValue.z, currentValue.z, nextValue.z, nextNextValue.z,f2) * value);
+        if (frames.length > 1) {
+            float value = 1.0f;
+            int i = Math.max(0, Mth.binarySearch(0, frames.length, (p_232315_) -> {
+                return position <= frames[p_232315_].getPosition();
+            }) - 1);
+            int j = Math.min(frames.length - 1, i + 1);
+            AnimationFrame keyframe = frames[i];
+            AnimationFrame keyframe1 = frames[j];
+            float f1 = position - keyframe.getPosition();
+            float f2 = Mth.clamp(f1 / (keyframe1.getPosition() - keyframe.getPosition()), 0.0F, 1.0F);
+            Vector3 previousValue = frames[Math.max(0, i - 1)].getValue();
+            Vector3 currentValue = frames[i].getValue();
+            Vector3 nextValue = frames[j].getValue();
+            Vector3 nextNextValue = frames[Math.min(frames.length - 1, j + 1)].getValue();
+            return new Vector3(catmullrom(previousValue.x, currentValue.x, nextValue.x, nextNextValue.x, f2) * value, catmullrom(previousValue.y, currentValue.y, nextValue.y, nextNextValue.y, f2) * value, catmullrom(previousValue.z, currentValue.z, nextValue.z, nextNextValue.z, f2) * value);
+        }else{
+            return interpolatePoints(frames,position);
+        }
     }
 
     public static Vector3 interpolatePoints(AnimationFrame[] points, float position){

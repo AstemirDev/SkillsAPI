@@ -148,6 +148,84 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
 
     @Override
     public void setupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
+        catmulRomSetupAnim(animated,limbSwing,limbSwingAmount,ticks,headYaw,headPitch);
+    }
+
+
+    public void catmulRomSetupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
+        float partialTicks = Minecraft.getInstance().getPartialTick();
+        if (!Minecraft.getInstance().isPaused()) {
+            float delta = partialTicks/smoothness;
+            if (!animations.isEmpty()) {
+                reset();
+                AnimatorDataHandler animationManager = AnimatorDataHandler.getInstance();
+                AnimatorDataHandler.BoneStates data = animationManager.getOrCreateData(animated);
+                float deltaTime = (data.getTempTick() - data.getPrevTempTick()) / 20f;
+                if (deltaTime < 0) {
+                    deltaTime = 0;
+                }
+                data.update(animated, ticks, deltaTime);
+
+                for (ModelElement renderer : getElements()) {
+                    Transform rendererTransform = animationManager.getTransformData(animated, renderer);
+
+                    Vector3 rot = rendererTransform.getRotation();
+                    Vector3 scale = rendererTransform.getScale();
+                    Vector3 pos = rendererTransform.getPosition();
+                    if (isRendererUsed(animated, renderer)) {
+                        AnimationFactory animationFactory = animated.getAnimationFactory();
+                        for (Animation animation : animationFactory.getPlayingAnimations()) {
+                            AnimationTrack track = getTrack(animation.getName());
+                            if (track.hasBone(renderer.getName())) {
+                                AnimationBone bone = track.getBone(renderer.getName());
+                                float animationTick = data.getAnimationTick(animation);
+                                if (bone.getRotations() != null) {
+                                    if (checkCanRotate(animated, animation, bone)) {
+                                        AnimationFrame[] frames = bone.getRotations();
+                                        rot = rot.rotLerp(AnimationUtils.interpolatePointsCatmullRom(frames,animationTick), delta);
+                                    }
+                                }
+                                if (bone.getScales() != null) {
+                                    if (checkCanScale(animated, animation, bone)) {
+                                        AnimationFrame[] frames = bone.getScales();
+                                        scale = scale.lerp(AnimationUtils.interpolatePointsCatmullRom(frames, animationTick), delta);
+                                    }
+                                }
+                                if (bone.getPositions() != null) {
+                                    if (checkCanMove(animated, animation, bone)) {
+                                        AnimationFrame[] frames = bone.getPositions();
+                                        pos = pos.lerp(AnimationUtils.interpolatePointsCatmullRom(frames, animationTick), delta);
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta);
+                        scale = scale.lerp(new Vector3(1, 1, 1), delta);
+                        pos = pos.lerp(new Vector3(0, 0, 0), delta);
+                    }
+                    if (!isRotatingInAnyTrack(animated, renderer)) {
+                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta);
+                    }
+                    if (!isScalingInAnyTrack(animated, renderer)) {
+                        scale = scale.lerp(new Vector3(1, 1, 1), delta);
+                    }
+                    if (!isPositioningInAnyTrack(animated, renderer)) {
+                        pos = pos.lerp(new Vector3(0, 0, 0), delta);
+                    }
+                    rendererTransform.setRotation(rot);
+                    rendererTransform.setScale(scale);
+                    rendererTransform.setPosition(pos);
+                    renderer.apply(rendererTransform);
+                }
+            }
+            animate(animated, limbSwing, limbSwingAmount, ticks, delta, headYaw, headPitch);
+        }
+        customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
+    }
+
+
+    public void lerpSetupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (!Minecraft.getInstance().isPaused()) {
             float delta = partialTicks/smoothness;

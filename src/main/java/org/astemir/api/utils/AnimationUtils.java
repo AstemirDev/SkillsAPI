@@ -1,6 +1,11 @@
 package org.astemir.api.utils;
+import com.mojang.math.Vector3f;
+import net.minecraft.client.animation.AnimationChannel;
+import net.minecraft.client.animation.Keyframe;
+import net.minecraft.util.Mth;
 import org.astemir.api.client.animation.AnimationFrame;
 import org.astemir.api.math.Vector3;
+import org.lwjgl.system.MathUtil;
 
 public class AnimationUtils {
 
@@ -32,21 +37,44 @@ public class AnimationUtils {
         return easingIn(flip(f)/0.5f);
     }
 
-    public static float catmullrom(float p_216245_, float p_216246_, float p_216247_, float p_216248_, float p_216249_) {
-        return 0.5F * (2.0F * p_216247_ + (p_216248_ - p_216246_) * p_216245_ + (2.0F * p_216246_ - 5.0F * p_216247_ + 4.0F * p_216248_ - p_216249_) * p_216245_ * p_216245_ + (3.0F * p_216247_ - p_216246_ - 3.0F * p_216248_ + p_216249_) * p_216245_ * p_216245_ * p_216245_);
+    public static float catmullrom(float previous, float current, float next, float nextNext,float f) {
+        return 0.5F * (2.0F * current + (next - previous) * f + (2.0F * previous - 5.0F * current + 4.0F * next - nextNext) * f * f + (3.0F * current - previous - 3.0F * next + nextNext) * f * f * f);
     }
 
-    public static Vector3 interpolateTestPoints(AnimationFrame[] points,float time){
-        if (points.length > 0) {
-            AnimationFrame current = points[0];
-            for (AnimationFrame point : points) {
-                if (time >= point.getPosition()) {
-                    current = point;
-                }
+
+    public static int getCurrentIndex(AnimationFrame[] frames,float time){
+        for (int i = 0; i < frames.length; i++) {
+            AnimationFrame frame = frames[i];
+            if (time <= frame.getPosition()){
+                return i;
             }
-            return current.getValue();
         }
-        return Vector3.ZERO;
+        return frames.length-1;
+    }
+
+    public static int getNextIndex(AnimationFrame[] frames,float time){
+        int cur = getCurrentIndex(frames,time);
+        if (cur+1 > frames.length-1){
+            return 0;
+        }
+        return cur+1;
+    }
+
+    public static Vector3 interpolatePointsCatmullRom(AnimationFrame[] frames, float position){
+        float value = 1.0f;
+        int i = Math.max(0, Mth.binarySearch(0, frames.length, (p_232315_) -> {
+            return position <= frames[p_232315_].getPosition();
+        }) - 1);
+        int j = Math.min(frames.length - 1, i + 1);
+        AnimationFrame keyframe = frames[i];
+        AnimationFrame keyframe1 = frames[j];
+        float f1 = position - keyframe.getPosition();
+        float f2 = Mth.clamp(f1 / (keyframe1.getPosition() - keyframe.getPosition()), 0.0F, 1.0F);
+        Vector3 previousValue = frames[Math.max(0, i - 1)].getValue();
+        Vector3 currentValue = frames[i].getValue();
+        Vector3 nextValue = frames[j].getValue();
+        Vector3 nextNextValue = frames[Math.min(frames.length - 1, j + 1)].getValue();
+        return new Vector3(catmullrom(previousValue.x, currentValue.x, nextValue.x, nextNextValue.x,f2) * value, catmullrom(previousValue.y, currentValue.y, nextValue.y, nextNextValue.y,f2) * value, catmullrom(previousValue.z, currentValue.z, nextValue.z, nextNextValue.z,f2) * value);
     }
 
     public static Vector3 interpolatePoints(AnimationFrame[] points, float position){

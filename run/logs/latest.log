@@ -1,135 +1,184 @@
-[25дек.2022 23:18:03.590] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 43.1.43, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853]
-[25дек.2022 23:18:03.597] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.1 by Microsoft; OS Mac OS X arch x86_64 version 13.0.1
-[25дек.2022 23:18:03.934] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23119!/ Service=ModLauncher Env=CLIENT
-[25дек.2022 23:18:04.685] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[25дек.2022 23:18:04.692] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[25дек.2022 23:18:04.696] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[25дек.2022 23:18:04.698] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar is missing mods.toml file
-[25дек.2022 23:18:04.900] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
-[25дек.2022 23:18:08.653] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --assetIndex, 1.19]
-[25дек.2022 23:18:16.693] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
-[25дек.2022 23:18:23.143] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2.jar%23181!/assets/.mcassetsroot' uses unexpected schema
-[25дек.2022 23:18:23.155] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2.jar%23181!/data/.mcassetsroot' uses unexpected schema
-[25дек.2022 23:18:23.235] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[25дек.2022 23:18:23.244] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[25дек.2022 23:18:23.583] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[25дек.2022 23:18:24.712] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.1.43, for MC 1.19.2 with MCP 20220805.130853
-[25дек.2022 23:18:24.712] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.1.43 Initialized
-[25дек.2022 23:18:26.997] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [examplemod]
-[25дек.2022 23:18:28.109] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
-[25дек.2022 23:18:29.573] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[25дек.2022 23:18:31.030] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 43.1.43 Target: 43.2.0
-[25дек.2022 23:18:36.828] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_helmet#inventory' referenced from: skillsapi:test_helmet#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_helmet.json
-[25дек.2022 23:18:36.838] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_chestplate#inventory' referenced from: skillsapi:test_chestplate#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_chestplate.json
-[25дек.2022 23:18:36.839] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_leggings#inventory' referenced from: skillsapi:test_leggings#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_leggings.json
-[25дек.2022 23:18:36.839] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_boots#inventory' referenced from: skillsapi:test_boots#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_boots.json
-[25дек.2022 23:18:41.991] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[25дек.2022 23:18:42.000] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[25дек.2022 23:18:42.165] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
-[25дек.2022 23:18:42.190] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[25дек.2022 23:18:42.661] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[25дек.2022 23:18:42.700] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
-[25дек.2022 23:18:42.702] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[25дек.2022 23:18:42.703] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[25дек.2022 23:18:42.705] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[25дек.2022 23:18:42.705] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[25дек.2022 23:18:42.706] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[25дек.2022 23:18:44.168] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[25дек.2022 23:18:44.574] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[25дек.2022 23:18:44.577] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[25дек.2022 23:18:44.578] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[25дек.2022 23:18:45.594] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[25дек.2022 23:18:56.851] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[25дек.2022 23:18:58.263] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
-[25дек.2022 23:18:59.127] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
-[25дек.2022 23:18:59.128] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[25дек.2022 23:18:59.805] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[25дек.2022 23:19:07.945] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.958] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.959] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.960] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.960] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.960] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.960] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:07.960] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:08.413] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[25дек.2022 23:19:08.851] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 15%
-[25дек.2022 23:19:09.382] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 54%
-[25дек.2022 23:19:09.861] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 85%
-[25дек.2022 23:19:10.103] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 10252 ms
-[25дек.2022 23:19:10.132] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[25дек.2022 23:19:10.369] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 4, from 10
-[25дек.2022 23:19:10.375] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 10, from 0
-[25дек.2022 23:19:10.578] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[25дек.2022 23:19:11.389] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[25дек.2022 23:19:11.580] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@2593e58f
-[25дек.2022 23:19:11.705] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:ddbe3e31] logged in with entity id 1 at (5033.486090948585, -60.0, 4443.497530633464)
-[25дек.2022 23:19:12.100] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
-[25дек.2022 23:19:14.494] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 3058ms or 61 ticks behind
-[25дек.2022 23:19:17.776] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 32 advancements
-[25дек.2022 23:20:43.535] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Наложены чары «Защита от снарядов III» на предмет Dev]
-[25дек.2022 23:20:43.576] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Наложены чары «Защита от снарядов III» на предмет Dev
-[25дек.2022 23:21:19.133] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.143] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.144] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.144] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.144] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.144] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.144] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
-[25дек.2022 23:21:19.172] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Сущность «entity.skillsapi.shark_boat» создана]
-[25дек.2022 23:21:19.177] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Сущность «entity.skillsapi.shark_boat» создана
-[25дек.2022 23:21:51.673] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Режим выживания]
-[25дек.2022 23:21:51.704] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Режим выживания
-[25дек.2022 23:21:54.815] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev получил достижение «[Алмазы!]»
-[25дек.2022 23:21:54.826] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Dev получил достижение «[Алмазы!]»
-[25дек.2022 23:21:54.895] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 51 advancements
-[25дек.2022 23:21:56.617] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Ваш режим игры изменён на Творческий режим
-[25дек.2022 23:21:56.609] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Ваш режим игры изменён на Творческий режим]
-[25дек.2022 23:22:09.629] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:22:09.700] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:22:09.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:22:09.746] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:22:42.277] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:22:42.308] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:22:42.318] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:22:42.320] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:23:27.977] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:23:28.037] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:23:28.054] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:23:28.058] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:23:57.024] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:23:57.036] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:23:57.041] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:23:57.043] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:24:54.625] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:24:54.669] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:24:54.685] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:24:54.692] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:26:40.471] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:26:40.511] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:26:40.519] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:26:40.520] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:26:42.421] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:26:42.457] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:26:42.461] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:26:42.462] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:27:56.217] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:27:56.226] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:27:56.232] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:27:56.234] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:29:05.517] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[25дек.2022 23:29:05.560] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[25дек.2022 23:29:05.574] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[25дек.2022 23:29:05.576] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[25дек.2022 23:30:54.415] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[25дек.2022 23:30:54.440] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[25дек.2022 23:30:54.481] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[27дек.2022 23:18:07.326] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 43.1.43, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853]
+[27дек.2022 23:18:07.332] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.1 by Microsoft; OS Mac OS X arch x86_64 version 13.0.1
+[27дек.2022 23:18:07.631] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23119!/ Service=ModLauncher Env=CLIENT
+[27дек.2022 23:18:08.458] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[27дек.2022 23:18:08.464] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[27дек.2022 23:18:08.467] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[27дек.2022 23:18:08.471] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar is missing mods.toml file
+[27дек.2022 23:18:08.702] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: No dependencies to load found. Skipping!
+[27дек.2022 23:18:13.312] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --assetIndex, 1.19]
+[27дек.2022 23:18:22.770] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
+[27дек.2022 23:18:28.161] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2.jar%23181!/assets/.mcassetsroot' uses unexpected schema
+[27дек.2022 23:18:28.170] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2.jar%23181!/data/.mcassetsroot' uses unexpected schema
+[27дек.2022 23:18:28.220] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[27дек.2022 23:18:28.231] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[27дек.2022 23:18:28.529] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[27дек.2022 23:18:30.088] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.1.43, for MC 1.19.2 with MCP 20220805.130853
+[27дек.2022 23:18:30.090] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.1.43 Initialized
+[27дек.2022 23:18:32.469] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [examplemod]
+[27дек.2022 23:18:33.607] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[27дек.2022 23:18:35.794] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[27дек.2022 23:18:38.344] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 43.1.43 Target: 43.2.0
+[27дек.2022 23:18:44.429] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_helmet#inventory' referenced from: skillsapi:test_helmet#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_helmet.json
+[27дек.2022 23:18:44.437] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_chestplate#inventory' referenced from: skillsapi:test_chestplate#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_chestplate.json
+[27дек.2022 23:18:44.438] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_leggings#inventory' referenced from: skillsapi:test_leggings#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_leggings.json
+[27дек.2022 23:18:44.438] [Worker-Main-4/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_boots#inventory' referenced from: skillsapi:test_boots#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_boots.json
+[27дек.2022 23:18:50.399] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[27дек.2022 23:18:50.410] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[27дек.2022 23:18:50.501] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
+[27дек.2022 23:18:50.514] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[27дек.2022 23:18:50.996] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[27дек.2022 23:18:51.036] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[27дек.2022 23:18:51.038] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[27дек.2022 23:18:51.039] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[27дек.2022 23:18:51.041] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[27дек.2022 23:18:51.041] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[27дек.2022 23:18:51.042] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[27дек.2022 23:18:52.793] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[27дек.2022 23:18:53.172] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[27дек.2022 23:18:53.177] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[27дек.2022 23:18:53.181] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[27дек.2022 23:18:54.243] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[27дек.2022 23:19:35.085] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[27дек.2022 23:19:36.393] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
+[27дек.2022 23:19:37.248] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
+[27дек.2022 23:19:37.250] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[27дек.2022 23:19:37.887] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[27дек.2022 23:19:45.937] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.973] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.974] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.974] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.974] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.975] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.976] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.976] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.976] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.976] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:45.976] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:46.465] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:46.949] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[27дек.2022 23:19:47.453] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 15%
+[27дек.2022 23:19:47.948] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 35%
+[27дек.2022 23:19:48.414] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 54%
+[27дек.2022 23:19:48.966] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 82%
+[27дек.2022 23:19:49.445] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 97%
+[27дек.2022 23:19:49.451] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 11549 ms
+[27дек.2022 23:19:49.521] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[27дек.2022 23:19:49.760] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 4, from 10
+[27дек.2022 23:19:49.768] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 10, from 0
+[27дек.2022 23:19:50.043] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[27дек.2022 23:19:51.058] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[27дек.2022 23:19:51.402] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@722e44d0
+[27дек.2022 23:19:51.551] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:e53b65d1] logged in with entity id 1 at (4914.843549574142, -60.0, 4470.427415993269)
+[27дек.2022 23:19:51.978] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
+[27дек.2022 23:19:53.737] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 2615ms or 52 ticks behind
+[27дек.2022 23:19:56.448] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 51 advancements
+[27дек.2022 23:19:58.592] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:19:58.824] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:19:59.040] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:19:59.042] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:21:43.769] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:21:43.813] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:21:43.825] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:21:43.826] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:24:32.913] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:24:32.953] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:24:32.966] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:24:32.970] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:24:48.713] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Изменён блок в точке 4909, -60, 4470]
+[27дек.2022 23:24:48.748] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Изменён блок в точке 4909, -60, 4470
+[27дек.2022 23:25:32.439] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:25:32.485] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:25:32.507] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:25:32.512] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:27:10.541] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.549] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.550] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.550] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.550] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.550] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.550] [Server thread/WARN] [net.minecraft.network.syncher.SynchedEntityData/]: defineId called for: class net.minecraft.world.entity.vehicle.Boat from class org.astemir.example.common.entity.EntityExampleSharkBoat
+[27дек.2022 23:27:10.568] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Сущность «entity.skillsapi.shark_boat» создана]
+[27дек.2022 23:27:10.572] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Сущность «entity.skillsapi.shark_boat» создана
+[27дек.2022 23:27:39.110] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Сущность «entity.skillsapi.shark_boat» создана
+[27дек.2022 23:27:39.102] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Сущность «entity.skillsapi.shark_boat» создана]
+[27дек.2022 23:29:20.702] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:29:20.735] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:29:20.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:29:20.745] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:30:03.250] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:30:03.295] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:30:03.304] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:30:03.307] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:31:24.948] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:31:24.980] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:31:24.988] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:31:24.989] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:34:29.237] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Изменён блок в точке 4887, -60, 4469]
+[27дек.2022 23:34:29.245] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] Изменён блок в точке 4887, -60, 4469
+[27дек.2022 23:34:43.691] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:34:43.752] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:34:43.765] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:34:43.769] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:34:46.140] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Dev: Изменён блок в точке 4888, -60, 4468]
+[27дек.2022 23:34:46.142] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [System] [CHAT] 
+[27дек.2022 23:34:51.238] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:34:51.245] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:34:51.254] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:34:51.255] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:34:59.038] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:34:59.048] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:34:59.055] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:34:59.055] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:37:29.834] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:37:29.878] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:37:29.886] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:37:29.888] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:37:48.582] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:37:48.591] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:37:48.594] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:37:48.594] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:38:28.032] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:38:28.074] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:38:28.081] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:38:28.081] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:39:07.979] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:39:07.986] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:39:07.990] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:39:07.991] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:39:37.978] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:39:37.985] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:39:37.993] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:39:37.994] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:40:07.977] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:40:07.989] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:40:07.992] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:40:07.993] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:40:36.328] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:40:36.369] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:40:36.376] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:40:36.382] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:43:33.728] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
+[27дек.2022 23:43:33.778] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:43:33.785] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:43:33.786] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:43:37.030] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
+[27дек.2022 23:43:37.079] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Отключение
+[27дек.2022 23:43:37.082] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev покинул игру
+[27дек.2022 23:43:37.121] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
+[27дек.2022 23:43:37.164] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[27дек.2022 23:43:37.167] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[27дек.2022 23:43:37.167] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[27дек.2022 23:43:38.859] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
+[27дек.2022 23:43:38.954] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
+[27дек.2022 23:43:38.956] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
+[27дек.2022 23:43:39.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Новый мир): All chunks are saved
+[27дек.2022 23:43:39.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[27дек.2022 23:43:39.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[27дек.2022 23:43:39.007] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

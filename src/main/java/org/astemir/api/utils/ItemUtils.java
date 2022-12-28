@@ -14,16 +14,6 @@ import java.util.function.Supplier;
 
 public class ItemUtils {
 
-    public static ItemStack getRandomItem(Player player,int maxAttempts){
-        ItemStack random = ItemStack.EMPTY;
-        int i = 0;
-        while(random.isEmpty() && i < maxAttempts){
-            random = player.getInventory().getItem(RandomUtils.randomInt(player.getInventory().items.size()));
-            i++;
-        }
-        return random;
-    }
-
     public static boolean isFood(ItemStack itemStack){
         return itemStack.getItem().isEdible();
     }

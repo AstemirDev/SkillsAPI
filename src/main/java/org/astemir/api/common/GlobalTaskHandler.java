@@ -12,6 +12,9 @@ public class GlobalTaskHandler {
     private CopyOnWriteArrayList<EntityTask> tasks = new CopyOnWriteArrayList<>();
 
 
+    public void runTaskLater(Entity entity,Runnable runnable,int time){
+        runRepeatTask(entity,runnable,time,1);
+    }
 
     public void runRepeatTask(Entity entity,Runnable runnable,int time,int count){
         tasks.add(new EntityTask(entity,time) {

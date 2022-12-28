@@ -22,14 +22,16 @@ public class EntityPredicates {
     }
 
     public static Predicate<Entity> exclude(Entity otherEntity){
-        return entity -> !entity.getUUID().equals(otherEntity.getUUID());
+        return entity -> otherEntity != null && !entity.getUUID().equals(otherEntity.getUUID());
     }
 
     public static Predicate<Entity> excludeAll(Entity... entities){
         return entity ->{
             for (Entity otherEntity : entities) {
-                if (otherEntity.getUUID().equals(entity.getUUID())){
-                    return false;
+                if (entity != null && otherEntity != null) {
+                    if (otherEntity.getUUID().equals(entity.getUUID())) {
+                        return false;
+                    }
                 }
             }
             return true;

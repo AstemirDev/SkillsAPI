@@ -61,7 +61,9 @@ public class AnimationUtils {
     }
 
     public static Vector3 interpolatePointsCatmullRom(AnimationFrame[] frames, float position){
-        if (frames.length > 1) {
+        if (frames.length == 1 && position == 0){
+            return interpolatePoints(frames,position);
+        }else{
             float value = 1.0f;
             int i = Math.max(0, Mth.binarySearch(0, frames.length, (p_232315_) -> {
                 return position <= frames[p_232315_].getPosition();
@@ -76,8 +78,6 @@ public class AnimationUtils {
             Vector3 nextValue = frames[j].getValue();
             Vector3 nextNextValue = frames[Math.min(frames.length - 1, j + 1)].getValue();
             return new Vector3(catmullrom(previousValue.x, currentValue.x, nextValue.x, nextNextValue.x, f2) * value, catmullrom(previousValue.y, currentValue.y, nextValue.y, nextNextValue.y, f2) * value, catmullrom(previousValue.z, currentValue.z, nextValue.z, nextNextValue.z, f2) * value);
-        }else{
-            return interpolatePoints(frames,position);
         }
     }
 

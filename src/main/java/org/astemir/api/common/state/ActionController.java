@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.common.animation.HolderKey;
+import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.network.messages.ClientMessageActionController;
 import org.astemir.api.utils.NetworkUtils;
 
@@ -49,6 +50,11 @@ public class ActionController<T extends IActionListener> {
                 setActionWithoutSync(action, -1);
             }
             sendUpdatePacket();
+            if (action.getAnimation() != null){
+                if (owner instanceof IAnimated animated){
+                    animated.getAnimationFactory().play(action.getAnimation());
+                }
+            }
             owner.onActionBegin(this,action);
         }
     }

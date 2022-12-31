@@ -137,15 +137,15 @@ public class EntityUtils {
         return d1 > 1.0D - d / d0 ? looker.hasLineOfSight(entity) : false;
     }
 
-    public static <T extends Entity> List<T> getEntities(Class<T> entityClass, Level level, BlockPos pos, int radius, Predicate<? super T> predicate){
+    public static <T extends Entity> List<T> getEntities(Class<T> entityClass, Level level, BlockPos pos, float radius, Predicate<? super T> predicate){
         return level.getEntitiesOfClass(entityClass,new AABB(pos).inflate(radius),predicate);
     }
 
-    public static <T extends Entity> List<T> getEntities(Class<T> entityClass, Level level, BlockPos pos, int radius){
+    public static <T extends Entity> List<T> getEntities(Class<T> entityClass, Level level, BlockPos pos, float radius){
         return level.getEntitiesOfClass(entityClass,new AABB(pos).inflate(radius));
     }
 
-    public static <T extends Entity> T getEntity(Class<T> entityClass, Level level, BlockPos pos, int radius, Predicate<? super T> predicate){
+    public static <T extends Entity> T getEntity(Class<T> entityClass, Level level, BlockPos pos, float radius, Predicate<? super T> predicate){
         List<T> list = getEntities(entityClass,level,pos,radius,predicate);
         if (list.size() > 0){
             return list.get(0);
@@ -153,7 +153,7 @@ public class EntityUtils {
         return null;
     }
 
-    public static <T extends Entity> T getEntity(Class<T> entityClass, Level level, BlockPos pos, int radius){
+    public static <T extends Entity> T getEntity(Class<T> entityClass, Level level, BlockPos pos, float radius){
         List<T> list = getEntities(entityClass,level,pos,radius);
         if (list.size() > 0){
             return list.get(0);

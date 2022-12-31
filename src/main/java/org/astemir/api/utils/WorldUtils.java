@@ -8,6 +8,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -154,5 +155,13 @@ public class WorldUtils {
 
     public static boolean isIceBlock(BlockState state) {
         return state.is(Blocks.ICE) || state.is(Blocks.BLUE_ICE) || state.is(Blocks.FROSTED_ICE) || state.is(Blocks.PACKED_ICE);
+    }
+
+    public static boolean isEmpty(Level level,BlockPos pos){
+        return level.getBlockState(pos).isSolidRender(level,pos);
+    }
+
+    public static void setBlock(Level level,BlockPos pos,BlockState state){
+        level.setBlock(pos, state, 3);
     }
 }

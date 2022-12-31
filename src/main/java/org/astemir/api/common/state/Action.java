@@ -1,6 +1,7 @@
 package org.astemir.api.common.state;
 
 
+import org.astemir.api.common.animation.Animation;
 
 public class Action {
 
@@ -8,6 +9,7 @@ public class Action {
     private String name;
     private int length = 0;
     private boolean canOverrideSelf = false;
+    private Animation animation;
 
     public Action(int id,String name, int length) {
         this.id = id;
@@ -21,6 +23,11 @@ public class Action {
         this.id = id;
         this.name = name;
         this.length = ticks;
+    }
+
+    public Action(int id,String name,Animation animation) {
+        this(id,name,animation.getLength());
+        this.animation = animation;
     }
 
     public Action canOverrideSelf() {
@@ -42,6 +49,10 @@ public class Action {
 
     public boolean isCanOverrideSelf() {
         return canOverrideSelf;
+    }
+
+    public Animation getAnimation() {
+        return animation;
     }
 
     @Override

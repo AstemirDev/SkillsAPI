@@ -62,11 +62,14 @@ public class WeightedRandom<T> {
         return maxChance;
     }
 
-    public <M> T random(M m) {
+    public <M extends IRandomImplifications<T>> T random(M m) {
         double num = this.random.nextDouble() * totalWeight;
         for (Couple<Double, T> pair : table) {
             double chance = pair.getKey();
             if (num <= chance) {
+                if (m != null){
+                    m.imply(pair.getValue());
+                }
                 return pair.getValue();
             }
             num -= pair.getKey();
@@ -74,7 +77,34 @@ public class WeightedRandom<T> {
         return null;
     }
 
+    public <M extends IRandomImplifications<T>> T randomWithRemove(M m) {
+        double num = this.random.nextDouble() * totalWeight;
+        for (Couple<Double, T> pair : table) {
+            double chance = pair.getKey();
+            if (num <= chance) {
+                T value = pair.getValue();
+                if (m != null){
+                    m.imply(value);
+                }
+                table.remove(pair);
+                return value;
+            }
+            num -= pair.getKey();
+        }
+        return null;
+    }
+
+
     public T random() {
         return random(null);
+    }
+
+    public T randomWithRemove() {
+        return randomWithRemove(null);
+    }
+
+
+    public List<Couple<Double, T>> getTable() {
+        return table;
     }
 }

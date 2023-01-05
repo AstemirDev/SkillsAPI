@@ -31,7 +31,7 @@ public class SkillsAPI extends SAForgeMod {
 
     public static volatile boolean INITIALIZED = false;
 
-    public static boolean INITIALIZE_EXAMPLE_FEATURES = false;
+    public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
 
     public static SkillsAPI INSTANCE;
 

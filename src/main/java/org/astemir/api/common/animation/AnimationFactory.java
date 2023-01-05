@@ -27,6 +27,7 @@ public class AnimationFactory {
         }
     }
 
+
     public void sendAnimation(Animation animation,int tick){
         AnimationHandler.INSTANCE.sendAnimationMessage(this,animation,new HolderKey(animated), ClientMessageAnimation.Action.START,tick);
     }

@@ -27,9 +27,9 @@ public abstract class MixinHumanoidModel<T extends LivingEntity> extends Ageable
     @Shadow public boolean crouching;
     @Shadow public float swimAmount;
 
-    @Inject(method = "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V",at = @At("HEAD"))
+    @Inject(method = "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V",at = @At("TAIL"), remap = false)
     public void onSetupAnimations(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci){
-        HumanoidAnimationEvent<T> event = new HumanoidAnimationEvent<>(head,hat,body,rightArm,leftArm,rightLeg,leftLeg,leftArmPose,rightArmPose,crouching,swimAmount);
+        HumanoidAnimationEvent<T> event = new HumanoidAnimationEvent<>(pEntity,head,hat,body,rightArm,leftArm,rightLeg,leftLeg,leftArmPose,rightArmPose,crouching,swimAmount);
         MinecraftForge.EVENT_BUS.post(event);
         leftArmPose = event.getLeftArmPose();
         rightArmPose = event.getRightArmPose();

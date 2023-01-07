@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.Event;
 
 public class HumanoidAnimationEvent<T extends LivingEntity> extends Event {
 
+    private T entity;
     private ModelPart head;
     private ModelPart hat;
     private ModelPart body;
@@ -20,7 +21,8 @@ public class HumanoidAnimationEvent<T extends LivingEntity> extends Event {
     private boolean crouching;
     private float swimAmount;
 
-    public HumanoidAnimationEvent(ModelPart head, ModelPart hat, ModelPart body, ModelPart rightArm, ModelPart leftArm, ModelPart rightLeg, ModelPart leftLeg, HumanoidModel.ArmPose leftArmPose, HumanoidModel.ArmPose rightArmPose, boolean crouching, float swimAmount) {
+    public HumanoidAnimationEvent(T entity,ModelPart head, ModelPart hat, ModelPart body, ModelPart rightArm, ModelPart leftArm, ModelPart rightLeg, ModelPart leftLeg, HumanoidModel.ArmPose leftArmPose, HumanoidModel.ArmPose rightArmPose, boolean crouching, float swimAmount) {
+        this.entity = entity;
         this.head = head;
         this.hat = hat;
         this.body = body;
@@ -32,6 +34,10 @@ public class HumanoidAnimationEvent<T extends LivingEntity> extends Event {
         this.rightArmPose = rightArmPose;
         this.crouching = crouching;
         this.swimAmount = swimAmount;
+    }
+
+    public T getEntity() {
+        return entity;
     }
 
     public ModelPart getHead() {

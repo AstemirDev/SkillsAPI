@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "org.astemir.api.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "skillsapi.refmap.json",
+  "mixins": [],
+  "client": [
+    "client.MixinCamera",
+    "client.MixinGameRenderer",
+    "client.MixinClientLevel",
+    "client.MixinHumanoidModel",
+    "client.MixinLivingEntityRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

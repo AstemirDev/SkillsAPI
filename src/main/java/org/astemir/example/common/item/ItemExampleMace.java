@@ -14,7 +14,7 @@ public class ItemExampleMace extends Item implements ISARendered {
 
 
     public ItemExampleMace() {
-        super(new Item.Properties().tab(CreativeModeTab.TAB_COMBAT));
+        super(new Item.Properties());
     }
 
 

@@ -1,7 +1,10 @@
 package org.astemir.api.client;
 
+import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
@@ -9,10 +12,17 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.animation.AnimatorDataHandler;
+import org.astemir.api.client.event.*;
 import org.astemir.api.common.gfx.*;
 import org.astemir.api.math.Color;
+import org.astemir.api.math.Vector2;
+import org.astemir.api.math.Vector3;
+import org.astemir.api.utils.MathUtils;
+import org.astemir.api.utils.RandomUtils;
 import org.astemir.api.utils.RenderUtils;
 import org.astemir.api.utils.ResourceUtils;
+
+import java.util.Arrays;
 
 
 public class ClientStateHandler {
@@ -20,6 +30,7 @@ public class ClientStateHandler {
     public static AnimatorDataHandler ANIMATION_DATA_HANDLER = new AnimatorDataHandler();
 
     public static ResourceLocation BLACKOUT_TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"ui/blackout.png");
+
 
     @SubscribeEvent
     public static void onMainRender(TickEvent.RenderTickEvent e){
@@ -58,7 +69,6 @@ public class ClientStateHandler {
             }
         }
     }
-
 
     @SubscribeEvent
     public static void onCameraRotate(ViewportEvent.ComputeCameraAngles e){

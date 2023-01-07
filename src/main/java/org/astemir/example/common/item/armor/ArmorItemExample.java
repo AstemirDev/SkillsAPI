@@ -10,7 +10,7 @@ import org.astemir.api.common.item.SAArmorItem;
 public class ArmorItemExample extends SAArmorItem {
 
     public ArmorItemExample(EquipmentSlot p_40387_) {
-        super(ArmorMaterials.LEATHER, p_40387_, new Properties().tab(CreativeModeTab.TAB_COMBAT));
+        super(ArmorMaterials.LEATHER, p_40387_, new Properties());
     }
 
 }

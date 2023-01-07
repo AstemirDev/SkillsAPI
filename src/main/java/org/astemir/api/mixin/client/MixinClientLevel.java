@@ -36,7 +36,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Event handling
      */
-    @Overwrite
+    @Overwrite(remap = false)
     public float getSkyDarken(float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f1 = 1.0F - (Mth.cos(f * ((float)Math.PI * 2F)) * 2.0F + 0.2F);
@@ -56,7 +56,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Shadowing
      */
-    @Overwrite
+    @Overwrite(remap = false)
     public Vec3 getSkyColor(Vec3 pPos, float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f5 = this.getRainLevel(pPartialTick);
@@ -111,7 +111,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Shadowing
      */
-    @Overwrite
+    @Overwrite(remap = false)
     public Vec3 getCloudColor(float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f1 = Mth.cos(f * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
@@ -147,7 +147,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Shadowing
      */
-    @Overwrite
+    @Overwrite(remap = false)
     public float getStarBrightness(float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f2 = this.getRainLevel(pPartialTick);

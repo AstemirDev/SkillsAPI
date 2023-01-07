@@ -22,13 +22,13 @@ public abstract class MixinLivingEntityRenderer<T extends LivingEntity, M extend
         super(pContext);
     }
 
-    @Inject(method = "setupRotations",at = @At("TAIL"))
+    @Inject(method = "setupRotations",at = @At("TAIL"), remap = false)
     public void setupRotations(T pEntityLiving, PoseStack pMatrixStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks, CallbackInfo ci) {
         LivingAdvancedRenderEvent.Rotation<T> event = new LivingAdvancedRenderEvent.Rotation(pEntityLiving,pMatrixStack,pAgeInTicks,pRotationYaw,pPartialTicks);
         MinecraftForge.EVENT_BUS.post(event);
     }
 
-    @Inject(method = "scale",at=@At("TAIL"))
+    @Inject(method = "scale",at=@At("TAIL"), remap = false)
     public void setupScale(T pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime, CallbackInfo ci){
         LivingAdvancedRenderEvent.Scale<T> event = new LivingAdvancedRenderEvent.Scale(pLivingEntity, pMatrixStack,pPartialTickTime);
         MinecraftForge.EVENT_BUS.post(event);

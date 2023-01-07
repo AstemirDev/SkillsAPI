@@ -54,8 +54,10 @@ minecraft {
     // These can be tweaked, removed, or duplicated as needed.
     runs {
         client {
-
+            properties 'mixin.env.remapRefMap': 'true'
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
+            arg "-mixin.config=skillsapi.mixins.json"
 
             // Recommended logging data for a userdev environment
             // The markers can be added/remove as needed separated by commas.
@@ -71,11 +73,6 @@ minecraft {
 
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
             property 'forge.enabledGameTestNamespaces', 'skillsapi'
-
-            property 'mixin.env.remapRefMap', 'true'
-
-            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
-
             mods {
                 skillsapi {
                     source sourceSets.main
@@ -84,7 +81,10 @@ minecraft {
         }
 
         server {
+            properties 'mixin.env.remapRefMap': 'true'
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
+            arg "-mixin.config=skillsapi.mixins.json"
 
             property 'forge.logging.markers', 'REGISTRIES'
 
@@ -104,7 +104,10 @@ minecraft {
         // By default, the server will crash when no gametests are provided.
         // The gametest system is also enabled by default for other run configs under the /test command.
         gameTestServer {
+            properties 'mixin.env.remapRefMap': 'true'
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
+            arg "-mixin.config=skillsapi.mixins.json"
 
             // Recommended logging data for a userdev environment
             // The markers can be added/remove as needed separated by commas.
@@ -129,7 +132,10 @@ minecraft {
         }
 
         data {
+            properties 'mixin.env.remapRefMap': 'true'
+            property 'mixin.env.refMapRemappingFile', "${project.projectDir}/build/createSrgToMcp/output.srg"
             workingDirectory project.file('run')
+            arg "-mixin.config=skillsapi.mixins.json"
 
             property 'forge.logging.markers', 'REGISTRIES'
 
@@ -191,6 +197,7 @@ dependencies {
 
 // Example for how to get properties into the manifest for reading at runtime.
 jar {
+    duplicatesStrategy 'exclude'
     manifest {
         attributes([
                 "Specification-Title"     : "skillsapi",
@@ -199,7 +206,8 @@ jar {
                 "Implementation-Title"    : project.name,
                 "Implementation-Version"  : project.jar.archiveVersion,
                 "Implementation-Vendor"   : "Astemir",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
+                "MixinConfigs": "skillsapi.mixins.json"
         ])
     }
 }

@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin({GameRenderer.class})
 public class MixinGameRenderer {
 
-    @Inject(method = "renderLevel",at = @At(value = "INVOKE",target = "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V"))
+    @Inject(method = "renderLevel", at = @At(value = "INVOKE",target = "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V"))
     public void renderLevel(float pPartialTicks, long pFinishTimeNano, PoseStack pMatrixStack, CallbackInfo ci) {
         CameraPreSetupEvent event = new CameraPreSetupEvent(pMatrixStack,pPartialTicks,pFinishTimeNano);
         MinecraftForge.EVENT_BUS.post(event);

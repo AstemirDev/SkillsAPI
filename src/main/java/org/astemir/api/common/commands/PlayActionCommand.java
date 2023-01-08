@@ -35,35 +35,36 @@ public class PlayActionCommand {
 
         CommandBuilder builder = new CommandBuilder("playaction")
                 .variants(
+                        new CommandVariant(targets,controller,action,delay).execute((p)->{
+                            playAction(p.getSource(),targets.getEntities(p),controller.getString(p),action.getString(p),delay.getInt(p));
+                            return 1;
+                        }),new CommandVariant(pos,controller,action,delay).execute((p)->{
+                            playAction(p.getSource(),pos.getBlockPos(p),controller.getString(p),action.getString(p),delay.getInt(p));
+                            return 1;
+                        }),
+                        new CommandVariant(targets,controller,action).execute((p)->{
+                            playAction(p.getSource(),targets.getEntities(p),controller.getString(p),action.getString(p),0);
+                            return 1;
+                        }),new CommandVariant(pos,controller,action).execute((p)->{
+                            playAction(p.getSource(),pos.getBlockPos(p),controller.getString(p),action.getString(p),0);
+                            return 1;
+                        }),
                         new CommandVariant(targets,info).execute((p)->{
                             for (Entity entity : targets.getEntities(p)) {
                                 if (entity instanceof IActionListener actionListener){
                                     p.getSource().sendSuccess(formComponent(actionListener),true);
                                 }
                             }
-                            return 0;
+                            return 1;
                         }),
                         new CommandVariant(pos,info).execute((p)->{
                             BlockEntity blockEntity = p.getSource().getLevel().getBlockEntity(pos.getBlockPos(p));
                             if (blockEntity instanceof IActionListener actionListener){
                                 p.getSource().sendSuccess(formComponent(actionListener),true);
                             }
-                            return 0;
-                        }),
-                        new CommandVariant(targets,controller,action).execute((p)->{
-                            playAction(p.getSource(),targets.getEntities(p),controller.getString(p),action.getString(p),delay.getInt(p));
-                            return 0;
-                        }),new CommandVariant(pos,controller,action).execute((p)->{
-                            playAction(p.getSource(),pos.getBlockPos(p),controller.getString(p),action.getString(p),delay.getInt(p));
-                            return 0;
-                        }),
-                        new CommandVariant(targets,controller,action).execute((p)->{
-                            playAction(p.getSource(),targets.getEntities(p),controller.getString(p),action.getString(p),0);
-                            return 0;
-                        }),new CommandVariant(pos,controller,action).execute((p)->{
-                            playAction(p.getSource(),pos.getBlockPos(p),controller.getString(p),action.getString(p),0);
-                            return 0;
-                        }));
+                            return 1;
+                        }))
+                ;
         dispatcher.register(builder.permission((p)->p.hasPermission(2)).build());
     }
 

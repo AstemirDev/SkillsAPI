@@ -65,7 +65,6 @@ public class PlayAnimationCommand {
                         }
                         return 0;
                     }),
-
                     new CommandVariant(targets,name).execute((p)->{
                      playAnimation(p.getSource(),targets.getEntities(p),name.getString(p));
                      return 0;

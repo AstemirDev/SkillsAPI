@@ -7,10 +7,24 @@ import org.astemir.api.client.animation.AnimationFrame;
 import org.astemir.api.math.Vector3;
 import org.lwjgl.system.MathUtil;
 
+import java.util.List;
+
 public class AnimationUtils {
 
     public static float length(AnimationFrame[] points){
-        return points[points.length-1].getPosition();
+        if (points != null && points.length > 0) {
+            return points[points.length - 1].getPosition();
+        }else{
+            return 0f;
+        }
+    }
+
+    public static float length(List<AnimationFrame> points){
+        if (points != null && points.size() > 0) {
+            return points.get(points.size() - 1).getPosition();
+        }else{
+            return 0f;
+        }
     }
 
     public static float flip(float x){

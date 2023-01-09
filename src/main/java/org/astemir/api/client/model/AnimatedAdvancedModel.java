@@ -3,6 +3,7 @@ package org.astemir.api.client.model;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 import org.astemir.api.client.animation.*;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
@@ -12,6 +13,8 @@ import org.astemir.api.common.animation.ISARendered;
 import org.astemir.api.math.Transform;
 import org.astemir.api.math.Vector3;
 import org.astemir.api.utils.JsonUtils;
+import org.astemir.api.utils.MathUtils;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -19,6 +22,7 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
 
     public Set<AnimationTrack> animations = new HashSet<>();
     private InterpolationType interpolation = InterpolationType.CATMULLROM;
+    private SmoothnessType smoothnessType = SmoothnessType.DEFAULT;
     private float smoothness = 2;
 
     public AnimatedAdvancedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
@@ -142,11 +146,12 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
         return false;
     }
 
+
     @Override
     public void setupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (!Minecraft.getInstance().isPaused()) {
-            float delta = lerpBackDelta(partialTicks,smoothness);
+            float delta = smoothnessType.deltaCalculate(partialTicks,smoothness);
             if (!animations.isEmpty()) {
                 reset();
                 AnimatorDataHandler animationManager = AnimatorDataHandler.getInstance();
@@ -168,7 +173,7 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
                             if (track.hasBone(renderer.getName())) {
                                 AnimationBone bone = track.getBone(renderer.getName());
                                 float animationTick = data.getAnimationTick(animation);
-                                float animationDelta = lerpAnimationDelta(partialTicks,animation);
+                                float animationDelta = smoothnessType.deltaCalculate(partialTicks,animation.getSmoothness());
                                 if (bone.getRotations() != null) {
                                     if (checkCanRotate(animated, animation, bone)) {
                                         rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(),animationTick),animationDelta);
@@ -209,15 +214,6 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
             animate(animated, limbSwing, limbSwingAmount, ticks, delta, headYaw, headPitch);
         }
         customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
-    }
-
-    public float lerpAnimationDelta(float partialTicks,Animation animation){
-        float animationDelta = partialTicks/animation.getSmoothness();
-        return animationDelta;
-    }
-
-    public float lerpBackDelta(float partialTicks,float smoothness){
-        return partialTicks/smoothness;
     }
 
     public AnimatedAdvancedModel smoothness(float smoothness) {

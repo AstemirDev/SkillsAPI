@@ -281,6 +281,25 @@ public class Vector3 {
         return new Vec3(x,y,z);
     }
 
+    public Vector2 xy(){
+        return new Vector2(x,y);
+    }
+
+    public Vector2 zy(){
+        return new Vector2(z,y);
+    }
+
+    public Vector2 xz(){
+        return new Vector2(x,z);
+    }
+
+    public Vector3 wrapDegrees(){
+        return new Vector3(MathUtils.wrapDegrees(x),MathUtils.wrapDegrees(y),MathUtils.wrapDegrees(z));
+    }
+
+    public Vector3 wrapRadians(){
+        return new Vector3(MathUtils.wrapRadians(x),MathUtils.wrapRadians(y),MathUtils.wrapRadians(z));
+    }
 
     public boolean equalsApprox(Vector3 vector){
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y) && MathUtils.equalsApprox(z,vector.z);

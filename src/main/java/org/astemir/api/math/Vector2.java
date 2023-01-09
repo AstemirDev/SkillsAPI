@@ -134,6 +134,22 @@ public class Vector2 {
         this.y = y;
     }
 
+    public Vector2 lerp(Vector2 vector, float t){
+        return new Vector2(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t));
+    }
+
+    public Vector2 rotLerp(Vector2 vector, float t){
+        return new Vector2(MathUtils.lerpRot(x,vector.getX(),t),MathUtils.lerpRot(y,vector.getY(),t));
+    }
+
+    public Vector2 wrapDegrees(){
+        return new Vector2(MathUtils.wrapDegrees(x),MathUtils.wrapDegrees(y));
+    }
+
+    public Vector2 wrapRadians(){
+        return new Vector2(MathUtils.wrapRadians(x),MathUtils.wrapRadians(y));
+    }
+
     public boolean equalsApprox(Vector2 vector){
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y);
     }

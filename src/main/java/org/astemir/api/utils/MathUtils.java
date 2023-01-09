@@ -1,6 +1,10 @@
 package org.astemir.api.utils;
 
 
+import net.minecraft.client.Minecraft;
+import net.minecraft.util.Mth;
+import org.astemir.api.math.Vector2;
+import org.astemir.api.math.Vector3;
 
 public class MathUtils {
 
@@ -41,8 +45,8 @@ public class MathUtils {
     }
 
     public static float lerpRot(float a, float b, float t) {
-       float wrap = MathUtils.rad(wrapDegrees(MathUtils.deg(b)-MathUtils.deg(a)));
-       return a + t * wrap;
+        float wrap = MathUtils.rad(wrapDegrees(MathUtils.deg(b)-MathUtils.deg(a)));
+        return a +t*wrap;
     }
 
     public static float floatSafe(float f){
@@ -54,6 +58,10 @@ public class MathUtils {
 
     public static float shortestAngle(float a,float b){
         return ((b-a) + 180) % 360 - 180;
+    }
+
+    public static float wrapRadians(float radians){
+        return MathUtils.rad(wrapDegrees(MathUtils.deg(radians)));
     }
 
     public static float wrapDegrees(float angle) {
@@ -75,6 +83,19 @@ public class MathUtils {
         float diff = Math.abs(b - a);
         float tolerance = 0.1f/100 * b;
         return diff < tolerance;
+    }
+
+
+    public static float catmullrom(float previous, float current, float next, float nextNext,float f) {
+        return 0.5F * (2.0F * current + (next - previous) * f + (2.0F * previous - 5.0F * current + 4.0F * next - nextNext) * f * f + (3.0F * current - previous - 3.0F * next + nextNext) * f * f * f);
+    }
+
+    public static Vector2 catmullrom(Vector2 previous,Vector2 current,Vector2 next,Vector2 nextNext,float f){
+        return new Vector2(MathUtils.catmullrom(previous.x,current.x,next.x,nextNext.x,f),MathUtils.catmullrom(previous.y,current.y,next.y,nextNext.y,f));
+    }
+
+    public static Vector3 catmullrom(Vector3 previous,Vector3 current,Vector3 next,Vector3 nextNext,float f){
+        return new Vector3(MathUtils.catmullrom(previous.x,current.x,next.x,nextNext.x,f),MathUtils.catmullrom(previous.y,current.y,next.y,nextNext.y,f),MathUtils.catmullrom(previous.z,current.z,next.z,nextNext.z,f));
     }
 
     public static float progressOfTime(float ticks,float value){

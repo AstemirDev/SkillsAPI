@@ -37,10 +37,6 @@ public class AnimationUtils {
         return easingIn(flip(f)/0.5f);
     }
 
-    public static float catmullrom(float previous, float current, float next, float nextNext,float f) {
-        return 0.5F * (2.0F * current + (next - previous) * f + (2.0F * previous - 5.0F * current + 4.0F * next - nextNext) * f * f + (3.0F * current - previous - 3.0F * next + nextNext) * f * f * f);
-    }
-
 
     public static int getCurrentIndex(AnimationFrame[] frames,float time){
         for (int i = 0; i < frames.length; i++) {
@@ -77,7 +73,7 @@ public class AnimationUtils {
             Vector3 currentValue = frames[i].getValue();
             Vector3 nextValue = frames[j].getValue();
             Vector3 nextNextValue = frames[Math.min(frames.length - 1, j + 1)].getValue();
-            return new Vector3(catmullrom(previousValue.x, currentValue.x, nextValue.x, nextNextValue.x, f2) * value, catmullrom(previousValue.y, currentValue.y, nextValue.y, nextNextValue.y, f2) * value, catmullrom(previousValue.z, currentValue.z, nextValue.z, nextNextValue.z, f2) * value);
+            return new Vector3(MathUtils.catmullrom(previousValue.x, currentValue.x, nextValue.x, nextNextValue.x, f2) * value, MathUtils.catmullrom(previousValue.y, currentValue.y, nextValue.y, nextNextValue.y, f2) * value, MathUtils.catmullrom(previousValue.z, currentValue.z, nextValue.z, nextNextValue.z, f2) * value);
         }
     }
 

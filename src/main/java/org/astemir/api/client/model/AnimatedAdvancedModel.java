@@ -226,4 +226,9 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
         return this;
     }
 
+    public AnimatedAdvancedModel smoothnessType(SmoothnessType type) {
+        this.smoothnessType = type;
+        return this;
+    }
+
 }

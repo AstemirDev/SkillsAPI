@@ -26,14 +26,14 @@ screenEffectScale:1.0
 fovEffectScale:1.0
 darknessEffectScale:1.0
 gamma:1.0
-renderDistance:4
-simulationDistance:10
+renderDistance:10
+simulationDistance:8
 entityDistanceScaling:5.0
 guiScale:0
 particles:0
 maxFps:260
 graphicsMode:0
-ao:0
+ao:2
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"false"

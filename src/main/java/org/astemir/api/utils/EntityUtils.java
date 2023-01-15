@@ -1,6 +1,7 @@
 package org.astemir.api.utils;
 
 
+import net.minecraft.client.model.FrogModel;
 import net.minecraft.core.BlockPos;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
@@ -89,6 +90,11 @@ public class EntityUtils {
             return entity.isAlive();
         }
         return false;
+    }
+
+    public static float getMotionPotential(Entity entity) {
+        float f = Math.min((float) entity.getDeltaMovement().lengthSqr()*100, 1.0F);
+        return f;
     }
 
     public static boolean isMoving(LivingEntity entity, float min, float max){

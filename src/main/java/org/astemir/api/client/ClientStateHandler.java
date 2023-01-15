@@ -2,9 +2,11 @@ package org.astemir.api.client;
 
 import com.mojang.math.Vector3f;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.event.RenderGuiOverlayEvent;
 import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
@@ -30,7 +32,7 @@ public class ClientStateHandler {
     public static AnimatorDataHandler ANIMATION_DATA_HANDLER = new AnimatorDataHandler();
 
     public static ResourceLocation BLACKOUT_TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"ui/blackout.png");
-
+    
 
     @SubscribeEvent
     public static void onMainRender(TickEvent.RenderTickEvent e){

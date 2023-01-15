@@ -15,10 +15,12 @@ import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.animation.ISARendered;
 
+
 public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered> extends EntityModel<T> implements IModelWrapper<T> {
 
     public T renderTarget;
     public MultiBufferSource multiBufferSource;
+
 
     public AbstractModelWrapperEntity() {
         super(RenderType::entityCutout);
@@ -27,7 +29,7 @@ public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered>
     public void renderWrapper(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a, RenderCall renderCall,boolean resetBuffer) {
         AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
-        model.renderModel(poseStack,bufferSource,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
+        model.renderWithLayers(poseStack,bufferSource,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }
 
     @Override
@@ -72,7 +74,6 @@ public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered>
         }
         return false;
     }
-
 
     public T getRenderTarget() {
         return renderTarget;

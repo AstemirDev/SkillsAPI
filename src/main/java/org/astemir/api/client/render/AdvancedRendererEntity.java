@@ -23,7 +23,7 @@ import org.astemir.api.common.animation.ISARendered;
 import java.util.List;
 
 
-public abstract class AdvancedRendererEntity<T extends Entity & ISARendered,M extends EntityModel<T>> extends EntityRenderer<T> {
+public class AdvancedRendererEntity<T extends Entity & ISARendered,M extends EntityModel<T>> extends EntityRenderer<T> {
 
     private AbstractModelWrapperEntity entityModelWrapper;
     private M model;

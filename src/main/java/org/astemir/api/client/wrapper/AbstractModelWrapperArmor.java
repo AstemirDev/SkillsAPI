@@ -20,6 +20,7 @@ import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.animation.ISARendered;
 import org.astemir.api.math.Vector3;
 
+
 public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T> {
 
 
@@ -40,7 +41,7 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
         VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
         AdvancedModel<T> model = getModel(renderTarget);
         model.modelWrapper = this;
-        model.renderModel(poseStack,consumer,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
+        model.renderWithLayers(poseStack,consumer,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }
 
     @Override

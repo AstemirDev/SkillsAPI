@@ -37,5 +37,9 @@ public class Couple<K, V> {
         }
         return false;
     }
+
+    public static <K,V> Couple<K,V> create(K key,V value){
+        return new Couple<K,V>(key,value);
+    }
 }
 

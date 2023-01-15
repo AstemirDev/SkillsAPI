@@ -8,6 +8,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraftforge.common.MinecraftForge;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.event.GlobalCameraSetupEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
@@ -38,7 +39,7 @@ public abstract class MixinCamera {
      * @author Astemir
      * @reason No customization
      */
-    @Overwrite
+    @Overwrite(remap = SkillsAPI.REMAP)
     public void setup(BlockGetter pLevel, Entity pEntity, boolean pDetached, boolean pThirdPersonReverse, float pPartialTick) {
         this.initialized = true;
         this.level = pLevel;

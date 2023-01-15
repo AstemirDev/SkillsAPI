@@ -10,9 +10,12 @@ import net.minecraft.util.profiling.ProfilerFiller;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.biome.BiomeManager;
 import net.minecraft.world.level.dimension.DimensionType;
+import net.minecraft.world.level.lighting.SkyLightEngine;
 import net.minecraft.world.level.storage.WritableLevelData;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.event.RenderLevelStageEvent;
 import net.minecraftforge.common.MinecraftForge;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.event.SkySetupEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -32,11 +35,12 @@ public abstract class MixinClientLevel extends Level {
         super(pLevelData, pDimension, pDimensionTypeRegistration, pProfiler, pIsClientSide, pIsDebug, pBiomeZoomSeed, pMaxChainedNeighborUpdates);
     }
 
+
     /**
      * @author Astemir
      * @reason Event handling
      */
-    @Overwrite(remap = false)
+    @Overwrite(remap = SkillsAPI.REMAP)
     public float getSkyDarken(float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f1 = 1.0F - (Mth.cos(f * ((float)Math.PI * 2F)) * 2.0F + 0.2F);
@@ -56,7 +60,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Shadowing
      */
-    @Overwrite(remap = false)
+    @Overwrite(remap = SkillsAPI.REMAP)
     public Vec3 getSkyColor(Vec3 pPos, float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f5 = this.getRainLevel(pPartialTick);
@@ -111,7 +115,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Shadowing
      */
-    @Overwrite(remap = false)
+    @Overwrite(remap = SkillsAPI.REMAP)
     public Vec3 getCloudColor(float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f1 = Mth.cos(f * ((float)Math.PI * 2F)) * 2.0F + 0.5F;
@@ -147,7 +151,7 @@ public abstract class MixinClientLevel extends Level {
      * @author Astemir
      * @reason Shadowing
      */
-    @Overwrite(remap = false)
+    @Overwrite(remap = SkillsAPI.REMAP)
     public float getStarBrightness(float pPartialTick) {
         float f = this.getTimeOfDay(pPartialTick);
         float f2 = this.getRainLevel(pPartialTick);
@@ -159,5 +163,8 @@ public abstract class MixinClientLevel extends Level {
         MinecraftForge.EVENT_BUS.post(event);
         return event.getBrightness();
     }
+
+
+
 
 }

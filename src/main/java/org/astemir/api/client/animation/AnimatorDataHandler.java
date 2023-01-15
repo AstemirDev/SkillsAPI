@@ -1,11 +1,13 @@
 package org.astemir.api.client.animation;
 
+import net.minecraft.world.entity.Entity;
 import org.astemir.api.client.ClientStateHandler;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.HolderKey;
 import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.math.Transform;
+import org.astemir.api.utils.EntityUtils;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -95,11 +97,12 @@ public class AnimatorDataHandler {
             List<Animation> playingAnimations = animated.getAnimationFactory().getPlayingAnimations();
             for (Animation animation : animationTicks.keySet()) {
                 if (playingAnimations.contains(animation)){
+                    float animationLength = animation.getLength();
                     float animationTick = getAnimationTick(animation);
                     float deltaSpeed = (delta*animation.getSpeed());
-                    float squaredDelta = deltaSpeed*deltaSpeed;
-                    if (animationTick+squaredDelta < animation.getLength()) {
-                        animationTicks.put(animation,animationTick+deltaSpeed);
+                    float nextDelta = animationTick+deltaSpeed;
+                    if (nextDelta < animationLength) {
+                        animationTicks.put(animation,nextDelta);
                     }else{
                         if (animation.getLoop() != Animation.Loop.HOLD_ON_LAST_FRAME) {
                             animationTicks.put(animation, 0f);

@@ -18,9 +18,9 @@ import static org.astemir.api.utils.EntityUtils.isMoving;
 
 public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated, ISARendered {
 
-    public static Animation ANIMATION_IDLE = new Animation("animation.model.idle",2.4f).loop().layer(0);
-    public static Animation ANIMATION_WALK = new Animation("animation.model.walk",2.08f).loop().layer(0);
-    public static Animation ANIMATION_RUN = new Animation("animation.model.run1",0.64f).loop().layer(0);
+    public static Animation ANIMATION_IDLE = new Animation("animation.model.idle",2.4f).loop().layer(0).smoothness(4);
+    public static Animation ANIMATION_WALK = new Animation("animation.model.walk",2.08f).walkAnimation().layer(0).smoothness(4);
+    public static Animation ANIMATION_RUN = new Animation("animation.model.run1",0.64f).walkAnimation().layer(0).smoothness(4);
 
     public static Animation ANIMATION_ATTACK = new Animation("animation.model.attack1",0.72f).priority(1).layer(1);
     public static Animation ANIMATION_ATTACK_2 = new Animation("animation.model.attack2",0.8f).priority(1).layer(1);
@@ -56,10 +56,12 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
         if (controller.is(ACTION_START_2)){
             animationFactory.play(ANIMATION_START_2);
         }
-        if (isMoving(this,-0.15f,0.15f)) {
+        if (isMoving(this,-0.05f,0.05f)) {
             animationFactory.play(ANIMATION_WALK);
         } else {
-            animationFactory.play(ANIMATION_IDLE);
+            if (!animationFactory.isPlaying(ANIMATION_WALK)) {
+                animationFactory.play(ANIMATION_IDLE);
+            }
         }
     }
 

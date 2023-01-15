@@ -38,6 +38,45 @@ public abstract class SkySetupEvent extends Event {
     }
 
 
+    public static class ComputeSunriseColor extends SkySetupEvent{
+
+        private float[] sunriseCol = new float[4];
+
+        public ComputeSunriseColor(float timeOfDay, float rainLevel, float thunderLevel, float partialTick) {
+            super(timeOfDay, rainLevel, thunderLevel, partialTick);
+            float f = 0.4F;
+            float f1 = Mth.cos(timeOfDay * ((float) Math.PI * 2F)) - 0.0F;
+            float f2 = -0.0F;
+            if (!isNull()) {
+                float f3 = (f1 - -0.0F) / 0.4F * 0.5F + 0.5F;
+                float f4 = 1.0F - (1.0F - Mth.sin(f3 * (float) Math.PI)) * 0.99F;
+                f4 *= f4;
+                this.sunriseCol[0] = f3 * 0.3F + 0.7F;
+                this.sunriseCol[1] = f3 * f3 * 0.7F + 0.2F;
+                this.sunriseCol[2] = f3 * f3 * 0.0F + 0.2F;
+                this.sunriseCol[3] = f4;
+            }else{
+                sunriseCol = null;
+            }
+        }
+
+        public boolean isNull(){
+            float f1 = Mth.cos(getTimeOfDay() * ((float) Math.PI * 2F)) - 0.0F;
+            if (f1 >= -0.4F && f1 <= 0.4F) {
+                return false;
+            }
+            return true;
+        }
+
+        public float[] getSunriseColor() {
+            return sunriseCol;
+        }
+
+        public void setSunriseColor(float[] sunriseCol) {
+            this.sunriseCol = sunriseCol;
+        }
+    }
+
 
     public static abstract class ComputeSkyColor extends SkySetupEvent{
 

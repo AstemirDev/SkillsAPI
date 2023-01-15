@@ -2,6 +2,7 @@ package org.astemir.api.utils;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.animation.AnimationChannel;
 import net.minecraft.client.animation.Keyframe;
+import net.minecraft.client.model.FrogModel;
 import net.minecraft.util.Mth;
 import org.astemir.api.client.animation.AnimationFrame;
 import org.astemir.api.math.Vector3;

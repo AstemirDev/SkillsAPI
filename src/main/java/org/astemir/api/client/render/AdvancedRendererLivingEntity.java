@@ -25,7 +25,7 @@ import org.astemir.api.common.animation.ISARendered;
 import org.jetbrains.annotations.Nullable;
 
 
-public abstract class AdvancedRendererLivingEntity<T extends LivingEntity & ISARendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
+public class AdvancedRendererLivingEntity<T extends LivingEntity & ISARendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
 
     private AbstractModelWrapperEntity entityModelWrapper;
 

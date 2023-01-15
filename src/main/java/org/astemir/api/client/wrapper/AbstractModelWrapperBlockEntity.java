@@ -20,6 +20,7 @@ public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & IS
     public MultiBufferSource multiBufferSource;
 
 
+
     public AbstractModelWrapperBlockEntity() {
         super(RenderType::entityCutoutNoCull);
     }
@@ -32,10 +33,9 @@ public abstract class AbstractModelWrapperBlockEntity<T extends BlockEntity & IS
         poseStack.translate(0.5, 1.5f, 0.5f);
         scale(getRenderTarget(),poseStack, partialTicks);
         setupRotations(getRenderTarget(),poseStack, partialTicks);
-        model.renderModel(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
+        model.renderWithLayers(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
         poseStack.popPose();
     }
-
 
     protected void setupRotations(T blockEntity, PoseStack stack, float partialTicks) {
     }

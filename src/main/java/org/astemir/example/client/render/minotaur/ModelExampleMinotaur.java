@@ -2,6 +2,8 @@ package org.astemir.example.client.render.minotaur;
 
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.SkillsAPI;
+import org.astemir.api.client.animation.InterpolationType;
+import org.astemir.api.client.animation.SmoothnessType;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.model.AnimatedAdvancedModel;
 import org.astemir.api.utils.ResourceUtils;
@@ -16,10 +18,13 @@ public class ModelExampleMinotaur extends AnimatedAdvancedModel<EntityExampleMin
 
 	public ModelExampleMinotaur() {
 		super(MODEL,ANIMATIONS);
+		addLayer(new ModelLayerExampleMinotaur(this));
 	}
 
 	@Override
 	public void animate(EntityExampleMinotaur animated, float limbSwing, float limbSwingAmount, float ticks, float delta, float headYaw, float headPitch) {
+		interpolation(InterpolationType.CATMULLROM);
+		smoothnessType(SmoothnessType.EXPONENTIAL);
 		ModelElement head = getModelElement("head");
 		if (head != null) {
 			lookAt(head, headPitch, headYaw);

@@ -15,6 +15,7 @@ public class AdvancedRendererBlockEntity<T extends BlockEntity & ISARendered> im
 
     private AbstractModelWrapperBlockEntity<T> blockModelWrapper;
 
+
     public AdvancedRendererBlockEntity(BlockEntityRendererProvider.Context context, AbstractModelWrapperBlockEntity wrapper) {
         this.blockModelWrapper = wrapper;
     }
@@ -36,6 +37,7 @@ public class AdvancedRendererBlockEntity<T extends BlockEntity & ISARendered> im
         VertexConsumer consumer = bufferSource.getBuffer(blockModelWrapper.getRenderType());
         blockModelWrapper.renderToBuffer(poseStack,consumer,light,packedOverlay,1,1,1,1);
     }
+
 
     public AbstractModelWrapperBlockEntity<T> getBlockModelWrapper() {
         return blockModelWrapper;

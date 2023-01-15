@@ -13,6 +13,7 @@ public class Animation {
     private int layer = 0;
     private float speed = 1;
     private float smoothness = 2;
+    private boolean walkAnimation = false;
 
 
     public Animation(String name, float length) {
@@ -50,6 +51,14 @@ public class Animation {
         return this;
     }
 
+    public Animation walkAnimation(){
+        this.walkAnimation = true;
+        return this;
+    }
+
+    public boolean isWalkAnimation() {
+        return walkAnimation;
+    }
 
     public int getLayer() {
         return layer;

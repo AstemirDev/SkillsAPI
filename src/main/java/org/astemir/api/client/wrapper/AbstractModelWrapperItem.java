@@ -22,7 +22,6 @@ public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> ext
     public ItemTransforms.TransformType transformType;
     public MultiBufferSource multiBufferSource;
 
-
     public AbstractModelWrapperItem() {
         super(RenderType::itemEntityTranslucentCull);
     }
@@ -34,7 +33,7 @@ public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> ext
         poseStack.translate(0, 0.01f, 0);
         poseStack.translate(0.5, 2, 0.5f);
         poseStack.scale(-1,-1,1);
-        model.renderModel(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
+        model.renderWithLayers(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
         poseStack.popPose();
     }
 

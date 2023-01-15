@@ -12,7 +12,10 @@ import net.minecraftforge.network.PacketDistributor;
 import org.astemir.api.SkillsAPI;
 import org.astemir.api.network.messages.ClientMessageAnimation;
 import org.astemir.api.network.messages.ServerMessageAnimationSync;
+import org.astemir.api.utils.EntityUtils;
 import org.astemir.api.utils.NetworkUtils;
+
+import java.util.Map;
 
 
 public enum AnimationHandler {
@@ -52,12 +55,14 @@ public enum AnimationHandler {
 
     public void updateAnimations(AnimationFactory factory) {
         IAnimated animatable = factory.getAnimated();
-        factory.getAnimationTicks().forEach((animation,ticks)->{
-            int time = (int)(animation.getLength()*20/animation.getSpeed());
+        for (Map.Entry<Animation, Integer> entry : factory.getAnimationTicks().entrySet()) {
+            Animation animation = entry.getKey();
+            int ticks = entry.getValue();
+            float length = animation.getLength()*20/animation.getSpeed();
             if (ticks == 0) {
                 MinecraftForge.EVENT_BUS.post(new AnimationEvent.Start<>(animatable, animation));
             }
-            if (ticks < time){
+            if (ticks < length){
                 MinecraftForge.EVENT_BUS.post(new AnimationEvent.Tick(animatable, animation, ticks));
                 factory.getAnimationTicks().put(animation,ticks+1);
             }else{
@@ -78,7 +83,7 @@ public enum AnimationHandler {
                     }
                 }
             }
-        });
+        }
     }
 
 

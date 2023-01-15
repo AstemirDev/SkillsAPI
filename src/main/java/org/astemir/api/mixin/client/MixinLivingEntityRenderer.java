@@ -9,6 +9,7 @@ import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
+import org.astemir.api.SkillsAPI;
 import org.astemir.api.client.event.LivingAdvancedRenderEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -22,13 +23,13 @@ public abstract class MixinLivingEntityRenderer<T extends LivingEntity, M extend
         super(pContext);
     }
 
-    @Inject(method = "setupRotations",at = @At("TAIL"), remap = false)
+    @Inject(method = "setupRotations",at = @At("TAIL"), remap = SkillsAPI.REMAP)
     public void setupRotations(T pEntityLiving, PoseStack pMatrixStack, float pAgeInTicks, float pRotationYaw, float pPartialTicks, CallbackInfo ci) {
         LivingAdvancedRenderEvent.Rotation<T> event = new LivingAdvancedRenderEvent.Rotation(pEntityLiving,pMatrixStack,pAgeInTicks,pRotationYaw,pPartialTicks);
         MinecraftForge.EVENT_BUS.post(event);
     }
 
-    @Inject(method = "scale",at=@At("TAIL"), remap = false)
+    @Inject(method = "scale",at=@At("TAIL"), remap = SkillsAPI.REMAP)
     public void setupScale(T pLivingEntity, PoseStack pMatrixStack, float pPartialTickTime, CallbackInfo ci){
         LivingAdvancedRenderEvent.Scale<T> event = new LivingAdvancedRenderEvent.Scale(pLivingEntity, pMatrixStack,pPartialTickTime);
         MinecraftForge.EVENT_BUS.post(event);

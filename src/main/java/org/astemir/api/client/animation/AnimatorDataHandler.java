@@ -1,7 +1,9 @@
 package org.astemir.api.client.animation;
 
 import net.minecraft.world.entity.Entity;
+import net.minecraftforge.common.MinecraftForge;
 import org.astemir.api.client.ClientStateHandler;
+import org.astemir.api.client.event.ClientAnimationEvent;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.HolderKey;
@@ -102,14 +104,17 @@ public class AnimatorDataHandler {
                     float deltaSpeed = (delta*animation.getSpeed());
                     float nextDelta = animationTick+deltaSpeed;
                     if (nextDelta < animationLength) {
+                        MinecraftForge.EVENT_BUS.post(new ClientAnimationEvent.Tick<>(animated,animation,animationTick));
                         animationTicks.put(animation,nextDelta);
                     }else{
                         if (animation.getLoop() != Animation.Loop.HOLD_ON_LAST_FRAME) {
                             animationTicks.put(animation, 0f);
+                            MinecraftForge.EVENT_BUS.post(new ClientAnimationEvent.End<>(animated,animation));
                         }
                     }
                 }else{
                     animationTicks.remove(animation);
+                    MinecraftForge.EVENT_BUS.post(new ClientAnimationEvent.End<>(animated,animation));
                 }
             }
         }

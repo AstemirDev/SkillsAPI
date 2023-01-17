@@ -156,7 +156,6 @@ public class ModelElement {
                         modelRenderer.render(model,matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha,renderCall,resetBuffer);
                     }
                 }
-                //
                 matrixStackIn.popPose();
             matrixStackIn.popPose();
         }

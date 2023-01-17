@@ -36,8 +36,10 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     public boolean isRendererUsed(IAnimated animated, ModelElement renderer){
         for (AnimationTrack track : animations) {
             if (isPlayingTrack(animated,track)){
-                if (track.hasBone(renderer.getName())){
-                    return true;
+                if (track != null) {
+                    if (track.hasBone(renderer.getName())) {
+                        return true;
+                    }
                 }
             }
         }
@@ -59,10 +61,12 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
             if (!playingAnimation.getName().equals(animation.getName())) {
                 if (playingAnimation.getPriority() > animation.getPriority()) {
                     AnimationTrack track = getTrack(playingAnimation.getName());
-                    if (track.hasBone(bone.getBoneName())) {
-                        AnimationBone otherBone = track.getBone(bone.getBoneName());
-                        if (otherBone.getRotations() != null) {
-                            return false;
+                    if (track != null) {
+                        if (track.hasBone(bone.getBoneName())) {
+                            AnimationBone otherBone = track.getBone(bone.getBoneName());
+                            if (otherBone.getRotations() != null) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -76,10 +80,12 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
             if (!playingAnimation.getName().equals(animation.getName())) {
                 if (playingAnimation.getPriority() > animation.getPriority()) {
                     AnimationTrack track = getTrack(playingAnimation.getName());
-                    if (track.hasBone(bone.getBoneName())) {
-                        AnimationBone otherBone = track.getBone(bone.getBoneName());
-                        if (otherBone.getPositions() != null) {
-                            return false;
+                    if (track != null) {
+                        if (track.hasBone(bone.getBoneName())) {
+                            AnimationBone otherBone = track.getBone(bone.getBoneName());
+                            if (otherBone.getPositions() != null) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -102,10 +108,12 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
             if (!playingAnimation.getName().equals(animation.getName())) {
                 if (playingAnimation.getPriority() > animation.getPriority()) {
                     AnimationTrack track = getTrack(playingAnimation.getName());
-                    if (track.hasBone(bone.getBoneName())) {
-                        AnimationBone otherBone = track.getBone(bone.getBoneName());
-                        if (otherBone.getScales() != null) {
-                            return false;
+                    if (track != null) {
+                        if (track.hasBone(bone.getBoneName())) {
+                            AnimationBone otherBone = track.getBone(bone.getBoneName());
+                            if (otherBone.getScales() != null) {
+                                return false;
+                            }
                         }
                     }
                 }
@@ -117,8 +125,10 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     private boolean isRotatingInAnyTrack(T animated, ModelElement renderer){
         for (Animation playingAnimation : animated.getAnimationFactory().getPlayingAnimations()) {
             AnimationTrack track = getTrack(playingAnimation.getName());
-            if (track.hasBone(renderer.getName())){
-                return track.getBone(renderer.getName()).getRotations() != null;
+            if (track != null) {
+                if (track.hasBone(renderer.getName())) {
+                    return track.getBone(renderer.getName()).getRotations() != null;
+                }
             }
         }
         return false;
@@ -128,8 +138,10 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     private boolean isPositioningInAnyTrack(T animated, ModelElement renderer){
         for (Animation playingAnimation : animated.getAnimationFactory().getPlayingAnimations()) {
             AnimationTrack track = getTrack(playingAnimation.getName());
-            if (track.hasBone(renderer.getName())){
-                return track.getBone(renderer.getName()).getPositions() != null;
+            if (track != null) {
+                if (track.hasBone(renderer.getName())) {
+                    return track.getBone(renderer.getName()).getPositions() != null;
+                }
             }
         }
         return false;
@@ -139,8 +151,10 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     private boolean isScalingInAnyTrack(T animated, ModelElement renderer){
         for (Animation playingAnimation : animated.getAnimationFactory().getPlayingAnimations()) {
             AnimationTrack track = getTrack(playingAnimation.getName());
-            if (track.hasBone(renderer.getName())){
-                return track.getBone(renderer.getName()).getScales() != null;
+            if (track != null) {
+                if (track.hasBone(renderer.getName())) {
+                    return track.getBone(renderer.getName()).getScales() != null;
+                }
             }
         }
         return false;

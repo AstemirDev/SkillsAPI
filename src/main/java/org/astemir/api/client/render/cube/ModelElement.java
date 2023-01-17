@@ -144,19 +144,19 @@ public class ModelElement {
             matrixStackIn.pushPose();
             matrixStackIn.scale(scaleX,scaleY,scaleZ);
             matrixStackIn.translate(positionX/16.0f,-positionY/16.0f,positionZ/16.0f);
-            if (!this.cubeList.isEmpty() || !this.childModels.isEmpty()) {
                 matrixStackIn.pushPose();
                 this.translateRotate(matrixStackIn);
                 model.onRenderModelCube(this,matrixStackIn,bufferIn,renderCall,packedLightIn,packedOverlayIn,red,green,blue,alpha);
                 if (resetBuffer) {
                     bufferIn = model.returnDefaultBuffer();
                 }
-                this.doRender(matrixStackIn.last(), bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
-                for(ModelElement modelRenderer : this.childModels) {
-                    modelRenderer.render(model,matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha,renderCall,resetBuffer);
+                if (!this.cubeList.isEmpty() || !this.childModels.isEmpty()) {
+                    this.doRender(matrixStackIn.last(), bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
+                    for(ModelElement modelRenderer : this.childModels) {
+                        modelRenderer.render(model,matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha,renderCall,resetBuffer);
+                    }
                 }
                 matrixStackIn.popPose();
-            }
             matrixStackIn.popPose();
         }
     }

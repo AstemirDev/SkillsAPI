@@ -184,23 +184,37 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
                         AnimationFactory animationFactory = animated.getAnimationFactory();
                         for (Animation animation : animationFactory.getPlayingAnimations()) {
                             AnimationTrack track = getTrack(animation.getName());
-                            if (track.hasBone(renderer.getName())) {
-                                AnimationBone bone = track.getBone(renderer.getName());
-                                float animationTick = data.getAnimationTick(animation);
-                                float animationDelta = smoothnessType.deltaCalculate(partialTicks,animation.getSmoothness());
-                                if (bone.getRotations() != null) {
-                                    if (checkCanRotate(animated, animation, bone)) {
-                                        rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(),animationTick),animationDelta);
+                            if (track != null) {
+                                if (track.hasBone(renderer.getName())) {
+                                    AnimationBone bone = track.getBone(renderer.getName());
+                                    float animationTick = data.getAnimationTick(animation);
+                                    float animationDelta = smoothnessType.deltaCalculate(partialTicks, animation.getSmoothness());
+                                    if (bone.getRotations() != null) {
+                                        if (checkCanRotate(animated, animation, bone)) {
+                                            rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(), animationTick), animationDelta);
+                                        }
                                     }
-                                }
-                                if (bone.getScales() != null) {
-                                    if (checkCanScale(animated, animation, bone)) {
-                                        scale = scale.lerp(interpolation.interpolate(bone.getScales(),animationTick), animationDelta);
+                                    if (bone.getScales() != null) {
+                                        if (checkCanScale(animated, animation, bone)) {
+                                            boolean shouldBeHidden = false;
+                                            if (bone.getScales().length == 1){
+                                                AnimationFrame scaleFrame = bone.getScales()[0];
+                                                Vector3 value = scaleFrame.getValue();
+                                                if (scaleFrame.getPosition() == 0 && (value.x == 0 && value.y == 0 && value.z == 0)){
+                                                    shouldBeHidden = true;
+                                                }
+                                            }
+                                            if (!shouldBeHidden) {
+                                                scale = scale.lerp(interpolation.interpolate(bone.getScales(), animationTick), animationDelta);
+                                            }else{
+                                                scale = new Vector3(0,0,0);
+                                            }
+                                        }
                                     }
-                                }
-                                if (bone.getPositions() != null) {
-                                    if (checkCanMove(animated, animation, bone)) {
-                                        pos = pos.lerp(interpolation.interpolate(bone.getPositions(),animationTick), animationDelta);
+                                    if (bone.getPositions() != null) {
+                                        if (checkCanMove(animated, animation, bone)) {
+                                            pos = pos.lerp(interpolation.interpolate(bone.getPositions(), animationTick), animationDelta);
+                                        }
                                     }
                                 }
                             }

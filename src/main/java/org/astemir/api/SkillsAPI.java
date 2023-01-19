@@ -33,7 +33,7 @@ public class SkillsAPI extends SAForgeMod {
 
     public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
 
-    public static final boolean REMAP = true;
+    public static final boolean REMAP = false;
 
     public static SkillsAPI INSTANCE;
 

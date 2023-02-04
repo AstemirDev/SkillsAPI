@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import javax.annotation.Nullable;
 
-@Mixin({LevelRenderer.class})
+@Mixin(value = {LevelRenderer.class},priority = 500)
 public abstract class MixinLevelRenderer {
     @Shadow @Nullable private ClientLevel level;
     @Shadow private int ticks;

@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
 
-@Mixin({Camera.class})
+@Mixin(value = {Camera.class},priority = 500)
 public abstract class MixinCamera {
 
     @Shadow private boolean initialized;

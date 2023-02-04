@@ -2,7 +2,9 @@ package org.astemir.api.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
@@ -38,14 +40,21 @@ public class WorldUtils {
             Blocks.NETHER_PORTAL
     };
 
-    public static void invokeWorldClientEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+    public static void playClientEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
         if (level.isClientSide){
             return;
         }
         NetworkUtils.sendToAllPlayers(new ClientMessageWorldPosEvent(pos,event,arguments));
     }
 
-    public static void invokeWorldServerEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
+    public static void playClientEvent(Player player,Level level, BlockPos pos, int event, PacketArgument... arguments){
+        if (level.isClientSide){
+            return;
+        }
+        NetworkUtils.sendToPlayer((ServerPlayer) player,new ClientMessageWorldPosEvent(pos,event,arguments));
+    }
+
+    public static void playServerEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
         if (!level.isClientSide){
             return;
         }

@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin({GameRenderer.class})
+@Mixin(value={GameRenderer.class},priority = 500)
 public class MixinGameRenderer {
 
     @Inject(method = "renderLevel", remap = SkillsAPI.REMAP,at = @At(value = "INVOKE",target = "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V"))

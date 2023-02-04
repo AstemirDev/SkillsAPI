@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.Overwrite;
 
 import javax.annotation.Nullable;
 
-@Mixin({DimensionSpecialEffects.class})
+@Mixin(value={DimensionSpecialEffects.class},priority = 500)
 public class MixinDimensionSpecialEffects {
 
     /**

@@ -24,7 +24,7 @@ import org.spongepowered.asm.mixin.Shadow;
 
 import java.util.function.Supplier;
 
-@Mixin({ClientLevel.class})
+@Mixin(value={ClientLevel.class},priority = 500)
 public abstract class MixinClientLevel extends Level {
 
 
@@ -144,6 +144,7 @@ public abstract class MixinClientLevel extends Level {
             f4 = f4 * f8 + f10 * (1.0F - f8);
         }
         SkySetupEvent.ComputeCloudColor event = new SkySetupEvent.ComputeCloudColor(f,f5,f9,pPartialTick,new Vec3((double)f2, (double)f3, (double)f4));
+        MinecraftForge.EVENT_BUS.post(event);
         return event.getColor();
     }
 

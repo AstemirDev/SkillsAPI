@@ -1,0 +1,35 @@
+org/astemir/api/mixin/client/MixinCamera initialized f_90549_
+org/astemir/api/mixin/client/MixinCamera level f_90550_
+org/astemir/api/mixin/client/MixinCamera entity f_90551_
+org/astemir/api/mixin/client/MixinCamera detached f_90560_
+org/astemir/api/mixin/client/MixinCamera eyeHeightOld f_90563_
+org/astemir/api/mixin/client/MixinCamera eyeHeight f_90562_
+org/astemir/api/mixin/client/MixinCamera yRot f_90558_
+org/astemir/api/mixin/client/MixinCamera xRot f_90557_
+org/astemir/api/mixin/client/MixinHumanoidModel head f_102808_
+org/astemir/api/mixin/client/MixinHumanoidModel hat f_102809_
+org/astemir/api/mixin/client/MixinHumanoidModel body f_102810_
+org/astemir/api/mixin/client/MixinHumanoidModel rightArm f_102811_
+org/astemir/api/mixin/client/MixinHumanoidModel leftArm f_102812_
+org/astemir/api/mixin/client/MixinHumanoidModel rightLeg f_102813_
+org/astemir/api/mixin/client/MixinHumanoidModel leftLeg f_102814_
+org/astemir/api/mixin/client/MixinHumanoidModel leftArmPose f_102815_
+org/astemir/api/mixin/client/MixinHumanoidModel rightArmPose f_102816_
+org/astemir/api/mixin/client/MixinHumanoidModel crouching f_102817_
+org/astemir/api/mixin/client/MixinHumanoidModel swimAmount f_102818_
+org/astemir/api/mixin/client/MixinClientLevel minecraft f_104565_
+org/astemir/api/mixin/client/MixinClientLevel skyFlashTime f_104557_
+org/astemir/api/mixin/client/MixinLevelRenderer level f_109465_
+org/astemir/api/mixin/client/MixinLevelRenderer ticks f_109477_
+org/astemir/api/mixin/client/MixinLevelRenderer minecraft f_109461_
+org/astemir/api/mixin/client/MixinLevelRenderer skyBuffer f_109472_
+org/astemir/api/mixin/client/MixinLevelRenderer SUN_LOCATION f_109455_
+org/astemir/api/mixin/client/MixinLevelRenderer MOON_LOCATION f_109454_
+org/astemir/api/mixin/client/MixinLevelRenderer starBuffer f_109471_
+org/astemir/api/mixin/client/MixinLevelRenderer darkBuffer f_109473_
+org/astemir/api/mixin/client/MixinCamera setRotation (FF)V m_90572_
+org/astemir/api/mixin/client/MixinCamera setPosition (DDD)V m_90584_
+org/astemir/api/mixin/client/MixinCamera move (DDD)V m_90568_
+org/astemir/api/mixin/client/MixinCamera getMaxZoom (D)D m_90566_
+org/astemir/api/mixin/client/MixinLevelRenderer doesMobEffectBlockSky (Lnet/minecraft/client/Camera;)Z m_234310_
+org/astemir/api/mixin/client/MixinLevelRenderer renderEndSky (Lcom/mojang/blaze3d/vertex/PoseStack;)V m_109780_

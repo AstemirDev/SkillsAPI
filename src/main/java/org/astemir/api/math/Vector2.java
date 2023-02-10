@@ -1,11 +1,9 @@
 package org.astemir.api.math;
 
+import net.minecraft.nbt.CompoundTag;
 import org.astemir.api.utils.MathUtils;
 
 public class Vector2 {
-
-    public static final Vector2 ZERO = new Vector2(0,0);
-    public static final Vector2 DEFAULT_SCALE = new Vector2(1,1);
 
     public float x;
     public float y;
@@ -37,11 +35,26 @@ public class Vector2 {
         return vector.sub(this).normalize();
     }
 
+    public Vector2 directionWithoutNormalize(Vector2 vector){
+        return vector.sub(this);
+    }
+
+
     public Vector2 rotation(){
         Vector2 dir = normalize();
         return new Vector2(MathUtils.cos(dir.x),MathUtils.sin(dir.y));
     }
 
+
+    public float distanceTo(Vector2 vector){
+        return MathUtils.sqrt(distanceToSquared(vector));
+    }
+
+    public float distanceToSquared(Vector2 vector){
+        float resX = (this.x-vector.x)*(this.x-vector.x);
+        float resY = (this.y-vector.y)*(this.y-vector.y);
+        return resX+resY;
+    }
 
     public Vector2 rotationDegrees(){
         Vector2 dir = normalize();
@@ -152,6 +165,33 @@ public class Vector2 {
 
     public boolean equalsApprox(Vector2 vector){
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y);
+    }
+
+    public CompoundTag toNbt(){
+        CompoundTag tag = new CompoundTag();
+        tag.putFloat("x",x);
+        tag.putFloat("y",y);
+        return tag;
+    }
+
+    public static Vector2 fromNbt(CompoundTag tag){
+        return new Vector2(tag.getFloat("x"),tag.getFloat("y"));
+    }
+
+    public float[] toFloatArray(Vector2 vector2){
+        return new float[]{vector2.x,vector2.y};
+    }
+
+    public static Vector2 fromFloatArray(float[] array){
+        return new Vector2(array[0],array[1]);
+    }
+
+    public static Vector2 zero(){
+        return new Vector2(0,0);
+    }
+
+    public static Vector2 one(){
+        return new Vector2(1,1);
     }
 
     @Override

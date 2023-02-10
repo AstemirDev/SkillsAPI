@@ -10,9 +10,6 @@ import org.astemir.api.utils.MathUtils;
 
 public class Vector3 {
 
-    public static final Vector3 ZERO = new Vector3(0,0,0);
-    public static final Vector3 DEFAULT_SCALE = new Vector3(1,1,1);
-
     public float x;
     public float y;
     public float z;
@@ -306,11 +303,11 @@ public class Vector3 {
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y) && MathUtils.equalsApprox(z,vector.z);
     }
 
-    public CompoundTag toNbt(Vector3 vector3){
+    public CompoundTag toNbt(){
         CompoundTag tag = new CompoundTag();
-        tag.putFloat("x",vector3.x);
-        tag.putFloat("y",vector3.y);
-        tag.putFloat("z",vector3.z);
+        tag.putFloat("x",x);
+        tag.putFloat("y",y);
+        tag.putFloat("z",z);
         return tag;
     }
 
@@ -324,6 +321,15 @@ public class Vector3 {
 
     public static Vector3 fromFloatArray(float[] array){
         return new Vector3(array[0],array[1],array[2]);
+    }
+
+
+    public static Vector3 zero(){
+        return new Vector3(0,0,0);
+    }
+
+    public static Vector3 one(){
+        return new Vector3(1,1,1);
     }
 
     @Override

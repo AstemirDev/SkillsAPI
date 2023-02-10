@@ -70,10 +70,10 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
         armorLeftBoot.showModel = false;
         armorRightBoot.showModel = false;
         if (equipmentSlot == EquipmentSlot.HEAD){
-            translateRenderer(bipedHead,original.head,Vector3.ZERO);
+            translateRenderer(bipedHead,original.head,Vector3.zero());
         }else
         if (equipmentSlot == EquipmentSlot.CHEST){
-            translateRenderer(bipedBody,original.body,Vector3.ZERO);
+            translateRenderer(bipedBody,original.body,Vector3.zero());
             translateRenderer(bipedRightArm,original.rightArm,new Vector3(1.25f,0,0));
             translateRenderer(bipedLeftArm,original.leftArm,new Vector3(-1.25f,0,0));
         }else

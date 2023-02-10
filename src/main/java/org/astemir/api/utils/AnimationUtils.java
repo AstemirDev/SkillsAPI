@@ -95,7 +95,7 @@ public class AnimationUtils {
     public static Vector3 interpolatePoints(AnimationFrame[] points, float position){
         float delta = 0;
         if (points.length == 0) {
-            return Vector3.ZERO;
+            return Vector3.zero();
         }
         if (points.length == 1) {
             return points[0].getValue();
@@ -130,7 +130,7 @@ public class AnimationUtils {
             firstPos = point.getPosition();
             firstValue = point.getValue();
         }
-        return Vector3.ZERO;
+        return Vector3.zero();
     }
 
 

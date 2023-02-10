@@ -4,6 +4,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.PathfinderMob;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
 import org.astemir.api.common.animation.IAnimated;
@@ -12,11 +13,11 @@ import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.common.state.IActionListener;
 
-public abstract class SAEntityCreature extends Mob implements IAnimated, IActionListener,IEventEntity, ISARendered {
+public abstract class SAEntityCreature extends PathfinderMob implements IAnimated, IActionListener,IEventEntity, ISARendered {
 
     private ActionStateMachine actionStateMachine = new ActionStateMachine();
 
-    protected SAEntityCreature(EntityType<? extends Mob> pEntityType, Level pLevel) {
+    protected SAEntityCreature(EntityType<? extends PathfinderMob> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
 

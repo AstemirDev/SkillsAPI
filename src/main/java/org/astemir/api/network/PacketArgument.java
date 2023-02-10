@@ -91,7 +91,6 @@ public class PacketArgument {
 
     public CompoundTag asNBT(){return (CompoundTag) value;}
 
-
     public Object getValue() {
         return value;
     }
@@ -102,6 +101,26 @@ public class PacketArgument {
 
     public static PacketArgument create(ArgumentType type,Object value){
         return new PacketArgument(type,value);
+    }
+
+    public static PacketArgument vec3(Vec3 vec3){
+        return PacketArgument.create(PacketArgument.ArgumentType.VEC3,vec3);
+    }
+
+    public static PacketArgument nbt(CompoundTag tag){
+        return PacketArgument.create(PacketArgument.ArgumentType.NBT,tag);
+    }
+
+    public static PacketArgument integer(int value){
+        return PacketArgument.create(PacketArgument.ArgumentType.INT,value);
+    }
+
+    public static PacketArgument bool(boolean value){
+        return PacketArgument.create(PacketArgument.ArgumentType.BOOL,value);
+    }
+
+    public static PacketArgument str(String value){
+        return PacketArgument.create(PacketArgument.ArgumentType.STRING,value);
     }
 
     public enum ArgumentType{

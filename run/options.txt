@@ -36,7 +36,7 @@ graphicsMode:0
 ao:0
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
-renderClouds:"false"
+renderClouds:"true"
 resourcePacks:["vanilla","mod_resources"]
 incompatibleResourcePacks:[]
 lastServer:

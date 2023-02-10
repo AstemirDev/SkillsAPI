@@ -38,6 +38,14 @@ public class Color {
         this.a = a;
     }
 
+    public Color(int rgb){
+        this((float)new java.awt.Color(rgb,true).getRed()/255f,(float)new java.awt.Color(rgb,true).getGreen()/255f,(float)new java.awt.Color(rgb,true).getBlue()/255f,1f);
+    }
+
+    public int toRGB(){
+        return new java.awt.Color(r,g,b,a).getRGB();
+    }
+
     public int[] toArray(){
         int[] colors = new int[4];
         colors[0] = (int)(r*255);

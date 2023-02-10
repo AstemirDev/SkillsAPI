@@ -23,7 +23,7 @@ public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMin
 
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, EntityExampleMinotaur instance, int pPackedLight, float pPartialTick, float r, float g, float b, float a) {
-        getModel().renderModel(pPoseStack,pBuffer.getBuffer(getBuffer(instance)),getEyeLight(), OverlayTexture.NO_OVERLAY,r,g,b,a, RenderCall.LAYER,false);
+        //getModel().renderModel(pPoseStack,pBuffer.getBuffer(getBuffer(instance)),getEyeLight(), OverlayTexture.NO_OVERLAY,r,g,b,a, RenderCall.LAYER,false);
     }
 
     @Override

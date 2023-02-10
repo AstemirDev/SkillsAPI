@@ -18,8 +18,8 @@ public class GFXEffectCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         CommandArgument targets = CommandArgument.players("targets");
-        CommandArgument power = CommandArgument.doubl("power");
-        CommandArgument speed = CommandArgument.doubl("speed");
+        CommandArgument power = CommandArgument.doubleArg("power");
+        CommandArgument speed = CommandArgument.doubleArg("speed");
         CommandArgument ticks = CommandArgument.integer("ticks");
         CommandArgument color = CommandArgument.vector3("color");
         CommandArgument replaceMode = CommandArgument.bool("replace");

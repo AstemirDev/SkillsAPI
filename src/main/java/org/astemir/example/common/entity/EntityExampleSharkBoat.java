@@ -58,7 +58,6 @@ public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARend
 
     public AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,SWIM));
 
-
     private static final EntityDataAccessor<Integer> DATA_ID_HURT = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> DATA_ID_HURTDIR = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Float> DATA_ID_DAMAGE = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.FLOAT);
@@ -66,6 +65,7 @@ public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARend
     private static final EntityDataAccessor<Boolean> DATA_ID_PADDLE_LEFT = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Boolean> DATA_ID_PADDLE_RIGHT = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.BOOLEAN);
     private static final EntityDataAccessor<Integer> DATA_ID_BUBBLE_TIME = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);
+
     private final float[] paddlePositions = new float[2];
     private float invFriction;
     private float outOfControlTicks;
@@ -93,7 +93,7 @@ public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARend
 
     public InterpoleValue boatInWaterOffset = new InterpoleValue(0,0.4f);
 
-    public EntityExampleSharkBoat(EntityType<?> p_19870_, Level p_19871_) {
+    public EntityExampleSharkBoat(EntityType<EntityExampleSharkBoat> p_19870_, Level p_19871_) {
         super(p_19870_, p_19871_);
         this.blocksBuilding = true;
     }
@@ -105,7 +105,6 @@ public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARend
         this.yo = p_38295_;
         this.zo = p_38296_;
     }
-
 
 
     @Override

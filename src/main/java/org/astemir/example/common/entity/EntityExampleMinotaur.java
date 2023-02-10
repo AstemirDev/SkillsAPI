@@ -19,8 +19,8 @@ import static org.astemir.api.utils.EntityUtils.isMoving;
 public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated, ISARendered {
 
     public static Animation ANIMATION_IDLE = new Animation("animation.model.idle",2.4f).loop().layer(0).smoothness(4);
-    public static Animation ANIMATION_WALK = new Animation("animation.model.walk",2.08f).walkAnimation().layer(0).smoothness(4);
-    public static Animation ANIMATION_RUN = new Animation("animation.model.run1",0.64f).walkAnimation().layer(0).smoothness(4);
+    public static Animation ANIMATION_WALK = new Animation("animation.model.walk",2.08f).loop().layer(0).smoothness(4);
+    public static Animation ANIMATION_RUN = new Animation("animation.model.run1",0.64f).loop().layer(0).smoothness(4);
 
     public static Animation ANIMATION_ATTACK = new Animation("animation.model.attack1",0.72f).priority(1).layer(1);
     public static Animation ANIMATION_ATTACK_2 = new Animation("animation.model.attack2",0.8f).priority(1).layer(1);
@@ -59,9 +59,7 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
         if (isMoving(this,-0.05f,0.05f)) {
             animationFactory.play(ANIMATION_WALK);
         } else {
-            if (!animationFactory.isPlaying(ANIMATION_WALK)) {
-                animationFactory.play(ANIMATION_IDLE);
-            }
+            animationFactory.play(ANIMATION_IDLE);
         }
     }
 
@@ -86,11 +84,22 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
 
 
     @Override
+    public void onActionBegin(ActionController controller, Action state) {
+
+    }
+
+    @Override
     public void onActionEnd(ActionController controller, Action state) {
         if (state == ACTION_FURY){
             controller.playAction(ACTION_START_2);
         }
     }
+
+    @Override
+    public void onActionTick(ActionController controller, Action state, int ticks) {}
+
+    @Override
+    public void onAnimationTick(Animation animation, int tick) { }
 
     @Override
     public void onAnimationEnd(Animation animation) {
@@ -99,6 +108,11 @@ public class EntityExampleMinotaur extends SAEntityMonster implements IAnimated,
                 getTarget().hurt(DamageSource.mobAttack(this), 5);
             }
         }
+    }
+
+    @Override
+    public void onAnimationStart(Animation animation) {
+
     }
 
     @Override

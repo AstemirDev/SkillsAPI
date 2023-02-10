@@ -21,4 +21,13 @@ public class TextureVertex {
         this.textureU = texU;
         this.textureV = texV;
     }
+
+
+    public float getTextureU() {
+        return textureU;
+    }
+
+    public float getTextureV() {
+        return textureV;
+    }
 }

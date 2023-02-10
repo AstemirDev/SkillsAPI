@@ -5,20 +5,25 @@ import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class CommandBuilder {
 
     private String command;
     private Predicate<CommandSourceStack> permission = (p)->true;
-    private CommandVariant[] branches;
+    private LinkedList<CommandVariant> branches = new LinkedList<>();
 
     public CommandBuilder(String command) {
         this.command = command;
     }
 
     public CommandBuilder variants(CommandVariant... branches){
-        this.branches = branches;
+        for (CommandVariant branch : branches) {
+            this.branches.add(branch);
+        }
         return this;
     }
 
@@ -34,4 +39,10 @@ public class CommandBuilder {
         }
         return (LiteralArgumentBuilder)res;
     }
+
+    public void addVariant(CommandVariant branch){
+        this.branches.add(branch);
+    }
+
 }
+

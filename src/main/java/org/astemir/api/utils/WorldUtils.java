@@ -40,26 +40,6 @@ public class WorldUtils {
             Blocks.NETHER_PORTAL
     };
 
-    public static void playClientEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
-        if (level.isClientSide){
-            return;
-        }
-        NetworkUtils.sendToAllPlayers(new ClientMessageWorldPosEvent(pos,event,arguments));
-    }
-
-    public static void playClientEvent(Player player,Level level, BlockPos pos, int event, PacketArgument... arguments){
-        if (level.isClientSide){
-            return;
-        }
-        NetworkUtils.sendToPlayer((ServerPlayer) player,new ClientMessageWorldPosEvent(pos,event,arguments));
-    }
-
-    public static void playServerEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
-        if (!level.isClientSide){
-            return;
-        }
-        NetworkUtils.sendToServer(new ServerMessageWorldPosEvent(pos,event,arguments));
-    }
 
     public static Entity getEntity(UUID uuid, Level level){
         if (!level.isClientSide){

@@ -5,11 +5,16 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.astemir.api.client.animation.AnimationBone;
 import org.astemir.api.client.animation.AnimationFrame;
 import org.astemir.api.client.animation.AnimationTrack;
+import org.astemir.api.client.render.cube.CubeUV;
+import org.astemir.api.client.render.cube.ModelCube;
 import org.astemir.api.client.render.cube.ModelElement;
+import org.astemir.api.client.render.cube.UVMap;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
@@ -49,14 +54,34 @@ public class JsonUtils {
                 }
                 cubeRenderer = cubeRenderer.rotationPoint(rotationPoint.x, rotationPoint.y, rotationPoint.z).defaultRotation(rotation.x, rotation.y, rotation.z);
                 if (boneJson.has("cubes")) {
+                    int i = 0;
                     for (JsonElement cubeElement : boneJson.get("cubes").getAsJsonArray()) {
+                        i++;
                         JsonObject cubeJson = cubeElement.getAsJsonObject();
                         Vector3 pos = getBedrockOrigin(boneJson, cubeJson);
                         Vector3 size = JsonUtils.getVec3OrDefault(cubeJson, "size", false, new Vector3(0, 0, 0));
-                        Vector2 uv = JsonUtils.getVec2OrDefault(cubeJson, "uv", false, new Vector2(0, 0));
+                        Vector3 cubeRotation = JsonUtils.getVec3OrDefault(cubeJson, "rotation", true, new Vector3(0, 0, 0));
+                        Vector3 cubePivot = getBedrockPivotCube(bonesJson,cubeJson,isRoot);
                         double inflate = JsonUtils.getDoubleOrDefault(cubeJson, "inflate", 0);
                         boolean mirror = JsonUtils.getBoolOrDefault(cubeJson, "mirror", false);
-                        cubeRenderer.textureOffset((int) uv.x, (int) uv.y).cube(pos, size, (float) inflate, mirror);
+                        JsonElement uvElement = cubeJson.get("uv");
+                        if (uvElement.isJsonArray()) {
+                            Vector2 uv = JsonUtils.getVec2OrDefault(cubeJson, "uv", false, new Vector2(0, 0));
+                            ModelCube cube = new ModelCube(uv.x,uv.y,pos.x,pos.y,pos.z,size.x,size.y,size.z,(float) inflate,(float) inflate,(float) inflate,mirror, textureSize.x, textureSize.y);
+                            cube.setRotation(cubeRotation).setPivot(cubePivot);
+                            cubeRenderer.addCube(cube);
+                        }else{
+                            UVMap uvMap = new UVMap();
+                            for (Map.Entry<String, JsonElement> uvEntry : uvElement.getAsJsonObject().entrySet()) {
+                                Direction direction = Direction.byName(uvEntry.getKey());
+                                Vector2 uvPos = JsonUtils.getVec2OrDefault(uvEntry.getValue().getAsJsonObject(), "uv",false,new Vector2(0,0));
+                                Vector2 uvSize = JsonUtils.getVec2OrDefault(uvEntry.getValue().getAsJsonObject(), "uv_size",false,new Vector2(0,0));
+                                uvMap = uvMap.put(direction,new CubeUV(uvPos,uvSize));
+                            }
+                            ModelCube cube = new ModelCube(pos.x,pos.y,pos.z,size.x,size.y,size.z,(float) inflate,(float) inflate,(float) inflate,mirror, textureSize.x, textureSize.y,uvMap);
+                            cube.setRotation(cubeRotation).setPivot(cubePivot);
+                            cubeRenderer.addCube(cube);
+                        }
                     }
                 }
                 renderers.put(name, cubeRenderer);
@@ -123,7 +148,7 @@ public class JsonUtils {
                 if (timeCodes.getKey().equals("vector")){
                     result.add(new AnimationFrame(0,JsonUtils.getVec3(timeCodes.getValue().getAsJsonArray(),rad)));
                 }else {
-                    double time = Double.parseDouble(timeCodes.getKey());
+                    double time = parse(timeCodes.getKey());
                     JsonElement value = timeCodes.getValue();
                     if (value.isJsonArray()) {
                         result.add(new AnimationFrame((float) time, JsonUtils.getVec3(value.getAsJsonArray(), rad)));
@@ -159,6 +184,25 @@ public class JsonUtils {
         Vector3 myPos = JsonUtils.getVec3OrDefault(cube, "origin", false, new Vector3(0, 0, 0));
         Vector3 mySize = JsonUtils.getVec3OrDefault(cube, "size", false, new Vector3(0, 0, 0));
         return new Vector3(myPos.x-myPivot.x,-myPos.y-mySize.y+myPivot.y, myPos.z-myPivot.z);
+    }
+
+
+    public static Vector3 getBedrockPivotCube(JsonArray bones,JsonObject cubeJson,boolean isRoot){
+        Vector3 myPivot = JsonUtils.getVec3OrDefault(cubeJson,"pivot",false,new Vector3(0,0,0));
+        if (!isRoot) {
+            for (JsonElement otherBone : bones) {
+                JsonObject otherBoneJson = otherBone.getAsJsonObject();
+                if (otherBoneJson.has("cubes")) {
+                    for (JsonElement cubeElement : otherBoneJson.get("cubes").getAsJsonArray()) {
+                        if (cubeElement.getAsJsonObject().equals(cubeJson)) {
+                            Vector3 parentPivot = JsonUtils.getVec3OrDefault(otherBoneJson, "pivot", false, new Vector3(0, 0, 0));
+                            return new Vector3(myPivot.x - parentPivot.x, -(myPivot.y - parentPivot.y), myPivot.z - parentPivot.z);
+                        }
+                    }
+                }
+            }
+        }
+        return new Vector3(myPivot.x, 24-myPivot.y,myPivot.z);
     }
 
 
@@ -235,14 +279,26 @@ public class JsonUtils {
     }
 
     public static Vector3 getVec3(JsonArray vectorArray, boolean rad){
-        double x = vectorArray.get(0).getAsDouble();
-        double y = vectorArray.get(1).getAsDouble();
-        double z = vectorArray.get(2).getAsDouble();
+        double x = parse(vectorArray.get(0));
+        double y = parse(vectorArray.get(1));
+        double z = parse(vectorArray.get(2));
         if (rad){
             x = Math.toRadians(x);
             y = Math.toRadians(y);
             z = Math.toRadians(z);
         }
         return new Vector3((float)x,(float)y,(float)z);
+    }
+
+    public static double parse(JsonElement element){
+        return parse(element.getAsString());
+    }
+
+    public static double parse(String obj){
+        if (NumberUtils.isParsable(obj)){
+            return Double.parseDouble(obj);
+        }else{
+            return MathUtils.eval(obj);
+        }
     }
 }

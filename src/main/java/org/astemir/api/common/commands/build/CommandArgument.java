@@ -11,6 +11,7 @@ import net.minecraft.commands.Commands;
 import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.commands.arguments.EntitySummonArgument;
 import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
+import net.minecraft.commands.arguments.coordinates.Vec2Argument;
 import net.minecraft.commands.arguments.coordinates.Vec3Argument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -49,7 +50,7 @@ public class CommandArgument extends CommandPart{
         return new CommandArgument(name, BoolArgumentType.bool());
     }
 
-    public static CommandArgument doubl(String name){
+    public static CommandArgument doubleArg(String name){
         return new CommandArgument(name, DoubleArgumentType.doubleArg());
     }
 
@@ -83,8 +84,13 @@ public class CommandArgument extends CommandPart{
     }
 
     public static CommandArgument vector3(String name){
-        return new CommandArgument(name,Vec3Argument.vec3());
+        return new CommandArgument(name,Vec3Argument.vec3(false));
     }
+
+    public static CommandArgument vector2(String name){
+        return new CommandArgument(name, Vec2Argument.vec2(false));
+    }
+
 
     public int getInt(CommandContext<CommandSourceStack> context){
         return IntegerArgumentType.getInteger(context,getArgumentName());

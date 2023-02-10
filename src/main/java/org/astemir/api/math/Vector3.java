@@ -4,6 +4,7 @@ package org.astemir.api.math;
 import com.mojang.math.Vector3d;
 import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.utils.MathUtils;
 
@@ -303,6 +304,26 @@ public class Vector3 {
 
     public boolean equalsApprox(Vector3 vector){
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y) && MathUtils.equalsApprox(z,vector.z);
+    }
+
+    public CompoundTag toNbt(Vector3 vector3){
+        CompoundTag tag = new CompoundTag();
+        tag.putFloat("x",vector3.x);
+        tag.putFloat("y",vector3.y);
+        tag.putFloat("z",vector3.z);
+        return tag;
+    }
+
+    public static Vector3 fromNbt(CompoundTag tag){
+        return new Vector3(tag.getFloat("x"),tag.getFloat("y"),tag.getFloat("z"));
+    }
+
+    public float[] toFloatArray(Vector3 vector3){
+        return new float[]{vector3.x,vector3.y,vector3.z};
+    }
+
+    public static Vector3 fromFloatArray(float[] array){
+        return new Vector3(array[0],array[1],array[2]);
     }
 
     @Override

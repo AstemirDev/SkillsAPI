@@ -31,4 +31,24 @@ public class TexturedQuad {
         }
     }
 
+    public TexturedQuad(TextureVertex[] positionsIn, float u1, float v1, float u2, float v2, float texWidth, float texHeight, boolean mirrorIn, Direction directionIn,float b) {
+        this.vertexPositions = positionsIn;
+        this.normal = directionIn.step();
+        float uWidth = (u1 + u2) / texWidth;
+        float vHeight = (v1 + v2) / texHeight;
+        u1 /= texWidth;
+        v1 /= texHeight;
+        if (!mirrorIn) {
+            float tempWidth = uWidth;
+            uWidth = u1;
+            u1 = tempWidth;
+
+            normal.mul(-1, 1, 1);
+        }
+        positionsIn[0] = positionsIn[0].setTextureUV(u1, v1);
+        positionsIn[1] = positionsIn[1].setTextureUV(uWidth, v1);
+        positionsIn[2] = positionsIn[2].setTextureUV(uWidth, vHeight);
+        positionsIn[3] = positionsIn[3].setTextureUV(u1, vHeight);
+    }
+
 }

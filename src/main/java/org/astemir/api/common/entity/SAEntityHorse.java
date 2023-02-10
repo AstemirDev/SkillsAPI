@@ -6,22 +6,18 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.network.NetworkHooks;
-import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.IAnimated;
 import org.astemir.api.common.animation.ISARendered;
-import org.astemir.api.common.state.Action;
 import org.astemir.api.common.state.ActionController;
 import org.astemir.api.common.state.ActionStateMachine;
 import org.astemir.api.common.state.IActionListener;
-import org.astemir.api.network.PacketArgument;
-import org.astemir.api.utils.EntityUtils;
 
 public abstract class SAEntityHorse extends AbstractHorse implements IAnimated, IActionListener,IEventEntity, ISARendered {
 
     private ActionStateMachine actionStateMachine = new ActionStateMachine();
 
-    protected SAEntityHorse(EntityType<? extends AbstractHorse> p_33002_, Level p_33003_) {
-        super(p_33002_, p_33003_);
+    protected SAEntityHorse(EntityType<? extends AbstractHorse> pEntityType, Level pLevel) {
+        super(pEntityType, pLevel);
     }
 
     @Override
@@ -37,55 +33,11 @@ public abstract class SAEntityHorse extends AbstractHorse implements IAnimated, 
     }
 
     @Override
-    public Packet<?> getAddEntityPacket() {
-        return NetworkHooks.getEntitySpawningPacket(this);
-    }
-
-    @Override
     public void aiStep() {
         super.aiStep();
         for (ActionController controller : actionStateMachine.getControllers()) {
             controller.update();
         }
-    }
-
-
-    public void invokeEntityClientEvent(int event,PacketArgument... arguments){
-        EntityUtils.invokeEntityClientEvent(this,event,arguments);
-    }
-
-
-    public void invokeEntityServerEvent(int event,PacketArgument... arguments){
-        EntityUtils.invokeEntityServerEvent(this,event,arguments);
-    }
-
-    @Override
-    public void onHandleClientEvent(int event, PacketArgument[] arguments) {
-        onHandleClientEvent(event);
-    }
-
-    public void onHandleClientEvent(int event) {
-    }
-
-    @Override
-    public void onHandleServerEvent(int event, PacketArgument[] arguments) {
-        onHandleServerEvent(event);
-    }
-
-    public void onHandleServerEvent(int event) {
-    }
-
-
-    @Override
-    public void onActionBegin(ActionController controller, Action state) {
-    }
-
-    @Override
-    public void onActionEnd(ActionController controller, Action state) {
-    }
-
-    @Override
-    public void onActionTick(ActionController controller, Action state, int ticks) {
     }
 
     @Override
@@ -94,17 +46,9 @@ public abstract class SAEntityHorse extends AbstractHorse implements IAnimated, 
     }
 
     @Override
-    public void onAnimationStart(Animation animation) {
+    public Packet<?> getAddEntityPacket() {
+        return NetworkHooks.getEntitySpawningPacket(this);
     }
-
-    @Override
-    public void onAnimationTick(Animation animation, int tick) {
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-    }
-
 
     @Override
     public ActionStateMachine getActionStateMachine() {

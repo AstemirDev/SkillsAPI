@@ -3,6 +3,7 @@ package org.astemir.api.utils;
 
 import net.minecraft.client.model.FrogModel;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
@@ -186,14 +187,22 @@ public class EntityUtils {
     }
 
 
-    public static <T extends Entity & IEventEntity> void invokeEntityClientEvent(T entity, int event, PacketArgument... arguments){
+    public static <T extends Entity & IEventEntity> void playClientEvent(T entity, int event, PacketArgument... arguments){
         if (entity.level.isClientSide){
             return;
         }
         NetworkUtils.sendToAllPlayers(new ClientMessageEntityEvent(entity.getId(),event,arguments));
     }
 
-    public static <T extends Entity & IEventEntity> void invokeEntityServerEvent(T entity, int event, PacketArgument... arguments){
+    public static <T extends Entity & IEventEntity> void playClientEvent(T entity, ServerPlayer serverPlayer,int event, PacketArgument... arguments){
+        if (entity.level.isClientSide){
+            return;
+        }
+        NetworkUtils.sendToPlayer(serverPlayer,new ClientMessageEntityEvent(entity.getId(),event,arguments));
+    }
+
+
+    public static <T extends Entity & IEventEntity> void playServerEvent(T entity, int event, PacketArgument... arguments){
         if (!entity.level.isClientSide){
             return;
         }

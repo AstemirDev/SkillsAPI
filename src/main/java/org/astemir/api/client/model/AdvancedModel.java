@@ -31,13 +31,13 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
     public Vector2 textureSize = new Vector2(64,32);
 
     protected final List<ModelRenderLayer<T, AdvancedModel<T>>> layers = Lists.newArrayList();
-    private Function<String,String> modelFunction;
+    public static Function<String,String> MODEL_FUNCTION;
 
 
     public AdvancedModel(ResourceLocation modelLoc) {
         super(RenderType::entityCutoutNoCull);
         if (modelLoc != null) {
-            renderers = JsonUtils.getModelRenderers(modelLoc,modelFunction);
+            renderers = JsonUtils.getModelRenderers(modelLoc,MODEL_FUNCTION);
         }
     }
 
@@ -184,7 +184,4 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
         return modelWrapper;
     }
 
-    public void setModelFunction(Function<String, String> function) {
-        this.modelFunction = function;
-    }
 }

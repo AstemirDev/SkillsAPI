@@ -26,12 +26,12 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     private InterpolationType interpolation = InterpolationType.CATMULLROM;
     private SmoothnessType smoothnessType = SmoothnessType.DEFAULT;
     private float smoothness = 2;
-    private Function<String,String> animationFunction;
+    public static Function<String,String> ANIMATION_FUNCTION;
 
     public AnimatedAdvancedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
         super(modelLoc);
         if (animationsLoc != null) {
-            animations = JsonUtils.getAnimationTracks(animationsLoc,animationFunction);
+            animations = JsonUtils.getAnimationTracks(animationsLoc,ANIMATION_FUNCTION);
         }
     }
 
@@ -260,9 +260,5 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     public AnimatedAdvancedModel smoothnessType(SmoothnessType type) {
         this.smoothnessType = type;
         return this;
-    }
-
-    public void setAnimationFunction(Function<String, String> function) {
-        this.animationFunction = function;
     }
 }

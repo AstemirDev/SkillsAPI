@@ -29,7 +29,6 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
     public Set<ModelElement> renderers = new HashSet<>();
     public IModelWrapper<T> modelWrapper;
     public Vector2 textureSize = new Vector2(64,32);
-    private boolean encrypted = false;
 
     protected final List<ModelRenderLayer<T, AdvancedModel<T>>> layers = Lists.newArrayList();
     public static Function<String,String> MODEL_FUNCTION;
@@ -38,7 +37,7 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
     public AdvancedModel(ResourceLocation modelLoc) {
         super(RenderType::entityCutoutNoCull);
         if (modelLoc != null) {
-            renderers = JsonUtils.getModelRenderers(modelLoc,encrypted ? MODEL_FUNCTION : null);
+            renderers = JsonUtils.getModelRenderers(modelLoc,isEncrypted() ? MODEL_FUNCTION : null);
         }
     }
 
@@ -173,13 +172,9 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
         layers.add((ModelRenderLayer<T, AdvancedModel<T>>) layer);
     }
 
-    public AdvancedModel setEncrypted() {
-        this.encrypted = true;
-        return this;
-    }
 
     public boolean isEncrypted() {
-        return encrypted;
+        return false;
     }
 
     public List<ModelRenderLayer<T,AdvancedModel<T>>> getLayers(){

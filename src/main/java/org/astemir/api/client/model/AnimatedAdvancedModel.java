@@ -31,7 +31,7 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     public AnimatedAdvancedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
         super(modelLoc);
         if (animationsLoc != null) {
-            animations = JsonUtils.getAnimationTracks(animationsLoc,ANIMATION_FUNCTION);
+            animations = JsonUtils.getAnimationTracks(animationsLoc,isEncrypted() ? ANIMATION_FUNCTION : null);
         }
     }
 

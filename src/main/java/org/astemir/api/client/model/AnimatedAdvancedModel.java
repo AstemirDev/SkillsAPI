@@ -1,6 +1,7 @@
 package org.astemir.api.client.model;
 
 
+import com.mojang.datafixers.types.Func;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -17,6 +18,7 @@ import org.astemir.api.utils.MathUtils;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.Function;
 
 public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> extends AdvancedModel<T> {
 
@@ -24,11 +26,12 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
     private InterpolationType interpolation = InterpolationType.CATMULLROM;
     private SmoothnessType smoothnessType = SmoothnessType.DEFAULT;
     private float smoothness = 2;
+    private Function<String,String> animationFunction;
 
     public AnimatedAdvancedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
         super(modelLoc);
         if (animationsLoc != null) {
-            animations = JsonUtils.getAnimationTracks(animationsLoc);
+            animations = JsonUtils.getAnimationTracks(animationsLoc,animationFunction);
         }
     }
 
@@ -259,4 +262,7 @@ public abstract class AnimatedAdvancedModel<T extends ISARendered & IAnimated> e
         return this;
     }
 
+    public void setAnimationFunction(Function<String, String> function) {
+        this.animationFunction = function;
+    }
 }

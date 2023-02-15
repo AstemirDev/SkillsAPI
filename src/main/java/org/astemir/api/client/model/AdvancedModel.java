@@ -22,21 +22,22 @@ import org.astemir.api.utils.MathUtils;
 import org.astemir.api.math.Vector2;
 import org.astemir.api.math.Vector3;
 import java.util.*;
+import java.util.function.Function;
 
 public abstract class AdvancedModel<T extends ISARendered> extends Model {
 
     public Set<ModelElement> renderers = new HashSet<>();
     public IModelWrapper<T> modelWrapper;
-
     public Vector2 textureSize = new Vector2(64,32);
 
     protected final List<ModelRenderLayer<T, AdvancedModel<T>>> layers = Lists.newArrayList();
+    private Function<String,String> modelFunction;
 
 
     public AdvancedModel(ResourceLocation modelLoc) {
         super(RenderType::entityCutoutNoCull);
         if (modelLoc != null) {
-            renderers = JsonUtils.getModelRenderers(modelLoc);
+            renderers = JsonUtils.getModelRenderers(modelLoc,modelFunction);
         }
     }
 
@@ -181,5 +182,9 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
 
     public IModelWrapper getModelWrapper() {
         return modelWrapper;
+    }
+
+    public void setModelFunction(Function<String, String> function) {
+        this.modelFunction = function;
     }
 }

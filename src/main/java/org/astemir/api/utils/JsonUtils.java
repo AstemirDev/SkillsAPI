@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.mojang.datafixers.types.Func;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
@@ -22,21 +23,31 @@ import org.astemir.api.math.Vector3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.function.Function;
 
 public class JsonUtils {
 
 
-    public static Set<ModelElement> getModelRenderers(ResourceLocation resourceLocation){
+    public static Set<ModelElement> getModelRenderers(ResourceLocation resourceLocation,Function<String,String> func){
         Map<String, ModelElement> renderers = new HashMap<>();
-        JsonParser parser = new JsonParser();
         InputStream stream = null;
         try {
             stream = Minecraft.getInstance().getResourceManager().getResource(resourceLocation).get().open();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JsonElement parsed = parser.parse(new InputStreamReader(stream));
+        String text = "";
+        try {
+            text = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
+            if (func != null){
+                text = func.apply(text);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JsonElement parsed = JsonParser.parseString(text);
         JsonElement geometryJson = parsed.getAsJsonObject().get("minecraft:geometry").getAsJsonArray().get(0);
         JsonObject descriptionJson = geometryJson.getAsJsonObject().get("description").getAsJsonObject();
         Vector2 textureSize = new Vector2(JsonUtils.getIntOrDefault(descriptionJson,"texture_width",32),JsonUtils.getIntOrDefault(descriptionJson,"texture_height",32));
@@ -101,7 +112,7 @@ public class JsonUtils {
     }
 
 
-    public static Set<AnimationTrack> getAnimationTracks(ResourceLocation resourceLocation) {
+    public static Set<AnimationTrack> getAnimationTracks(ResourceLocation resourceLocation, Function<String,String> func) {
         Set<AnimationTrack> animationTracks = new HashSet<>();
         InputStream stream = null;
         try {
@@ -109,7 +120,16 @@ public class JsonUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        JsonElement parsed = JsonParser.parseReader(new InputStreamReader(stream));
+        String text = "";
+        try {
+            text = new String(stream.readAllBytes(), StandardCharsets.UTF_8);
+            if (func != null){
+                text = func.apply(text);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        JsonElement parsed = JsonParser.parseString(text);
         if (parsed.getAsJsonObject().has("animations")) {
             for (Map.Entry<String, JsonElement> animationEntry : JsonUtils.getEntries(parsed, "animations")) {
                 String animationName = animationEntry.getKey();

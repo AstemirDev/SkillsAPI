@@ -1,6 +1,6 @@
 package org.astemir.api.client.render.cube;
 
-import org.astemir.api.math.Vector2;
+import org.astemir.api.math.vector.Vector2;
 
 public class CubeUV {
 

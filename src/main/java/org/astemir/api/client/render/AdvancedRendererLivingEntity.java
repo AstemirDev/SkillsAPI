@@ -11,7 +11,6 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.culling.Frustum;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
-import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -21,11 +20,11 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.client.wrapper.AbstractModelWrapperEntity;
-import org.astemir.api.common.animation.ISARendered;
+import org.astemir.api.common.misc.ICustomRendered;
 import org.jetbrains.annotations.Nullable;
 
 
-public class AdvancedRendererLivingEntity<T extends LivingEntity & ISARendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
+public class AdvancedRendererLivingEntity<T extends LivingEntity & ICustomRendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
 
     private AbstractModelWrapperEntity entityModelWrapper;
 

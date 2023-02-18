@@ -1,5 +1,10 @@
 {
   "mappings": {
+    "org/astemir/api/mixin/MixinEntity": {
+      "load": "Lnet/minecraft/world/entity/Entity;m_20258_(Lnet/minecraft/nbt/CompoundTag;)V",
+      "save": "Lnet/minecraft/world/entity/Entity;m_20223_(Lnet/minecraft/nbt/CompoundTag;)Z",
+      "tick": "Lnet/minecraft/world/entity/Entity;m_8119_()V"
+    },
     "org/astemir/api/mixin/client/MixinHumanoidModel": {
       "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V": "Lnet/minecraft/client/model/HumanoidModel;m_6973_(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V"
     },
@@ -14,6 +19,11 @@
   },
   "data": {
     "searge": {
+      "org/astemir/api/mixin/MixinEntity": {
+        "load": "Lnet/minecraft/world/entity/Entity;m_20258_(Lnet/minecraft/nbt/CompoundTag;)V",
+        "save": "Lnet/minecraft/world/entity/Entity;m_20223_(Lnet/minecraft/nbt/CompoundTag;)Z",
+        "tick": "Lnet/minecraft/world/entity/Entity;m_8119_()V"
+      },
       "org/astemir/api/mixin/client/MixinHumanoidModel": {
         "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V": "Lnet/minecraft/client/model/HumanoidModel;m_6973_(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V"
       },

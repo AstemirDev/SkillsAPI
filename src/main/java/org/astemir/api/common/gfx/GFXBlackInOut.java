@@ -2,13 +2,13 @@ package org.astemir.api.common.gfx;
 
 import net.minecraft.network.FriendlyByteBuf;
 import org.astemir.api.math.Color;
-import org.astemir.api.math.InterpoleValue;
-import org.astemir.api.utils.NetworkUtils;
+import org.astemir.api.common.entity.ClientSideValue;
+import org.astemir.api.network.NetworkUtils;
 
 public class GFXBlackInOut extends GFXEffect{
 
-    private InterpoleValue firstValue = new InterpoleValue(0,1);
-    private InterpoleValue secondValue = new InterpoleValue(1,0);
+    private ClientSideValue firstValue = new ClientSideValue(0,1);
+    private ClientSideValue secondValue = new ClientSideValue(1,0);
     private Color color;
     private double speed;
     private boolean out = false;
@@ -55,7 +55,7 @@ public class GFXBlackInOut extends GFXEffect{
     }
 
 
-    public InterpoleValue getValue() {
+    public ClientSideValue getValue() {
         if (out){
             return secondValue;
         }else{

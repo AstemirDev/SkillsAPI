@@ -1,24 +1,18 @@
 package org.astemir.api.common.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
-import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.commands.Commands;
-import net.minecraft.commands.arguments.EntityArgument;
-import net.minecraft.commands.arguments.coordinates.BlockPosArgument;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.commands.data.DataCommands;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.common.commands.build.CommandArgument;
 import org.astemir.api.common.commands.build.CommandBuilder;
 import org.astemir.api.common.commands.build.CommandPart;
 import org.astemir.api.common.commands.build.CommandVariant;
-import org.astemir.api.common.state.Action;
-import org.astemir.api.common.state.ActionController;
-import org.astemir.api.common.state.IActionListener;
+import org.astemir.api.common.action.Action;
+import org.astemir.api.common.action.ActionController;
+import org.astemir.api.common.action.IActionListener;
 
 import java.util.Collection;
 

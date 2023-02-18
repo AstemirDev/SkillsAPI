@@ -4,7 +4,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.math.Color;
-import org.astemir.api.utils.NetworkUtils;
 
 import java.util.UUID;
 

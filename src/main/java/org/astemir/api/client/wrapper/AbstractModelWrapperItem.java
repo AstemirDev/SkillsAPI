@@ -12,10 +12,11 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ISARendered;
+import org.astemir.api.common.misc.ICustomRendered;
+import org.astemir.api.client.display.ItemDisplayArgument;
 
 
-public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> extends Model implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperItem<T extends Item & ICustomRendered> extends Model implements IModelWrapper<T,ItemDisplayArgument> {
 
     public T renderTarget;
     public ItemStack itemStack;
@@ -27,7 +28,7 @@ public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> ext
     }
 
     public void renderItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack poseStack, VertexConsumer consumer,MultiBufferSource bufferSource, int packedLight, int packedOverlay,float r,float g,float b,float a) {
-        AdvancedModel<T> model = getModel(renderTarget);
+        AdvancedModel<T, ItemDisplayArgument> model = getModel(renderTarget);
         model.modelWrapper = this;
         poseStack.pushPose();
         poseStack.translate(0, 0.01f, 0);
@@ -35,6 +36,7 @@ public abstract class AbstractModelWrapperItem<T extends Item & ISARendered> ext
         poseStack.scale(-1,-1,1);
         model.renderWithLayers(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
         poseStack.popPose();
+        model.setupAnim(renderTarget,new ItemDisplayArgument(itemStack,transformType),0,0,0,0,0);
     }
 
     @Override

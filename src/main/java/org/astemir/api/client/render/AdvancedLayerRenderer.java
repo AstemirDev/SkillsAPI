@@ -8,11 +8,11 @@ import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.Entity;
-import org.astemir.api.client.SARenderTypes;
+import org.astemir.api.client.SkillsRenderTypes;
 import org.astemir.api.client.wrapper.AbstractModelWrapperEntity;
-import org.astemir.api.common.animation.ISARendered;
+import org.astemir.api.common.misc.ICustomRendered;
 
-public class AdvancedLayerRenderer<T extends Entity & ISARendered, M extends AbstractModelWrapperEntity<T>> extends RenderLayer<T, M> {
+public class AdvancedLayerRenderer<T extends Entity & ICustomRendered, M extends AbstractModelWrapperEntity<T>> extends RenderLayer<T, M> {
 
     public AdvancedLayerRenderer(RenderLayerParent<T, M> parent) {
         super(parent);
@@ -30,7 +30,7 @@ public class AdvancedLayerRenderer<T extends Entity & ISARendered, M extends Abs
 
 
     public RenderType getBuffer(T entity){
-        return SARenderTypes.eyesTransparent(getTextureLocation(entity));
+        return SkillsRenderTypes.eyesTransparent(getTextureLocation(entity));
     }
 
 

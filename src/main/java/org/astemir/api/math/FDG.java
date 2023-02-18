@@ -1,11 +1,11 @@
 package org.astemir.api.math;
 
-import org.astemir.api.utils.MathUtils;
+import org.astemir.api.math.vector.Vector3;
 
 //Formula De Graphe
 public class FDG {
 
-    public void circle(float radius,float step,Vector3 rotation) {
+    public void circle(float radius, float step, Vector3 rotation) {
         for (float i = 0;i<Math.PI*2;i+=step){
             Vector3 vector = new Vector3(MathUtils.cos(i)*radius, MathUtils.sin(i)*radius,0);
             vector = vector.rotateAroundX(rotation.x).rotateAroundY(rotation.y).rotateAroundZ(rotation.z);

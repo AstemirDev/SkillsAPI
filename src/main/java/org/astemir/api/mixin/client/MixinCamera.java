@@ -1,14 +1,13 @@
 package org.astemir.api.mixin.client;
 
 import net.minecraft.client.Camera;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraftforge.common.MinecraftForge;
-import org.astemir.api.SkillsAPI;
+import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.event.GlobalCameraSetupEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

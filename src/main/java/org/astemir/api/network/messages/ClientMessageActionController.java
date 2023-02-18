@@ -8,8 +8,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.animation.HolderTarget;
 import org.astemir.api.common.animation.HolderKey;
-import org.astemir.api.common.state.ActionController;
-import org.astemir.api.common.state.IActionListener;
+import org.astemir.api.common.action.ActionController;
+import org.astemir.api.common.action.IActionListener;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;

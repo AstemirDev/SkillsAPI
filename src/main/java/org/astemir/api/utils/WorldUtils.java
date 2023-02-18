@@ -2,23 +2,15 @@ package org.astemir.api.utils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
-import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.SkillsAPI;
-import org.astemir.api.network.PacketArgument;
-import org.astemir.api.network.messages.ClientMessageWorldPosEvent;
-import org.astemir.api.network.messages.ServerMessageWorldPosEvent;
 
 import java.util.UUID;
 

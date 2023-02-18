@@ -4,7 +4,7 @@ package org.astemir.api.network.messages;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;
-import org.astemir.api.common.WorldEventHandler;
+import org.astemir.api.common.misc.WorldEventHandler;
 import org.astemir.api.network.PacketArgument;
 
 import java.util.function.BiConsumer;

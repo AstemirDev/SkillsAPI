@@ -13,10 +13,10 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ISARendered;
+import org.astemir.api.common.misc.ICustomRendered;
 
 
-public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered> extends EntityModel<T> implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperEntity<T extends Entity & ICustomRendered> extends EntityModel<T> implements IModelWrapper<T,Object> {
 
     public T renderTarget;
     public MultiBufferSource multiBufferSource;
@@ -27,7 +27,7 @@ public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered>
     }
 
     public void renderWrapper(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a, RenderCall renderCall,boolean resetBuffer) {
-        AdvancedModel<T> model = getModel(renderTarget);
+        AdvancedModel<T,Object> model = getModel(renderTarget);
         model.modelWrapper = this;
         model.renderWithLayers(poseStack,bufferSource,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }
@@ -39,7 +39,7 @@ public abstract class AbstractModelWrapperEntity<T extends Entity & ISARendered>
 
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        getModel(entity).setupAnim(entity,limbSwing,limbSwingAmount,ageInTicks,netHeadYaw,headPitch);
+        getModel(entity).setupAnim(entity,null,limbSwing,limbSwingAmount,ageInTicks,netHeadYaw,headPitch);
     }
 
     public RenderType getDefaultRenderType(){

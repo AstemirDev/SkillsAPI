@@ -6,14 +6,14 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
-import org.astemir.api.SkillsAPI;
-import org.astemir.api.client.SARenderTypes;
+import org.astemir.example.SkillsAPI;
+import org.astemir.api.client.SkillsRenderTypes;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.model.ModelRenderLayer;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
-public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMinotaur,ModelExampleMinotaur> {
+public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMinotaur,Object,ModelExampleMinotaur> {
 
     public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"entity/minotaur_eyes.png");
 
@@ -23,7 +23,7 @@ public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMin
 
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, EntityExampleMinotaur instance, int pPackedLight, float pPartialTick, float r, float g, float b, float a) {
-        //getModel().renderModel(pPoseStack,pBuffer.getBuffer(getBuffer(instance)),getEyeLight(), OverlayTexture.NO_OVERLAY,r,g,b,a, RenderCall.LAYER,false);
+        getModel().renderModel(pPoseStack,pBuffer.getBuffer(getBuffer(instance)),getEyeLight(), OverlayTexture.NO_OVERLAY,r,g,b,a, RenderCall.LAYER,false);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMin
     }
 
     public RenderType getBuffer(EntityExampleMinotaur entity){
-        return SARenderTypes.eyesTransparent(getTexture(entity));
+        return SkillsRenderTypes.eyesTransparent(getTexture(entity));
     }
 
     public int getEyeLight(){

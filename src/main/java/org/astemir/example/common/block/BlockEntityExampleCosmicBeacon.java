@@ -3,10 +3,8 @@ package org.astemir.example.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import org.astemir.api.common.animation.AnimatedBlockEntity;
-import org.astemir.api.common.animation.Animation;
-import org.astemir.api.common.animation.AnimationFactory;
-import org.astemir.api.common.animation.AnimationList;
+import org.astemir.api.common.animation.*;
+import org.astemir.api.common.animation.objects.IAnimatedBlock;
 
 public class BlockEntityExampleCosmicBeacon extends AnimatedBlockEntity {
 
@@ -17,17 +15,22 @@ public class BlockEntityExampleCosmicBeacon extends AnimatedBlockEntity {
 
     private boolean opened = false;
 
-    private AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(
-        IDLE,OPEN_IDLE,OPEN
-    ));
+    private AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,OPEN_IDLE,OPEN)){
+        @Override
+        public void onAnimationEnd(Animation animation) {
+            if (animation == OPEN){
+                opened = true;
+            }
+        }
+    };
 
     public BlockEntityExampleCosmicBeacon(BlockPos pos, BlockState state) {
         super(ExampleModBlocks.COSMIC_BEACON_ENTITY.get(), pos, state);
     }
 
     @Override
-    public void tick(Level level, BlockPos pos, BlockState state, AnimatedBlockEntity entity) {
-        super.tick(level, pos, state, entity);
+    public void tick(Level level, BlockPos pos, BlockState state, IAnimatedBlock block) {
+        super.tick(level, pos, state, block);
         if (!opened) {
             animationFactory.play(IDLE);
         }else{
@@ -35,25 +38,8 @@ public class BlockEntityExampleCosmicBeacon extends AnimatedBlockEntity {
         }
     }
 
-
     @Override
-    public void onAnimationTick(Animation animation, int tick) {
-
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-        if (animation == OPEN){
-            opened = true;
-        }
-    }
-
-    @Override
-    public void onAnimationStart(Animation animation) {
-    }
-
-    @Override
-    public AnimationFactory getAnimationFactory() {
+    public <K> AnimationFactory getAnimationFactory(K argument) {
         return animationFactory;
     }
 }

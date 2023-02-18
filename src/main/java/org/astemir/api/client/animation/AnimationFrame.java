@@ -1,6 +1,6 @@
 package org.astemir.api.client.animation;
 
-import org.astemir.api.math.Vector3;
+import org.astemir.api.math.vector.Vector3;
 
 public class AnimationFrame {
 

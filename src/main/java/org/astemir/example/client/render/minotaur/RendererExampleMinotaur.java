@@ -10,7 +10,6 @@ public class RendererExampleMinotaur extends AdvancedRendererLivingEntity<Entity
 
     public RendererExampleMinotaur(EntityRendererProvider.Context context) {
         super(context,new WrapperExampleMinotaur());
-        //addLayer(new LayerExampleMinotaur(this));
     }
 
     @Override

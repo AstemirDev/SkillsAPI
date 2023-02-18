@@ -14,14 +14,15 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import org.astemir.api.client.display.ArmorDisplayArgument;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.common.animation.ISARendered;
-import org.astemir.api.math.Vector3;
+import org.astemir.api.common.misc.ICustomRendered;
+import org.astemir.api.math.vector.Vector3;
 
 
-public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T> {
+public abstract class AbstractModelWrapperArmor<T extends Item & ICustomRendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T, ArmorDisplayArgument> {
 
 
     public T renderTarget;
@@ -39,7 +40,7 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
             hasFoil = itemStack.hasFoil();
         }
         VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
-        AdvancedModel<T> model = getModel(renderTarget);
+        AdvancedModel<T,ArmorDisplayArgument> model = getModel(renderTarget);
         model.modelWrapper = this;
         model.renderWithLayers(poseStack,consumer,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }
@@ -52,7 +53,7 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
     public void setupAngles(LivingEntity entity, T target, ItemStack stack, EquipmentSlot equipmentSlot, HumanoidModel<?> original){
         this.renderTarget = target;
         this.itemStack = stack;
-        AdvancedModel<T> model = getModel(target);
+        AdvancedModel<T,ArmorDisplayArgument> model = getModel(target);
         ModelElement bipedHead = model.getModelElement("bipedHead");
         ModelElement bipedBody = model.getModelElement("bipedBody");
         ModelElement bipedLeftArm = model.getModelElement("bipedLeftArm");
@@ -104,6 +105,7 @@ public abstract class AbstractModelWrapperArmor<T extends Item & ISARendered> ex
             armorRightBoot.setScale(new Vector3(bodyScale,bodyScale,bodyScale));
             armorLeftBoot.setScale(new Vector3(bodyScale,bodyScale,bodyScale));
         }
+        model.setupAnim(renderTarget,new ArmorDisplayArgument(entity,itemStack,equipmentSlot),0,0,0,0,0);
     }
 
     public void translateRenderer(ModelElement advancedCubeRenderer, ModelPart part, Vector3 position){

@@ -4,7 +4,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
 import net.minecraftforge.common.MinecraftForge;
-import org.astemir.api.SkillsAPI;
+import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.event.SkySetupEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

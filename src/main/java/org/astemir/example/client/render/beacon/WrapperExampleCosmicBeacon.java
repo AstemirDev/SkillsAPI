@@ -11,7 +11,7 @@ public class WrapperExampleCosmicBeacon extends AbstractModelWrapperBlockEntity<
 
 
     @Override
-    public AdvancedModel<BlockEntityExampleCosmicBeacon> getModel(BlockEntityExampleCosmicBeacon cosmicBeacon) {
+    public AdvancedModel<BlockEntityExampleCosmicBeacon,Object> getModel(BlockEntityExampleCosmicBeacon cosmicBeacon) {
         return MODEL;
     }
 }

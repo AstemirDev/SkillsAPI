@@ -19,7 +19,7 @@ public class WrapperExampleMinotaur extends AbstractModelWrapperEntity<EntityExa
 
 
     @Override
-    public AdvancedModel<EntityExampleMinotaur> getModel(EntityExampleMinotaur minotaur) {
+    public AdvancedModel<EntityExampleMinotaur,Object> getModel(EntityExampleMinotaur minotaur) {
         return MODEL;
     }
 }

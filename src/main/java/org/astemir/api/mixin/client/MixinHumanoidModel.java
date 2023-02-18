@@ -4,7 +4,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
-import org.astemir.api.SkillsAPI;
+import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.event.HumanoidAnimationEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

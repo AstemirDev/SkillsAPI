@@ -13,7 +13,6 @@ public class Animation {
     private int layer = 0;
     private float speed = 1;
     private float smoothness = 2;
-    private boolean walkAnimation = false;
 
 
     public Animation(String name, float length) {
@@ -51,15 +50,6 @@ public class Animation {
         return this;
     }
 
-    public Animation walkAnimation(){
-        this.walkAnimation = true;
-        return this;
-    }
-
-    public boolean isWalkAnimation() {
-        return walkAnimation;
-    }
-
     public int getLayer() {
         return layer;
     }
@@ -95,6 +85,13 @@ public class Animation {
     public int getUniqueId() {
         return uniqueId;
     }
+
+    public void onTick(AnimationFactory factory, int tick){};
+
+    public void onEnd(AnimationFactory factory){};
+
+    public void onStart(AnimationFactory factory){};
+
 
     public enum Loop{
         FALSE,TRUE,HOLD_ON_LAST_FRAME;

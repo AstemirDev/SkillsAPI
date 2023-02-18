@@ -1,14 +1,12 @@
 package org.astemir.api.network.messages;
 
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
-import org.astemir.api.common.WorldEventHandler;
 import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.network.PacketArgument;
 

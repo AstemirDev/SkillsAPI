@@ -5,8 +5,10 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
+import org.astemir.api.common.misc.ICustomRendered;
+import org.astemir.api.common.animation.objects.IAnimatedBlock;
 
-public abstract class AnimatedBlockEntity extends BlockEntity implements ISARendered,IAnimated{
+public abstract class AnimatedBlockEntity extends BlockEntity implements ICustomRendered, IAnimatedBlock {
 
     private long ticks;
 
@@ -14,25 +16,10 @@ public abstract class AnimatedBlockEntity extends BlockEntity implements ISARend
         super(type, pos, state);
     }
 
-    public void tick(Level level, BlockPos pos, BlockState state, AnimatedBlockEntity entity) {
-        getAnimationFactory().updateAnimations();
+    @Override
+    public void tick(Level level, BlockPos pos, BlockState state, IAnimatedBlock block) {
+        IAnimatedBlock.super.tick(level, pos, state, block);
         ticks++;
-    }
-
-    public static <T extends BlockEntity> void tick(Level level, BlockPos pos, BlockState state, T t) {
-        ((AnimatedBlockEntity)t).tick(level,pos,state, (AnimatedBlockEntity) t);
-    }
-
-    @Override
-    public void onAnimationTick(Animation animation, int tick) {
-    }
-
-    @Override
-    public void onAnimationEnd(Animation animation) {
-    }
-
-    @Override
-    public void onAnimationStart(Animation animation) {
     }
 
     @Override

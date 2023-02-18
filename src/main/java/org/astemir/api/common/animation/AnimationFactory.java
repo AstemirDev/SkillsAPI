@@ -1,6 +1,7 @@
 package org.astemir.api.common.animation;
 
 
+import org.astemir.api.common.animation.objects.IAnimated;
 import org.astemir.api.network.messages.ClientMessageAnimation;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -11,7 +12,7 @@ public class AnimationFactory {
     private AnimationList animationList = new AnimationList();
     private IAnimated animated;
 
-    public AnimationFactory(IAnimated animated,AnimationList animations) {
+    public AnimationFactory(IAnimated animated, AnimationList animations) {
         this.animated = animated;
         this.animationList = animations;
     }
@@ -129,4 +130,10 @@ public class AnimationFactory {
         res.sort(Comparator.comparing(Animation::getPriority));
         return res;
     }
+
+    public void onAnimationTick(Animation animation, int tick){};
+
+    public void onAnimationEnd(Animation animation){};
+
+    public void onAnimationStart(Animation animation){};
 }

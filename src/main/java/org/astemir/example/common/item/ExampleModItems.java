@@ -6,7 +6,7 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.astemir.api.SkillsAPI;
+import org.astemir.example.SkillsAPI;
 import org.astemir.example.common.item.armor.ArmorItemExample;
 
 

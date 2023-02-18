@@ -1,5 +1,7 @@
 package org.astemir.api.math;
 
+import org.astemir.api.math.vector.Vector3;
+
 public class Transform {
 
     private Vector3 rotation = new Vector3(0,0,0);

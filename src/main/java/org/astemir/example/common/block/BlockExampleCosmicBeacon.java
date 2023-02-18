@@ -13,9 +13,8 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.phys.BlockHitResult;
-import org.astemir.api.common.animation.AnimatedBlockEntity;
 import org.astemir.api.common.animation.AnimationFactory;
-import org.astemir.api.common.animation.IAnimated;
+import org.astemir.api.common.animation.objects.IAnimatedBlock;
 import org.jetbrains.annotations.Nullable;
 
 public class BlockExampleCosmicBeacon extends BaseEntityBlock {
@@ -37,7 +36,7 @@ public class BlockExampleCosmicBeacon extends BaseEntityBlock {
         if (level.isClientSide) {
             return InteractionResult.SUCCESS;
         } else {
-            AnimationFactory factory = ((IAnimated)level.getBlockEntity(pos)).getAnimationFactory();
+            AnimationFactory factory = ((IAnimatedBlock)level.getBlockEntity(pos)).getAnimationFactory();
             if (!factory.isPlayingLayer(BlockEntityExampleCosmicBeacon.OPEN) && !factory.isPlaying(BlockEntityExampleCosmicBeacon.OPEN_IDLE)) {
                 factory.play(BlockEntityExampleCosmicBeacon.OPEN);
                 return InteractionResult.CONSUME;
@@ -54,6 +53,6 @@ public class BlockExampleCosmicBeacon extends BaseEntityBlock {
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type,type,AnimatedBlockEntity::tick);
+        return createTickerHelper(type,type, IAnimatedBlock::onTick);
     }
 }

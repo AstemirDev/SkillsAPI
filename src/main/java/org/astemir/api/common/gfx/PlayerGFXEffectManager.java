@@ -1,11 +1,8 @@
 package org.astemir.api.common.gfx;
 
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.SkillsAPI;
-import org.astemir.api.network.messages.ClientMessageAnimation;
 import org.astemir.api.network.messages.ClientMessagePlayerEffect;
-import org.astemir.api.utils.NetworkUtils;
+import org.astemir.api.network.NetworkUtils;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 

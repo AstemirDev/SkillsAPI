@@ -1,9 +1,6 @@
 package org.astemir.api.client.render.cube;
 
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix3f;
@@ -16,12 +13,8 @@ import net.minecraft.client.model.geom.ModelPart;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.math.Transform;
-import org.astemir.api.math.Vector2;
-import org.astemir.api.math.Vector3;
-import org.astemir.api.utils.JsonUtils;
-import org.astemir.api.utils.MathUtils;
-
-import java.util.UUID;
+import org.astemir.api.math.vector.Vector2;
+import org.astemir.api.math.vector.Vector3;
 
 
 public class ModelElement {

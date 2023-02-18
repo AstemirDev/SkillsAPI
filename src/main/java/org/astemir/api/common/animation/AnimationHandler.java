@@ -2,18 +2,15 @@ package org.astemir.api.common.animation;
 
 
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.network.PacketDistributor;
-import org.astemir.api.SkillsAPI;
+import org.astemir.api.common.animation.objects.IAnimated;
+import org.astemir.api.common.animation.objects.IAnimatedEntity;
+import org.astemir.api.common.event.AnimationEvent;
 import org.astemir.api.network.messages.ClientMessageAnimation;
 import org.astemir.api.network.messages.ServerMessageAnimationSync;
-import org.astemir.api.utils.EntityUtils;
-import org.astemir.api.utils.NetworkUtils;
+import org.astemir.api.network.NetworkUtils;
 
 import java.util.Map;
 
@@ -24,7 +21,7 @@ public enum AnimationHandler {
 
 
 
-    public <T extends IAnimated> void sendAnimationMessage(AnimationFactory factory, Animation animation, HolderKey targetId, ClientMessageAnimation.Action type, int tick) {
+    public <T extends IAnimatedEntity> void sendAnimationMessage(AnimationFactory factory, Animation animation, HolderKey targetId, ClientMessageAnimation.Action type, int tick) {
         Level level = targetId.getTarget().getLevel(factory);
         if (level.isClientSide) {
             return;

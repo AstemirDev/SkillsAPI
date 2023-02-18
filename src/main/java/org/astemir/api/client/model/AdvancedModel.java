@@ -16,21 +16,21 @@ import net.minecraft.world.item.ItemStack;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.wrapper.IModelWrapper;
-import org.astemir.api.common.animation.ISARendered;
-import org.astemir.api.utils.JsonUtils;
-import org.astemir.api.utils.MathUtils;
-import org.astemir.api.math.Vector2;
-import org.astemir.api.math.Vector3;
+import org.astemir.api.common.misc.ICustomRendered;
+import org.astemir.api.client.JsonUtils;
+import org.astemir.api.math.MathUtils;
+import org.astemir.api.math.vector.Vector2;
+import org.astemir.api.math.vector.Vector3;
 import java.util.*;
 import java.util.function.Function;
 
-public abstract class AdvancedModel<T extends ISARendered> extends Model {
+public abstract class AdvancedModel<T extends ICustomRendered,K> extends Model {
 
     public Set<ModelElement> renderers = new HashSet<>();
-    public IModelWrapper<T> modelWrapper;
+    public IModelWrapper<T,K> modelWrapper;
     public Vector2 textureSize = new Vector2(64,32);
 
-    protected final List<ModelRenderLayer<T, AdvancedModel<T>>> layers = Lists.newArrayList();
+    protected final List<ModelRenderLayer<T,K, AdvancedModel<T,K>>> layers = Lists.newArrayList();
     public static Function<String,String> MODEL_FUNCTION;
 
 
@@ -42,7 +42,7 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
     }
 
 
-    public void copyParameters(AdvancedModel<T> model){
+    public void copyParameters(AdvancedModel<T,K> model){
         for (ModelElement element : getElements()) {
             for (ModelElement otherElement : model.getElements()) {
                 element.showModel = otherElement.showModel;
@@ -65,7 +65,7 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
     }
 
     public void renderItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack matrixStack, int packedLightIn){
-        ISARendered renderTarget = modelWrapper.getRenderTarget();
+        ICustomRendered renderTarget = modelWrapper.getRenderTarget();
         int overlayCoords = 0;
         if (renderTarget instanceof LivingEntity){
             LivingEntity livingEntity = (LivingEntity)renderTarget;
@@ -101,14 +101,14 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
         }
     }
 
-    public void setupAnim(T animated, float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
+    public void setupAnim(T animated, K argument,float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (!Minecraft.getInstance().isPaused()) {
             float smoothness = 2;
             float delta = partialTicks/smoothness;
-            animate(animated, limbSwing, limbSwingAmount, ticks, delta, headYaw, headPitch);
+            animate(animated, argument,limbSwing, limbSwingAmount, ticks, delta, headYaw, headPitch);
         }
-        customAnimate(animated,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
+        customAnimate(animated,argument,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
     }
 
     public void lookAt(ModelElement renderer, float headPitch, float headYaw){
@@ -122,9 +122,9 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
 
     public void onRenderModelCube(ModelElement cube, PoseStack matrixStackIn, VertexConsumer bufferIn, RenderCall renderCall, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha){}
 
-    public void animate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){};
+    public void animate(T animated, K argument,float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){};
 
-    public void customAnimate(T animated, float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){}
+    public void customAnimate(T animated, K argument,float limbSwing, float limbSwingAmount, float ticks,float delta, float headYaw, float headPitch){}
 
 
     public ModelElement getModelElement(String name){
@@ -163,21 +163,20 @@ public abstract class AdvancedModel<T extends ISARendered> extends Model {
 
 
     public void renderLayers(PoseStack poseStack, MultiBufferSource bufferSource, T instance, int packedLight, float partialTick, float r, float g, float b, float a){
-        for(ModelRenderLayer<T,AdvancedModel<T>> layer : layers) {
+        for(ModelRenderLayer<T,K,AdvancedModel<T,K>> layer : layers) {
             layer.render(poseStack, bufferSource,instance, packedLight,partialTick,r,g,b,a);
         }
     }
 
-    public <M extends AdvancedModel<T>> void addLayer(ModelRenderLayer<T,M> layer){
-        layers.add((ModelRenderLayer<T, AdvancedModel<T>>) layer);
+    public <M extends AdvancedModel<T,K>> void addLayer(ModelRenderLayer<T,K,M> layer){
+        layers.add((ModelRenderLayer<T, K,AdvancedModel<T,K>>) layer);
     }
-
 
     public boolean isEncrypted() {
         return false;
     }
 
-    public List<ModelRenderLayer<T,AdvancedModel<T>>> getLayers(){
+    public List<ModelRenderLayer<T,K,AdvancedModel<T,K>>> getLayers(){
         return layers;
     }
 

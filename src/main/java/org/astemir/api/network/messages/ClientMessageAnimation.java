@@ -5,6 +5,8 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.animation.*;
+import org.astemir.api.common.animation.objects.IAnimatedBlock;
+import org.astemir.api.common.animation.objects.IAnimatedEntity;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -47,15 +49,15 @@ public class ClientMessageAnimation {
                 AnimationFactory factory = null;
                 switch (message.holderKey.getTarget()){
                     case ENTITY:{
-                        if (Minecraft.getInstance().level.getEntity(message.holderKey.getId()) instanceof IAnimated animatedEntity){
+                        if (Minecraft.getInstance().level.getEntity(message.holderKey.getId()) instanceof IAnimatedEntity animatedEntity){
                             factory = animatedEntity.getAnimationFactory();
                         }
                         break;
                     }
                     case BLOCK:{
                         BlockEntity blockEntity = Minecraft.getInstance().level.getBlockEntity(message.holderKey.getPos());
-                        if (blockEntity instanceof IAnimated){
-                            factory = ((IAnimated)blockEntity).getAnimationFactory();
+                        if (blockEntity instanceof IAnimatedBlock){
+                            factory = ((IAnimatedBlock)blockEntity).getAnimationFactory();
                         }
                     }
                 }

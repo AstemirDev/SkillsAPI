@@ -40,18 +40,20 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.network.NetworkHooks;
+import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.common.animation.*;
-import org.astemir.api.math.InterpoleValue;
-import org.astemir.api.utils.RandomUtils;
+import org.astemir.api.common.animation.objects.IAnimatedEntity;
+import org.astemir.api.common.entity.ClientSideValue;
+import org.astemir.api.math.random.RandomUtils;
 
 import javax.annotation.Nullable;
 import java.util.List;
 
-import static org.astemir.api.utils.EntityUtils.isMoving;
-import static org.astemir.api.utils.EntityUtils.isMovingByPlayer;
+import static org.astemir.api.common.entity.utils.EntityUtils.isMoving;
+import static org.astemir.api.common.entity.utils.EntityUtils.isMovingByPlayer;
 
 
-public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARendered, net.minecraftforge.common.extensions.IForgeBoat{
+public class EntityExampleSharkBoat extends Entity implements IAnimatedEntity, ICustomRendered, net.minecraftforge.common.extensions.IForgeBoat{
 
     public static Animation IDLE = new Animation("animation.model.idle",4.16f).loop().layer(0);
     public static Animation SWIM = new Animation("animation.model.swim",0.36f).loop().layer(0);
@@ -91,7 +93,7 @@ public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARend
     private float bubbleAngle;
     private float bubbleAngleO;
 
-    public InterpoleValue boatInWaterOffset = new InterpoleValue(0,0.4f);
+    public ClientSideValue boatInWaterOffset = new ClientSideValue(0,0.4f);
 
     public EntityExampleSharkBoat(EntityType<EntityExampleSharkBoat> p_19870_, Level p_19871_) {
         super(p_19870_, p_19871_);
@@ -108,43 +110,19 @@ public class EntityExampleSharkBoat extends Entity implements IAnimated, ISARend
 
 
     @Override
-    public void onAnimationTick(Animation animation, int tick) {
-
-    }
+    protected void readAdditionalSaveData(CompoundTag p_20052_) {}
 
     @Override
-    public void onAnimationEnd(Animation animation) {
-
-    }
-
-    @Override
-    public void onAnimationStart(Animation animation) {
-    }
-
-
-    @Override
-    protected void readAdditionalSaveData(CompoundTag p_20052_) {
-
-    }
-
-    @Override
-    protected void addAdditionalSaveData(CompoundTag p_20139_) {
-
-    }
+    protected void addAdditionalSaveData(CompoundTag p_20139_) {}
 
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
     }
-
+    
     @Override
-    public AnimationFactory getAnimationFactory() {
+    public <K> AnimationFactory getAnimationFactory(K argument) {
         return animationFactory;
-    }
-
-    @Override
-    public long getTicks() {
-        return tickCount;
     }
 
 

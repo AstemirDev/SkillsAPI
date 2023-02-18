@@ -2,8 +2,6 @@ package org.astemir.api.math;
 
 import com.mojang.math.Vector3f;
 import net.minecraft.world.phys.Vec3;
-import org.astemir.api.utils.MathUtils;
-import org.checkerframework.checker.units.qual.C;
 
 public class Color {
 
@@ -44,6 +42,10 @@ public class Color {
 
     public int toRGB(){
         return new java.awt.Color(r,g,b,a).getRGB();
+    }
+
+    public java.awt.Color toAWTColor(){
+        return new java.awt.Color(r,g,b,a);
     }
 
     public int[] toArray(){

@@ -3,7 +3,7 @@ package org.astemir.api.client.event;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.eventbus.api.Event;
 import org.astemir.api.common.animation.Animation;
-import org.astemir.api.common.animation.IAnimated;
+import org.astemir.api.common.animation.objects.IAnimated;
 
 public class ClientAnimationEvent<T extends IAnimated> extends Event {
 

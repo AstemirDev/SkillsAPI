@@ -8,10 +8,10 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.client.wrapper.AbstractModelWrapperBlockEntity;
-import org.astemir.api.common.animation.IAnimated;
-import org.astemir.api.common.animation.ISARendered;
+import org.astemir.api.common.animation.objects.IAnimatedBlock;
+import org.astemir.api.common.misc.ICustomRendered;
 
-public class AdvancedRendererBlockEntity<T extends BlockEntity & ISARendered> implements BlockEntityRenderer<T> {
+public class AdvancedRendererBlockEntity<T extends BlockEntity & ICustomRendered> implements BlockEntityRenderer<T> {
 
     private AbstractModelWrapperBlockEntity<T> blockModelWrapper;
 
@@ -22,9 +22,8 @@ public class AdvancedRendererBlockEntity<T extends BlockEntity & ISARendered> im
 
     @Override
     public void render(T blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        if (blockEntity instanceof IAnimated){
-            float ticks = ((IAnimated) blockEntity).getTicks();
-            blockModelWrapper.getModel(blockEntity).setupAnim(blockEntity,0,0,ticks+partialTick,0,0);
+        if (blockEntity instanceof IAnimatedBlock animatedBlock){
+            blockModelWrapper.getModel(blockEntity).setupAnim(blockEntity,null,0,0,((float)animatedBlock.getTicks())+partialTick,0,0);
         }
         blockModelWrapper.renderTarget = (T) blockEntity;
         blockModelWrapper.multiBufferSource = bufferSource;

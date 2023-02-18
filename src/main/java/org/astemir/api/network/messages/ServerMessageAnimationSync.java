@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.animation.*;
+import org.astemir.api.common.animation.objects.IAnimatedEntity;
 
 
 import java.util.function.BiConsumer;
@@ -57,15 +58,15 @@ public class ServerMessageAnimationSync {
                 AnimationFactory factory = null;
                 switch (message.targetId.getTarget()){
                     case ENTITY:{
-                        if (playerEntity.level.getEntity(message.targetId.getId()) instanceof IAnimated animatedEntity){
+                        if (playerEntity.level.getEntity(message.targetId.getId()) instanceof IAnimatedEntity animatedEntity){
                             factory = animatedEntity.getAnimationFactory();
                         }
                         break;
                     }
                     case BLOCK:{
                         BlockEntity blockEntity = playerEntity.level.getBlockEntity(message.targetId.getPos());
-                        if (blockEntity instanceof IAnimated){
-                            factory = ((IAnimated) blockEntity).getAnimationFactory();
+                        if (blockEntity instanceof IAnimatedEntity){
+                            factory = ((IAnimatedEntity) blockEntity).getAnimationFactory();
                         }
                     }
                 }

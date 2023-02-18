@@ -1,7 +1,6 @@
 package org.astemir.api.network.messages;
 
 
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -9,11 +8,10 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
 import org.astemir.api.common.animation.HolderKey;
-import org.astemir.api.common.state.ActionController;
-import org.astemir.api.common.state.ActionStateMachine;
-import org.astemir.api.common.state.IActionListener;
+import org.astemir.api.common.action.ActionController;
+import org.astemir.api.common.action.ActionStateMachine;
+import org.astemir.api.common.action.IActionListener;
 
-import java.util.UUID;
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
 

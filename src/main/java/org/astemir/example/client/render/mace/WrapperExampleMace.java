@@ -3,6 +3,7 @@ package org.astemir.example.client.render.mace;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
+import org.astemir.api.client.display.ItemDisplayArgument;
 import org.astemir.api.client.model.AdvancedModel;
 import org.astemir.api.client.wrapper.AbstractModelWrapperItem;
 import org.astemir.example.common.item.ItemExampleMace;
@@ -17,7 +18,7 @@ public class WrapperExampleMace extends AbstractModelWrapperItem<ItemExampleMace
     }
 
     @Override
-    public AdvancedModel<ItemExampleMace> getModel(ItemExampleMace item) {
+    public AdvancedModel<ItemExampleMace, ItemDisplayArgument> getModel(ItemExampleMace item) {
         return MODEL;
     }
 }

@@ -2,16 +2,12 @@ package org.astemir.api.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.minecraft.client.model.Model;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
-import org.astemir.api.client.model.AdvancedModel;
-import org.astemir.api.client.render.cube.ModelElement;
-import org.astemir.api.client.wrapper.IModelWrapper;
-import org.astemir.api.common.animation.ISARendered;
+import org.astemir.api.common.misc.ICustomRendered;
 
-public abstract class ModelRenderLayer<T extends ISARendered,M extends AdvancedModel<T>> {
+public abstract class ModelRenderLayer<T extends ICustomRendered,K,M extends AdvancedModel<T,K>> {
 
     private M model;
 

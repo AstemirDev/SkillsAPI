@@ -10,7 +10,7 @@ public class WrapperExampleSharkBoat extends AbstractModelWrapperEntity<EntityEx
     private final ModelExampleSharkBoat MODEL = new ModelExampleSharkBoat();
 
     @Override
-    public AdvancedModel<EntityExampleSharkBoat> getModel(EntityExampleSharkBoat sharkBoat) {
+    public AdvancedModel<EntityExampleSharkBoat,Object> getModel(EntityExampleSharkBoat sharkBoat) {
         return MODEL;
     }
 }

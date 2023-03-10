@@ -8,6 +8,7 @@ import net.minecraft.world.level.entity.EntityAccess;
 import net.minecraftforge.common.MinecraftForge;
 import org.astemir.api.common.event.EntityTagEvent;
 import org.astemir.api.common.event.EntityTickEvent;
+import org.astemir.example.SkillsAPI;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -21,21 +22,21 @@ public abstract class MixinEntity extends net.minecraftforge.common.capabilities
         super(baseClass, isLazy);
     }
 
-    @Inject(method = "tick",at = @At("HEAD"))
+    @Inject(method = "tick",at = @At("HEAD"),remap = SkillsAPI.REMAP)
     public void onTick(CallbackInfo ci){
         Entity entity = (Entity)(Object)this;
         EntityTickEvent event = new EntityTickEvent(entity,entity.tickCount);
         MinecraftForge.EVENT_BUS.post(event);
     }
 
-    @Inject(method = "load",at = @At("TAIL"))
+    @Inject(method = "load",at = @At("TAIL"),remap = SkillsAPI.REMAP)
     public void onLoadData(CompoundTag tag, CallbackInfo ci){
         Entity entity = (Entity)(Object)this;
         EntityTagEvent.Load event = new EntityTagEvent.Load(entity,tag);
         MinecraftForge.EVENT_BUS.post(event);
     }
 
-    @Inject(method = "save",at = @At("TAIL"))
+    @Inject(method = "save",at = @At("TAIL"),remap = SkillsAPI.REMAP)
     public void onSaveData(CompoundTag tag, CallbackInfoReturnable<Boolean> cir){
         Entity entity = (Entity)(Object)this;
         EntityTagEvent.Save event = new EntityTagEvent.Save(entity,tag);

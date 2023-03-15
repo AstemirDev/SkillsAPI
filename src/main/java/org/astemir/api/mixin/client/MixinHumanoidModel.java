@@ -5,7 +5,7 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.common.MinecraftForge;
 import org.astemir.example.SkillsAPI;
-import org.astemir.api.client.event.HumanoidAnimationEvent;
+import org.astemir.api.client.event.HumanoidModelEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -30,7 +30,7 @@ public abstract class MixinHumanoidModel<T extends LivingEntity> extends Ageable
 
     @Inject(method = "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V",at = @At("TAIL"), remap = SkillsAPI.REMAP)
     public void onSetupAnimations(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch, CallbackInfo ci){
-        HumanoidAnimationEvent<T> event = new HumanoidAnimationEvent<>(pEntity,head,hat,body,rightArm,leftArm,rightLeg,leftLeg,leftArmPose,rightArmPose,crouching,swimAmount);
+        HumanoidModelEvent<T> event = new HumanoidModelEvent<>(pEntity,head,hat,body,rightArm,leftArm,rightLeg,leftLeg,leftArmPose,rightArmPose,crouching,swimAmount);
         MinecraftForge.EVENT_BUS.post(event);
         leftArmPose = event.getLeftArmPose();
         rightArmPose = event.getRightArmPose();

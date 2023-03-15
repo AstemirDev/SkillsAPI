@@ -1,19 +1,22 @@
 package org.astemir.example.client.render.minotaur;
 
 
-import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.*;
+import com.mojang.math.Matrix4f;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.resources.ResourceLocation;
+import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.math.MathUtils;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.SkillsRenderTypes;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.client.model.ModelRenderLayer;
+import org.astemir.api.client.model.SunModelLayer;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
-public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMinotaur,Object,ModelExampleMinotaur> {
+public class ModelLayerExampleMinotaur extends SunModelLayer<EntityExampleMinotaur, IDisplayArgument,ModelExampleMinotaur> {
 
     public final ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"entity/minotaur_eyes.png");
 
@@ -23,7 +26,10 @@ public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMin
 
     @Override
     public void render(PoseStack pPoseStack, MultiBufferSource pBuffer, EntityExampleMinotaur instance, int pPackedLight, float pPartialTick, float r, float g, float b, float a) {
-        getModel().renderModel(pPoseStack,pBuffer.getBuffer(getBuffer(instance)),getEyeLight(), OverlayTexture.NO_OVERLAY,r,g,b,a, RenderCall.LAYER,false);
+        float ticks = ((float)(instance.tickCount))+pPartialTick;
+        float f = MathUtils.abs(MathUtils.sin(ticks/20f));
+        renderModel(pPoseStack,pBuffer,getEyeLight(),instance,r,g,b,MathUtils.clamp(f-0.5f,0,1));
+        renderModel(pPoseStack,pBuffer,SkillsRenderTypes.eyesTransparentBlurry(getTexture(instance)),getEyeLight(),r,g,b,f);
     }
 
     @Override
@@ -31,8 +37,9 @@ public class ModelLayerExampleMinotaur extends ModelRenderLayer<EntityExampleMin
         return TEXTURE;
     }
 
-    public RenderType getBuffer(EntityExampleMinotaur entity){
-        return SkillsRenderTypes.eyesTransparent(getTexture(entity));
+    @Override
+    public RenderType getRenderType(EntityExampleMinotaur instance) {
+        return SkillsRenderTypes.eyes(getTexture(instance));
     }
 
     public int getEyeLight(){

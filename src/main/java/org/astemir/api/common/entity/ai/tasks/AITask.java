@@ -15,17 +15,18 @@ import org.astemir.api.common.entity.ai.triggers.TaskExecution;
 import org.astemir.api.common.entity.ai.triggers.TaskMalus;
 import org.astemir.api.common.entity.ai.triggers.TaskTrigger;
 
+
 public class AITask {
 
-    private int id = 0;
-    private int priority = 0;
-    private int ticks = 0;
-    private boolean running = false;
     private AITaskSystem system;
     private TaskTrigger taskTrigger = TaskTrigger.AUTO_ENABLE;
     private TaskExecution execution = TaskExecution.INFINITE;
     private TaskMalus[] malus = new TaskMalus[]{};
+    private int id = 0;
+    private int priority = 0;
+    private int ticks = 0;
     private int layer = 0;
+    private boolean running = false;
     private int[] canInterrupt = new int[]{};
     private Goal goal;
 

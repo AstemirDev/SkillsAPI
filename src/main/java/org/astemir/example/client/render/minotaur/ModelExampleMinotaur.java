@@ -1,16 +1,17 @@
 package org.astemir.example.client.render.minotaur;
 
 import net.minecraft.resources.ResourceLocation;
+import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.animation.InterpolationType;
 import org.astemir.api.client.animation.SmoothnessType;
 import org.astemir.api.client.render.cube.ModelElement;
-import org.astemir.api.client.model.AnimatedAdvancedModel;
+import org.astemir.api.client.model.SunAnimatedModel;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
 
-public class ModelExampleMinotaur extends AnimatedAdvancedModel<EntityExampleMinotaur,Object> {
+public class ModelExampleMinotaur extends SunAnimatedModel<EntityExampleMinotaur,IDisplayArgument> {
 
 	public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"entity/minotaur.png");
 	public static ResourceLocation MODEL = ResourceUtils.loadModel(SkillsAPI.MOD_ID,"entity/minotaur.geo.json");
@@ -24,7 +25,7 @@ public class ModelExampleMinotaur extends AnimatedAdvancedModel<EntityExampleMin
 	}
 
 	@Override
-	public void animate(EntityExampleMinotaur animated, Object argument,float limbSwing, float limbSwingAmount, float ticks, float delta, float headYaw, float headPitch) {
+	public void animate(EntityExampleMinotaur animated, IDisplayArgument argument,float limbSwing, float limbSwingAmount, float ticks, float delta, float headYaw, float headPitch) {
 		ModelElement head = getModelElement("head");
 		if (head != null) {
 			lookAt(head, headPitch, headYaw);

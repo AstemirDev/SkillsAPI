@@ -3,8 +3,8 @@ package org.astemir.api.common.entity.ai.tasks;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.player.Player;
-import org.astemir.api.common.entity.utils.EntityUtils;
 import org.astemir.api.common.entity.ai.triggers.TaskMalus;
+import org.astemir.api.common.entity.utils.EntityUtils;
 
 public class AITaskAttack extends AITask{
 
@@ -103,12 +103,18 @@ public class AITaskAttack extends AITask{
     }
 
     public void attack(){
-        ai().attack(this,target,attackDistance);
+        if (canUseAttack()) {
+            ai().attack(this, target, attackDistance);
+        }
     }
 
     public AITaskAttack shouldSeeTarget(boolean b){
         isShouldSeeTarget = b;
         return this;
+    }
+
+    public void setAttackFunction(AttackFunction attackFunction) {
+        this.attackFunction = attackFunction;
     }
 
     public float getSpeed() {

@@ -9,8 +9,8 @@ import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import org.astemir.api.client.wrapper.AbstractModelWrapperArmor;
-import org.astemir.api.client.registry.ArmorModels;
+import org.astemir.api.client.wrapper.MWArmor;
+import org.astemir.api.client.registry.ArmorModelsRegistry;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -34,13 +34,13 @@ public class SkillsArmorItem extends ArmorItem implements ICustomRendered {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public @NotNull HumanoidModel<?> getHumanoidArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                AbstractModelWrapperArmor wrapper = ArmorModels.getModel(itemStack.getItem());
+                MWArmor wrapper = ArmorModelsRegistry.getModel(itemStack.getItem());
                 wrapper.setupAngles(livingEntity,itemStack.getItem(),itemStack,equipmentSlot,original);
                 return wrapper;
             }
             @Override
             public @NotNull Model getGenericArmorModel(LivingEntity livingEntity, ItemStack itemStack, EquipmentSlot equipmentSlot, HumanoidModel<?> original) {
-                AbstractModelWrapperArmor wrapper = ArmorModels.getModel(itemStack.getItem());
+                MWArmor wrapper = ArmorModelsRegistry.getModel(itemStack.getItem());
                 wrapper.setupAngles(livingEntity,itemStack.getItem(),itemStack,equipmentSlot,original);
                 return wrapper;
             }

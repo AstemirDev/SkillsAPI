@@ -13,8 +13,11 @@ import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.model.Material;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
 import org.astemir.api.utils.ResourceUtils;
 
+@OnlyIn(Dist.CLIENT)
 public class RenderUtils {
 
 

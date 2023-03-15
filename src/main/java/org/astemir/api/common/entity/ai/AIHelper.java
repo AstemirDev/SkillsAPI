@@ -18,8 +18,8 @@ public class AIHelper {
         this.aiTaskSystem = aiTaskSystem;
     }
 
-    public boolean navigatorMoveEntity(AITask request,double x, double y, double z, float speed){
-        if (!isConflictsAt(request,TaskMalus.MOVE)) {
+    public boolean navigatorMoveEntity(AITask request, double x, double y, double z, float speed){
+        if (!isConflictsAt(request, TaskMalus.MOVE)) {
             aiTaskSystem.getEntity().getNavigation().moveTo(x, y, z, speed);
             return true;
         }
@@ -69,7 +69,7 @@ public class AIHelper {
     public boolean attack(AITask request, LivingEntity target,float distance){
         if (!isConflictsAt(request,TaskMalus.ATTACK)){
             Mob mob = aiTaskSystem.getEntity();
-            if (mob.distanceTo(target) <= distance) {
+            if (mob != null && target != null && !mob.isRemoved() && !target.isRemoved() && mob.distanceTo(target) <= distance) {
                 mob.swing(InteractionHand.MAIN_HAND);
                 mob.doHurtTarget(target);
                 return true;
@@ -89,7 +89,7 @@ public class AIHelper {
 
 
 
-    public boolean playAction(AITask request,Action action,int time){
+    public boolean playAction(AITask request, Action action, int time){
         if (!isConflictsAt(request,TaskMalus.ACTION)){
             if (request instanceof IActionTask actionTask){
                 actionTask.getController().playAction(action,time);

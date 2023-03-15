@@ -1,6 +1,12 @@
 package org.astemir.api.utils;
 
+import com.mojang.datafixers.util.Pair;
+import it.unimi.dsi.fastutil.longs.LongSet;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Holder;
+import net.minecraft.core.HolderSet;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.ClipContext;
@@ -9,9 +15,14 @@ import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.levelgen.structure.Structure;
+import net.minecraft.world.level.levelgen.structure.StructureType;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.registries.ForgeRegistries;
+import org.astemir.api.client.ModelUtils;
 
+import java.util.Map;
 import java.util.UUID;
 
 public class WorldUtils {
@@ -32,6 +43,32 @@ public class WorldUtils {
             Blocks.NETHER_PORTAL
     };
 
+
+    public static boolean isAtStructure(Level level, BlockPos pos, StructureType<?> type){
+        if (level instanceof ServerLevel serverLevel){
+            Map<Structure, LongSet> structureLongSetMap = serverLevel.structureManager().getAllStructuresAt(pos);
+            for (Structure structure : structureLongSetMap.keySet()) {
+                if (type == structure.type()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static BlockPos getNearestStructurePos(Level level,BlockPos pos,ResourceKey<Structure> structure,int radius,boolean skipKnown){
+        if (level instanceof ServerLevel serverLevel) {
+            Registry<Structure> registry = serverLevel.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
+            Holder<Structure> holder = registry.getHolder(structure).get();
+            Pair<BlockPos, Holder<Structure>> pair = serverLevel.getChunkSource().getGenerator().findNearestMapStructure(serverLevel, HolderSet.direct(holder), pos, radius, skipKnown);
+            if (pair != null){
+                if (pair.getFirst() != null){
+                    return pair.getFirst();
+                }
+            }
+        }
+        return null;
+    }
 
     public static Entity getEntity(UUID uuid, Level level){
         if (!level.isClientSide){

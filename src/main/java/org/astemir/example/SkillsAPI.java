@@ -7,14 +7,15 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.simple.SimpleChannel;
 import org.astemir.api.ISafeClientLoader;
 import org.astemir.api.SkillsForgeMod;
-import org.astemir.api.client.ClientStateHandler;
-import org.astemir.api.client.registry.TESRModels;
-import org.astemir.api.client.render.AdvancedRendererItem;
+import org.astemir.api.client.ClientManager;
+import org.astemir.api.client.registry.TESRModelsRegistry;
+import org.astemir.api.client.render.SunRendererItem;
 import org.astemir.api.common.animation.AnimationEventListener;
 import org.astemir.api.common.entity.EntityEventListener;
 import org.astemir.api.common.commands.CommandRegister;
 import org.astemir.api.common.event.EventManager;
 import org.astemir.api.common.event.WorldEventListener;
+import org.astemir.api.common.world.SkillsAPIBiomeModifier;
 import org.astemir.api.network.messages.*;
 import org.astemir.api.network.NetworkUtils;
 import org.astemir.example.common.block.ExampleModBlocks;
@@ -49,12 +50,12 @@ public class SkillsAPI extends SkillsForgeMod {
             ExampleModEntities.ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());
             ExampleModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         }
+        SkillsAPIBiomeModifier.register(FMLJavaModLoadingContext.get().getModEventBus());
         EventManager.registerForgeEventClass(WorldEventListener.class);
         EventManager.registerForgeEventClass(AnimationEventListener.class);
         EventManager.registerForgeEventClass(CommandRegister.class);
         EventManager.registerForgeEventClass(EntityEventListener.class);
         EventManager.registerForgeEventClass(PlayerEventListener.class);
-
         EventManager.registerFMLEvent(EntityEventListener::onEntityAttributesLoad);
     }
 
@@ -83,16 +84,16 @@ public class SkillsAPI extends SkillsForgeMod {
 
     @Override
     protected void onClientSetup(FMLClientSetupEvent event) {
-        EventManager.registerForgeEventClass(ClientStateHandler.class);
+        EventManager.registerForgeEventClass(ClientManager.class);
     }
 
     @Override
     protected void onUnsafeClientSetup() {
-        EventManager.registerFMLEvent(TESRModels::onModelRegistryInit);
-        EventManager.registerFMLEvent(TESRModels::onModelBakeEvent);
-        EventManager.registerFMLEvent(AdvancedRendererItem::onRegisterReloadListener);
+        EventManager.registerFMLEvent(TESRModelsRegistry::onModelRegistryInit);
+        EventManager.registerFMLEvent(TESRModelsRegistry::onModelBakeEvent);
+        EventManager.registerFMLEvent(SunRendererItem::onRegisterReloadListener);
         if (isInitializeExampleFeatures()) {
-            TESRModels.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
+            TESRModelsRegistry.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
         }
     }
 

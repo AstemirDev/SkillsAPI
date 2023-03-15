@@ -10,11 +10,11 @@ import net.minecraft.world.level.pathfinder.NodeEvaluator;
 import net.minecraft.world.level.pathfinder.Path;
 import net.minecraft.world.level.pathfinder.PathFinder;
 import net.minecraft.world.phys.Vec3;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-//From Mowzie Mobs
 public class SmartPathFinder extends PathFinder {
 
     public SmartPathFinder(NodeEvaluator processor, int maxVisitedNodes) {

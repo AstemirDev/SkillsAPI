@@ -5,7 +5,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.TargetGoal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import org.astemir.api.common.entity.ITamable;
-
 import java.util.EnumSet;
 
 public class GoalOwnerHurtByTarget<T extends Mob & ITamable> extends TargetGoal {

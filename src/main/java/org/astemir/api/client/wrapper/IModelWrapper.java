@@ -3,16 +3,17 @@ package org.astemir.api.client.wrapper;
 
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
-import org.astemir.api.client.model.AdvancedModel;
+import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.client.model.SunModel;
 import org.astemir.api.common.misc.ICustomRendered;
 
-public interface IModelWrapper<T extends ICustomRendered,K> {
+public interface IModelWrapper<T extends ICustomRendered,K extends IDisplayArgument> {
 
     MultiBufferSource getMultiBufferSource();
 
     RenderType getRenderType();
 
-    AdvancedModel<T,K> getModel(T target);
+    SunModel<T,K> getModel(T target);
 
     T getRenderTarget();
 }

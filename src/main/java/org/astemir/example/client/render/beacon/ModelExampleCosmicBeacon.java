@@ -1,13 +1,14 @@
 package org.astemir.example.client.render.beacon;
 
 import net.minecraft.resources.ResourceLocation;
+import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.example.SkillsAPI;
-import org.astemir.api.client.model.AnimatedAdvancedModel;
+import org.astemir.api.client.model.SunAnimatedModel;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.common.block.BlockEntityExampleCosmicBeacon;
 
 
-public class ModelExampleCosmicBeacon extends AnimatedAdvancedModel<BlockEntityExampleCosmicBeacon,Object> {
+public class ModelExampleCosmicBeacon extends SunAnimatedModel<BlockEntityExampleCosmicBeacon, IDisplayArgument> {
 
 	public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"block/cosmic_beacon.png");
 	public static ResourceLocation MODEL = ResourceUtils.loadModel(SkillsAPI.MOD_ID,"block/cosmic_beacon.geo.json");

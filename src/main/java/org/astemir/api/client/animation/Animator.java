@@ -1,6 +1,7 @@
 package org.astemir.api.client.animation;
 
 import net.minecraftforge.common.MinecraftForge;
+import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.client.event.ClientAnimationEvent;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
@@ -84,7 +85,7 @@ public class Animator {
             lastTick = globalTick;
         }
 
-        public <K> void update(IAnimated animated, K argument,float tempTick, float delta){
+        public <K extends IDisplayArgument> void update(IAnimated animated, K argument, float tempTick, float delta){
             if (this.tempTick > 0) {
                 this.prevTempTick = this.tempTick;
             }else{

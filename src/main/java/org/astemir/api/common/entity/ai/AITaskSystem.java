@@ -144,6 +144,15 @@ public class AITaskSystem {
         return null;
     }
 
+    public <T extends AITask> T getRunningTask(Class<T> className){
+        for (AITask runningTask : runningTasks) {
+            if (runningTask.getClass() == className){
+                return (T)runningTask;
+            }
+        }
+        return null;
+    }
+
     public <T extends AITask> T getTaskById(int id){
         for (AITask task : tasks) {
             if (task.getId() == id){

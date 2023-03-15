@@ -6,6 +6,8 @@ import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.common.entity.ISkillsMob;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.common.action.ActionStateMachine;
 import org.astemir.api.common.action.IActionListener;
@@ -21,7 +23,7 @@ import org.astemir.api.common.entity.ai.tasks.AITaskAttack;
 import static org.astemir.api.common.entity.utils.EntityUtils.isMoving;
 
 
-public class EntityExampleMinotaur extends Monster implements IAnimatedEntity, IActionListener, ICustomRendered, ICustomAIEntity {
+public class EntityExampleMinotaur extends Monster implements ISkillsMob, ICustomAIEntity {
 
     public static Animation ANIMATION_IDLE = new Animation("animation.model.idle",2.4f).loop().layer(0).smoothness(4);
     public static Animation ANIMATION_WALK = new Animation("animation.model.walk",2.08f).loop().layer(0).smoothness(4);
@@ -112,7 +114,7 @@ public class EntityExampleMinotaur extends Monster implements IAnimatedEntity, I
     }
 
     @Override
-    public <K> AnimationFactory getAnimationFactory(K argument) {
+    public <K extends IDisplayArgument> AnimationFactory getAnimationFactory(K argument) {
         return animationFactory;
     }
 

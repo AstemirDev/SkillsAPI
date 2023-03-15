@@ -9,9 +9,9 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.common.entity.EntityProperties;
-import org.astemir.api.common.register.IEntityRegistry;
+import org.astemir.api.common.register.EntityRegistry;
 
-public class ExampleModEntities extends IEntityRegistry {
+public class ExampleModEntities extends EntityRegistry {
 
     public static final DeferredRegister<EntityType<?>> ENTITIES = DeferredRegister.create(ForgeRegistries.ENTITY_TYPES, SkillsAPI.MOD_ID);
     public static final RegistryObject<EntityType<EntityExampleMinotaur>> MINOTAUR = register(ENTITIES, SkillsAPI.MOD_ID,"minotaur",new EntityProperties(EntityExampleMinotaur::new,MobCategory.AMBIENT,3,3,()-> Zombie.createAttributes().build()));

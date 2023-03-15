@@ -3,12 +3,12 @@ package org.astemir.example.client.render.armor;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import org.astemir.api.client.display.ArmorDisplayArgument;
-import org.astemir.api.client.model.AdvancedModel;
-import org.astemir.api.client.wrapper.AbstractModelWrapperArmor;
+import org.astemir.api.client.display.DisplayArgumentArmor;
+import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.wrapper.MWArmor;
 import org.astemir.example.common.item.armor.ArmorItemExample;
 
-public class ModelWrapperTestArmor extends AbstractModelWrapperArmor<ArmorItemExample> {
+public class ModelWrapperTestArmor extends MWArmor<ArmorItemExample> {
 
     private final ModelExampleTestArmor MODEL = new ModelExampleTestArmor();
 
@@ -18,7 +18,7 @@ public class ModelWrapperTestArmor extends AbstractModelWrapperArmor<ArmorItemEx
     }
 
     @Override
-    public AdvancedModel<ArmorItemExample, ArmorDisplayArgument> getModel(ArmorItemExample armor) {
+    public SunModel<ArmorItemExample, DisplayArgumentArmor> getModel(ArmorItemExample armor) {
         return MODEL;
     }
 }

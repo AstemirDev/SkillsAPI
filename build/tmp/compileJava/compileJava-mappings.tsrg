@@ -33,6 +33,7 @@ org/astemir/api/mixin/client/MixinCamera move (DDD)V m_90568_
 org/astemir/api/mixin/client/MixinCamera getMaxZoom (D)D m_90566_
 org/astemir/api/mixin/client/MixinCamera setup (Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/world/entity/Entity;ZZF)V m_90575_
 org/astemir/api/mixin/client/MixinDimensionSpecialEffects getSunriseColor (FF)[F m_7518_
+org/astemir/api/mixin/client/MixinLivingEntityRenderer getBob (Lnet/minecraft/world/entity/LivingEntity;F)F m_6930_
 org/astemir/api/mixin/client/MixinClientLevel getSkyDarken (F)F m_104805_
 org/astemir/api/mixin/client/MixinClientLevel getSkyColor (Lnet/minecraft/world/phys/Vec3;F)Lnet/minecraft/world/phys/Vec3; m_171660_
 org/astemir/api/mixin/client/MixinClientLevel getCloudColor (F)Lnet/minecraft/world/phys/Vec3; m_104808_

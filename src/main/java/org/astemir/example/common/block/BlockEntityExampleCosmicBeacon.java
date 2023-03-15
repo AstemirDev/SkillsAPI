@@ -3,6 +3,7 @@ package org.astemir.example.common.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.common.animation.*;
 import org.astemir.api.common.animation.objects.IAnimatedBlock;
 
@@ -39,7 +40,7 @@ public class BlockEntityExampleCosmicBeacon extends AnimatedBlockEntity {
     }
 
     @Override
-    public <K> AnimationFactory getAnimationFactory(K argument) {
+    public <K extends IDisplayArgument> AnimationFactory getAnimationFactory(K argument) {
         return animationFactory;
     }
 }

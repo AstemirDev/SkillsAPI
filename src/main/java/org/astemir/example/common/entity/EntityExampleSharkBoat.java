@@ -40,6 +40,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.network.NetworkHooks;
+import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.common.animation.*;
 import org.astemir.api.common.animation.objects.IAnimatedEntity;
@@ -118,11 +119,6 @@ public class EntityExampleSharkBoat extends Entity implements IAnimatedEntity, I
     @Override
     public Packet<?> getAddEntityPacket() {
         return NetworkHooks.getEntitySpawningPacket(this);
-    }
-    
-    @Override
-    public <K> AnimationFactory getAnimationFactory(K argument) {
-        return animationFactory;
     }
 
 
@@ -871,5 +867,10 @@ public class EntityExampleSharkBoat extends Entity implements IAnimatedEntity, I
 
     public ItemStack getPickResult() {
         return new ItemStack(Items.DIAMOND);
+    }
+
+    @Override
+    public <K extends IDisplayArgument> AnimationFactory getAnimationFactory(K argument) {
+        return animationFactory;
     }
 }

@@ -3,7 +3,7 @@ package org.astemir.example.common.item;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import org.astemir.api.client.render.AdvancedRendererItem;
+import org.astemir.api.client.render.SunRendererItem;
 import org.astemir.api.common.misc.ICustomRendered;
 
 
@@ -22,7 +22,7 @@ public class ItemExampleMace extends Item implements ICustomRendered {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return AdvancedRendererItem.INSTANCE;
+                return SunRendererItem.INSTANCE;
             }
         });
     }

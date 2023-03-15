@@ -18,14 +18,10 @@ public class ItemUtils {
         return itemStack.getItem().isEdible();
     }
 
-    public static boolean isMeat(LivingEntity consumer,ItemStack itemStack){
-        if (itemStack.getItem().isEdible()){
-            return itemStack.getItem().getFoodProperties(itemStack,consumer).isMeat();
+    public static boolean isMeat(LivingEntity consumer,ItemStack itemStack) {
+        if (itemStack.getItem().isEdible()) {
+            return itemStack.getItem().getFoodProperties(itemStack, consumer).isMeat();
         }
         return false;
-    }
-
-    public static <T extends EntityType<? extends Mob>> ForgeSpawnEggItem spawnEgg(Supplier<T> type, Color backgroundColor, Color highlightColor, Item.Properties properties){
-        return new ForgeSpawnEggItem(type,backgroundColor.hashCode(),highlightColor.hashCode(),properties);
     }
 }

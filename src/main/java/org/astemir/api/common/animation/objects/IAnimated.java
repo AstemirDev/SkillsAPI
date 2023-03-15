@@ -1,5 +1,6 @@
 package org.astemir.api.common.animation.objects;
 
+import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.common.animation.AnimationFactory;
 
 public interface IAnimated {
@@ -8,5 +9,5 @@ public interface IAnimated {
         return getAnimationFactory(null);
     }
 
-    public <K> AnimationFactory getAnimationFactory(K argument);
+    public <K extends IDisplayArgument> AnimationFactory getAnimationFactory(K argument);
 }

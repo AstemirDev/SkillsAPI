@@ -14,5 +14,6 @@ public class CommandRegister {
         GFXEffectCommand.register(e.getDispatcher());
         PlayAnimationCommand.register(e.getDispatcher());
         PlayActionCommand.register(e.getDispatcher());
+        StructureCommand.register(e.getDispatcher());
     }
 }

@@ -6,10 +6,12 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.common.animation.HolderKey;
 import org.astemir.api.network.messages.ServerMessageActionSync;
 import org.astemir.api.network.NetworkUtils;
+import org.checkerframework.checker.units.qual.A;
 
 public interface IActionListener {
 
     ActionStateMachine getActionStateMachine();
+
 
     default void syncClient(){
         if (this instanceof Entity entity){
@@ -20,4 +22,9 @@ public interface IActionListener {
         }
     }
 
+    default void onActionBegin(Action state){};
+
+    default void onActionEnd(Action state){};
+
+    default void onActionTick(Action state,int ticks){};
 }

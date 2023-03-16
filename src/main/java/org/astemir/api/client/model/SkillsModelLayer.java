@@ -9,11 +9,11 @@ import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.misc.ICustomRendered;
 
-public abstract class SunModelLayer<T extends ICustomRendered,K extends IDisplayArgument,M extends SunModel<T,K>> {
+public abstract class SkillsModelLayer<T extends ICustomRendered,K extends IDisplayArgument,M extends SkillsModel<T,K>> {
 
     private M model;
 
-    public SunModelLayer(M model) {
+    public SkillsModelLayer(M model) {
         this.model = model;
     }
 

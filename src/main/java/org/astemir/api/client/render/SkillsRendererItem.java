@@ -14,30 +14,30 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.astemir.api.client.wrapper.MWItem;
+import org.astemir.api.client.wrapper.SkillsWrapperItem;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SunRendererItem extends BlockEntityWithoutLevelRenderer {
+public class SkillsRendererItem extends BlockEntityWithoutLevelRenderer {
 
 
-    public static Map<Item, MWItem> itemModels = new HashMap<>();
+    public static Map<Item, SkillsWrapperItem> itemModels = new HashMap<>();
 
-    public static SunRendererItem INSTANCE;
+    public static SkillsRendererItem INSTANCE;
 
     private BlockEntityRenderDispatcher dispatcher;
 
     private EntityModelSet models;
 
 
-    public SunRendererItem(BlockEntityRenderDispatcher dispatcher, EntityModelSet models) {
+    public SkillsRendererItem(BlockEntityRenderDispatcher dispatcher, EntityModelSet models) {
         super(dispatcher,models);
         this.dispatcher = dispatcher;
         this.models = models;
     }
 
-    public static void addModel(Item item, MWItem wrapper){
+    public static void addModel(Item item, SkillsWrapperItem wrapper){
         itemModels.put(item,wrapper);
     }
 
@@ -51,7 +51,7 @@ public class SunRendererItem extends BlockEntityWithoutLevelRenderer {
     public void renderByItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
         for (Item item : itemModels.keySet()) {
             if (itemStack.is(item)){
-                MWItem wrapper = itemModels.get(item);
+                SkillsWrapperItem wrapper = itemModels.get(item);
                 wrapper.renderTarget = itemStack.getItem();
                 wrapper.itemStack = itemStack;
                 wrapper.transformType = transformType;
@@ -64,7 +64,7 @@ public class SunRendererItem extends BlockEntityWithoutLevelRenderer {
 
     @SubscribeEvent
     public static void onRegisterReloadListener(RegisterClientReloadListenersEvent event) {
-        INSTANCE = new SunRendererItem(Minecraft.getInstance().getBlockEntityRenderDispatcher(),
+        INSTANCE = new SkillsRendererItem(Minecraft.getInstance().getBlockEntityRenderDispatcher(),
                 Minecraft.getInstance().getEntityModels());
         event.registerReloadListener(INSTANCE);
     }

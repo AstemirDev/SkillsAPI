@@ -3,10 +3,10 @@ package org.astemir.example.client.render.minotaur;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
-import org.astemir.api.client.render.SunRendererLivingEntity;
+import org.astemir.api.client.render.SkillsRendererLivingEntity;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
-public class RendererExampleMinotaur extends SunRendererLivingEntity<EntityExampleMinotaur, WrapperExampleMinotaur> {
+public class RendererExampleMinotaur extends SkillsRendererLivingEntity<EntityExampleMinotaur, WrapperExampleMinotaur> {
 
     public RendererExampleMinotaur(EntityRendererProvider.Context context) {
         super(context,new WrapperExampleMinotaur());

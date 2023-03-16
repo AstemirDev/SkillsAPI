@@ -15,21 +15,21 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import org.astemir.api.client.display.DisplayArgumentArmor;
-import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.model.SkillsModel;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.math.vector.Vector3;
 
 
-public abstract class MWArmor<T extends Item & ICustomRendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T, DisplayArgumentArmor> {
+public abstract class SkillsWrapperArmor<T extends Item & ICustomRendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T, DisplayArgumentArmor> {
 
 
     public T renderTarget;
     public ItemStack itemStack;
     public MultiBufferSource multiBufferSource;
 
-    public MWArmor() {
+    public SkillsWrapperArmor() {
         super(HumanoidModel.createMesh(CubeDeformation.NONE,0.0f).getRoot().bake(64,64));
     }
 
@@ -40,7 +40,7 @@ public abstract class MWArmor<T extends Item & ICustomRendered> extends Humanoid
             hasFoil = itemStack.hasFoil();
         }
         VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
-        SunModel<T, DisplayArgumentArmor> model = getModel(renderTarget);
+        SkillsModel<T, DisplayArgumentArmor> model = getModel(renderTarget);
         model.modelWrapper = this;
         model.renderWithLayers(poseStack,consumer,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }
@@ -53,7 +53,7 @@ public abstract class MWArmor<T extends Item & ICustomRendered> extends Humanoid
     public void setupAngles(LivingEntity entity, T target, ItemStack stack, EquipmentSlot equipmentSlot, HumanoidModel<?> original){
         this.renderTarget = target;
         this.itemStack = stack;
-        SunModel<T, DisplayArgumentArmor> model = getModel(target);
+        SkillsModel<T, DisplayArgumentArmor> model = getModel(target);
         ModelElement bipedHead = model.getModelElement("bipedHead");
         ModelElement bipedBody = model.getModelElement("bipedBody");
         ModelElement bipedLeftArm = model.getModelElement("bipedLeftArm");

@@ -32,7 +32,7 @@ public class CustomMinotaurAI {
         AITask task = new AITaskAttack(1, 0.8f, 3, 20, target -> minotaur.getAnimationFactory().play(EntityExampleMinotaur.ANIMATION_ATTACK)){
             @Override
             public boolean canUseAttack() {
-                return !minotaur.getAnimationFactory().isPlaying(EntityExampleMinotaur.ANIMATION_ATTACK) && super.canUseAttack();
+                return super.canUseAttack();
             }
         }.layer(0);
         task.register(minotaur.getAISystem());

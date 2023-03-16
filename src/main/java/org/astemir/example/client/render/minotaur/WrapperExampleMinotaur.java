@@ -4,11 +4,11 @@ package org.astemir.example.client.render.minotaur;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import org.astemir.api.client.display.IDisplayArgument;
-import org.astemir.api.client.wrapper.MWEntity;
-import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.wrapper.SkillsWrapperEntity;
+import org.astemir.api.client.model.SkillsModel;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
-public class WrapperExampleMinotaur extends MWEntity<EntityExampleMinotaur> {
+public class WrapperExampleMinotaur extends SkillsWrapperEntity<EntityExampleMinotaur> {
 
     private final ModelExampleMinotaur MODEL = new ModelExampleMinotaur();
 
@@ -20,7 +20,7 @@ public class WrapperExampleMinotaur extends MWEntity<EntityExampleMinotaur> {
 
 
     @Override
-    public SunModel<EntityExampleMinotaur, IDisplayArgument> getModel(EntityExampleMinotaur minotaur) {
+    public SkillsModel<EntityExampleMinotaur, IDisplayArgument> getModel(EntityExampleMinotaur minotaur) {
         return MODEL;
     }
 }

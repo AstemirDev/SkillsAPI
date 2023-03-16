@@ -41,6 +41,14 @@ public class CommandArgument extends CommandPart{
         return new CommandArgument(name, StringArgumentType.word());
     }
 
+    public static CommandArgument string(String name){
+        return new CommandArgument(name, StringArgumentType.string());
+    }
+
+    public static CommandArgument greedyString(String name){
+        return new CommandArgument(name, StringArgumentType.greedyString());
+    }
+
     public static CommandArgument integer(String name){
 
         return new CommandArgument(name, IntegerArgumentType.integer());

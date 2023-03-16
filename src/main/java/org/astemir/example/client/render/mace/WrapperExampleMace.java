@@ -4,11 +4,11 @@ package org.astemir.example.client.render.mace;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import org.astemir.api.client.display.DisplayArgumentItem;
-import org.astemir.api.client.model.SunModel;
-import org.astemir.api.client.wrapper.MWItem;
+import org.astemir.api.client.model.SkillsModel;
+import org.astemir.api.client.wrapper.SkillsWrapperItem;
 import org.astemir.example.common.item.ItemExampleMace;
 
-public class WrapperExampleMace extends MWItem<ItemExampleMace> {
+public class WrapperExampleMace extends SkillsWrapperItem<ItemExampleMace> {
 
     private final ModelExampleMace MODEL = new ModelExampleMace();
 
@@ -18,7 +18,7 @@ public class WrapperExampleMace extends MWItem<ItemExampleMace> {
     }
 
     @Override
-    public SunModel<ItemExampleMace, DisplayArgumentItem> getModel(ItemExampleMace item) {
+    public SkillsModel<ItemExampleMace, DisplayArgumentItem> getModel(ItemExampleMace item) {
         return MODEL;
     }
 }

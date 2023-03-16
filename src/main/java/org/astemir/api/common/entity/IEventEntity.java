@@ -7,9 +7,9 @@ import org.astemir.api.network.PacketArgument;
 
 public interface IEventEntity {
 
-    void onHandleServerEvent(int event,PacketArgument[] arguments);
+    default void onHandleServerEvent(int event,PacketArgument[] arguments){};
 
-    void onHandleClientEvent(int event, PacketArgument[] arguments);
+    default void onHandleClientEvent(int event, PacketArgument[] arguments){};
 
     default <T extends Entity & IEventEntity> void playClientEvent(int event, PacketArgument... arguments){
         EntityUtils.playClientEvent((T)this,event,arguments);

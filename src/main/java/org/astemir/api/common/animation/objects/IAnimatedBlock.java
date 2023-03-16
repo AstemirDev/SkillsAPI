@@ -15,5 +15,6 @@ public interface IAnimatedBlock extends IAnimated{
         getAnimationFactory(null).updateAnimations();
     }
 
+
     long getTicks();
 }

@@ -17,20 +17,20 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
-import org.astemir.api.client.wrapper.MWEntity;
+import org.astemir.api.client.wrapper.SkillsWrapperEntity;
 import org.astemir.api.common.misc.ICustomRendered;
 
 import java.util.List;
 
 
-public class SunRendererEntity<T extends Entity & ICustomRendered,M extends EntityModel<T>> extends EntityRenderer<T> {
+public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends EntityModel<T>> extends EntityRenderer<T> {
 
-    private MWEntity entityModelWrapper;
+    private SkillsWrapperEntity entityModelWrapper;
     private M model;
     protected final List<RenderLayer<T, M>> layers = Lists.newArrayList();
 
 
-    public SunRendererEntity(EntityRendererProvider.Context context, MWEntity entityModel) {
+    public SkillsRendererEntity(EntityRendererProvider.Context context, SkillsWrapperEntity entityModel) {
         super(context);
         this.entityModelWrapper = entityModel;
         this.model = (M) entityModel;

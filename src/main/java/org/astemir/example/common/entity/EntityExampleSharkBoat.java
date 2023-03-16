@@ -59,7 +59,7 @@ public class EntityExampleSharkBoat extends Entity implements IAnimatedEntity, I
     public static Animation IDLE = new Animation("animation.model.idle",4.16f).loop().layer(0);
     public static Animation SWIM = new Animation("animation.model.swim",0.36f).loop().layer(0);
 
-    public AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(IDLE,SWIM));
+    public AnimationFactory animationFactory = new AnimationFactory(this,IDLE,SWIM);
 
     private static final EntityDataAccessor<Integer> DATA_ID_HURT = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);
     private static final EntityDataAccessor<Integer> DATA_ID_HURTDIR = SynchedEntityData.defineId(Boat.class, EntityDataSerializers.INT);

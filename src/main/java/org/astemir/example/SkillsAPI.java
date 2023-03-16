@@ -9,7 +9,7 @@ import org.astemir.api.ISafeClientLoader;
 import org.astemir.api.SkillsForgeMod;
 import org.astemir.api.client.ClientManager;
 import org.astemir.api.client.registry.TESRModelsRegistry;
-import org.astemir.api.client.render.SunRendererItem;
+import org.astemir.api.client.render.SkillsRendererItem;
 import org.astemir.api.common.animation.AnimationEventListener;
 import org.astemir.api.common.entity.EntityEventListener;
 import org.astemir.api.common.commands.CommandRegister;
@@ -91,7 +91,7 @@ public class SkillsAPI extends SkillsForgeMod {
     protected void onUnsafeClientSetup() {
         EventManager.registerFMLEvent(TESRModelsRegistry::onModelRegistryInit);
         EventManager.registerFMLEvent(TESRModelsRegistry::onModelBakeEvent);
-        EventManager.registerFMLEvent(SunRendererItem::onRegisterReloadListener);
+        EventManager.registerFMLEvent(SkillsRendererItem::onRegisterReloadListener);
         if (isInitializeExampleFeatures()) {
             TESRModelsRegistry.addModelReplacement("skillsapi:mace", "skillsapi:mace_in_hand");
         }

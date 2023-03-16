@@ -7,40 +7,49 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.ClientMessageWorldPosEvent;
 import org.astemir.api.network.messages.ServerMessageWorldPosEvent;
 import org.astemir.api.network.NetworkUtils;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class WorldEventHandler {
 
     public static WorldEventHandler INSTANCE = new WorldEventHandler();
 
-    private List<IClientWorldEventListener> clientListeners = new ArrayList<>();
-    private List<IServerWorldEventListener> serverListeners = new ArrayList<>();
+    private Map<String,IClientWorldEventListener> clientListeners = new HashMap<>();
+    private Map<String,IServerWorldEventListener> serverListeners = new HashMap<>();
 
-    public void addClientListener(IClientWorldEventListener listener){
-        clientListeners.add(listener);
+    public void addClientListener(String name,IClientWorldEventListener listener){
+        clientListeners.put(name,listener);
     }
 
-    public void addServerListener(IServerWorldEventListener listener){
-        serverListeners.add(listener);
+    public void addServerListener(String name,IServerWorldEventListener listener){
+        serverListeners.put(name,listener);
     }
 
+    public <T extends IClientWorldEventListener> T getClientEventListener(String name){
+        return (T) clientListeners.get(name);
+    }
+
+    public <T extends IServerWorldEventListener> T getServerEventListener(String name){
+        return (T) serverListeners.get(name);
+    }
 
     public void onClientHandleEvent(BlockPos pos, int event, PacketArgument[] arguments){
         ClientLevel level = Minecraft.getInstance().level;
-        for (IClientWorldEventListener listener : clientListeners) {
+        for (IClientWorldEventListener listener : clientListeners.values()) {
             listener.onHandleEvent(level,pos,event,arguments);
         }
     }
 
-
     public void onServerHandleEvent(ServerLevel level,BlockPos pos, int event, PacketArgument[] arguments){
-        for (IServerWorldEventListener listener : serverListeners) {
+        for (IServerWorldEventListener listener : serverListeners.values()) {
             listener.onHandleEvent(level,pos,event,arguments);
         }
     }

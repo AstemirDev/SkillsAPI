@@ -25,17 +25,17 @@ import org.astemir.api.math.vector.Vector3;
 import java.util.*;
 import java.util.function.Function;
 
-public abstract class SunModel<T extends ICustomRendered,K extends IDisplayArgument> extends Model {
+public abstract class SkillsModel<T extends ICustomRendered,K extends IDisplayArgument> extends Model {
 
     public Set<ModelElement> renderers = new HashSet<>();
     public IModelWrapper<T,K> modelWrapper;
     public Vector2 textureSize = new Vector2(64,32);
 
-    protected final List<SunModelLayer<T,K, SunModel<T,K>>> layers = Lists.newArrayList();
+    protected final List<SkillsModelLayer<T,K, SkillsModel<T,K>>> layers = Lists.newArrayList();
     public static Function<String,String> MODEL_FUNCTION;
 
 
-    public SunModel(ResourceLocation modelLoc) {
+    public SkillsModel(ResourceLocation modelLoc) {
         super(RenderType::entityCutoutNoCull);
         if (modelLoc != null) {
             renderers = JsonUtils.getModelRenderers(modelLoc,isEncrypted() ? MODEL_FUNCTION : null);
@@ -43,7 +43,7 @@ public abstract class SunModel<T extends ICustomRendered,K extends IDisplayArgum
     }
 
 
-    public void copyParameters(SunModel<T,K> model){
+    public void copyParameters(SkillsModel<T,K> model){
         for (ModelElement element : getElements()) {
             for (ModelElement otherElement : model.getElements()) {
                 element.showModel = otherElement.showModel;
@@ -164,20 +164,20 @@ public abstract class SunModel<T extends ICustomRendered,K extends IDisplayArgum
 
 
     public void renderLayers(PoseStack poseStack, MultiBufferSource bufferSource, T instance, int packedLight, float partialTick, float r, float g, float b, float a){
-        for(SunModelLayer<T,K, SunModel<T,K>> layer : layers) {
+        for(SkillsModelLayer<T,K, SkillsModel<T,K>> layer : layers) {
             layer.render(poseStack, bufferSource,instance, packedLight,partialTick,r,g,b,a);
         }
     }
 
-    public <M extends SunModel<T,K>> void addLayer(SunModelLayer<T,K,M> layer){
-        layers.add((SunModelLayer<T, K, SunModel<T,K>>) layer);
+    public <M extends SkillsModel<T,K>> void addLayer(SkillsModelLayer<T,K,M> layer){
+        layers.add((SkillsModelLayer<T, K, SkillsModel<T,K>>) layer);
     }
 
     public boolean isEncrypted() {
         return false;
     }
 
-    public List<SunModelLayer<T,K, SunModel<T,K>>> getLayers(){
+    public List<SkillsModelLayer<T,K, SkillsModel<T,K>>> getLayers(){
         return layers;
     }
 

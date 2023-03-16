@@ -9,13 +9,15 @@ import java.util.concurrent.ConcurrentHashMap;
 public class AnimationFactory {
 
     private ConcurrentHashMap<Animation,Integer> animationTicks = new ConcurrentHashMap<>();
-    private AnimationList animationList = new AnimationList();
+    private AnimationList animationList;
     private IAnimated animated;
 
-    public AnimationFactory(IAnimated animated, AnimationList animations) {
+
+    public <T extends IAnimated> AnimationFactory(T animated,Animation... animations) {
         this.animated = animated;
-        this.animationList = animations;
+        this.animationList = new AnimationList(animations);
     }
+
 
     public void play(Animation animation){
         if (!isPlaying(animation)) {
@@ -110,8 +112,8 @@ public class AnimationFactory {
         animationTicks.remove(animation);
     }
 
-    public IAnimated getAnimated() {
-        return animated;
+    public <T extends IAnimated> T getAnimated() {
+        return (T) animated;
     }
 
     public AnimationList getAnimationList() {
@@ -129,6 +131,10 @@ public class AnimationFactory {
         }
         res.sort(Comparator.comparing(Animation::getPriority));
         return res;
+    }
+
+    public void setAnimationList(AnimationList animationList) {
+        this.animationList = animationList;
     }
 
     public void onAnimationTick(Animation animation, int tick){};

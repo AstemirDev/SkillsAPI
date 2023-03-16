@@ -1,11 +1,11 @@
-package org.astemir.api.utils;
+package org.astemir.api.code;
 
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.astemir.api.client.animation.AnimationTrack;
 import org.astemir.api.client.display.IDisplayArgument;
-import org.astemir.api.client.model.SunAnimatedModel;
+import org.astemir.api.client.model.SkillsAnimatedModel;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.objects.IAnimated;
 import org.astemir.api.common.misc.ICustomRendered;
@@ -54,15 +54,15 @@ public class CodeUtils {
         System.out.println(builder.toString());
     }
 
-    public static <T extends ICustomRendered & IAnimated,K extends IDisplayArgument> void generateAnimations(SunAnimatedModel<T,K> model){
+    public static <T extends ICustomRendered & IAnimated,K extends IDisplayArgument> void generateAnimations(SkillsAnimatedModel<T,K> model){
         List<String> animations = new ArrayList<>();
         for (AnimationTrack animationTrack : model.animations) {
             StringBuilder builder = new StringBuilder();
             String animName = "ANIMATION_"+StringUtils.substringAfterLast(animationTrack.getName(),".").toUpperCase();
-            builder.append("public static Animation ");
+            builder.append("public static Mark ");
             builder.append(animName);
             builder.append(" = ");
-            builder.append("new Animation(");
+            builder.append("new Mark(");
             builder.append("\"");
             builder.append(animationTrack.getName());
             builder.append("\"");
@@ -73,7 +73,7 @@ public class CodeUtils {
                 builder.append(".loop()");
             }
             if (animationTrack.getLoop() == Animation.Loop.HOLD_ON_LAST_FRAME){
-                builder.append(".loop(Animation.Loop.HOLD_ON_LAST_FRAME)");
+                builder.append(".loop(Mark.Loop.HOLD_ON_LAST_FRAME)");
             }
             builder.append(".smoothness(1)");
             builder.append(";");

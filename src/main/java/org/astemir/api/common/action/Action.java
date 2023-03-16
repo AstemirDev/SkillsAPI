@@ -8,6 +8,7 @@ public class Action {
     private String name;
     private int length = 0;
     private boolean canOverrideSelf = false;
+    private ActionLinks links = new ActionLinks();
 
     public Action(int id,String name, int length) {
         this.id = id;
@@ -43,6 +44,25 @@ public class Action {
 
     public boolean isCanOverrideSelf() {
         return canOverrideSelf;
+    }
+
+    public Action onStart(ActionLinks.Start start){
+        links.onStart = start;
+        return this;
+    }
+
+    public Action onTick(ActionLinks.Tick tick){
+        links.onTick = tick;
+        return this;
+    }
+
+    public Action onEnd(ActionLinks.End end){
+        links.onEnd = end;
+        return this;
+    }
+
+    public ActionLinks getLinks() {
+        return links;
     }
 
     @Override

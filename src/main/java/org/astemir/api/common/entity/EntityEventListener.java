@@ -76,6 +76,9 @@ public class EntityEventListener {
 
     @SubscribeEvent
     public static void onEntityAdded(EntityJoinLevelEvent e){
+        if (e.getEntity() instanceof ICustomAIEntity customAIEntity){
+            customAIEntity.setupAI();
+        }
         if (e.getEntity() instanceof IAnimatedEntity) {
             AnimationFactory factory = ((IAnimatedEntity) e.getEntity()).getAnimationFactory();
             if (e.getLevel().isClientSide()){

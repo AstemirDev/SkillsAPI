@@ -6,12 +6,12 @@ import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.animation.InterpolationType;
 import org.astemir.api.client.animation.SmoothnessType;
 import org.astemir.api.client.render.cube.ModelElement;
-import org.astemir.api.client.model.SunAnimatedModel;
+import org.astemir.api.client.model.SkillsAnimatedModel;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
 
-public class ModelExampleMinotaur extends SunAnimatedModel<EntityExampleMinotaur,IDisplayArgument> {
+public class ModelExampleMinotaur extends SkillsAnimatedModel<EntityExampleMinotaur,IDisplayArgument> {
 
 	public static ResourceLocation TEXTURE = ResourceUtils.loadTexture(SkillsAPI.MOD_ID,"entity/minotaur.png");
 	public static ResourceLocation MODEL = ResourceUtils.loadModel(SkillsAPI.MOD_ID,"entity/minotaur.geo.json");

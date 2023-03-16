@@ -10,25 +10,25 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.model.ItemTransforms;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.model.SkillsModel;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.client.display.DisplayArgumentItem;
 
 
-public abstract class MWItem<T extends Item & ICustomRendered> extends Model implements IModelWrapper<T, DisplayArgumentItem> {
+public abstract class SkillsWrapperItem<T extends Item & ICustomRendered> extends Model implements IModelWrapper<T, DisplayArgumentItem> {
 
     public T renderTarget;
     public ItemStack itemStack;
     public ItemTransforms.TransformType transformType;
     public MultiBufferSource multiBufferSource;
 
-    public MWItem() {
+    public SkillsWrapperItem() {
         super(RenderType::itemEntityTranslucentCull);
     }
 
     public void renderItem(ItemStack itemStack, ItemTransforms.TransformType transformType, PoseStack poseStack, VertexConsumer consumer,MultiBufferSource bufferSource, int packedLight, int packedOverlay,float r,float g,float b,float a) {
-        SunModel<T, DisplayArgumentItem> model = getModel(renderTarget);
+        SkillsModel<T, DisplayArgumentItem> model = getModel(renderTarget);
         model.modelWrapper = this;
         poseStack.pushPose();
         poseStack.translate(0, 0.01f, 0);

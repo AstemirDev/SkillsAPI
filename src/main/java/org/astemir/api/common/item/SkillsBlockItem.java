@@ -4,7 +4,7 @@ import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
-import org.astemir.api.client.render.SunRendererItem;
+import org.astemir.api.client.render.SkillsRendererItem;
 import org.astemir.api.common.misc.ICustomRendered;
 
 import java.util.function.Consumer;
@@ -20,7 +20,7 @@ public class SkillsBlockItem extends BlockItem implements ICustomRendered {
         consumer.accept(new IClientItemExtensions() {
             @Override
             public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return SunRendererItem.INSTANCE;
+                return SkillsRendererItem.INSTANCE;
             }
         });
     }

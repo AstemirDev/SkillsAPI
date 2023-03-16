@@ -10,31 +10,25 @@ public class AnimationEventListener {
 
     @SubscribeEvent
     public static void onTickAnimation(AnimationEvent.Tick e){
-        if (e.getAnimated() instanceof IAnimatedEntity animatedEntity){
-            animatedEntity.getAnimationFactory().onAnimationTick(e.getAnimation(), (int) e.getTick());
-        }else
-        if (e.getAnimated() instanceof IAnimatedBlock animatedBlock){
-            animatedBlock.getAnimationFactory().onAnimationTick(e.getAnimation(), (int) e.getTick());
-        }
+        e.getAnimated().onAnimationTick(e.getAnimation(),(int)e.getTick());
+        e.getAnimated().getAnimationFactory().onAnimationTick(e.getAnimation(), (int) e.getTick());
+        e.getAnimation().onTick(e.getAnimated().getAnimationFactory(),(int)e.getTick());
+        e.getAnimation().getLinks().tick(e.getAnimated().getAnimationFactory(),(int)e.getTick());
     }
 
     @SubscribeEvent
     public static void onStartAnimation(AnimationEvent.Start e){
-        if (e.getAnimated() instanceof IAnimatedEntity animatedEntity){
-            animatedEntity.getAnimationFactory().onAnimationStart(e.getAnimation());
-        }else
-        if (e.getAnimated() instanceof IAnimatedBlock animatedBlock){
-            animatedBlock.getAnimationFactory().onAnimationStart(e.getAnimation());
-        }
+        e.getAnimated().getAnimationFactory().onAnimationStart(e.getAnimation());
+        e.getAnimated().onAnimationStart(e.getAnimation());
+        e.getAnimation().onStart(e.getAnimated().getAnimationFactory());
+        e.getAnimation().getLinks().start(e.getAnimated().getAnimationFactory());
     }
 
     @SubscribeEvent
     public static void onEndAnimation(AnimationEvent.End e){
-        if (e.getAnimated() instanceof IAnimatedEntity animatedEntity){
-            animatedEntity.getAnimationFactory().onAnimationEnd(e.getAnimation());
-        }else
-        if (e.getAnimated() instanceof IAnimatedBlock animatedBlock){
-            animatedBlock.getAnimationFactory().onAnimationEnd(e.getAnimation());
-        }
+        e.getAnimated().getAnimationFactory().onAnimationEnd(e.getAnimation());
+        e.getAnimated().onAnimationEnd(e.getAnimation());
+        e.getAnimation().onEnd(e.getAnimated().getAnimationFactory());
+        e.getAnimation().getLinks().end(e.getAnimated().getAnimationFactory());
     }
 }

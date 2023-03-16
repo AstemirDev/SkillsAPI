@@ -26,4 +26,8 @@ public class ResourceArray {
         return frames[index];
     }
 
+    public ResourceArray speed(float speed){
+        this.speed = speed;
+        return this;
+    }
 }

@@ -22,6 +22,9 @@ public class ActionController<T extends IActionListener> {
     private int actionTick = 0;
     private int delay = 0;
 
+    public static <T extends IActionListener> ActionController create(T owner,String name,Action... actions){
+        return new ActionController(owner,name,actions);
+    }
 
     public ActionController(T owner,String name,Action... actions) {
         this(owner,name,0,actions);
@@ -47,6 +50,8 @@ public class ActionController<T extends IActionListener> {
             }
             sendUpdatePacket();
             action.onStart(this);
+            action.getLinks().start(this);
+            getOwner().onActionBegin(action);
             onActionBegin(action);
         }
     }
@@ -61,6 +66,8 @@ public class ActionController<T extends IActionListener> {
             }
             sendUpdatePacket();
             action.onStart(this);
+            action.getLinks().start(this);
+            getOwner().onActionBegin(action);
             onActionBegin(action);
         }
     }
@@ -110,13 +117,17 @@ public class ActionController<T extends IActionListener> {
             if (!isNoAction()) {
                 if (actionTick > 0) {
                     currentAction.onTick(this,actionTick);
+                    currentAction.getLinks().tick(this,actionTick);
                     onActionTick(currentAction, actionTick);
+                    getOwner().onActionTick(currentAction,actionTick);
                     sendUpdatePacket();
                     actionTick--;
                 }else {
                     if (actionTick != -1) {
                         currentAction.onEnd(this);
+                        currentAction.getLinks().end(this);
                         onActionEnd(currentAction);
+                        getOwner().onActionEnd(currentAction);
                         if (is(previous) && actionTick != -1) {
                             playAction(NO_ACTION);
                         }

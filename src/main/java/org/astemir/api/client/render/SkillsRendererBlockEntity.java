@@ -7,16 +7,16 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import org.astemir.api.client.wrapper.MWBlockEntity;
+import org.astemir.api.client.wrapper.SkillsWrapperBlockEntity;
 import org.astemir.api.common.animation.objects.IAnimatedBlock;
 import org.astemir.api.common.misc.ICustomRendered;
 
-public class SunRendererBlockEntity<T extends BlockEntity & ICustomRendered> implements BlockEntityRenderer<T> {
+public class SkillsRendererBlockEntity<T extends BlockEntity & ICustomRendered> implements BlockEntityRenderer<T> {
 
-    private MWBlockEntity<T> blockModelWrapper;
+    private SkillsWrapperBlockEntity<T> blockModelWrapper;
 
 
-    public SunRendererBlockEntity(BlockEntityRendererProvider.Context context, MWBlockEntity wrapper) {
+    public SkillsRendererBlockEntity(BlockEntityRendererProvider.Context context, SkillsWrapperBlockEntity wrapper) {
         this.blockModelWrapper = wrapper;
     }
 
@@ -38,7 +38,7 @@ public class SunRendererBlockEntity<T extends BlockEntity & ICustomRendered> imp
     }
 
 
-    public MWBlockEntity<T> getBlockModelWrapper() {
+    public SkillsWrapperBlockEntity<T> getBlockModelWrapper() {
         return blockModelWrapper;
     }
 }

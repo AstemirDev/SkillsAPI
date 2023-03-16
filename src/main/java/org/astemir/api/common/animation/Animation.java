@@ -13,6 +13,7 @@ public class Animation {
     private int layer = 0;
     private float speed = 1;
     private float smoothness = 2;
+    private AnimationLinks links = new AnimationLinks();
 
 
     public Animation(String name, float length) {
@@ -50,6 +51,22 @@ public class Animation {
         return this;
     }
 
+
+    public Animation onStart(AnimationLinks.Start start){
+        this.links.onStart = start;
+        return this;
+    }
+
+    public Animation onTick(AnimationLinks.Tick tick){
+        this.links.onTick = tick;
+        return this;
+    }
+
+    public Animation onEnd(AnimationLinks.End end){
+        this.links.onEnd = end;
+        return this;
+    }
+
     public int getLayer() {
         return layer;
     }
@@ -84,6 +101,10 @@ public class Animation {
 
     public int getUniqueId() {
         return uniqueId;
+    }
+
+    public AnimationLinks getLinks() {
+        return links;
     }
 
     public void onTick(AnimationFactory factory, int tick){};

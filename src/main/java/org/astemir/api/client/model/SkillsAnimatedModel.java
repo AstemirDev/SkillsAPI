@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
 
-public abstract class SunAnimatedModel<T extends ICustomRendered & IAnimated,K extends IDisplayArgument> extends SunModel<T,K> {
+public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,K extends IDisplayArgument> extends SkillsModel<T,K> {
 
     public Set<AnimationTrack> animations = new HashSet<>();
     private InterpolationType interpolation = InterpolationType.CATMULLROM;
@@ -25,7 +25,7 @@ public abstract class SunAnimatedModel<T extends ICustomRendered & IAnimated,K e
     private float smoothness = 2;
     public static Function<String,String> ANIMATION_FUNCTION;
 
-    public SunAnimatedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
+    public SkillsAnimatedModel(ResourceLocation modelLoc, ResourceLocation animationsLoc) {
         super(modelLoc);
         if (animationsLoc != null) {
             animations = JsonUtils.getAnimationTracks(animationsLoc,isEncrypted() ? ANIMATION_FUNCTION : null);
@@ -243,17 +243,17 @@ public abstract class SunAnimatedModel<T extends ICustomRendered & IAnimated,K e
         customAnimate(animated,argument,limbSwing,limbSwingAmount,ticks,partialTicks,headYaw,headPitch);
     }
 
-    public SunAnimatedModel smoothness(float smoothness) {
+    public SkillsAnimatedModel smoothness(float smoothness) {
         this.smoothness = smoothness;
         return this;
     }
 
-    public SunAnimatedModel interpolation(InterpolationType interpolation) {
+    public SkillsAnimatedModel interpolation(InterpolationType interpolation) {
         this.interpolation = interpolation;
         return this;
     }
 
-    public SunAnimatedModel smoothnessType(SmoothnessType type) {
+    public SkillsAnimatedModel smoothnessType(SmoothnessType type) {
         this.smoothnessType = type;
         return this;
     }

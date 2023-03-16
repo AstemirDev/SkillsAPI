@@ -61,11 +61,11 @@ public class LivingTransformEvent<T extends LivingEntity> extends Event {
             this.pPartialTickTime = pPartialTickTime;
         }
 
-        public float getpPartialTickTime() {
+        public float getPartialTickTime() {
             return pPartialTickTime;
         }
 
-        public void setpPartialTickTime(float pPartialTickTime) {
+        public void setPartialTickTime(float pPartialTickTime) {
             this.pPartialTickTime = pPartialTickTime;
         }
     }

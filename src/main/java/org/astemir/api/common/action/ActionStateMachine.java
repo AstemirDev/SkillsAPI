@@ -8,6 +8,9 @@ public class ActionStateMachine {
 
     private LinkedList<ActionController> controllers = new LinkedList<>();
 
+    public static ActionStateMachine loadControllers(ActionController... controllers){
+        return new ActionStateMachine(controllers);
+    }
 
     public ActionStateMachine(ActionController... controllers) {
         for (ActionController controller : controllers) {

@@ -37,13 +37,15 @@ public class WESchematic {
     };
 
     public WESchematic(InputStream stream) {
-        CollectToTag visitor = new CollectToTag();
-        try {
-            NbtIo.parseCompressed(new DataInputStream(stream),visitor);
-            CompoundTag tag = (CompoundTag) visitor.getResult();
-            load(tag);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if (stream != null) {
+            CollectToTag visitor = new CollectToTag();
+            try {
+                NbtIo.parseCompressed(new DataInputStream(stream), visitor);
+                CompoundTag tag = (CompoundTag) visitor.getResult();
+                load(tag);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

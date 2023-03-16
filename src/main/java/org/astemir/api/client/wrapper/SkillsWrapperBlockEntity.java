@@ -10,25 +10,25 @@ import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import org.astemir.api.client.display.IDisplayArgument;
-import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.model.SkillsModel;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.misc.ICustomRendered;
 
 
-public abstract class MWBlockEntity<T extends BlockEntity & ICustomRendered> extends Model implements IModelWrapper<T, IDisplayArgument> {
+public abstract class SkillsWrapperBlockEntity<T extends BlockEntity & ICustomRendered> extends Model implements IModelWrapper<T, IDisplayArgument> {
 
     public T renderTarget;
     public MultiBufferSource multiBufferSource;
 
 
 
-    public MWBlockEntity() {
+    public SkillsWrapperBlockEntity() {
         super(RenderType::entityCutoutNoCull);
     }
 
     public void renderBlock(PoseStack poseStack, VertexConsumer consumer,MultiBufferSource bufferSource, int packedLight, int packedOverlay,float r,float g,float b,float a) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
-        SunModel<T,IDisplayArgument> model = getModel(renderTarget);
+        SkillsModel<T,IDisplayArgument> model = getModel(renderTarget);
         model.modelWrapper = this;
         poseStack.pushPose();
         poseStack.translate(0.5, 1.5f, 0.5f);

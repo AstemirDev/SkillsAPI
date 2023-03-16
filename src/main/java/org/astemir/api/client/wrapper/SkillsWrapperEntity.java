@@ -12,23 +12,23 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import org.astemir.api.client.display.IDisplayArgument;
-import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.model.SkillsModel;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.misc.ICustomRendered;
 
 
-public abstract class MWEntity<T extends Entity & ICustomRendered> extends EntityModel<T> implements IModelWrapper<T, IDisplayArgument> {
+public abstract class SkillsWrapperEntity<T extends Entity & ICustomRendered> extends EntityModel<T> implements IModelWrapper<T, IDisplayArgument> {
 
     public T renderTarget;
     public MultiBufferSource multiBufferSource;
 
 
-    public MWEntity() {
+    public SkillsWrapperEntity() {
         super(RenderType::entityCutout);
     }
 
     public void renderWrapper(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a, RenderCall renderCall,boolean resetBuffer) {
-        SunModel<T,IDisplayArgument> model = getModel(renderTarget);
+        SkillsModel<T,IDisplayArgument> model = getModel(renderTarget);
         model.modelWrapper = this;
         model.renderWithLayers(poseStack,bufferSource,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
     }

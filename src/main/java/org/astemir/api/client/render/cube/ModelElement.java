@@ -11,7 +11,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
 import net.minecraft.client.model.geom.ModelPart;
 import org.astemir.api.client.render.RenderCall;
-import org.astemir.api.client.model.SunModel;
+import org.astemir.api.client.model.SkillsModel;
 import org.astemir.api.math.Transform;
 import org.astemir.api.math.vector.Vector2;
 import org.astemir.api.math.vector.Vector3;
@@ -143,7 +143,7 @@ public class ModelElement {
     }
 
 
-    public void render(SunModel model, PoseStack matrixStackIn, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha, RenderCall renderCall, boolean resetBuffer) {
+    public void render(SkillsModel model, PoseStack matrixStackIn, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha, RenderCall renderCall, boolean resetBuffer) {
         if (this.showModel) {
             matrixStackIn.pushPose();
             matrixStackIn.scale(scaleX,scaleY,scaleZ);

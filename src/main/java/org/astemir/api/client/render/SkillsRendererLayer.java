@@ -9,12 +9,12 @@ import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.world.entity.Entity;
 import org.astemir.api.client.SkillsRenderTypes;
-import org.astemir.api.client.wrapper.MWEntity;
+import org.astemir.api.client.wrapper.SkillsWrapperEntity;
 import org.astemir.api.common.misc.ICustomRendered;
 
-public class SunRendererLayer<T extends Entity & ICustomRendered, M extends MWEntity<T>> extends RenderLayer<T, M> {
+public class SkillsRendererLayer<T extends Entity & ICustomRendered, M extends SkillsWrapperEntity<T>> extends RenderLayer<T, M> {
 
-    public SunRendererLayer(RenderLayerParent<T, M> parent) {
+    public SkillsRendererLayer(RenderLayerParent<T, M> parent) {
         super(parent);
     }
 

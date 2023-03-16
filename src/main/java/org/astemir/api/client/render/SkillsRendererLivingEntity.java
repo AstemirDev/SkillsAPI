@@ -19,16 +19,16 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
-import org.astemir.api.client.wrapper.MWEntity;
+import org.astemir.api.client.wrapper.SkillsWrapperEntity;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.jetbrains.annotations.Nullable;
 
 
-public class SunRendererLivingEntity<T extends LivingEntity & ICustomRendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
+public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
 
-    private MWEntity entityModelWrapper;
+    private SkillsWrapperEntity entityModelWrapper;
 
-    public SunRendererLivingEntity(EntityRendererProvider.Context context, MWEntity entityModel) {
+    public SkillsRendererLivingEntity(EntityRendererProvider.Context context, SkillsWrapperEntity entityModel) {
         super(context, (M) entityModel, 0.5f);
         this.entityModelWrapper = entityModel;
     }

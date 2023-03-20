@@ -5,7 +5,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.network.simple.SimpleChannel;
-import org.astemir.api.ISafeClientLoader;
+import org.astemir.api.IClientLoader;
 import org.astemir.api.SkillsForgeMod;
 import org.astemir.api.client.ClientManager;
 import org.astemir.api.client.registry.TESRModelsRegistry;
@@ -98,7 +98,7 @@ public class SkillsAPI extends SkillsForgeMod {
     }
 
     @Override
-    public ISafeClientLoader getClientLoader() {
+    public IClientLoader getClientLoader() {
         return new IClientLoaderExample();
     }
 

@@ -62,11 +62,11 @@ public class EntityExampleMinotaur extends Monster implements ISkillsMob, ICusto
 
     @Override
     public void setupAI() {
-        this.aiTaskSystem = new AITaskSystem(this);
-        CustomMinotaurAI.wanderingTask(this);
-        CustomMinotaurAI.attackTask(this);
-        CustomMinotaurAI.appleEatingHappiness(this);
-        CustomMinotaurAI.targetFind(this);
+        aiTaskSystem = new AITaskSystem(this);
+        aiTaskSystem.registerTask(CustomMinotaurAI.wanderingTask(this));
+        aiTaskSystem.registerTask(CustomMinotaurAI.attackTask(this));
+        aiTaskSystem.registerTask(CustomMinotaurAI.appleEatingHappiness(this));
+        aiTaskSystem.registerTask(CustomMinotaurAI.targetFind(this));
     }
 
     @Override

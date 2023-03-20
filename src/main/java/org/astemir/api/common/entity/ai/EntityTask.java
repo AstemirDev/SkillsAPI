@@ -62,7 +62,11 @@ public abstract class EntityTask {
         this.delay = delay;
     }
 
-    public abstract void run();
+    public int getTicksBegin() {
+        return ticksBegin;
+    }
+
+    public void run(){};
 
     public void end(){};
 }

@@ -113,7 +113,6 @@ public class AITask {
 
     public void register(AITaskSystem system) {
         this.system = system;
-        this.system.registerTask(this);
     }
 
     public boolean isRunning() {

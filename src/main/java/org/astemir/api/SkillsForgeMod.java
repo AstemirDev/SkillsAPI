@@ -55,7 +55,7 @@ public class SkillsForgeMod {
 
     protected void onUnsafeClientSetup(){};
 
-    public ISafeClientLoader getClientLoader(){
+    public IClientLoader getClientLoader(){
         return null;
     }
 }

@@ -195,19 +195,7 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
                                     }
                                     if (bone.getScales() != null) {
                                         if (checkCanScale(animated,argument,animation, bone)) {
-                                            boolean shouldBeHidden = false;
-                                            if (bone.getScales().length == 1){
-                                                AnimationFrame scaleFrame = bone.getScales()[0];
-                                                Vector3 value = scaleFrame.getValue();
-                                                if (scaleFrame.getPosition() == 0 && (value.x == 0 && value.y == 0 && value.z == 0)){
-                                                    shouldBeHidden = true;
-                                                }
-                                            }
-                                            if (!shouldBeHidden) {
-                                                scale = scale.lerp(interpolation.interpolate(bone.getScales(), animationTick), animationDelta);
-                                            }else{
-                                                scale = new Vector3(0,0,0);
-                                            }
+                                            scale = scale.lerp(interpolation.interpolate(bone.getScales(), animationTick), animationDelta);
                                         }
                                     }
                                     if (bone.getPositions() != null) {

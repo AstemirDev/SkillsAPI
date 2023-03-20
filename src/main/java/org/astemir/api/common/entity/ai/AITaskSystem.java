@@ -26,11 +26,12 @@ public class AITaskSystem {
         this.entity = entity;
     }
 
-    public void registerTask(AITask task){
+    public AITaskSystem registerTask(AITask task){
+        task.register(this);
         tasks.add(task);
         tasks.sort(Comparator.comparingInt(AITask::getPriority));
+        return this;
     }
-
 
     public boolean runTask(AITask task){
         if (canRunTask(task)) {

@@ -23,24 +23,20 @@ import org.astemir.api.math.vector.Vector3;
 public class CustomMinotaurAI {
 
     public static final AITask wanderingTask(EntityExampleMinotaur minotaur){
-        AITask task = new AITask(0).layer(0).setGoal(new WaterAvoidingRandomStrollGoal(minotaur,0.8f));
-        task.register(minotaur.getAISystem());
-        return task;
+        return new AITask(0).layer(0).setGoal(new WaterAvoidingRandomStrollGoal(minotaur,0.8f));
     }
 
     public static final AITask attackTask(EntityExampleMinotaur minotaur){
-        AITask task = new AITaskAttack(1, 0.8f, 3, 20, target -> minotaur.getAnimationFactory().play(EntityExampleMinotaur.ANIMATION_ATTACK)){
+        return new AITaskAttack(1, 0.8f, 3, 20, target -> minotaur.getAnimationFactory().play(EntityExampleMinotaur.ANIMATION_ATTACK)){
             @Override
             public boolean canUseAttack() {
                 return super.canUseAttack();
             }
         }.layer(0);
-        task.register(minotaur.getAISystem());
-        return task;
     }
 
     public static final AITask appleEatingHappiness(EntityExampleMinotaur minotaur) {
-        AITask task = new AITaskTimer(3, 120) {
+        return new AITaskTimer(3, 120) {
             @Override
             public void onUpdate() {
                 minotaur.getAnimationFactory().play(EntityExampleMinotaur.ANIMATION_FURY);
@@ -65,13 +61,9 @@ public class CustomMinotaurAI {
                 return false;
             }
         }.layer(0).interrupts(0, 1).execution(TaskExecution.ONCE).trigger(TaskTrigger.INTERACTION);
-        task.register(minotaur.getAISystem());
-        return task;
     }
 
     public static final AITask targetFind(EntityExampleMinotaur minotaur){
-        AITask task = new AITask(10).layer(1).setGoal(new NearestAttackableTargetGoal(minotaur, LivingEntity.class,false));
-        task.register(minotaur.getAISystem());
-        return task;
+        return new AITask(10).layer(1).setGoal(new NearestAttackableTargetGoal(minotaur, LivingEntity.class,false));
     }
 }

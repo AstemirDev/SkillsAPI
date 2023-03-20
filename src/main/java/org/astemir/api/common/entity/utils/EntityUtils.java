@@ -21,13 +21,14 @@ import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import org.astemir.api.common.entity.IEventEntity;
+import org.astemir.api.math.vector.Vector2;
 import org.astemir.api.math.vector.Vector3;
 import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.ClientMessageEntityEvent;
 import org.astemir.api.network.messages.ServerMessageEntityEvent;
 import org.astemir.api.network.NetworkUtils;
 import org.astemir.api.math.random.RandomUtils;
-import org.astemir.api.utils.WorldUtils;
+import org.astemir.api.common.world.WorldUtils;
 
 import java.util.List;
 import java.util.function.Predicate;
@@ -77,6 +78,29 @@ public class EntityUtils {
             damager.doEnchantDamageEffects(damager, target);
             damager.setLastHurtMob(target);
         }
+    }
+
+    public static Vector3 directionTo(Entity from,Entity to){
+        return Vector3.from(from.position()).direction(Vector3.from(to.position()));
+    }
+
+    public static Entity rotate(Entity entity,Vector3 direction){
+        Vector2 rot = direction.mul(1,0,1).yawPitchDeg();
+        entity.setYRot(-rot.x);
+        entity.setYBodyRot(-rot.x);
+        entity.setXRot(-rot.y);
+        entity.yRotO = -rot.x;
+        entity.xRotO = -rot.y;
+        if (entity instanceof LivingEntity livingEntity) {
+            livingEntity.yBodyRot = -rot.x;
+            livingEntity.yHeadRot = -rot.x;
+        }
+        return entity;
+    }
+
+    public static Entity setPositionRotation(Entity entity,Vector3 position,float yaw,float pitch){
+        entity.moveTo(position.x,position.y,position.z,yaw,pitch);
+        return entity;
     }
 
     public static boolean canBeTargeted(Player player){

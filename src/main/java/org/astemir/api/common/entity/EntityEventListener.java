@@ -43,9 +43,7 @@ public class EntityEventListener {
                 customAIEntity.getAISystem().update();
             }
             if (e.getEntity() instanceof IActionListener actionListener) {
-                for (ActionController controller : actionListener.getActionStateMachine().getControllers()) {
-                    controller.update();
-                }
+                actionListener.getActionStateMachine().update();
             }
         }
         if (e.getEntity() instanceof IAnimatedEntity entity){

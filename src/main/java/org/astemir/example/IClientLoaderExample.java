@@ -2,7 +2,7 @@ package org.astemir.example;
 
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
-import org.astemir.api.ISafeClientLoader;
+import org.astemir.api.IClientLoader;
 import org.astemir.api.client.registry.ArmorModelsRegistry;
 import org.astemir.api.client.ModelUtils;
 import org.astemir.api.client.render.SkillsRendererItem;
@@ -15,7 +15,7 @@ import org.astemir.example.common.block.ExampleModBlocks;
 import org.astemir.example.common.entity.ExampleModEntities;
 import org.astemir.example.common.item.ExampleModItems;
 
-public class IClientLoaderExample implements ISafeClientLoader {
+public class IClientLoaderExample implements IClientLoader {
 
     @Override
     public void load() {

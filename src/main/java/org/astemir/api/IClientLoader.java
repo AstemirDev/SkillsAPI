@@ -1,7 +1,7 @@
 package org.astemir.api;
 
 
-public interface ISafeClientLoader {
+public interface IClientLoader {
 
     void load();
 }

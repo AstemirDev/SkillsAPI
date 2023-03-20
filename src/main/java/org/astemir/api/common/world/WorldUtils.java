@@ -1,4 +1,4 @@
-package org.astemir.api.utils;
+package org.astemir.api.common.world;
 
 import com.mojang.datafixers.util.Pair;
 import it.unimi.dsi.fastutil.longs.LongSet;
@@ -9,9 +9,11 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,9 +23,11 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.astemir.api.client.ModelUtils;
+import org.astemir.api.math.vector.Vector3;
 
 import java.util.Map;
 import java.util.UUID;
+import java.util.function.Predicate;
 
 public class WorldUtils {
 
@@ -43,6 +47,18 @@ public class WorldUtils {
             Blocks.NETHER_PORTAL
     };
 
+    public static <T extends Entity> T createEntity(EntityType type, Level level, Vector3 position, float yaw, float pitch){
+        T entity = (T) type.create(level);
+        entity.moveTo(position.x,position.y,position.z,yaw,pitch);
+        return entity;
+    }
+
+    public static <T extends Entity> T createEntity(EntityType type,Level level,Vector3 position){
+        T entity = (T) type.create(level);
+        entity.moveTo(position.x,position.y,position.z);
+        return entity;
+    }
+
 
     public static boolean isAtStructure(Level level, BlockPos pos, StructureType<?> type){
         if (level instanceof ServerLevel serverLevel){
@@ -61,6 +77,20 @@ public class WorldUtils {
             Registry<Structure> registry = serverLevel.registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
             Holder<Structure> holder = registry.getHolder(structure).get();
             Pair<BlockPos, Holder<Structure>> pair = serverLevel.getChunkSource().getGenerator().findNearestMapStructure(serverLevel, HolderSet.direct(holder), pos, radius, skipKnown);
+            if (pair != null){
+                if (pair.getFirst() != null){
+                    return pair.getFirst();
+                }
+            }
+        }
+        return null;
+    }
+
+    public static BlockPos getNearestStructurePos(Level level, BlockPos pos, ResourceKey<Biome> biome, int radiusX,int radiusY,int radiusZ){
+        if (level instanceof ServerLevel serverLevel) {
+            Registry<Biome> registry = serverLevel.registryAccess().registryOrThrow(Registry.BIOME_REGISTRY);
+            Holder<Biome> holder = registry.getHolder(biome).get();
+            Pair<BlockPos, Holder<Biome>> pair = serverLevel.findClosestBiome3d((p)->p == holder,pos,radiusX,radiusY,radiusZ);
             if (pair != null){
                 if (pair.getFirst() != null){
                     return pair.getFirst();

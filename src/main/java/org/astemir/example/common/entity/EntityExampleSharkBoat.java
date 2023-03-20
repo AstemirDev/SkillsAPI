@@ -253,7 +253,6 @@ public class EntityExampleSharkBoat extends Entity implements IAnimatedEntity, I
         }else{
             boatInWaterOffset.setTo(0);
         }
-        getAnimationFactory().updateAnimations();
         if (isMovingByPlayer(this)) {
             animationFactory.play(SWIM);
             Vec3 viewPos = position().add(getViewVector(0).multiply(-1.5f,0,-1.5f));

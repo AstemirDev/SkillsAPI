@@ -18,4 +18,5 @@ public class MixinGameRenderer {
         CameraSetupEvent event = new CameraSetupEvent(pMatrixStack,pPartialTicks,pFinishTimeNano);
         MinecraftForge.EVENT_BUS.post(event);
     }
+
 }

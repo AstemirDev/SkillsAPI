@@ -18,7 +18,7 @@ public class StructureCommand {
 
     public static void register(CommandDispatcher<CommandSourceStack> dispatcher) {
         CommandBuilder builder = new CommandBuilder("structure");
-        CommandArgument name = CommandArgument.word("name");
+        CommandArgument name = CommandArgument.greedyString("name");
         CommandArgument blockPos = CommandArgument.blockPos("position");
         CommandArgument rotation = CommandArgument.vector3("rotation");
         CommandArgument skipAir = CommandArgument.bool("skip-air");

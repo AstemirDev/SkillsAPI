@@ -2,12 +2,12 @@ package org.astemir.api.client.animation;
 
 import org.astemir.api.math.vector.Vector3;
 
-public class AnimationFrame {
+public class KeyFrame {
 
     private Vector3 value;
     private float time;
 
-    public AnimationFrame(float time, Vector3 value) {
+    public KeyFrame(float time, Vector3 value) {
         this.value = value;
         this.time = time;
     }

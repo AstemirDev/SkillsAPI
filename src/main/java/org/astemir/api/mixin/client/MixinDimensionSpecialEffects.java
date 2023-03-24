@@ -3,6 +3,8 @@ package org.astemir.api.mixin.client;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.DimensionSpecialEffects;
+import net.minecraft.client.renderer.FogRenderer;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.minecraftforge.common.MinecraftForge;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.event.SkySetupEvent;
@@ -26,4 +28,6 @@ public class MixinDimensionSpecialEffects {
         MinecraftForge.EVENT_BUS.post(event);
         return event.getSunriseColor();
     }
+
+
 }

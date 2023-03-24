@@ -36,12 +36,12 @@ public class Color {
         this.a = a;
     }
 
-    public Color(int rgb){
-        this((float)new java.awt.Color(rgb,true).getRed()/255f,(float)new java.awt.Color(rgb,true).getGreen()/255f,(float)new java.awt.Color(rgb,true).getBlue()/255f,1f);
+    public Color(int rgba) {
+        this((float)(rgba >> 16 & 255) / 255.0F,(float)(rgba >> 8 & 255) / 255.0F,(float)(rgba & 255) / 255.0F,(float)(rgba >> 24 & 255) / 255.0F);
     }
 
-    public int toRGB(){
-        return new java.awt.Color(r,g,b,a).getRGB();
+    public static int toRGB(float r, float g, float b, float a) {
+        return (((int)(a * 255.0F) & 255) << 24) | (((int)(r * 255.0F) & 255) << 16) | (((int)(g * 255.0F) & 255) << 8) | ((int)(b * 255.0F) & 255);
     }
 
     public java.awt.Color toAWTColor(){

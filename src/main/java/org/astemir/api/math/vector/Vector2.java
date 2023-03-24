@@ -1,9 +1,10 @@
 package org.astemir.api.math.vector;
 
 import net.minecraft.nbt.CompoundTag;
+import org.astemir.api.math.IMathOperand;
 import org.astemir.api.math.MathUtils;
 
-public class Vector2 {
+public class Vector2 implements IMathOperand<Vector2> {
 
     public float x;
     public float y;
@@ -16,6 +17,60 @@ public class Vector2 {
     public Vector2(double x, double y) {
         this.x = (float)x;
         this.y = (float)y;
+    }
+
+
+    public Vector2 add(Vector2 vector){
+        return new Vector2(x+vector.getX(),y+vector.getY());
+    }
+
+    public Vector2 add(Vector2 vector, float delta){
+        Vector2 newVector = new Vector2(x+vector.getX(),y+vector.getY());
+        return interpolate(newVector,delta);
+    }
+
+    public Vector2 sub(Vector2 vector){
+        return new Vector2(x-vector.getX(),y-vector.getY());
+    }
+
+    public Vector2 mul(Vector2 vector){
+        return new Vector2(x*vector.getX(),y*vector.getY());
+    }
+
+    public Vector2 div(Vector2 vector){
+        return new Vector2(x/vector.getX(),y/vector.getY());
+    }
+
+    public Vector2 add(float x1, float y1, float z1){
+        return new Vector2(x*x1,y*y1);
+    }
+
+    public Vector2 sub(float x1, float y1, float z1){
+        return new Vector2(x/x1,y/y1);
+    }
+
+    public Vector2 mul(float x1, float y1, float z1){
+        return new Vector2(x*x1,y*y1);
+    }
+
+    public Vector2 div(float x1, float y1, float z1){
+        return new Vector2(x/x1,y/y1);
+    }
+
+    public Vector2 add(float t){
+        return new Vector2(x+t,y+t);
+    }
+
+    public Vector2 sub(float t){
+        return new Vector2(x-t,y-t);
+    }
+
+    public Vector2 mul(float t){
+        return new Vector2(x*t,y*t);
+    }
+
+    public Vector2 div(float t){
+        return new Vector2(x/t,y/t);
     }
 
     public float magnitude(){
@@ -78,78 +133,26 @@ public class Vector2 {
         return new Vector2(MathUtils.rad(x),MathUtils.rad(y));
     }
 
-    public Vector2 add(Vector2 vector){
-        return new Vector2(x+vector.getX(),y+vector.getY());
-    }
-
-    public Vector2 add(Vector2 vector, float delta){
-        Vector2 newVector = new Vector2(x+vector.getX(),y+vector.getY());
-        return interpolate(newVector,delta);
-    }
-
-    public Vector2 sub(Vector2 vector){
-        return new Vector2(x-vector.getX(),y-vector.getY());
-    }
-
-    public Vector2 mul(Vector2 vector){
-        return new Vector2(x*vector.getX(),y*vector.getY());
-    }
-
-    public Vector2 div(Vector2 vector){
-        return new Vector2(x/vector.getX(),y/vector.getY());
-    }
-
-    public Vector2 add(float x1, float y1, float z1){
-        return new Vector2(x*x1,y*y1);
-    }
-
-    public Vector2 sub(float x1, float y1, float z1){
-        return new Vector2(x/x1,y/y1);
-    }
-
-    public Vector2 mul(float x1, float y1, float z1){
-        return new Vector2(x*x1,y*y1);
-    }
-
-    public Vector2 div(float x1, float y1, float z1){
-        return new Vector2(x/x1,y/y1);
-    }
-
-    public Vector2 add(float t){
-        return new Vector2(x+t,y+t);
-    }
-
-    public Vector2 sub(float t){
-        return new Vector2(x-t,y-t);
-    }
-
-    public Vector2 mul(float t){
-        return new Vector2(x*t,y*t);
-    }
-
-    public Vector2 div(float t){
-        return new Vector2(x/t,y/t);
-    }
-
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
-    }
-
-    public void setX(float x) {
-        this.x = x;
-    }
-
-    public void setY(float y) {
-        this.y = y;
-    }
-
     public Vector2 lerp(Vector2 vector, float t){
         return new Vector2(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t));
     }
+
+    @Override
+    public Vector2 copy() {
+        return new Vector2(x,y);
+    }
+
+    public Vector2 catmullrom(Vector2 previous,Vector2 next,Vector2 nextNext,float f){
+        float t2 = f * f;
+        float f1 = (float) (-0.5 * (f * f * f) + t2 - 0.5 * f);
+        float f2 = (float) (1.5 * (f * f * f) - 2.5 * t2 + 1.0);
+        float f3 = (float) (-1.5 * (f * f * f) + 2.0 * t2 + 0.5 * f);
+        float f4 = (float) (0.5 * (f * f * f) - 0.5 * t2);
+        float x = previous.x * f1 + this.x * f2 + next.x * f3 + nextNext.x * f4;
+        float y = previous.y * f1 + this.y * f2 + next.y * f3 + nextNext.y * f4;
+        return new Vector2(x,y);
+    }
+
 
     public Vector2 rotLerp(Vector2 vector, float t){
         return new Vector2(MathUtils.lerpRot(x,vector.getX(),t),MathUtils.lerpRot(y,vector.getY(),t));
@@ -192,6 +195,22 @@ public class Vector2 {
 
     public static Vector2 one(){
         return new Vector2(1,1);
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 
     @Override

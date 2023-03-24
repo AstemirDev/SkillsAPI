@@ -6,9 +6,10 @@ import com.mojang.math.Vector3f;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.Vec3;
+import org.astemir.api.math.IMathOperand;
 import org.astemir.api.math.MathUtils;
 
-public class Vector3 {
+public class Vector3 implements IMathOperand<Vector3> {
 
     public float x;
     public float y;
@@ -26,14 +27,22 @@ public class Vector3 {
         this.z = MathUtils.floatSafe((float)z);
     }
 
+    @Override
     public Vector3 copy(){
         return new Vector3(x,y,z);
     }
 
+    @Override
+    public Vector3 add(Vector3 vector){
+        return new Vector3(x+vector.getX(),y+vector.getY(),z+vector.getZ());
+    }
+
+    @Override
     public Vector3 clamp(Vector3 min, Vector3 max) {
         return new Vector3(MathUtils.clamp(x,min.x,max.x),MathUtils.clamp(y,min.y,max.y),MathUtils.clamp(z,min.z,max.z));
     }
 
+    @Override
     public Vector3 lerp(Vector3 vector, float t){
         return new Vector3(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t),MathUtils.lerp(z,vector.getZ(),t));
     }
@@ -66,11 +75,6 @@ public class Vector3 {
         return new Vector3(MathUtils.rad(x),MathUtils.rad(y),MathUtils.rad(z));
     }
 
-    public Vector3 add(Vector3 vector){
-        return new Vector3(x+vector.getX(),y+vector.getY(),z+vector.getZ());
-    }
-
-
     public Vector3 rotateAroundX(double angle) {
         double angleCos = Math.cos(angle);
         double angleSin = Math.sin(angle);
@@ -99,6 +103,56 @@ public class Vector3 {
         Vector3 newVector = new Vector3(x+vector.getX(),y+vector.getY(),z+vector.getZ());
         return lerp(newVector,delta);
     }
+
+    public double length() {
+        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
+    }
+
+
+    public Vector3 sub(Vector3 vector){
+        return new Vector3(x-vector.getX(),y-vector.getY(),z-vector.getZ());
+    }
+
+    public Vector3 mul(Vector3 vector){
+        return new Vector3(x*vector.getX(),y*vector.getY(),z*vector.getZ());
+    }
+
+    public Vector3 div(Vector3 vector){
+        return new Vector3(x/vector.getX(),y/vector.getY(),z/vector.getZ());
+    }
+
+    public Vector3 add(float x1,float y1,float z1){
+        return new Vector3(x+x1,y+y1,z+z1);
+    }
+
+    public Vector3 sub(float x1,float y1,float z1){
+        return new Vector3(x/x1,y/y1,z/z1);
+    }
+
+    public Vector3 mul(float x1,float y1,float z1){
+        return new Vector3(x*x1,y*y1,z*z1);
+    }
+
+    public Vector3 div(float x1,float y1,float z1){
+        return new Vector3(x/x1,y/y1,z/z1);
+    }
+
+    public Vector3 add(float t){
+        return new Vector3(x+t,y+t,z+t);
+    }
+
+    public Vector3 sub(float t){
+        return new Vector3(x-t,y-t,z-t);
+    }
+
+    public Vector3 mul(float t){
+        return new Vector3(x*t,y*t,z*t);
+    }
+
+    public Vector3 div(float t){
+        return new Vector3(x/t,y/t,z/t);
+    }
+
 
     public float magnitude(){
         return (float) Math.sqrt(x*x+y*y+z*z);
@@ -198,74 +252,18 @@ public class Vector3 {
         return res;
     }
 
-    public Vector3 sub(Vector3 vector){
-        return new Vector3(x-vector.getX(),y-vector.getY(),z-vector.getZ());
+    public Vector3 catmullrom(Vector3 previous,Vector3 next,Vector3 nextNext,float f){
+        float t2 = f * f;
+        float f1 = (float) (-0.5 * (f * f * f) + t2 - 0.5 * f);
+        float f2 = (float) (1.5 * (f * f * f) - 2.5 * t2 + 1.0);
+        float f3 = (float) (-1.5 * (f * f * f) + 2.0 * t2 + 0.5 * f);
+        float f4 = (float) (0.5 * (f * f * f) - 0.5 * t2);
+        float x = previous.x * f1 + this.x * f2 + next.x * f3 + nextNext.x * f4;
+        float y = previous.y * f1 + this.y * f2 + next.y * f3 + nextNext.y * f4;
+        float z = previous.z * f1 + this.z * f2 + next.z * f3 + nextNext.z * f4;
+        return new Vector3(x,y,z);
     }
 
-    public Vector3 mul(Vector3 vector){
-        return new Vector3(x*vector.getX(),y*vector.getY(),z*vector.getZ());
-    }
-
-    public Vector3 div(Vector3 vector){
-        return new Vector3(x/vector.getX(),y/vector.getY(),z/vector.getZ());
-    }
-
-    public Vector3 add(float x1,float y1,float z1){
-        return new Vector3(x+x1,y+y1,z+z1);
-    }
-
-    public Vector3 sub(float x1,float y1,float z1){
-        return new Vector3(x/x1,y/y1,z/z1);
-    }
-
-    public Vector3 mul(float x1,float y1,float z1){
-        return new Vector3(x*x1,y*y1,z*z1);
-    }
-
-    public Vector3 div(float x1,float y1,float z1){
-        return new Vector3(x/x1,y/y1,z/z1);
-    }
-
-    public Vector3 add(float t){
-        return new Vector3(x+t,y+t,z+t);
-    }
-
-    public Vector3 sub(float t){
-        return new Vector3(x-t,y-t,z-t);
-    }
-
-    public Vector3 mul(float t){
-        return new Vector3(x*t,y*t,z*t);
-    }
-
-    public Vector3 div(float t){
-        return new Vector3(x/t,y/t,z/t);
-    }
-
-
-    public float getX() {
-        return x;
-    }
-
-    public float getY() {
-        return y;
-    }
-
-    public float getZ() {
-        return z;
-    }
-
-    public void setX(float x) {
-        this.x = x;
-    }
-
-    public void setY(float y) {
-        this.y = y;
-    }
-
-    public void setZ(float z) {
-        this.z = z;
-    }
 
     public Vector3d toVector3d(){
         return new Vector3d(x,y,z);
@@ -323,13 +321,36 @@ public class Vector3 {
         return new Vector3(array[0],array[1],array[2]);
     }
 
-
     public static Vector3 zero(){
         return new Vector3(0,0,0);
     }
 
     public static Vector3 one(){
         return new Vector3(1,1,1);
+    }
+
+    public float getX() {
+        return x;
+    }
+
+    public float getY() {
+        return y;
+    }
+
+    public float getZ() {
+        return z;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
+    }
+
+    public void setZ(float z) {
+        this.z = z;
     }
 
     @Override

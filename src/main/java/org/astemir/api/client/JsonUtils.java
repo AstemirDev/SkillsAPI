@@ -9,7 +9,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;
 import org.apache.commons.lang3.math.NumberUtils;
 import org.astemir.api.client.animation.AnimationBone;
-import org.astemir.api.client.animation.AnimationFrame;
+import org.astemir.api.client.animation.KeyFrame;
 import org.astemir.api.client.animation.AnimationTrack;
 import org.astemir.api.client.render.cube.CubeUV;
 import org.astemir.api.client.render.cube.ModelCube;
@@ -148,51 +148,51 @@ public class JsonUtils {
         return animationTracks;
     }
 
-    public static AnimationFrame[] getAnimationProperty(JsonObject bone, String name, boolean rad){
+    public static KeyFrame[] getAnimationProperty(JsonObject bone, String name, boolean rad){
         if (bone.has(name)) {
-            List<AnimationFrame> result = new ArrayList<>();
+            List<KeyFrame> result = new ArrayList<>();
             if (bone.get(name).isJsonArray()) {
                 JsonArray vectorArray = bone.get(name).getAsJsonArray();
-                result.add(new AnimationFrame(0.0f, JsonUtils.getVec3(vectorArray, rad)));
-                return result.toArray(new AnimationFrame[result.size()]);
+                result.add(new KeyFrame(0.0f, JsonUtils.getVec3(vectorArray, rad)));
+                return result.toArray(new KeyFrame[result.size()]);
             }else
             if (bone.get(name).isJsonPrimitive()){
                 float f = bone.get(name).getAsFloat();
-                result.add(new AnimationFrame(0.0f,new Vector3(f,f,f)));
-                return result.toArray(new AnimationFrame[result.size()]);
+                result.add(new KeyFrame(0.0f,new Vector3(f,f,f)));
+                return result.toArray(new KeyFrame[result.size()]);
             }
 
             JsonObject referenceJson = bone.get(name).getAsJsonObject();
             for (Map.Entry<String, JsonElement> timeCodes : referenceJson.entrySet()) {
                 if (timeCodes.getKey().equals("vector")){
-                    result.add(new AnimationFrame(0,JsonUtils.getVec3(timeCodes.getValue().getAsJsonArray(),rad)));
+                    result.add(new KeyFrame(0,JsonUtils.getVec3(timeCodes.getValue().getAsJsonArray(),rad)));
                 }else {
                     double time = parse(timeCodes.getKey());
                     JsonElement value = timeCodes.getValue();
                     if (value.isJsonArray()) {
-                        result.add(new AnimationFrame((float) time, JsonUtils.getVec3(value.getAsJsonArray(), rad)));
+                        result.add(new KeyFrame((float) time, JsonUtils.getVec3(value.getAsJsonArray(), rad)));
                     } else if (value.isJsonPrimitive()) {
                         float f = value.getAsFloat();
-                        result.add(new AnimationFrame((float) time, new Vector3(f, f, f)));
+                        result.add(new KeyFrame((float) time, new Vector3(f, f, f)));
                     } else if (value.isJsonObject()) {
                         JsonObject valueObject = value.getAsJsonObject();
                         if (valueObject.has("post")) {
                             if (valueObject.get("post").isJsonArray()){
-                                result.add(new AnimationFrame((float) time, JsonUtils.getVec3(valueObject.get("post").getAsJsonArray(), rad)));
+                                result.add(new KeyFrame((float) time, JsonUtils.getVec3(valueObject.get("post").getAsJsonArray(), rad)));
                             }else {
                                 JsonObject postObject = valueObject.get("post").getAsJsonObject();
                                 if (postObject.has("vector")) {
-                                    result.add(new AnimationFrame((float) time, JsonUtils.getVec3(postObject.getAsJsonArray("vector"), rad)));
+                                    result.add(new KeyFrame((float) time, JsonUtils.getVec3(postObject.getAsJsonArray("vector"), rad)));
                                 }
                             }
                         } else if (valueObject.has("vector")) {
                             JsonArray vector = valueObject.getAsJsonArray("vector");
-                            result.add(new AnimationFrame((float) time, JsonUtils.getVec3(vector, rad)));
+                            result.add(new KeyFrame((float) time, JsonUtils.getVec3(vector, rad)));
                         }
                     }
                 }
             }
-            return result.toArray(new AnimationFrame[result.size()]);
+            return result.toArray(new KeyFrame[result.size()]);
         }
         return null;
     }

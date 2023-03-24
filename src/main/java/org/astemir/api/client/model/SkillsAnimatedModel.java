@@ -1,6 +1,5 @@
 package org.astemir.api.client.model;
 
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.animation.*;
@@ -12,7 +11,6 @@ import org.astemir.api.common.animation.objects.IAnimated;
 import org.astemir.api.math.Transform;
 import org.astemir.api.math.vector.Vector3;
 import org.astemir.api.client.JsonUtils;
-
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;
@@ -21,7 +19,7 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
 
     public Set<AnimationTrack> animations = new HashSet<>();
     private InterpolationType interpolation = InterpolationType.CATMULLROM;
-    private SmoothnessType smoothnessType = SmoothnessType.DEFAULT;
+    private SmoothnessType smoothnessType = SmoothnessType.SQR_EXPONENTIAL;
     private float smoothness = 2;
     public static Function<String,String> ANIMATION_FUNCTION;
 
@@ -190,7 +188,8 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
                                     float animationDelta = smoothnessType.deltaCalculate(partialTicks, animation.getSmoothness());
                                     if (bone.getRotations() != null) {
                                         if (checkCanRotate(animated, argument,animation, bone)) {
-                                            rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(), animationTick), animationDelta);
+                                            rot = AnimationUtils.interpolatePointsCatmullRom(bone.getRotations(),rot,animationTick);
+                                            //rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(), animationTick), animationDelta);
                                         }
                                     }
                                     if (bone.getScales() != null) {
@@ -207,18 +206,18 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
                             }
                         }
                     }else {
-                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta*delta);
-                        scale = scale.lerp(new Vector3(1, 1, 1), delta*delta);
-                        pos = pos.lerp(new Vector3(0, 0, 0), delta*delta);
+                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta);
+                        scale = scale.lerp(new Vector3(1, 1, 1), delta);
+                        pos = pos.lerp(new Vector3(0, 0, 0), delta);
                     }
                     if (!isRotatingInAnyTrack(animated, argument,renderer)) {
-                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta*delta);
+                        rot = rot.rotLerp(new Vector3(0, 0, 0), delta);
                     }
                     if (!isScalingInAnyTrack(animated,argument, renderer)) {
-                        scale = scale.lerp(new Vector3(1, 1, 1), delta*delta);
+                        scale = scale.lerp(new Vector3(1, 1, 1), delta);
                     }
                     if (!isPositioningInAnyTrack(animated,argument, renderer)) {
-                        pos = pos.lerp(new Vector3(0, 0, 0), delta*delta);
+                        pos = pos.lerp(new Vector3(0, 0, 0), delta);
                     }
                     rendererTransform.setRotation(rot);
                     rendererTransform.setScale(scale);

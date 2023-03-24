@@ -38,7 +38,6 @@ public class WorldPreRenderEvent extends Event {
         this.offset = new Vector3(x,y,z);
     }
 
-
     public Entity getEntity() {
         return entity;
     }

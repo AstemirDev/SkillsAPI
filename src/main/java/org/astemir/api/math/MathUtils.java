@@ -1,12 +1,12 @@
 package org.astemir.api.math;
 
 
-import org.astemir.api.math.vector.Vector2;
-import org.astemir.api.math.vector.Vector3;
 
 public class MathUtils {
 
     public static float PI = 3.14159265358979323846f;
+
+    public static float PI2 = PI*2;
 
     public static float abs(float value){ return Math.abs(value);}
 
@@ -41,6 +41,7 @@ public class MathUtils {
     public static float lerp(float a, float b, float t){
         return (1 - t) * a + t * b;
     }
+
 
     public static float lerpRot(float a, float b, float t) {
         float wrap = MathUtils.rad(wrapDegrees(MathUtils.deg(b)-MathUtils.deg(a)));
@@ -83,17 +84,8 @@ public class MathUtils {
         return diff < tolerance;
     }
 
-
     public static float catmullrom(float previous, float current, float next, float nextNext,float f) {
         return 0.5F * (2.0F * current + (next - previous) * f + (2.0F * previous - 5.0F * current + 4.0F * next - nextNext) * f * f + (3.0F * current - previous - 3.0F * next + nextNext) * f * f * f);
-    }
-
-    public static Vector2 catmullrom(Vector2 previous,Vector2 current,Vector2 next,Vector2 nextNext,float f){
-        return new Vector2(MathUtils.catmullrom(previous.x,current.x,next.x,nextNext.x,f),MathUtils.catmullrom(previous.y,current.y,next.y,nextNext.y,f));
-    }
-
-    public static Vector3 catmullrom(Vector3 previous,Vector3 current,Vector3 next,Vector3 nextNext,float f){
-        return new Vector3(MathUtils.catmullrom(previous.x,current.x,next.x,nextNext.x,f),MathUtils.catmullrom(previous.y,current.y,next.y,nextNext.y,f),MathUtils.catmullrom(previous.z,current.z,next.z,nextNext.z,f));
     }
 
     public static float progressOfTime(float ticks,float value){

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class AnimationUtils {
 
-    public static float length(AnimationFrame[] points){
+    public static float length(KeyFrame[] points){
         if (points != null && points.length > 0) {
             return points[points.length - 1].getPosition();
         }else{
@@ -15,7 +15,7 @@ public class AnimationUtils {
         }
     }
 
-    public static float length(List<AnimationFrame> points){
+    public static float length(List<KeyFrame> points){
         if (points != null && points.size() > 0) {
             return points.get(points.size() - 1).getPosition();
         }else{
@@ -48,9 +48,9 @@ public class AnimationUtils {
     }
 
 
-    public static int getCurrentIndex(AnimationFrame[] frames,float time){
+    public static int getCurrentIndex(KeyFrame[] frames, float time){
         for (int i = 0; i < frames.length; i++) {
-            AnimationFrame frame = frames[i];
+            KeyFrame frame = frames[i];
             if (time <= frame.getPosition()){
                 return i;
             }
@@ -58,7 +58,7 @@ public class AnimationUtils {
         return frames.length-1;
     }
 
-    public static int getNextIndex(AnimationFrame[] frames,float time){
+    public static int getNextIndex(KeyFrame[] frames, float time){
         int cur = getCurrentIndex(frames,time);
         if (cur+1 > frames.length-1){
             return 0;
@@ -66,7 +66,7 @@ public class AnimationUtils {
         return cur+1;
     }
 
-    public static Vector3 interpolatePointsCatmullRom(AnimationFrame[] frames, float position){
+    public static Vector3 interpolatePointsCatmullRom(KeyFrame[] frames, float position){
         if (frames.length == 1 && position == 0){
             return interpolatePoints(frames,position);
         }else{
@@ -75,8 +75,8 @@ public class AnimationUtils {
                 return position <= frames[p_232315_].getPosition();
             }) - 1);
             int j = Math.min(frames.length - 1, i + 1);
-            AnimationFrame keyframe = frames[i];
-            AnimationFrame keyframe1 = frames[j];
+            KeyFrame keyframe = frames[i];
+            KeyFrame keyframe1 = frames[j];
             float f1 = position - keyframe.getPosition();
             float f2 = Mth.clamp(f1 / (keyframe1.getPosition() - keyframe.getPosition()), 0.0F, 1.0F);
             Vector3 previousValue = frames[Math.max(0, i - 1)].getValue();
@@ -87,7 +87,7 @@ public class AnimationUtils {
         }
     }
 
-    public static Vector3 interpolatePoints(AnimationFrame[] points, float position){
+    public static Vector3 interpolatePoints(KeyFrame[] points, float position){
         float delta = 0;
         if (points.length == 0) {
             return Vector3.zero();
@@ -109,7 +109,7 @@ public class AnimationUtils {
             return secondValue.add(new Vector3(c,c,c));
         }
         for (int i = 1;i<points.length;i++) {
-            AnimationFrame point = points[i];
+            KeyFrame point = points[i];
             if (point.getPosition() >= position) {
                 float num1 = (float)((position - firstPos) / (point.getPosition() - firstPos));
                 float num2 = num1 * num1;
@@ -129,4 +129,85 @@ public class AnimationUtils {
     }
 
 
+
+    public static float animationFraction(float time,float duration,float partialRenderTicks) {
+        return (time + partialRenderTicks) / duration;
+    }
+
+
+    public static float progressSmooth(float time,float duration,float partialRenderTicks) {
+        if (time > 0) {
+            if (time < duration) {
+                return (float) (1.0D / (1.0D + Math.exp(4.0D - 8.0D * animationFraction(time,duration,partialRenderTicks))));
+            } else {
+                return 1.0F;
+            }
+        }
+        return 0.0F;
+    }
+
+
+    public static float progressStep(float time,float duration,float partialRenderTicks) {
+        return (float) (1.0D / (1.0D + Math.exp(6.0D - 12.0D * animationFraction(time,duration,partialRenderTicks))));
+    }
+
+
+    public static float progressSin(float time,float duration,float partialRenderTicks) {
+        return MathUtils.sin(1.57079632679F * animationFraction(time,duration,partialRenderTicks));
+    }
+
+
+    public static float progressSinSqrt(float time,float duration,float partialRenderTicks) {
+        float result = MathUtils.sin(1.57079632679F * animationFraction(time,duration,partialRenderTicks));
+        return result * result;
+    }
+
+
+    public static float progressSinToTen(float time,float duration,float partialRenderTicks) {
+        return (float) Math.pow(MathUtils.sin(1.57079632679F * animationFraction(time,duration,partialRenderTicks)), 10);
+    }
+
+    public static float progressSinPowerOf(float time,float duration,float partialRenderTicks, int i) {
+        return (float) Math.pow(MathUtils.sin(1.57079632679F * animationFraction(time,duration,partialRenderTicks)), i);
+    }
+
+    public static float progressPoly2(float time,float duration,float partialRenderTicks) {
+        float x = animationFraction(time,duration,partialRenderTicks);
+        float x2 = x * x;
+        return x2 / (x2 + (1 - x) * (1 - x));
+    }
+
+
+    public static float progressPoly3(float time,float duration,float partialRenderTicks) {
+        float x = animationFraction(time,duration,partialRenderTicks);
+        float x3 = x * x * x;
+        return x3 / (x3 + (1 - x) * (1 - x) * (1 - x));
+    }
+
+    public static float progressPolyN(float time,float duration,float partialRenderTicks, int n) {
+        double x = animationFraction(time,duration,partialRenderTicks);
+        double xi = Math.pow(x, n);
+        return (float) (xi / (xi + Math.pow(1.0D - x, n)));
+    }
+
+
+    public static float progressArcTan(float time,float duration,float partialRenderTicks) {
+        return (float) (0.5F + 0.49806510671F * Math.atan(3.14159265359D * (animationFraction(time,duration,partialRenderTicks) - 0.5D)));
+    }
+
+
+    public static float progressTemporary(float time,float duration,float partialRenderTicks) {
+        float x = 6.28318530718F * animationFraction(time,duration,partialRenderTicks);
+        return 0.5F - 0.5F * MathUtils.cos(x + MathUtils.sin(x));
+    }
+
+    public static float progressTemporaryFS(float time,float duration,float partialRenderTicks) {
+        float x = 3.14159265359F * animationFraction(time,duration,partialRenderTicks);
+        return MathUtils.sin(x + MathUtils.sin(x));
+    }
+
+    public static float progressTemporaryInversed(float time,float duration,float partialRenderTicks) {
+        float x = 6.28318530718F * animationFraction(time,duration,partialRenderTicks);
+        return 0.5F + 0.5F * MathUtils.cos(x + MathUtils.sin(x));
+    }
 }

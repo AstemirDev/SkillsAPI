@@ -22,7 +22,7 @@ public class StructureCommand {
         CommandArgument blockPos = CommandArgument.blockPos("position");
         CommandArgument rotation = CommandArgument.vector3("rotation");
         CommandArgument skipAir = CommandArgument.bool("skip-air");
-        builder.addVariant(new CommandVariant(name,blockPos,rotation,skipAir).execute((p)->{
+        builder.addVariant(new CommandVariant(blockPos,rotation,skipAir,name).execute((p)->{
             ServerLevel level = p.getSource().getLevel();
             try {
                 WESchematic schematic = new WESchematic(FileUtils.getResource(name.getString(p)+".schem"));
@@ -34,7 +34,7 @@ public class StructureCommand {
             }
             return 0;
         }));
-        builder.addVariant(new CommandVariant(name,blockPos,rotation).execute((p)->{
+        builder.addVariant(new CommandVariant(blockPos,rotation,name).execute((p)->{
             ServerLevel level = p.getSource().getLevel();
             try {
                 WESchematic schematic = new WESchematic(FileUtils.getResource(name.getString(p)+".schem"));
@@ -45,7 +45,7 @@ public class StructureCommand {
             }
             return 0;
         }));
-        builder.addVariant(new CommandVariant(name,blockPos).execute((p)->{
+        builder.addVariant(new CommandVariant(blockPos,name).execute((p)->{
             ServerLevel level = p.getSource().getLevel();
             try {
                 WESchematic schematic = new WESchematic(FileUtils.getResource(name.getString(p)+".schem"));

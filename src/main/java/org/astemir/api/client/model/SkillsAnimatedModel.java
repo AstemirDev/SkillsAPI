@@ -188,8 +188,7 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
                                     float animationDelta = smoothnessType.deltaCalculate(partialTicks, animation.getSmoothness());
                                     if (bone.getRotations() != null) {
                                         if (checkCanRotate(animated, argument,animation, bone)) {
-                                            rot = AnimationUtils.interpolatePointsCatmullRom(bone.getRotations(),rot,animationTick);
-                                            //rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(), animationTick), animationDelta);
+                                            rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(), animationTick), animationDelta);
                                         }
                                     }
                                     if (bone.getScales() != null) {

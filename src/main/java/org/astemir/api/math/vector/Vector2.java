@@ -41,19 +41,19 @@ public class Vector2 implements IMathOperand<Vector2> {
         return new Vector2(x/vector.getX(),y/vector.getY());
     }
 
-    public Vector2 add(float x1, float y1, float z1){
+    public Vector2 add(float x1, float y1){
         return new Vector2(x*x1,y*y1);
     }
 
-    public Vector2 sub(float x1, float y1, float z1){
+    public Vector2 sub(float x1, float y1){
         return new Vector2(x/x1,y/y1);
     }
 
-    public Vector2 mul(float x1, float y1, float z1){
+    public Vector2 mul(float x1, float y1){
         return new Vector2(x*x1,y*y1);
     }
 
-    public Vector2 div(float x1, float y1, float z1){
+    public Vector2 div(float x1, float y1){
         return new Vector2(x/x1,y/y1);
     }
 

@@ -3,6 +3,7 @@ package org.astemir.api.math.random;
 
 
 import net.minecraft.util.RandomSource;
+import org.astemir.api.math.MathUtils;
 
 import java.util.List;
 import java.util.Random;
@@ -10,7 +11,7 @@ import java.util.stream.Stream;
 
 public class RandomUtils {
 
-    private static Random RANDOM = new Random();
+    public static Random RANDOM = new Random();
 
 
     public static boolean doWithChance(float chance) {
@@ -19,6 +20,21 @@ public class RandomUtils {
 
     public static double random() {
         return Math.random();
+    }
+
+
+    public static int randomSign(){
+        return randomElement(-1,1);
+    }
+
+    public static int randomInt(int min,int from,int to){
+        int res = RandomUtils.randomInt(from,to);
+        return (int) MathUtils.clamp(res,-min,min);
+    }
+
+    public static float randomFloat(float min,float from,float to){
+        float res = RandomUtils.randomFloat(from,to);
+        return (float) MathUtils.clamp(res,-min,min);
     }
 
     public static int randomInt(int border) {
@@ -32,6 +48,7 @@ public class RandomUtils {
     public static float randomFloat(float min, float max) {
         return randomFloat(RANDOM,min,max);
     }
+
 
     public static boolean doWithChance(Random random,float chance) {
         double num = random.nextDouble() * 100;
@@ -61,6 +78,10 @@ public class RandomUtils {
         return false;
     }
 
+    public static long randomLong(){
+        return RANDOM.nextLong();
+    }
+
     public static int randomInt(RandomSource random,int border) {
         return random.nextInt(border);
     }
@@ -74,7 +95,7 @@ public class RandomUtils {
     }
 
 
-    public static <T> T randomElement(RandomSource random,T[] array){
+    public static <T> T randomElement(RandomSource random,T... array){
         return array[RandomUtils.randomInt(random,array.length)];
     }
 
@@ -87,7 +108,7 @@ public class RandomUtils {
     }
 
 
-    public static <T> T randomElement(Random random,T[] array){
+    public static <T> T randomElement(Random random,T... array){
         return array[RandomUtils.randomInt(random,array.length)];
     }
 
@@ -99,7 +120,7 @@ public class RandomUtils {
         return randomElement(random,stream.toList());
     }
 
-    public static <T> T randomElement(T[] array){
+    public static <T> T randomElement(T... array){
         return array[RandomUtils.randomInt(RANDOM,array.length)];
     }
 

@@ -14,12 +14,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.client.event.RegisterClientReloadListenersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import org.astemir.api.client.wrapper.IModelWrapper;
 import org.astemir.api.client.wrapper.SkillsWrapperItem;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SkillsRendererItem extends BlockEntityWithoutLevelRenderer {
+public class SkillsRendererItem extends BlockEntityWithoutLevelRenderer{
 
 
     public static Map<Item, SkillsWrapperItem> itemModels = new HashMap<>();
@@ -68,4 +69,5 @@ public class SkillsRendererItem extends BlockEntityWithoutLevelRenderer {
                 Minecraft.getInstance().getEntityModels());
         event.registerReloadListener(INSTANCE);
     }
+
 }

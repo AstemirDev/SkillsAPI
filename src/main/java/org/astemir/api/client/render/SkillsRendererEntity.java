@@ -17,13 +17,15 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.Mob;
+import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.client.wrapper.IModelWrapper;
 import org.astemir.api.client.wrapper.SkillsWrapperEntity;
 import org.astemir.api.common.misc.ICustomRendered;
 
 import java.util.List;
 
 
-public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends EntityModel<T>> extends EntityRenderer<T> {
+public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends EntityModel<T>> extends EntityRenderer<T> implements ISkillsRenderer<T, IDisplayArgument>{
 
     private SkillsWrapperEntity entityModelWrapper;
     private M model;
@@ -92,5 +94,10 @@ public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends E
             }
         }
         return false;
+    }
+
+    @Override
+    public IModelWrapper getModelWrapper() {
+        return entityModelWrapper;
     }
 }

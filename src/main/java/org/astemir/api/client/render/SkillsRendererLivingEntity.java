@@ -19,12 +19,14 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.level.LightLayer;
 import net.minecraft.world.phys.Vec3;
+import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.client.wrapper.IModelWrapper;
 import org.astemir.api.client.wrapper.SkillsWrapperEntity;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.jetbrains.annotations.Nullable;
 
 
-public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> {
+public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> implements ISkillsRenderer<T, IDisplayArgument>{
 
     private SkillsWrapperEntity entityModelWrapper;
 
@@ -127,5 +129,10 @@ public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered
         float f7 = p_174312_ * f;
         p_174308_.vertex(p_174309_, f5 - p_174319_, f6 + p_174318_, f7 + p_174320_).color(f2, f3, f4, 1.0F).uv2(k).endVertex();
         p_174308_.vertex(p_174309_, f5 + p_174319_, f6 + p_174317_ - p_174318_, f7 - p_174320_).color(f2, f3, f4, 1.0F).uv2(k).endVertex();
+    }
+
+    @Override
+    public IModelWrapper getModelWrapper() {
+        return entityModelWrapper;
     }
 }

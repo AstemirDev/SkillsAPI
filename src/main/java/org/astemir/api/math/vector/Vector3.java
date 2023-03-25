@@ -28,95 +28,21 @@ public class Vector3 implements IMathOperand<Vector3> {
     }
 
     @Override
-    public Vector3 copy(){
-        return new Vector3(x,y,z);
-    }
-
-    @Override
     public Vector3 add(Vector3 vector){
         return new Vector3(x+vector.getX(),y+vector.getY(),z+vector.getZ());
     }
 
     @Override
-    public Vector3 clamp(Vector3 min, Vector3 max) {
-        return new Vector3(MathUtils.clamp(x,min.x,max.x),MathUtils.clamp(y,min.y,max.y),MathUtils.clamp(z,min.z,max.z));
-    }
-
-    @Override
-    public Vector3 lerp(Vector3 vector, float t){
-        return new Vector3(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t),MathUtils.lerp(z,vector.getZ(),t));
-    }
-
-    public Vector3 rotLerp(Vector3 vector, float t){
-        return new Vector3(MathUtils.lerpRot(x,vector.getX(),t),MathUtils.lerpRot(y,vector.getY(),t),MathUtils.lerpRot(z,vector.getZ(),t));
-    }
-
-    public static Vector3 from(float x, float y, float z){
-        return new Vector3(x,y,z);
-    }
-
-    public static Vector3 from(BlockPos pos){
-        return new Vector3(pos.getX(),pos.getY(),pos.getZ());
-    }
-
-    public static Vector3 from(Vector3d vector) {
-        return Vector3.from((float)vector.x,(float)vector.y,(float)vector.z);
-    }
-
-    public static Vector3 from(Vec3 vector) {
-        return Vector3.from((float)vector.x,(float)vector.y,(float)vector.z);
-    }
-
-    public static Vector3 from(Vector3f vector) {
-        return Vector3.from(vector.x(),vector.y(),vector.z());
-    }
-
-    public static Vector3 rad(float x, float y, float z){
-        return new Vector3(MathUtils.rad(x),MathUtils.rad(y),MathUtils.rad(z));
-    }
-
-    public Vector3 rotateAroundX(double angle) {
-        double angleCos = Math.cos(angle);
-        double angleSin = Math.sin(angle);
-        double y = angleCos * getY() - angleSin * getZ();
-        double z = angleSin * getY() + angleCos * getZ();
-        return new Vector3(this.x,y,z);
-    }
-
-    public Vector3 rotateAroundY(double angle) {
-        double angleCos = Math.cos(angle);
-        double angleSin = Math.sin(angle);
-        double x = angleCos * getX() + angleSin * getZ();
-        double z = -angleSin * getX() + angleCos * getZ();
-        return new Vector3(x,y,z);
-    }
-
-    public Vector3 rotateAroundZ(double angle) {
-        double angleCos = Math.cos(angle);
-        double angleSin = Math.sin(angle);
-        double x = angleCos * getX() - angleSin * getY();
-        double y = angleSin * getX() + angleCos * getY();
-        return new Vector3(x,y,z);
-    }
-
-    public Vector3 add(Vector3 vector,float delta){
-        Vector3 newVector = new Vector3(x+vector.getX(),y+vector.getY(),z+vector.getZ());
-        return lerp(newVector,delta);
-    }
-
-    public double length() {
-        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
-    }
-
-
     public Vector3 sub(Vector3 vector){
         return new Vector3(x-vector.getX(),y-vector.getY(),z-vector.getZ());
     }
 
+    @Override
     public Vector3 mul(Vector3 vector){
         return new Vector3(x*vector.getX(),y*vector.getY(),z*vector.getZ());
     }
 
+    @Override
     public Vector3 div(Vector3 vector){
         return new Vector3(x/vector.getX(),y/vector.getY(),z/vector.getZ());
     }
@@ -126,7 +52,7 @@ public class Vector3 implements IMathOperand<Vector3> {
     }
 
     public Vector3 sub(float x1,float y1,float z1){
-        return new Vector3(x/x1,y/y1,z/z1);
+        return new Vector3(x-x1,y-y1,z-z1);
     }
 
     public Vector3 mul(float x1,float y1,float z1){
@@ -151,6 +77,26 @@ public class Vector3 implements IMathOperand<Vector3> {
 
     public Vector3 div(float t){
         return new Vector3(x/t,y/t,z/t);
+    }
+
+    @Override
+    public Vector3 clamp(Vector3 min, Vector3 max) {
+        return new Vector3(MathUtils.clamp(x,min.x,max.x),MathUtils.clamp(y,min.y,max.y),MathUtils.clamp(z,min.z,max.z));
+    }
+
+    @Override
+    public Vector3 lerp(Vector3 vector, float t){
+        return new Vector3(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t),MathUtils.lerp(z,vector.getZ(),t));
+    }
+
+
+    public Vector3 rotLerp(Vector3 vector, float t){
+        return new Vector3(MathUtils.lerpRot(x,vector.getX(),t),MathUtils.lerpRot(y,vector.getY(),t),MathUtils.lerpRot(z,vector.getZ(),t));
+    }
+
+
+    public double length() {
+        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
     }
 
 
@@ -178,6 +124,32 @@ public class Vector3 implements IMathOperand<Vector3> {
     public Vector3 directionWithoutNormalize(Vector3 vector){
         return vector.sub(this);
     }
+
+
+    public Vector3 rotateAroundX(double angle) {
+        double angleCos = Math.cos(angle);
+        double angleSin = Math.sin(angle);
+        double y = angleCos * getY() - angleSin * getZ();
+        double z = angleSin * getY() + angleCos * getZ();
+        return new Vector3(this.x,y,z);
+    }
+
+    public Vector3 rotateAroundY(double angle) {
+        double angleCos = Math.cos(angle);
+        double angleSin = Math.sin(angle);
+        double x = angleCos * getX() + angleSin * getZ();
+        double z = -angleSin * getX() + angleCos * getZ();
+        return new Vector3(x,y,z);
+    }
+
+    public Vector3 rotateAroundZ(double angle) {
+        double angleCos = Math.cos(angle);
+        double angleSin = Math.sin(angle);
+        double x = angleCos * getX() - angleSin * getY();
+        double y = angleSin * getX() + angleCos * getY();
+        return new Vector3(x,y,z);
+    }
+
 
     public Vector3 rotation(){
         Vector3 dir = normalize();
@@ -300,6 +272,37 @@ public class Vector3 implements IMathOperand<Vector3> {
     public boolean equalsApprox(Vector3 vector){
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y) && MathUtils.equalsApprox(z,vector.z);
     }
+
+
+    public static Vector3 from(float x, float y, float z){
+        return new Vector3(x,y,z);
+    }
+
+    public static Vector3 from(BlockPos pos){
+        return new Vector3(pos.getX(),pos.getY(),pos.getZ());
+    }
+
+    public static Vector3 from(Vector3d vector) {
+        return Vector3.from((float)vector.x,(float)vector.y,(float)vector.z);
+    }
+
+    public static Vector3 from(Vec3 vector) {
+        return Vector3.from((float)vector.x,(float)vector.y,(float)vector.z);
+    }
+
+    public static Vector3 from(Vector3f vector) {
+        return Vector3.from(vector.x(),vector.y(),vector.z());
+    }
+
+    public static Vector3 rad(float x, float y, float z){
+        return new Vector3(MathUtils.rad(x),MathUtils.rad(y),MathUtils.rad(z));
+    }
+
+    @Override
+    public Vector3 copy(){
+        return new Vector3(x,y,z);
+    }
+
 
     public CompoundTag toNbt(){
         CompoundTag tag = new CompoundTag();

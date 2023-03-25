@@ -3,6 +3,7 @@ package org.astemir.api.math.vector;
 import net.minecraft.nbt.CompoundTag;
 import org.astemir.api.math.IMathOperand;
 import org.astemir.api.math.MathUtils;
+import org.checkerframework.checker.units.qual.min;
 
 public class Vector2 implements IMathOperand<Vector2> {
 
@@ -19,24 +20,22 @@ public class Vector2 implements IMathOperand<Vector2> {
         this.y = (float)y;
     }
 
-
+    @Override
     public Vector2 add(Vector2 vector){
         return new Vector2(x+vector.getX(),y+vector.getY());
     }
 
-    public Vector2 add(Vector2 vector, float delta){
-        Vector2 newVector = new Vector2(x+vector.getX(),y+vector.getY());
-        return interpolate(newVector,delta);
-    }
-
+    @Override
     public Vector2 sub(Vector2 vector){
         return new Vector2(x-vector.getX(),y-vector.getY());
     }
 
+    @Override
     public Vector2 mul(Vector2 vector){
         return new Vector2(x*vector.getX(),y*vector.getY());
     }
 
+    @Override
     public Vector2 div(Vector2 vector){
         return new Vector2(x/vector.getX(),y/vector.getY());
     }
@@ -46,7 +45,7 @@ public class Vector2 implements IMathOperand<Vector2> {
     }
 
     public Vector2 sub(float x1, float y1){
-        return new Vector2(x/x1,y/y1);
+        return new Vector2(x-x1,y-y1);
     }
 
     public Vector2 mul(float x1, float y1){
@@ -77,15 +76,6 @@ public class Vector2 implements IMathOperand<Vector2> {
         return MathUtils.sqrt(x*x+y*y);
     }
 
-    public Vector2 normalize(){
-        float magnitude = magnitude();
-        if (magnitude > 0) {
-            return div(magnitude);
-        }else{
-            return new Vector2(x,y);
-        }
-    }
-
     public Vector2 direction(Vector2 vector){
         return vector.sub(this).normalize();
     }
@@ -94,52 +84,18 @@ public class Vector2 implements IMathOperand<Vector2> {
         return vector.sub(this);
     }
 
-
-    public Vector2 rotation(){
-        Vector2 dir = normalize();
-        return new Vector2(MathUtils.cos(dir.x),MathUtils.sin(dir.y));
-    }
-
-
     public float distanceTo(Vector2 vector){
         return MathUtils.sqrt(distanceToSquared(vector));
     }
 
-    public float distanceToSquared(Vector2 vector){
-        float resX = (this.x-vector.x)*(this.x-vector.x);
-        float resY = (this.y-vector.y)*(this.y-vector.y);
-        return resX+resY;
-    }
-
-    public Vector2 rotationDegrees(){
-        Vector2 dir = normalize();
-        return new Vector2(MathUtils.deg(MathUtils.cos(dir.x)),MathUtils.deg(MathUtils.sin(dir.y)));
-    }
-
-    public Vector2 interpolate(Vector2 vector, float t){
-        return new Vector2(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t));
-    }
-
-
-    public Vector2 clamp(Vector2 min, Vector2 max) {
-        return new Vector2(MathUtils.clamp(x,min.x,max.x),MathUtils.clamp(y,min.y,max.y));
-    }
-
-    public static Vector2 create(float x, float y){
-        return new Vector2(x,y);
-    }
-
-    public static Vector2 rad(float x, float y){
-        return new Vector2(MathUtils.rad(x),MathUtils.rad(y));
-    }
-
+    @Override
     public Vector2 lerp(Vector2 vector, float t){
         return new Vector2(MathUtils.lerp(x,vector.getX(),t),MathUtils.lerp(y,vector.getY(),t));
     }
 
     @Override
-    public Vector2 copy() {
-        return new Vector2(x,y);
+    public Vector2 clamp(Vector2 min, Vector2 max) {
+        return new Vector2(MathUtils.clamp(x, min.x,max.x),MathUtils.clamp(y,min.y,max.y));
     }
 
     public Vector2 catmullrom(Vector2 previous,Vector2 next,Vector2 nextNext,float f){
@@ -153,7 +109,6 @@ public class Vector2 implements IMathOperand<Vector2> {
         return new Vector2(x,y);
     }
 
-
     public Vector2 rotLerp(Vector2 vector, float t){
         return new Vector2(MathUtils.lerpRot(x,vector.getX(),t),MathUtils.lerpRot(y,vector.getY(),t));
     }
@@ -164,6 +119,44 @@ public class Vector2 implements IMathOperand<Vector2> {
 
     public Vector2 wrapRadians(){
         return new Vector2(MathUtils.wrapRadians(x),MathUtils.wrapRadians(y));
+    }
+
+    public Vector2 rotation(){
+        Vector2 dir = normalize();
+        return new Vector2(MathUtils.cos(dir.x),MathUtils.sin(dir.y));
+    }
+
+    public Vector2 rotationDegrees(){
+        Vector2 dir = normalize();
+        return new Vector2(MathUtils.deg(MathUtils.cos(dir.x)),MathUtils.deg(MathUtils.sin(dir.y)));
+    }
+
+    public float distanceToSquared(Vector2 vector){
+        float resX = (this.x-vector.x)*(this.x-vector.x);
+        float resY = (this.y-vector.y)*(this.y-vector.y);
+        return resX+resY;
+    }
+
+    public Vector2 normalize() {
+        float magnitude = magnitude();
+        if (magnitude > 0) {
+            return div(magnitude);
+        } else {
+            return new Vector2(x, y);
+        }
+    }
+
+
+    public static Vector2 create(float x, float y){
+        return new Vector2(x,y);
+    }
+
+    public static Vector2 rad(float x, float y){
+        return new Vector2(MathUtils.rad(x),MathUtils.rad(y));
+    }
+
+    public static Vector2 deg(float x, float y){
+        return new Vector2(MathUtils.deg(x),MathUtils.deg(y));
     }
 
     public boolean equalsApprox(Vector2 vector){
@@ -195,6 +188,11 @@ public class Vector2 implements IMathOperand<Vector2> {
 
     public static Vector2 one(){
         return new Vector2(1,1);
+    }
+
+    @Override
+    public Vector2 copy() {
+        return new Vector2(x,y);
     }
 
     public float getX() {

@@ -1,5 +1,6 @@
 package org.astemir.api.mixin.client;
 
+import com.mojang.blaze3d.pipeline.RenderTarget;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.*;
@@ -39,6 +40,11 @@ public abstract class MixinLevelRenderer {
     @Shadow @Final private static ResourceLocation MOON_LOCATION;
     @Shadow @Nullable private VertexBuffer starBuffer;
     @Shadow @Nullable private VertexBuffer darkBuffer;
+
+    @Shadow public abstract boolean shouldShowEntityOutlines();
+
+    @Shadow @Nullable private RenderTarget entityTarget;
+
 
     /**
      * @author
@@ -171,4 +177,5 @@ public abstract class MixinLevelRenderer {
             }
         }
     }
+
 }

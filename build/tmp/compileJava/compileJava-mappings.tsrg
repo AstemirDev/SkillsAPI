@@ -27,6 +27,7 @@ org/astemir/api/mixin/client/MixinLevelRenderer SUN_LOCATION f_109455_
 org/astemir/api/mixin/client/MixinLevelRenderer MOON_LOCATION f_109454_
 org/astemir/api/mixin/client/MixinLevelRenderer starBuffer f_109471_
 org/astemir/api/mixin/client/MixinLevelRenderer darkBuffer f_109473_
+org/astemir/api/mixin/client/MixinLevelRenderer entityTarget f_109411_
 org/astemir/api/mixin/client/MixinCamera setRotation (FF)V m_90572_
 org/astemir/api/mixin/client/MixinCamera setPosition (DDD)V m_90584_
 org/astemir/api/mixin/client/MixinCamera move (DDD)V m_90568_
@@ -40,4 +41,5 @@ org/astemir/api/mixin/client/MixinClientLevel getCloudColor (F)Lnet/minecraft/wo
 org/astemir/api/mixin/client/MixinClientLevel getStarBrightness (F)F m_104811_
 org/astemir/api/mixin/client/MixinLevelRenderer doesMobEffectBlockSky (Lnet/minecraft/client/Camera;)Z m_234310_
 org/astemir/api/mixin/client/MixinLevelRenderer renderEndSky (Lcom/mojang/blaze3d/vertex/PoseStack;)V m_109780_
+org/astemir/api/mixin/client/MixinLevelRenderer shouldShowEntityOutlines ()Z m_109817_
 org/astemir/api/mixin/client/MixinLevelRenderer renderSky (Lcom/mojang/blaze3d/vertex/PoseStack;Lcom/mojang/math/Matrix4f;FLnet/minecraft/client/Camera;ZLjava/lang/Runnable;)V m_202423_

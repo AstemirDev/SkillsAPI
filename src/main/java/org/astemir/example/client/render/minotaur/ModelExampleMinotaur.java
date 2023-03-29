@@ -1,7 +1,11 @@
 package org.astemir.example.client.render.minotaur;
 
+import com.lowdragmc.shimmer.client.ShimmerRenderTypes;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.client.render.RenderCall;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.animation.InterpolationType;
 import org.astemir.api.client.animation.SmoothnessType;
@@ -9,6 +13,7 @@ import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.model.SkillsAnimatedModel;
 import org.astemir.api.utils.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
+
 
 
 public class ModelExampleMinotaur extends SkillsAnimatedModel<EntityExampleMinotaur,IDisplayArgument> {
@@ -30,6 +35,11 @@ public class ModelExampleMinotaur extends SkillsAnimatedModel<EntityExampleMinot
 		if (head != null) {
 			lookAt(head, headPitch, headYaw);
 		}
+	}
+
+	@Override
+	public void renderModel(PoseStack stack, VertexConsumer vertexConsumer, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha, RenderCall renderCall, boolean resetBuffer) {
+		super.renderModel(stack, vertexConsumer, packedLightIn, packedOverlayIn, red, green, blue, alpha, renderCall, resetBuffer);
 	}
 
 	@Override

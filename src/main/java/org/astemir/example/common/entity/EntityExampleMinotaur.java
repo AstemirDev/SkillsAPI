@@ -1,5 +1,8 @@
 package org.astemir.example.common.entity;
 
+import com.lowdragmc.shimmer.client.light.ColorPointLight;
+import com.lowdragmc.shimmer.client.light.LightManager;
+import com.mojang.math.Vector3f;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.ai.control.BodyRotationControl;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
@@ -16,6 +19,9 @@ import org.astemir.api.common.entity.ai.SmartPathNavigateGround;
 import org.astemir.api.common.entity.ai.AITaskSystem;
 import org.astemir.api.common.entity.ai.ICustomAIEntity;
 import org.astemir.api.common.entity.ai.tasks.AITaskAttack;
+import org.astemir.api.math.vector.Vector3;
+
+import java.awt.*;
 
 import static org.astemir.api.common.entity.utils.EntityUtils.isMoving;
 
@@ -78,6 +84,7 @@ public class EntityExampleMinotaur extends Monster implements ISkillsMob, ICusto
     protected BodyRotationControl createBodyControl() {
         return new BodyRotationControl(this);
     }
+
 
     @Override
     public void tick() {

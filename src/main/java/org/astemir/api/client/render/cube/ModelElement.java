@@ -1,6 +1,7 @@
 package org.astemir.api.client.render.cube;
 
 
+import com.lowdragmc.shimmer.client.shader.RenderUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Matrix3f;
@@ -9,6 +10,7 @@ import com.mojang.math.Vector3f;
 import com.mojang.math.Vector4f;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import it.unimi.dsi.fastutil.objects.ObjectList;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelPart;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.model.SkillsModel;
@@ -146,21 +148,22 @@ public class ModelElement {
     public void render(SkillsModel model, PoseStack matrixStackIn, VertexConsumer bufferIn, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha, RenderCall renderCall, boolean resetBuffer) {
         if (this.showModel) {
             matrixStackIn.pushPose();
-            matrixStackIn.scale(scaleX,scaleY,scaleZ);
+            if (scaleX != 1.0F || scaleY != 1.0F || scaleZ != 1.0F) {
+                matrixStackIn.scale(scaleX, scaleY, scaleZ);
+            }
+
             matrixStackIn.translate(positionX/16.0f,-positionY/16.0f,positionZ/16.0f);
-            matrixStackIn.pushPose();
-            this.translateRotate(matrixStackIn);
+            translateRotate(matrixStackIn);
             model.onRenderModelCube(this,matrixStackIn,bufferIn,renderCall,packedLightIn,packedOverlayIn,red,green,blue,alpha);
             if (resetBuffer) {
                 bufferIn = model.returnDefaultBuffer();
             }
             if (!this.cubeList.isEmpty() || !this.childModels.isEmpty()) {
-                this.doRender(matrixStackIn.last(), bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
+                doRender(matrixStackIn.last(), bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha);
                 for(ModelElement modelRenderer : this.childModels) {
                     modelRenderer.render(model,matrixStackIn, bufferIn, packedLightIn, packedOverlayIn, red, green, blue, alpha,renderCall,resetBuffer);
                 }
             }
-            matrixStackIn.popPose();
             matrixStackIn.popPose();
         }
     }

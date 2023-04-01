@@ -37,8 +37,8 @@ ao:0
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:["vanilla","mod_resources","file/shaders test"]
-incompatibleResourcePacks:["file/shaders test"]
+resourcePacks:["vanilla","mod_resources"]
+incompatibleResourcePacks:[]
 lastServer:
 lang:ru_ru
 soundDevice:""

@@ -2,7 +2,7 @@ Java Launcher: /Users/astemirkerefov/Library/Java/JavaVirtualMachines/liberica-1
 Arguments: '--in-jar, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/libs/skillsapi-1.3.jar, --out-jar, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/reobfJar/output.jar, --srg-in, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createMcpToSrg/output.tsrg, --srg-in, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/tmp/compileJava/compileJava-mappings.tsrg, --live'
 Classpath:
  - /Users/astemirkerefov/.gradle/caches/forge_gradle/maven_downloader/net/md-5/SpecialSource/1.11.0/SpecialSource-1.11.0-shaded.jar
- - /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge-1.19.1/0.1.12_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.1-0.1.12_mapped_parchment_2022.08.14-1.19.2.jar
+ - /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
  - /Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar
  - /Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_repo/versions/1.19.2/client-extra.jar
  - /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlloader/1.19.2-43.1.43/3e760d8e6bfb30ecb218332a1d695b42f5025f0f/fmlloader-1.19.2-43.1.43.jar

@@ -4,8 +4,10 @@ package org.astemir.example.client.render.minotaur;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.wrapper.SkillsWrapperEntity;
 import org.astemir.api.client.model.SkillsModel;
+import org.astemir.api.math.vector.Vector3;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
 public class WrapperExampleMinotaur extends SkillsWrapperEntity<EntityExampleMinotaur> {

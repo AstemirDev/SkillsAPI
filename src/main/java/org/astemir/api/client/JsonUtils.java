@@ -71,7 +71,7 @@ public class JsonUtils {
                         Vector3 pos = getBedrockOrigin(boneJson, cubeJson);
                         Vector3 size = JsonUtils.getVec3OrDefault(cubeJson, "size", false, new Vector3(0, 0, 0));
                         Vector3 cubeRotation = JsonUtils.getVec3OrDefault(cubeJson, "rotation", true, new Vector3(0, 0, 0));
-                        Vector3 cubePivot = getBedrockPivotCube(bonesJson,cubeJson,isRoot);
+                        Vector3 cubePivot = JsonUtils.getVec3OrDefault(cubeJson,"pivot",false,new Vector3(0,0,0));
                         double inflate = JsonUtils.getDoubleOrDefault(cubeJson, "inflate", 0);
                         boolean mirror = JsonUtils.getBoolOrDefault(cubeJson, "mirror", false);
                         JsonElement uvElement = cubeJson.get("uv");
@@ -203,25 +203,6 @@ public class JsonUtils {
         Vector3 myPos = JsonUtils.getVec3OrDefault(cube, "origin", false, new Vector3(0, 0, 0));
         Vector3 mySize = JsonUtils.getVec3OrDefault(cube, "size", false, new Vector3(0, 0, 0));
         return new Vector3(myPos.x-myPivot.x,-myPos.y-mySize.y+myPivot.y, myPos.z-myPivot.z);
-    }
-
-
-    public static Vector3 getBedrockPivotCube(JsonArray bones,JsonObject cubeJson,boolean isRoot){
-        Vector3 myPivot = JsonUtils.getVec3OrDefault(cubeJson,"pivot",false,new Vector3(0,0,0));
-        if (!isRoot) {
-            for (JsonElement otherBone : bones) {
-                JsonObject otherBoneJson = otherBone.getAsJsonObject();
-                if (otherBoneJson.has("cubes")) {
-                    for (JsonElement cubeElement : otherBoneJson.get("cubes").getAsJsonArray()) {
-                        if (cubeElement.getAsJsonObject().equals(cubeJson)) {
-                            Vector3 parentPivot = JsonUtils.getVec3OrDefault(otherBoneJson, "pivot", false, new Vector3(0, 0, 0));
-                            return new Vector3(myPivot.x - parentPivot.x, -(myPivot.y - parentPivot.y), myPivot.z - parentPivot.z);
-                        }
-                    }
-                }
-            }
-        }
-        return new Vector3(myPivot.x, 24-myPivot.y,myPivot.z);
     }
 
 

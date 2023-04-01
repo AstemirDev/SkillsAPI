@@ -1,13 +1,11 @@
 package org.astemir.api.client;
 
 
-import com.lowdragmc.shimmer.client.ShimmerRenderTypes;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import com.mojang.blaze3d.vertex.VertexFormat;
 import net.minecraft.Util;
 import net.minecraft.client.renderer.RenderStateShard;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.ShaderInstance;
 import net.minecraft.resources.ResourceLocation;
 
 import java.util.function.Function;
@@ -44,28 +42,5 @@ public class SkillsRenderTypes extends RenderType{
     public static RenderType eyesBlurry(ResourceLocation p_110489_) {
         return EYES_BLURRY.apply(p_110489_);
     }
-
-    private static final ShaderStateShard RENDERTYPE_BLOOM_SHADER = new ShaderStateShard(() -> ShimmerRenderTypes.EmissiveArmorRenderType.emissiveArmorGlintShader);
-
-    public static RenderType testBloom(ResourceLocation loc){
-        RenderStateShard.TextureStateShard textureStateShard = new RenderStateShard.TextureStateShard(loc, false, false);
-        return RenderType.create("testBloom",
-                DefaultVertexFormat.NEW_ENTITY,
-                VertexFormat.Mode.QUADS,
-                256,
-                false,
-                true,
-                RenderType.CompositeState.builder().
-                        setShaderState(RENDERTYPE_BLOOM_SHADER).
-                        setCullState(NO_CULL).
-                        setTextureState(textureStateShard).
-                        setLightmapState(LIGHTMAP).
-                        setOverlayState(OVERLAY).
-                        setLayeringState(VIEW_OFFSET_Z_LAYERING).
-                        setTransparencyState(RenderStateShard.TRANSLUCENT_TRANSPARENCY).
-                        setWriteMaskState(RenderStateShard.COLOR_WRITE).
-                        createCompositeState(true));
-    }
-
 
 }

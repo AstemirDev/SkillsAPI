@@ -11,6 +11,8 @@ import org.astemir.api.common.animation.objects.IAnimated;
 import org.astemir.api.math.Transform;
 import org.astemir.api.math.vector.Vector3;
 import org.astemir.api.client.JsonUtils;
+import org.astemir.example.common.entity.EntityExampleMinotaur;
+
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Function;

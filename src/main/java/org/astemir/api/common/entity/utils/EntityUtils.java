@@ -6,6 +6,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -167,6 +168,11 @@ public class EntityUtils {
         vec31 = vec31.normalize();
         double d1 = vec3.dot(vec31);
         return d1 > 1.0D - d / d0 ? looker.hasLineOfSight(entity) : false;
+    }
+
+
+    public static <T extends Entity> List<T> getEntities(EntityType<T> type, Level level, BlockPos pos, float radius, Predicate<? super T> predicate){
+        return level.getEntities(type,new AABB(pos).inflate(radius),predicate);
     }
 
     public static <T extends Entity> List<T> getEntities(Class<T> entityClass, Level level, BlockPos pos, float radius, Predicate<? super T> predicate){

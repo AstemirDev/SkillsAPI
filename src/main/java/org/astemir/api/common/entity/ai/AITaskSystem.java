@@ -3,24 +3,29 @@ package org.astemir.api.common.entity.ai;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import org.astemir.api.common.entity.ai.tasks.AITask;
 import org.astemir.api.common.entity.ai.triggers.TaskTrigger;
+import org.astemir.api.common.entity.utils.EntityUtils;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Predicate;
 
 public class AITaskSystem {
 
     private List<AITask> tasks = new ArrayList<>();
+    private List<Entity> sensedEntities = new CopyOnWriteArrayList<>();
     private CopyOnWriteArrayList<AITask> runningTasks = new CopyOnWriteArrayList<>();
+    private Map<EntityType,Integer> senseForEntities = new HashMap<>();
     private Mob entity;
     private AIHelper aiHelper = new AIHelper(this);
-
+    private float updateSensedEntitiesTime = 20;
 
     public AITaskSystem(Mob entity) {
         this.entity = entity;
@@ -85,6 +90,10 @@ public class AITaskSystem {
 
     public void update(){
         if (!entity.isNoAi()) {
+            if (entity.tickCount % updateSensedEntitiesTime == 0) {
+                float followRange = (float) entity.getAttributeValue(Attributes.FOLLOW_RANGE);
+                sensedEntities = EntityUtils.getEntities(Entity.class, entity.level, entity.blockPosition(), followRange, (testEntity) -> senseForEntities.containsKey(testEntity.getType()));
+            }
             for (AITask runningTask : runningTasks) {
                 if (runningTask.isRunning()) {
                     if (runningTask.canContinue() && !runningTask.isConflictingWithOtherTask()) {
@@ -162,6 +171,32 @@ public class AITaskSystem {
         }
         return null;
     }
+
+    public AITaskSystem senseUpdateTime(float updateSensedEntitiesTime) {
+        this.updateSensedEntitiesTime = updateSensedEntitiesTime;
+        return this;
+    }
+
+    public List<Entity> getSensedEntities() {
+        return sensedEntities;
+    }
+
+    public <T extends Entity> T getNearbyEntity(Class<T> entityClass, Predicate<Entity> predicate){
+        T nearbyEntity = null;
+        for (Entity sensedEntity : sensedEntities) {
+            if (sensedEntity.getClass() == entityClass && predicate.test(sensedEntity)){
+                if (nearbyEntity == null) {
+                    nearbyEntity = (T) sensedEntity;
+                }else{
+                    if (sensedEntity.distanceTo(entity) < nearbyEntity.distanceTo(entity)){
+                        nearbyEntity = (T) sensedEntity;
+                    }
+                }
+            }
+        }
+        return nearbyEntity;
+    }
+
 
     public List<AITask> getTasks() {
         return tasks;

@@ -1,4 +1,4 @@
-package org.astemir.api.math;
+package org.astemir.api.math.noise;
 
 
 import java.util.Random;

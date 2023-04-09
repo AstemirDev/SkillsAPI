@@ -59,10 +59,10 @@ public class CodeUtils {
         for (AnimationTrack animationTrack : model.animations) {
             StringBuilder builder = new StringBuilder();
             String animName = "ANIMATION_"+StringUtils.substringAfterLast(animationTrack.getName(),".").toUpperCase();
-            builder.append("public static Mark ");
+            builder.append("public static Animation ");
             builder.append(animName);
             builder.append(" = ");
-            builder.append("new Mark(");
+            builder.append("new Animation(");
             builder.append("\"");
             builder.append(animationTrack.getName());
             builder.append("\"");
@@ -73,7 +73,7 @@ public class CodeUtils {
                 builder.append(".loop()");
             }
             if (animationTrack.getLoop() == Animation.Loop.HOLD_ON_LAST_FRAME){
-                builder.append(".loop(Mark.Loop.HOLD_ON_LAST_FRAME)");
+                builder.append(".loop(Animation.Loop.HOLD_ON_LAST_FRAME)");
             }
             builder.append(".smoothness(1)");
             builder.append(";");
@@ -81,7 +81,7 @@ public class CodeUtils {
             System.out.println(builder.toString());
         }
         StringBuilder builder = new StringBuilder();
-        builder.append("public static AnimationFactory animationFactory = new AnimationFactory(this,new AnimationList(");
+        builder.append("public AnimationFactory animationFactory = new AnimationFactory(this,");
         for (int i = 0; i < animations.size(); i++) {
             String animation = animations.get(i);
             builder.append(animation);
@@ -89,7 +89,7 @@ public class CodeUtils {
                 builder.append(",");
             }
         }
-        builder.append("));");
+        builder.append(");");
         System.out.println(builder.toString());
     }
 }

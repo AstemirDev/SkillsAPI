@@ -7,6 +7,7 @@ import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import org.astemir.api.lib.shimmer.ShimmerLib;
 import org.astemir.api.math.vector.Vector3;
 import org.astemir.api.math.random.RandomUtils;
 
@@ -40,6 +41,20 @@ public class ParticleEmitter {
         for (int i = 0;i<count;i++) {
             Vector3 pos = new Vector3(position.getX()+offset.x, position.getY()+offset.y, position.getZ()+offset.z);
             level.addParticle(particle, pos.getX(),pos.getY(),pos.getZ(), speed.getX(), speed.getY(), speed.getZ());
+        }
+    }
+
+    public void emitPost(Level level,Vector3 position,Vector3 speed){
+        for (int i = 0;i<count;i++) {
+            Vector3 pos = new Vector3(position.getX()+getXOffset(), position.getY()+getYOffset(), position.getZ()+getZOffset());
+            ShimmerLib.spawnParticle(particle, pos.getX(),pos.getY(),pos.getZ(), speed.getX(), speed.getY(), speed.getZ());
+        }
+    }
+
+    public static void emitPost(ParticleOptions particle,Level level,Vector3 position,Vector3 offset,Vector3 speed,int count){
+        for (int i = 0;i<count;i++) {
+            Vector3 pos = new Vector3(position.getX()+offset.x, position.getY()+offset.y, position.getZ()+offset.z);
+            ShimmerLib.spawnParticle(particle, pos.getX(),pos.getY(),pos.getZ(), speed.getX(), speed.getY(), speed.getZ());
         }
     }
 

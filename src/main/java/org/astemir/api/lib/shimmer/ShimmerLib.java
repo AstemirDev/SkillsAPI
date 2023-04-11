@@ -19,6 +19,7 @@ import org.astemir.api.lib.ModLib;
 public class ShimmerLib extends ModLib {
 
     public static final ShimmerLib INSTANCE = new ShimmerLib();
+
     public static int LIGHT_UNSHADED = 15728640;
 
     public ShimmerLib() {

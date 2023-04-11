@@ -1,282 +1,282 @@
-[01апр.2023 13:00:05.843] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 43.1.43, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853, --mixin.config, skillsapi.mixins.json]
-[01апр.2023 13:00:05.848] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.6 by BellSoft; OS Mac OS X arch aarch64 version 13.0.1
-[01апр.2023 13:00:05.866] [main/DEBUG] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Found launch services [fmlclientdev,forgeclient,minecraft,forgegametestserverdev,fmlserveruserdev,fmlclient,fmldatauserdev,forgeserverdev,forgeserveruserdev,forgeclientdev,forgeclientuserdev,forgeserver,forgedatadev,fmlserver,fmlclientuserdev,fmlserverdev,forgedatauserdev,testharness,forgegametestserveruserdev]
-[01апр.2023 13:00:05.876] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Found naming services : [srgtomcp]
-[01апр.2023 13:00:05.886] [main/DEBUG] [cpw.mods.modlauncher.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [mixin,eventbus,slf4jfixer,object_holder_definalize,runtime_enum_extender,capability_token_subclass,accesstransformer,runtimedistcleaner]
-[01апр.2023 13:00:05.895] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
-[01апр.2023 13:00:05.902] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: 
-[01апр.2023 13:00:05.909] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : [mixin,fml]
-[01апр.2023 13:00:05.909] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
-[01апр.2023 13:00:05.910] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service mixin
-[01апр.2023 13:00:05.910] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service mixin
-[01апр.2023 13:00:05.910] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service fml
-[01апр.2023 13:00:05.913] [main/DEBUG] [net.minecraftforge.fml.loading.LauncherVersion/CORE]: Found FMLLauncher version 1.0
-[01апр.2023 13:00:05.913] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML 1.0 loading
-[01апр.2023 13:00:05.913] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found ModLauncher version : 10.0.8+10.0.8+main.0ef7e830
-[01апр.2023 13:00:05.914] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found AccessTransformer version : 8.0.4+66+master.c09db6d7
-[01апр.2023 13:00:05.915] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found EventBus version : 6.0.3+6.0.3+master.039e4ea9
-[01апр.2023 13:00:05.915] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found Runtime Dist Cleaner
-[01апр.2023 13:00:05.916] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found CoreMod version : 5.0.1+15+master.dc5a2922
-[01апр.2023 13:00:05.917] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package implementation version 6.0.0+6.0.0+master.42474703
-[01апр.2023 13:00:05.917] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package specification 5
-[01апр.2023 13:00:05.919] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service fml
-[01апр.2023 13:00:05.920] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
-[01апр.2023 13:00:05.924] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
-[01апр.2023 13:00:05.924] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service mixin
-[01апр.2023 13:00:05.937] [main/DEBUG] [mixin/]: MixinService [ModLauncher] was successfully booted in cpw.mods.cl.ModuleClassLoader@3b2c72c2
-[01апр.2023 13:00:05.951] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23119!/ Service=ModLauncher Env=CLIENT
-[01апр.2023 13:00:05.954] [main/DEBUG] [mixin/]: Initialising Mixin Platform Manager
-[01апр.2023 13:00:05.955] [main/DEBUG] [mixin/]: Adding mixin platform agents for container ModLauncher Root Container(ModLauncher:4f56a0a2)
-[01апр.2023 13:00:05.956] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for ModLauncher Root Container(ModLauncher:4f56a0a2)
-[01апр.2023 13:00:05.956] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container ModLauncher Root Container(ModLauncher:4f56a0a2)
-[01апр.2023 13:00:05.957] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for ModLauncher Root Container(ModLauncher:4f56a0a2)
-[01апр.2023 13:00:05.957] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container ModLauncher Root Container(ModLauncher:4f56a0a2)
-[01апр.2023 13:00:05.959] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service mixin
-[01апр.2023 13:00:05.959] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service fml
-[01апр.2023 13:00:05.959] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Setting up basic FML game directories
-[01апр.2023 13:00:05.960] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing GAMEDIR directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run
-[01апр.2023 13:00:05.961] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path GAMEDIR is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run
-[01апр.2023 13:00:05.961] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing MODSDIR directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/mods
-[01апр.2023 13:00:05.961] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path MODSDIR is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/mods
-[01апр.2023 13:00:05.961] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing CONFIGDIR directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config
-[01апр.2023 13:00:05.961] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path CONFIGDIR is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config
-[01апр.2023 13:00:05.962] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path FMLCONFIG is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/fml.toml
-[01апр.2023 13:00:05.962] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading configuration
-[01апр.2023 13:00:06.000] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing default config directory directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/defaultconfigs
-[01апр.2023 13:00:06.001] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing ModFile
-[01апр.2023 13:00:06.003] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing launch handler
-[01апр.2023 13:00:06.003] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Using forgeclientuserdev as launch service
-[01апр.2023 13:00:06.016] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Received command line version data  : VersionInfo[forgeVersion=43.1.43, mcVersion=1.19.2, mcpVersion=20220805.130853, forgeGroup=net.minecraftforge]
-[01апр.2023 13:00:06.017] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service fml
-[01апр.2023 13:00:06.018] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Current naming domain is 'mcp'
-[01апр.2023 13:00:06.018] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Identified name mapping providers {srg=srgtomcp:1234}
-[01апр.2023 13:00:06.018] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
-[01апр.2023 13:00:06.019] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service mixin
-[01апр.2023 13:00:06.019] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service mixin
-[01апр.2023 13:00:06.019] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service fml
-[01апр.2023 13:00:06.019] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Initiating mod scan
-[01апр.2023 13:00:06.029] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModListHandler/CORE]: Found mod coordinates from lists: []
-[01апр.2023 13:00:06.031] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Mod Locators : (mods folder:null),(maven libs:null),(exploded directory:null),(minecraft:null),(userdev classpath:null)
-[01апр.2023 13:00:06.031] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Dependency Locators : (JarInJar:null)
-[01апр.2023 13:00:06.034] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Got mod coordinates examplemod%%/Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources:examplemod%%/Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/classes from env
-[01апр.2023 13:00:06.036] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{examplemod=[/Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/classes]}]
-[01апр.2023 13:00:06.267] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar with {minecraft} mods - versions {1.19.2}
-[01апр.2023 13:00:06.269] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar
-[01апр.2023 13:00:06.269] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.270] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar
-[01апр.2023 13:00:06.270] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.271] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar
-[01апр.2023 13:00:06.271] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.272] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar
-[01апр.2023 13:00:06.273] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.275] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
-[01апр.2023 13:00:06.280] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file resources with {skillsapi} mods - versions {1.3}
-[01апр.2023 13:00:06.284] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
-[01апр.2023 13:00:06.287] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {43.1.43}
-[01апр.2023 13:00:06.302] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
-[01апр.2023 13:00:06.303] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with {shimmer} mods - versions {1.19.2-0.1.14}
-[01апр.2023 13:00:06.304] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
-[01апр.2023 13:00:06.305] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with {shimmer} mods - versions {1.19.2-0.1.14}
-[01апр.2023 13:00:06.314] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid shimmer, selecting most recent based on version data
-[01апр.2023 13:00:06.314] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar for modid shimmer with version 1.19.2-0.1.14
-[01апр.2023 13:00:06.320] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar, it does not contain dependency information.
-[01апр.2023 13:00:06.320] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from resources, it does not contain dependency information.
-[01апр.2023 13:00:06.320] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from , it does not contain dependency information.
-[01апр.2023 13:00:06.321] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from mclanguage-1.19.2-43.1.43.jar, it does not contain dependency information.
-[01апр.2023 13:00:06.321] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from javafmllanguage-1.19.2-43.1.43.jar, it does not contain dependency information.
-[01апр.2023 13:00:06.321] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from fmlcore-1.19.2-43.1.43.jar, it does not contain dependency information.
-[01апр.2023 13:00:06.321] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from lowcodelanguage-1.19.2-43.1.43.jar, it does not contain dependency information.
-[01апр.2023 13:00:06.369] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from MixinExtras-0.1.0.jar, it does not contain dependency information.
-[01апр.2023 13:00:06.391] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
-[01апр.2023 13:00:06.392] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar with {minecraft} mods - versions {1.19.2}
-[01апр.2023 13:00:06.395] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar with languages [LanguageSpec[languageName=minecraft, acceptedVersions=1]]
-[01апр.2023 13:00:06.396] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
-[01апр.2023 13:00:06.397] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file resources with {skillsapi} mods - versions {1.3}
-[01апр.2023 13:00:06.397] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources with languages [LanguageSpec[languageName=javafml, acceptedVersions=[43,)]]
-[01апр.2023 13:00:06.397] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
-[01апр.2023 13:00:06.398] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {43.1.43}
-[01апр.2023 13:00:06.398] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file / with languages [LanguageSpec[languageName=javafml, acceptedVersions=[24,]]]
-[01апр.2023 13:00:06.400] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_method with Javascript path coremods/field_to_method.js
-[01апр.2023 13:00:06.400] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_instanceof with Javascript path coremods/field_to_instanceof.js
-[01апр.2023 13:00:06.400] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod add_bouncer_method with Javascript path coremods/add_bouncer_method.js
-[01апр.2023 13:00:06.400] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_method.js
-[01апр.2023 13:00:06.400] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_instanceof.js
-[01апр.2023 13:00:06.400] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/add_bouncer_method.js
-[01апр.2023 13:00:06.401] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
-[01апр.2023 13:00:06.401] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with {shimmer} mods - versions {1.19.2-0.1.14}
-[01апр.2023 13:00:06.401] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[43,)]]
-[01апр.2023 13:00:06.402] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file  with languages []
-[01апр.2023 13:00:06.402] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service fml
-[01апр.2023 13:00:06.415] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found 3 language providers
-[01апр.2023 13:00:06.415] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider minecraft, version 1.0
-[01апр.2023 13:00:06.416] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider lowcodefml, version 43
-[01апр.2023 13:00:06.416] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider javafml, version 43
-[01апр.2023 13:00:06.420] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Configured system mods: [minecraft, forge]
-[01апр.2023 13:00:06.420] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: minecraft
-[01апр.2023 13:00:06.421] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: forge
-[01апр.2023 13:00:06.422] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 4 mod requirements (4 mandatory, 0 optional)
-[01апр.2023 13:00:06.422] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 0 mod requirements missing (0 mandatory, 0 optional)
-[01апр.2023 13:00:06.819] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 31029 method mappings from methods.csv
-[01апр.2023 13:00:06.847] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 28905 field mappings from fields.csv
-[01апр.2023 13:00:06.902] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading transformers
-[01апр.2023 13:00:06.902] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service mixin
-[01апр.2023 13:00:06.902] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service mixin
-[01апр.2023 13:00:06.902] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service fml
-[01апр.2023 13:00:06.902] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading coremod transformers
-[01апр.2023 13:00:06.903] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_method.js
-[01апр.2023 13:00:07.065] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
-[01апр.2023 13:00:07.065] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_instanceof.js
-[01апр.2023 13:00:07.128] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
-[01апр.2023 13:00:07.129] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/add_bouncer_method.js
-[01апр.2023 13:00:07.176] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
-[01апр.2023 13:00:07.183] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@1352434e to Target : CLASS {Lnet/minecraft/world/level/biome/Biome;} {} {V}
-[01апр.2023 13:00:07.184] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@3aa41da1 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/Structure;} {} {V}
-[01апр.2023 13:00:07.184] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@74fab04a to Target : CLASS {Lnet/minecraft/world/effect/MobEffectInstance;} {} {V}
-[01апр.2023 13:00:07.184] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@3c83468e to Target : CLASS {Lnet/minecraft/world/level/block/LiquidBlock;} {} {V}
-[01апр.2023 13:00:07.185] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@272ce069 to Target : CLASS {Lnet/minecraft/world/item/BucketItem;} {} {V}
-[01апр.2023 13:00:07.185] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@3d7fb838 to Target : CLASS {Lnet/minecraft/world/level/block/StairBlock;} {} {V}
-[01апр.2023 13:00:07.185] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@1c26273d to Target : CLASS {Lnet/minecraft/world/level/block/FlowerPotBlock;} {} {V}
-[01апр.2023 13:00:07.185] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@3a37a501 to Target : CLASS {Lnet/minecraft/world/item/ItemStack;} {} {V}
-[01апр.2023 13:00:07.185] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@7a583586 to Target : CLASS {Lnet/minecraft/network/play/client/CClientSettingsPacket;} {} {V}
-[01апр.2023 13:00:07.185] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service fml
-[01апр.2023 13:00:07.581] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
-[01апр.2023 13:00:07.581] [main/DEBUG] [mixin/]: Registering mixin config: skillsapi.mixins.json
-[01апр.2023 13:00:07.593] [main/DEBUG] [mixin/]: Compatibility level JAVA_17 specified by skillsapi.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
-[01апр.2023 13:00:07.596] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[01апр.2023 13:00:07.597] [main/DEBUG] [mixin/]: Processing launch tasks for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
-[01апр.2023 13:00:07.597] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(minecraft)
-[01апр.2023 13:00:07.597] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(minecraft)
-[01апр.2023 13:00:07.597] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(minecraft)
-[01апр.2023 13:00:07.597] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(minecraft)
-[01апр.2023 13:00:07.597] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(minecraft)
-[01апр.2023 13:00:07.598] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
-[01апр.2023 13:00:07.598] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(skillsapi)
-[01апр.2023 13:00:07.598] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(skillsapi)
-[01апр.2023 13:00:07.598] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(skillsapi)
-[01апр.2023 13:00:07.598] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(skillsapi)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(skillsapi)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(skillsapi)]
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(forge)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(forge)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(forge)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(forge)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(forge)
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
-[01апр.2023 13:00:07.599] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(shimmer)
-[01апр.2023 13:00:07.600] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(shimmer)
-[01апр.2023 13:00:07.600] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(shimmer)
-[01апр.2023 13:00:07.600] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(shimmer)
-[01апр.2023 13:00:07.600] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(shimmer)
-[01апр.2023 13:00:07.600] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(shimmer)]
-[01апр.2023 13:00:07.600] [main/DEBUG] [mixin/]: Registering mixin config: shimmer.mixins.json
-[01апр.2023 13:00:07.602] [main/DEBUG] [mixin/]: Registering mixin config: shimmer.forge.mixins.json
-[01апр.2023 13:00:07.603] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(MixinExtras)
-[01апр.2023 13:00:07.603] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(MixinExtras)
-[01апр.2023 13:00:07.603] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(MixinExtras)
-[01апр.2023 13:00:07.603] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(MixinExtras)
-[01апр.2023 13:00:07.603] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(MixinExtras)
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(MixinExtras)]
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: inject() running with 6 agents
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(skillsapi)]
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(shimmer)]
-[01апр.2023 13:00:07.604] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(MixinExtras)]
-[01апр.2023 13:00:07.605] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --assetIndex, 1.19]
-[01апр.2023 13:00:07.630] [main/DEBUG] [mixin/]: Error cleaning class output directory: .mixin.out
-[01апр.2023 13:00:07.632] [main/DEBUG] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
-[01апр.2023 13:00:07.632] [main/DEBUG] [mixin/]: Selecting config skillsapi.mixins.json
-[01апр.2023 13:00:07.635] [main/WARN] [mixin/]: Reference map 'skillsapi.refmap.json' for skillsapi.mixins.json could not be read. If this is a development environment you can ignore this message
-[01апр.2023 13:00:07.636] [main/DEBUG] [mixin/]: Selecting config shimmer.mixins.json
-[01апр.2023 13:00:07.653] [main/DEBUG] [mixin/]: Registering new injector for @Inject with org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo
-[01апр.2023 13:00:07.655] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArg with org.spongepowered.asm.mixin.injection.struct.ModifyArgInjectionInfo
-[01апр.2023 13:00:07.656] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArgs with org.spongepowered.asm.mixin.injection.struct.ModifyArgsInjectionInfo
-[01апр.2023 13:00:07.658] [main/DEBUG] [mixin/]: Registering new injector for @Redirect with org.spongepowered.asm.mixin.injection.struct.RedirectInjectionInfo
-[01апр.2023 13:00:07.659] [main/DEBUG] [mixin/]: Registering new injector for @ModifyVariable with org.spongepowered.asm.mixin.injection.struct.ModifyVariableInjectionInfo
-[01апр.2023 13:00:07.660] [main/DEBUG] [mixin/]: Registering new injector for @ModifyConstant with org.spongepowered.asm.mixin.injection.struct.ModifyConstantInjectionInfo
-[01апр.2023 13:00:07.662] [main/DEBUG] [mixin/]: Registering new injector for @ModifyExpressionValue with com.llamalad7.mixinextras.injector.ModifyExpressionValueInjectionInfo
-[01апр.2023 13:00:07.664] [main/DEBUG] [mixin/]: Registering new injector for @ModifyReceiver with com.llamalad7.mixinextras.injector.ModifyReceiverInjectionInfo
-[01апр.2023 13:00:07.666] [main/DEBUG] [mixin/]: Registering new injector for @ModifyReturnValue with com.llamalad7.mixinextras.injector.ModifyReturnValueInjectionInfo
-[01апр.2023 13:00:07.668] [main/DEBUG] [mixin/]: Registering new injector for @WrapOperation with com.llamalad7.mixinextras.injector.wrapoperation.WrapOperationInjectionInfo
-[01апр.2023 13:00:07.669] [main/DEBUG] [mixin/]: Registering new injector for @WrapWithCondition with com.llamalad7.mixinextras.injector.WrapWithConditionInjectionInfo
-[01апр.2023 13:00:08.179] [main/INFO] [mixin/]: Remapping refMap Shimmer-common-Common-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
-[01апр.2023 13:00:08.179] [main/DEBUG] [mixin/]: Selecting config shimmer.forge.mixins.json
-[01апр.2023 13:00:08.182] [main/INFO] [mixin/]: Remapping refMap Shimmer-forge-Forge-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
-[01апр.2023 13:00:08.182] [main/DEBUG] [mixin/]: Preparing skillsapi.mixins.json (8)
-[01апр.2023 13:00:08.290] [main/DEBUG] [mixin/]: Preparing shimmer.mixins.json (17)
-[01апр.2023 13:00:08.339] [main/DEBUG] [mixin/]: Preparing shimmer.forge.mixins.json (13)
-[01апр.2023 13:00:08.344] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/BlockRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer)
-[01апр.2023 13:00:08.344] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer was not found shimmer.forge.mixins.json:rubidium.BlockRendererMixin
-[01апр.2023 13:00:08.346] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/tasks/ChunkRenderRebuildTask (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask)
-[01апр.2023 13:00:08.346] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask was not found shimmer.forge.mixins.json:rubidium.ChunkRenderRebuildTaskMixin
-[01апр.2023 13:00:08.347] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer)
-[01апр.2023 13:00:08.347] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer was not found shimmer.forge.mixins.json:rubidium.FluidRendererMixin
-[01апр.2023 13:00:08.349] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSectionManager (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager)
-[01апр.2023 13:00:08.349] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager was not found shimmer.forge.mixins.json:rubidium.RenderSectionManagerAccessor
-[01апр.2023 13:00:08.350] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSection (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSection)
-[01апр.2023 13:00:08.350] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSection was not found shimmer.forge.mixins.json:rubidium.RenderSectionMixin
-[01апр.2023 13:00:08.352] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/ShaderChunkRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer)
-[01апр.2023 13:00:08.352] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer was not found shimmer.forge.mixins.json:rubidium.ShaderChunkRendererMixin
-[01апр.2023 13:00:08.353] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/gl/shader/ShaderLoader (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader)
-[01апр.2023 13:00:08.353] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader was not found shimmer.forge.mixins.json:rubidium.ShaderLoaderMixin
-[01апр.2023 13:00:08.355] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/SodiumWorldRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer)
-[01апр.2023 13:00:08.355] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer was not found shimmer.forge.mixins.json:rubidium.SodiumWorldRendererMixin
-[01апр.2023 13:00:08.399] [main/DEBUG] [mixin/]: Prepared 30 mixins in 0,767 sec (25,6ms avg) (0ms load, 0ms transform, 0ms plugin)
-[01апр.2023 13:00:08.411] [main/DEBUG] [io.netty.util.internal.logging.InternalLoggerFactory/]: Using SLF4J as the default logging framework
-[01апр.2023 13:00:08.413] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
-[01апр.2023 13:00:08.413] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
-[01апр.2023 13:00:08.545] [main/DEBUG] [oshi.util.FileUtil/]: No oshi.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@2d3ef181
-[01апр.2023 13:00:08.613] [main/DEBUG] [oshi.util.FileUtil/]: No oshi.architecture.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@2d3ef181
-[01апр.2023 13:00:09.140] [pool-3-thread-1/DEBUG] [mixin/]: Mixing MixinEntity from skillsapi.mixins.json into net.minecraft.world.entity.Entity
-[01апр.2023 13:00:09.291] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/Structure
-[01апр.2023 13:00:09.360] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/LiquidBlock
-[01апр.2023 13:00:09.395] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/StairBlock
-[01апр.2023 13:00:09.439] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/FlowerPotBlock
-[01апр.2023 13:00:10.081] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/ItemStack
-[01апр.2023 13:00:11.157] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
-[01апр.2023 13:00:11.629] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/biome/Biome
-[01апр.2023 13:00:12.000] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/BucketItem
-[01апр.2023 13:00:12.056] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/effect/MobEffectInstance
-[01апр.2023 13:00:12.391] [Render thread/DEBUG] [mixin/]: Mixing RenderTargetMixin from shimmer.mixins.json into com.mojang.blaze3d.pipeline.RenderTarget
-[01апр.2023 13:00:12.433] [Render thread/DEBUG] [mixin/]: Mixing MainTargetMixin from shimmer.mixins.json into com.mojang.blaze3d.pipeline.MainTarget
-[01апр.2023 13:00:12.508] [Render thread/DEBUG] [mixin/]: Mixing client.MixinClientLevel from skillsapi.mixins.json into net.minecraft.client.multiplayer.ClientLevel
-[01апр.2023 13:00:12.513] [Render thread/DEBUG] [mixin/]: Renaming synthetic method lambda$getSkyColor$0(Lnet/minecraft/world/level/biome/BiomeManager;III)Lnet/minecraft/world/phys/Vec3; to mdefa64d$lambda$getSkyColor$0$0 in skillsapi.mixins.json:client.MixinClientLevel
-[01апр.2023 13:00:12.561] [Render thread/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/biome/Biome
-[01апр.2023 13:00:12.648] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/assets/.mcassetsroot' uses unexpected schema
-[01апр.2023 13:00:12.648] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/data/.mcassetsroot' uses unexpected schema
-[01апр.2023 13:00:12.658] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[01апр.2023 13:00:12.661] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[01апр.2023 13:00:12.736] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[01апр.2023 13:00:13.037] [Render thread/DEBUG] [mixin/]: Mixing GLStateManagerMixin from shimmer.mixins.json into com.mojang.blaze3d.platform.GlStateManager
-[01апр.2023 13:00:13.091] [Render thread/DEBUG] [net.minecraftforge.common.ForgeI18n/CORE]: Loading I18N data entries: 5641
-[01апр.2023 13:00:13.104] [Render thread/DEBUG] [net.minecraftforge.fml.ModWorkManager/LOADING]: Using 8 threads for parallel mod-loading
-[01апр.2023 13:00:13.110] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@2d3ef181 - got cpw.mods.cl.ModuleClassLoader@6f8d7714
-[01апр.2023 13:00:13.110] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for org.astemir.example.SkillsAPI
-[01апр.2023 13:00:13.114] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@2d3ef181 - got cpw.mods.cl.ModuleClassLoader@6f8d7714
-[01апр.2023 13:00:13.114] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.minecraftforge.common.ForgeMod
-[01апр.2023 13:00:13.116] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@2d3ef181 - got cpw.mods.cl.ModuleClassLoader@6f8d7714
-[01апр.2023 13:00:13.116] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for com.lowdragmc.shimmer.forge.ShimmerMod
-[01апр.2023 13:00:13.134] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file shimmer-client.toml for shimmer tracking
-[01апр.2023 13:00:13.141] [modloading-worker-0/DEBUG] [mixin/]: Mixing ForgeShaderInstanceMixin from shimmer.forge.mixins.json into net.minecraft.client.renderer.ShaderInstance
-[01апр.2023 13:00:13.161] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Forge Version package package net.minecraftforge.versions.forge, Forge, version 43.1 from cpw.mods.modlauncher.TransformingClassLoader@2d3ef181
-[01апр.2023 13:00:13.162] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge version 43.1.43
-[01апр.2023 13:00:13.162] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge spec 43.1
-[01апр.2023 13:00:13.162] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge group net.minecraftforge
-[01апр.2023 13:00:13.162] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: MCP Version package package net.minecraftforge.versions.mcp, Minecraft, version 1.19.2 from cpw.mods.modlauncher.TransformingClassLoader@2d3ef181
-[01апр.2023 13:00:13.162] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: Found MC version information 1.19.2
-[01апр.2023 13:00:13.162] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: Found MCP version information 20220805.130853
-[01апр.2023 13:00:13.162] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.1.43, for MC 1.19.2 with MCP 20220805.130853
-[01апр.2023 13:00:13.163] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.1.43 Initialized
-[01апр.2023 13:00:13.197] [modloading-worker-0/DEBUG] [mixin/]: Mixing client.MixinGameRenderer from skillsapi.mixins.json into net.minecraft.client.renderer.GameRenderer
-[01апр.2023 13:00:13.198] [modloading-worker-0/DEBUG] [mixin/]: Mixing GameRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.GameRenderer
-[01апр.2023 13:00:13.279] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: -Dio.netty.noUnsafe: false
-[01апр.2023 13:00:13.280] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: Java version: 17
-[01апр.2023 13:00:13.281] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
-[01апр.2023 13:00:13.282] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
-[01апр.2023 13:00:13.282] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
-[01апр.2023 13:00:13.283] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Buffer.address: available
-[01апр.2023 13:00:13.283] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: direct buffer constructor: unavailable
+[11апр.2023 18:49:38.550] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 43.1.43, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853, --mixin.config, skillsapi.mixins.json]
+[11апр.2023 18:49:38.554] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.6 by BellSoft; OS Mac OS X arch aarch64 version 13.0.1
+[11апр.2023 18:49:38.573] [main/DEBUG] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Found launch services [fmlclientdev,forgeclient,minecraft,forgegametestserverdev,fmlserveruserdev,fmlclient,fmldatauserdev,forgeserverdev,forgeserveruserdev,forgeclientdev,forgeclientuserdev,forgeserver,forgedatadev,fmlserver,fmlclientuserdev,fmlserverdev,forgedatauserdev,testharness,forgegametestserveruserdev]
+[11апр.2023 18:49:38.582] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Found naming services : [srgtomcp]
+[11апр.2023 18:49:38.593] [main/DEBUG] [cpw.mods.modlauncher.LaunchPluginHandler/MODLAUNCHER]: Found launch plugins: [mixin,eventbus,slf4jfixer,object_holder_definalize,runtime_enum_extender,capability_token_subclass,accesstransformer,runtimedistcleaner]
+[11апр.2023 18:49:38.601] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Discovering transformation services
+[11апр.2023 18:49:38.608] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found additional transformation services from discovery services: 
+[11апр.2023 18:49:38.615] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Found transformer services : [mixin,fml]
+[11апр.2023 18:49:38.615] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading
+[11апр.2023 18:49:38.616] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service mixin
+[11апр.2023 18:49:38.617] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service mixin
+[11апр.2023 18:49:38.617] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loading service fml
+[11апр.2023 18:49:38.619] [main/DEBUG] [net.minecraftforge.fml.loading.LauncherVersion/CORE]: Found FMLLauncher version 1.0
+[11апр.2023 18:49:38.619] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML 1.0 loading
+[11апр.2023 18:49:38.619] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found ModLauncher version : 10.0.8+10.0.8+main.0ef7e830
+[11апр.2023 18:49:38.620] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found AccessTransformer version : 8.0.4+66+master.c09db6d7
+[11апр.2023 18:49:38.620] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found EventBus version : 6.0.3+6.0.3+master.039e4ea9
+[11апр.2023 18:49:38.620] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found Runtime Dist Cleaner
+[11апр.2023 18:49:38.621] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: FML found CoreMod version : 5.0.1+15+master.dc5a2922
+[11апр.2023 18:49:38.622] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package implementation version 6.0.0+6.0.0+master.42474703
+[11апр.2023 18:49:38.622] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Found ForgeSPI package specification 5
+[11апр.2023 18:49:38.624] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Loaded service fml
+[11апр.2023 18:49:38.624] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Configuring option handling for services
+[11апр.2023 18:49:38.628] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services initializing
+[11апр.2023 18:49:38.628] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service mixin
+[11апр.2023 18:49:38.642] [main/DEBUG] [mixin/]: MixinService [ModLauncher] was successfully booted in cpw.mods.cl.ModuleClassLoader@525f1e4e
+[11апр.2023 18:49:38.655] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23119!/ Service=ModLauncher Env=CLIENT
+[11апр.2023 18:49:38.658] [main/DEBUG] [mixin/]: Initialising Mixin Platform Manager
+[11апр.2023 18:49:38.658] [main/DEBUG] [mixin/]: Adding mixin platform agents for container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[11апр.2023 18:49:38.659] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[11апр.2023 18:49:38.659] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[11апр.2023 18:49:38.660] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for ModLauncher Root Container(ModLauncher:4f56a0a2)
+[11апр.2023 18:49:38.660] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container ModLauncher Root Container(ModLauncher:4f56a0a2)
+[11апр.2023 18:49:38.662] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service mixin
+[11апр.2023 18:49:38.662] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformation service fml
+[11апр.2023 18:49:38.662] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Setting up basic FML game directories
+[11апр.2023 18:49:38.663] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing GAMEDIR directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run
+[11апр.2023 18:49:38.663] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path GAMEDIR is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run
+[11апр.2023 18:49:38.663] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing MODSDIR directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/mods
+[11апр.2023 18:49:38.663] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path MODSDIR is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/mods
+[11апр.2023 18:49:38.664] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing CONFIGDIR directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config
+[11апр.2023 18:49:38.664] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path CONFIGDIR is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config
+[11апр.2023 18:49:38.664] [main/DEBUG] [net.minecraftforge.fml.loading.FMLPaths/CORE]: Path FMLCONFIG is /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/fml.toml
+[11апр.2023 18:49:38.664] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading configuration
+[11апр.2023 18:49:38.693] [main/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing default config directory directory : /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/defaultconfigs
+[11апр.2023 18:49:38.693] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing ModFile
+[11апр.2023 18:49:38.695] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Preparing launch handler
+[11апр.2023 18:49:38.695] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Using forgeclientuserdev as launch service
+[11апр.2023 18:49:38.708] [main/DEBUG] [net.minecraftforge.fml.loading.FMLLoader/CORE]: Received command line version data  : VersionInfo[forgeVersion=43.1.43, mcVersion=1.19.2, mcpVersion=20220805.130853, forgeGroup=net.minecraftforge]
+[11апр.2023 18:49:38.709] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformation service fml
+[11апр.2023 18:49:38.709] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Current naming domain is 'mcp'
+[11апр.2023 18:49:38.710] [main/DEBUG] [cpw.mods.modlauncher.NameMappingServiceHandler/MODLAUNCHER]: Identified name mapping providers {srg=srgtomcp:1234}
+[11апр.2023 18:49:38.710] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services begin scanning
+[11апр.2023 18:49:38.711] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service mixin
+[11апр.2023 18:49:38.711] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service mixin
+[11апр.2023 18:49:38.711] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Beginning scan trigger - transformation service fml
+[11апр.2023 18:49:38.711] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Initiating mod scan
+[11апр.2023 18:49:38.719] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModListHandler/CORE]: Found mod coordinates from lists: []
+[11апр.2023 18:49:38.721] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Mod Locators : (mods folder:null),(maven libs:null),(exploded directory:null),(minecraft:null),(userdev classpath:null)
+[11апр.2023 18:49:38.721] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModDiscoverer/CORE]: Found Dependency Locators : (JarInJar:null)
+[11апр.2023 18:49:38.725] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Got mod coordinates examplemod%%/Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources:examplemod%%/Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/classes from env
+[11апр.2023 18:49:38.726] [main/DEBUG] [net.minecraftforge.fml.loading.targets.CommonLaunchHandler/CORE]: Found supplied mod coordinates [{examplemod=[/Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources, /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/classes]}]
+[11апр.2023 18:49:39.003] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar with {minecraft} mods - versions {1.19.2}
+[11апр.2023 18:49:39.005] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar
+[11апр.2023 18:49:39.005] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.006] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar
+[11апр.2023 18:49:39.007] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.008] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar
+[11апр.2023 18:49:39.008] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.009] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar
+[11апр.2023 18:49:39.010] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.012] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
+[11апр.2023 18:49:39.016] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file resources with {skillsapi} mods - versions {1.3}
+[11апр.2023 18:49:39.019] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
+[11апр.2023 18:49:39.021] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {43.1.43}
+[11апр.2023 18:49:39.032] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
+[11апр.2023 18:49:39.033] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with {shimmer} mods - versions {1.19.2-0.1.14}
+[11апр.2023 18:49:39.034] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
+[11апр.2023 18:49:39.034] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with {shimmer} mods - versions {1.19.2-0.1.14}
+[11апр.2023 18:49:39.049] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Found 2 mods for first modid shimmer, selecting most recent based on version data
+[11апр.2023 18:49:39.049] [main/DEBUG] [net.minecraftforge.fml.loading.UniqueModListBuilder/]: Selected file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar for modid shimmer with version 1.19.2-0.1.14
+[11апр.2023 18:49:39.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar, it does not contain dependency information.
+[11апр.2023 18:49:39.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from resources, it does not contain dependency information.
+[11апр.2023 18:49:39.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from , it does not contain dependency information.
+[11апр.2023 18:49:39.054] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from mclanguage-1.19.2-43.1.43.jar, it does not contain dependency information.
+[11апр.2023 18:49:39.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from javafmllanguage-1.19.2-43.1.43.jar, it does not contain dependency information.
+[11апр.2023 18:49:39.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from fmlcore-1.19.2-43.1.43.jar, it does not contain dependency information.
+[11апр.2023 18:49:39.055] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from lowcodelanguage-1.19.2-43.1.43.jar, it does not contain dependency information.
+[11апр.2023 18:49:39.102] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.AbstractJarFileDependencyLocator/]: Failed to load resource META-INF/jarjar/metadata.json from MixinExtras-0.1.0.jar, it does not contain dependency information.
+[11апр.2023 18:49:39.130] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[11апр.2023 18:49:39.133] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar with {minecraft} mods - versions {1.19.2}
+[11апр.2023 18:49:39.136] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar with languages [LanguageSpec[languageName=minecraft, acceptedVersions=1]]
+[11апр.2023 18:49:39.137] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
+[11апр.2023 18:49:39.139] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file resources with {skillsapi} mods - versions {1.3}
+[11апр.2023 18:49:39.139] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources with languages [LanguageSpec[languageName=javafml, acceptedVersions=[43,)]]
+[11апр.2023 18:49:39.139] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /
+[11апр.2023 18:49:39.140] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file  with {forge} mods - versions {43.1.43}
+[11апр.2023 18:49:39.140] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file / with languages [LanguageSpec[languageName=javafml, acceptedVersions=[24,]]]
+[11апр.2023 18:49:39.143] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_method with Javascript path coremods/field_to_method.js
+[11апр.2023 18:49:39.143] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod field_to_instanceof with Javascript path coremods/field_to_instanceof.js
+[11апр.2023 18:49:39.143] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Found coremod add_bouncer_method with Javascript path coremods/add_bouncer_method.js
+[11апр.2023 18:49:39.143] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_method.js
+[11апр.2023 18:49:39.144] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/field_to_instanceof.js
+[11апр.2023 18:49:39.144] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Found coremod coremods/add_bouncer_method.js
+[11апр.2023 18:49:39.144] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Considering mod file candidate /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
+[11апр.2023 18:49:39.145] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFileInfo/LOADING]: Found valid mod file Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with {shimmer} mods - versions {1.19.2-0.1.14}
+[11апр.2023 18:49:39.145] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar with languages [LanguageSpec[languageName=javafml, acceptedVersions=[43,)]]
+[11апр.2023 18:49:39.145] [main/DEBUG] [net.minecraftforge.fml.loading.moddiscovery.ModFile/LOADING]: Loading mod file  with languages []
+[11апр.2023 18:49:39.147] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: End scan trigger - transformation service fml
+[11апр.2023 18:49:39.163] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found 3 language providers
+[11апр.2023 18:49:39.164] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider minecraft, version 1.0
+[11апр.2023 18:49:39.165] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider lowcodefml, version 43
+[11апр.2023 18:49:39.166] [main/DEBUG] [net.minecraftforge.fml.loading.LanguageLoadingProvider/CORE]: Found language provider javafml, version 43
+[11апр.2023 18:49:39.172] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Configured system mods: [minecraft, forge]
+[11апр.2023 18:49:39.172] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: minecraft
+[11апр.2023 18:49:39.172] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/]: Found system mod: forge
+[11апр.2023 18:49:39.174] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 4 mod requirements (4 mandatory, 0 optional)
+[11апр.2023 18:49:39.175] [main/DEBUG] [net.minecraftforge.fml.loading.ModSorter/LOADING]: Found 0 mod requirements missing (0 mandatory, 0 optional)
+[11апр.2023 18:49:39.654] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 31029 method mappings from methods.csv
+[11апр.2023 18:49:39.683] [main/DEBUG] [net.minecraftforge.fml.loading.MCPNamingService/CORE]: Loaded 28905 field mappings from fields.csv
+[11апр.2023 18:49:39.743] [main/DEBUG] [cpw.mods.modlauncher.TransformationServicesHandler/MODLAUNCHER]: Transformation services loading transformers
+[11апр.2023 18:49:39.744] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service mixin
+[11апр.2023 18:49:39.744] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service mixin
+[11апр.2023 18:49:39.745] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initializing transformers for transformation service fml
+[11апр.2023 18:49:39.745] [main/DEBUG] [net.minecraftforge.fml.loading.FMLServiceProvider/CORE]: Loading coremod transformers
+[11апр.2023 18:49:39.745] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_method.js
+[11апр.2023 18:49:39.911] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[11апр.2023 18:49:39.911] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/field_to_instanceof.js
+[11апр.2023 18:49:39.972] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[11апр.2023 18:49:39.972] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: Loading CoreMod from coremods/add_bouncer_method.js
+[11апр.2023 18:49:40.006] [main/DEBUG] [net.minecraftforge.coremod.CoreModEngine/COREMOD]: CoreMod loaded successfully
+[11апр.2023 18:49:40.014] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@37468787 to Target : CLASS {Lnet/minecraft/world/level/biome/Biome;} {} {V}
+[11апр.2023 18:49:40.015] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@7e0bc8a3 to Target : CLASS {Lnet/minecraft/world/level/levelgen/structure/Structure;} {} {V}
+[11апр.2023 18:49:40.015] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@4b0f2299 to Target : CLASS {Lnet/minecraft/world/effect/MobEffectInstance;} {} {V}
+[11апр.2023 18:49:40.015] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@33063f5b to Target : CLASS {Lnet/minecraft/world/level/block/LiquidBlock;} {} {V}
+[11апр.2023 18:49:40.016] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@15405bd6 to Target : CLASS {Lnet/minecraft/world/item/BucketItem;} {} {V}
+[11апр.2023 18:49:40.016] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@352ed70d to Target : CLASS {Lnet/minecraft/world/level/block/StairBlock;} {} {V}
+[11апр.2023 18:49:40.016] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@70730db to Target : CLASS {Lnet/minecraft/world/level/block/FlowerPotBlock;} {} {V}
+[11апр.2023 18:49:40.016] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@5793b87 to Target : CLASS {Lnet/minecraft/world/item/ItemStack;} {} {V}
+[11апр.2023 18:49:40.016] [main/DEBUG] [cpw.mods.modlauncher.TransformStore/MODLAUNCHER]: Adding transformer net.minecraftforge.coremod.transformer.CoreModClassTransformer@12704e15 to Target : CLASS {Lnet/minecraft/network/play/client/CClientSettingsPacket;} {} {V}
+[11апр.2023 18:49:40.017] [main/DEBUG] [cpw.mods.modlauncher.TransformationServiceDecorator/MODLAUNCHER]: Initialized transformers for transformation service fml
+[11апр.2023 18:49:40.421] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[11апр.2023 18:49:40.421] [main/DEBUG] [mixin/]: Registering mixin config: skillsapi.mixins.json
+[11апр.2023 18:49:40.437] [main/DEBUG] [mixin/]: Compatibility level JAVA_17 specified by skillsapi.mixins.json is higher than the maximum level supported by this version of mixin (JAVA_13).
+[11апр.2023 18:49:40.441] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[11апр.2023 18:49:40.441] [main/DEBUG] [mixin/]: Processing launch tasks for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[11апр.2023 18:49:40.441] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(minecraft)
+[11апр.2023 18:49:40.441] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(minecraft)
+[11апр.2023 18:49:40.441] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(minecraft)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(minecraft)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(minecraft)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(skillsapi)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(skillsapi)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(skillsapi)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(skillsapi)
+[11апр.2023 18:49:40.442] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(skillsapi)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(skillsapi)]
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(forge)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(forge)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(forge)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(forge)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(forge)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(shimmer)
+[11апр.2023 18:49:40.443] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(shimmer)
+[11апр.2023 18:49:40.444] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(shimmer)
+[11апр.2023 18:49:40.444] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(shimmer)
+[11апр.2023 18:49:40.444] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(shimmer)
+[11апр.2023 18:49:40.444] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(shimmer)]
+[11апр.2023 18:49:40.444] [main/DEBUG] [mixin/]: Registering mixin config: shimmer.mixins.json
+[11апр.2023 18:49:40.446] [main/DEBUG] [mixin/]: Registering mixin config: shimmer.forge.mixins.json
+[11апр.2023 18:49:40.447] [main/DEBUG] [mixin/]: Adding mixin platform agents for container SecureJarResource(MixinExtras)
+[11апр.2023 18:49:40.447] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentMinecraftForge for SecureJarResource(MixinExtras)
+[11апр.2023 18:49:40.447] [main/DEBUG] [mixin/]: MixinPlatformAgentMinecraftForge rejected container SecureJarResource(MixinExtras)
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Instancing new MixinPlatformAgentDefault for SecureJarResource(MixinExtras)
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: MixinPlatformAgentDefault accepted container SecureJarResource(MixinExtras)
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing prepare() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(MixinExtras)]
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: inject() running with 6 agents
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:ModLauncher Root Container(ModLauncher:4f56a0a2)]
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(minecraft)]
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(skillsapi)]
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(forge)]
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(shimmer)]
+[11апр.2023 18:49:40.448] [main/DEBUG] [mixin/]: Processing inject() for PlatformAgent[MixinPlatformAgentDefault:SecureJarResource(MixinExtras)]
+[11апр.2023 18:49:40.449] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --assetIndex, 1.19]
+[11апр.2023 18:49:40.481] [main/DEBUG] [mixin/]: Error cleaning class output directory: .mixin.out
+[11апр.2023 18:49:40.483] [main/DEBUG] [mixin/]: Preparing mixins for MixinEnvironment[DEFAULT]
+[11апр.2023 18:49:40.483] [main/DEBUG] [mixin/]: Selecting config skillsapi.mixins.json
+[11апр.2023 18:49:40.491] [main/WARN] [mixin/]: Reference map 'skillsapi.refmap.json' for skillsapi.mixins.json could not be read. If this is a development environment you can ignore this message
+[11апр.2023 18:49:40.492] [main/DEBUG] [mixin/]: Selecting config shimmer.mixins.json
+[11апр.2023 18:49:40.516] [main/DEBUG] [mixin/]: Registering new injector for @Inject with org.spongepowered.asm.mixin.injection.struct.CallbackInjectionInfo
+[11апр.2023 18:49:40.518] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArg with org.spongepowered.asm.mixin.injection.struct.ModifyArgInjectionInfo
+[11апр.2023 18:49:40.520] [main/DEBUG] [mixin/]: Registering new injector for @ModifyArgs with org.spongepowered.asm.mixin.injection.struct.ModifyArgsInjectionInfo
+[11апр.2023 18:49:40.522] [main/DEBUG] [mixin/]: Registering new injector for @Redirect with org.spongepowered.asm.mixin.injection.struct.RedirectInjectionInfo
+[11апр.2023 18:49:40.524] [main/DEBUG] [mixin/]: Registering new injector for @ModifyVariable with org.spongepowered.asm.mixin.injection.struct.ModifyVariableInjectionInfo
+[11апр.2023 18:49:40.526] [main/DEBUG] [mixin/]: Registering new injector for @ModifyConstant with org.spongepowered.asm.mixin.injection.struct.ModifyConstantInjectionInfo
+[11апр.2023 18:49:40.529] [main/DEBUG] [mixin/]: Registering new injector for @ModifyExpressionValue with com.llamalad7.mixinextras.injector.ModifyExpressionValueInjectionInfo
+[11апр.2023 18:49:40.531] [main/DEBUG] [mixin/]: Registering new injector for @ModifyReceiver with com.llamalad7.mixinextras.injector.ModifyReceiverInjectionInfo
+[11апр.2023 18:49:40.533] [main/DEBUG] [mixin/]: Registering new injector for @ModifyReturnValue with com.llamalad7.mixinextras.injector.ModifyReturnValueInjectionInfo
+[11апр.2023 18:49:40.535] [main/DEBUG] [mixin/]: Registering new injector for @WrapOperation with com.llamalad7.mixinextras.injector.wrapoperation.WrapOperationInjectionInfo
+[11апр.2023 18:49:40.537] [main/DEBUG] [mixin/]: Registering new injector for @WrapWithCondition with com.llamalad7.mixinextras.injector.WrapWithConditionInjectionInfo
+[11апр.2023 18:49:40.971] [main/INFO] [mixin/]: Remapping refMap Shimmer-common-Common-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
+[11апр.2023 18:49:40.971] [main/DEBUG] [mixin/]: Selecting config shimmer.forge.mixins.json
+[11апр.2023 18:49:40.974] [main/INFO] [mixin/]: Remapping refMap Shimmer-forge-Forge-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
+[11апр.2023 18:49:40.974] [main/DEBUG] [mixin/]: Preparing skillsapi.mixins.json (8)
+[11апр.2023 18:49:41.077] [main/DEBUG] [mixin/]: Preparing shimmer.mixins.json (17)
+[11апр.2023 18:49:41.130] [main/DEBUG] [mixin/]: Preparing shimmer.forge.mixins.json (13)
+[11апр.2023 18:49:41.147] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/BlockRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer)
+[11апр.2023 18:49:41.148] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer was not found shimmer.forge.mixins.json:rubidium.BlockRendererMixin
+[11апр.2023 18:49:41.153] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/tasks/ChunkRenderRebuildTask (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask)
+[11апр.2023 18:49:41.153] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask was not found shimmer.forge.mixins.json:rubidium.ChunkRenderRebuildTaskMixin
+[11апр.2023 18:49:41.158] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer)
+[11апр.2023 18:49:41.158] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer was not found shimmer.forge.mixins.json:rubidium.FluidRendererMixin
+[11апр.2023 18:49:41.163] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSectionManager (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager)
+[11апр.2023 18:49:41.163] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager was not found shimmer.forge.mixins.json:rubidium.RenderSectionManagerAccessor
+[11апр.2023 18:49:41.168] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSection (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSection)
+[11апр.2023 18:49:41.169] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSection was not found shimmer.forge.mixins.json:rubidium.RenderSectionMixin
+[11апр.2023 18:49:41.173] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/ShaderChunkRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer)
+[11апр.2023 18:49:41.173] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer was not found shimmer.forge.mixins.json:rubidium.ShaderChunkRendererMixin
+[11апр.2023 18:49:41.178] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/gl/shader/ShaderLoader (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader)
+[11апр.2023 18:49:41.178] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader was not found shimmer.forge.mixins.json:rubidium.ShaderLoaderMixin
+[11апр.2023 18:49:41.184] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/SodiumWorldRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer)
+[11апр.2023 18:49:41.185] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer was not found shimmer.forge.mixins.json:rubidium.SodiumWorldRendererMixin
+[11апр.2023 18:49:41.240] [main/DEBUG] [mixin/]: Prepared 30 mixins in 0,755 sec (25,2ms avg) (0ms load, 0ms transform, 0ms plugin)
+[11апр.2023 18:49:41.252] [main/DEBUG] [io.netty.util.internal.logging.InternalLoggerFactory/]: Using SLF4J as the default logging framework
+[11апр.2023 18:49:41.255] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.level: simple
+[11апр.2023 18:49:41.255] [main/DEBUG] [io.netty.util.ResourceLeakDetector/]: -Dio.netty.leakDetection.targetRecords: 4
+[11апр.2023 18:49:41.382] [main/DEBUG] [oshi.util.FileUtil/]: No oshi.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@529c2a9a
+[11апр.2023 18:49:41.459] [main/DEBUG] [oshi.util.FileUtil/]: No oshi.architecture.properties file found from ClassLoader cpw.mods.modlauncher.TransformingClassLoader@529c2a9a
+[11апр.2023 18:49:42.002] [pool-3-thread-1/DEBUG] [mixin/]: Mixing MixinEntity from skillsapi.mixins.json into net.minecraft.world.entity.Entity
+[11апр.2023 18:49:42.221] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/levelgen/structure/Structure
+[11апр.2023 18:49:42.341] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/LiquidBlock
+[11апр.2023 18:49:42.378] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/StairBlock
+[11апр.2023 18:49:42.436] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/block/FlowerPotBlock
+[11апр.2023 18:49:42.982] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/ItemStack
+[11апр.2023 18:49:44.123] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
+[11апр.2023 18:49:44.663] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/biome/Biome
+[11апр.2023 18:49:45.004] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/item/BucketItem
+[11апр.2023 18:49:45.066] [pool-3-thread-1/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/effect/MobEffectInstance
+[11апр.2023 18:49:45.414] [Render thread/DEBUG] [mixin/]: Mixing RenderTargetMixin from shimmer.mixins.json into com.mojang.blaze3d.pipeline.RenderTarget
+[11апр.2023 18:49:45.460] [Render thread/DEBUG] [mixin/]: Mixing MainTargetMixin from shimmer.mixins.json into com.mojang.blaze3d.pipeline.MainTarget
+[11апр.2023 18:49:45.542] [Render thread/DEBUG] [mixin/]: Mixing client.MixinClientLevel from skillsapi.mixins.json into net.minecraft.client.multiplayer.ClientLevel
+[11апр.2023 18:49:45.545] [Render thread/DEBUG] [mixin/]: Renaming synthetic method lambda$getSkyColor$0(Lnet/minecraft/world/level/biome/BiomeManager;III)Lnet/minecraft/world/phys/Vec3; to mdfe2ca2$lambda$getSkyColor$0$0 in skillsapi.mixins.json:client.MixinClientLevel
+[11апр.2023 18:49:45.608] [Render thread/DEBUG] [net.minecraftforge.coremod.transformer.CoreModBaseTransformer/COREMOD]: Transforming net/minecraft/world/level/biome/Biome
+[11апр.2023 18:49:45.697] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/assets/.mcassetsroot' uses unexpected schema
+[11апр.2023 18:49:45.697] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/data/.mcassetsroot' uses unexpected schema
+[11апр.2023 18:49:45.707] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[11апр.2023 18:49:45.711] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[11апр.2023 18:49:45.799] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[11апр.2023 18:49:46.150] [Render thread/DEBUG] [mixin/]: Mixing GLStateManagerMixin from shimmer.mixins.json into com.mojang.blaze3d.platform.GlStateManager
+[11апр.2023 18:49:46.226] [Render thread/DEBUG] [net.minecraftforge.common.ForgeI18n/CORE]: Loading I18N data entries: 5641
+[11апр.2023 18:49:46.244] [Render thread/DEBUG] [net.minecraftforge.fml.ModWorkManager/LOADING]: Using 8 threads for parallel mod-loading
+[11апр.2023 18:49:46.250] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@529c2a9a - got cpw.mods.cl.ModuleClassLoader@6f6962ba
+[11апр.2023 18:49:46.250] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for org.astemir.example.SkillsAPI
+[11апр.2023 18:49:46.255] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@529c2a9a - got cpw.mods.cl.ModuleClassLoader@6f6962ba
+[11апр.2023 18:49:46.255] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for net.minecraftforge.common.ForgeMod
+[11апр.2023 18:49:46.257] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLJavaModLanguageProvider/LOADING]: Loading FMLModContainer from classloader cpw.mods.modlauncher.TransformingClassLoader@529c2a9a - got cpw.mods.cl.ModuleClassLoader@6f6962ba
+[11апр.2023 18:49:46.257] [Render thread/DEBUG] [net.minecraftforge.fml.javafmlmod.FMLModContainer/LOADING]: Creating FMLModContainer instance for com.lowdragmc.shimmer.forge.ShimmerMod
+[11апр.2023 18:49:46.287] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file shimmer-client.toml for shimmer tracking
+[11апр.2023 18:49:46.296] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Forge Version package package net.minecraftforge.versions.forge, Forge, version 43.1 from cpw.mods.modlauncher.TransformingClassLoader@529c2a9a
+[11апр.2023 18:49:46.297] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge version 43.1.43
+[11апр.2023 18:49:46.297] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge spec 43.1
+[11апр.2023 18:49:46.297] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.forge.ForgeVersion/CORE]: Found Forge group net.minecraftforge
+[11апр.2023 18:49:46.299] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: MCP Version package package net.minecraftforge.versions.mcp, Minecraft, version 1.19.2 from cpw.mods.modlauncher.TransformingClassLoader@529c2a9a
+[11апр.2023 18:49:46.299] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: Found MC version information 1.19.2
+[11апр.2023 18:49:46.299] [modloading-worker-0/DEBUG] [net.minecraftforge.versions.mcp.MCPVersion/CORE]: Found MCP version information 20220805.130853
+[11апр.2023 18:49:46.299] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.1.43, for MC 1.19.2 with MCP 20220805.130853
+[11апр.2023 18:49:46.301] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.1.43 Initialized
+[11апр.2023 18:49:46.303] [modloading-worker-0/DEBUG] [mixin/]: Mixing ForgeShaderInstanceMixin from shimmer.forge.mixins.json into net.minecraft.client.renderer.ShaderInstance
+[11апр.2023 18:49:46.405] [modloading-worker-0/DEBUG] [mixin/]: Mixing client.MixinGameRenderer from skillsapi.mixins.json into net.minecraft.client.renderer.GameRenderer
+[11апр.2023 18:49:46.407] [modloading-worker-0/DEBUG] [mixin/]: Mixing GameRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.GameRenderer
+[11апр.2023 18:49:46.480] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: -Dio.netty.noUnsafe: false
+[11апр.2023 18:49:46.480] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: Java version: 17
+[11апр.2023 18:49:46.481] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.theUnsafe: available
+[11апр.2023 18:49:46.482] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.copyMemory: available
+[11апр.2023 18:49:46.482] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: sun.misc.Unsafe.storeFence: available
+[11апр.2023 18:49:46.483] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Buffer.address: available
+[11апр.2023 18:49:46.483] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: direct buffer constructor: unavailable
 java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
 	at io.netty.util.internal.ReflectionUtil.trySetAccessible(ReflectionUtil.java:31) ~[netty-common-4.1.77.Final.jar%23139!/:4.1.77.Final]
 	at io.netty.util.internal.PlatformDependent0$5.run(PlatformDependent0.java:287) ~[netty-common-4.1.77.Final.jar%23139!/:4.1.77.Final]
@@ -296,15 +296,17 @@ java.lang.UnsupportedOperationException: Reflective setAccessible(true) disabled
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
 	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:68) ~[javafmllanguage-1.19.2-43.1.43.jar%23182!/:?]
 	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:121) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) [?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1804) [?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java) [?:?]
 	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) [?:?]
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) [?:?]
+	at java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:373) [?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java) [?:?]
 	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) [?:?]
 	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) [?:?]
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) [?:?]
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) [?:?]
-[01апр.2023 13:00:13.286] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
-[01апр.2023 13:00:13.288] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
+[11апр.2023 18:49:46.486] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.Bits.unaligned: available, true
+[11апр.2023 18:49:46.499] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: jdk.internal.misc.Unsafe.allocateUninitializedArray(int): unavailable
 java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent0$7 (in module io.netty.common) cannot access class jdk.internal.misc.Unsafe (in module java.base) because module java.base does not export jdk.internal.misc to module io.netty.common
 	at jdk.internal.reflect.Reflection.newIllegalAccessException(Reflection.java:392) ~[?:?]
 	at java.lang.reflect.AccessibleObject.checkAccess(AccessibleObject.java:674) ~[?:?]
@@ -326,87 +328,91 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
 	at net.minecraftforge.fml.javafmlmod.FMLModContainer.constructMod(FMLModContainer.java:68) ~[javafmllanguage-1.19.2-43.1.43.jar%23182!/:?]
 	at net.minecraftforge.fml.ModContainer.lambda$buildTransitionHandler$10(ModContainer.java:121) ~[fmlcore-1.19.2-43.1.43.jar%23185!/:?]
-	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804) [?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run$$$capture(CompletableFuture.java:1804) [?:?]
+	at java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java) [?:?]
 	at java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796) [?:?]
-	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373) [?:?]
+	at java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:373) [?:?]
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java) [?:?]
 	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) [?:?]
 	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) [?:?]
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) [?:?]
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) [?:?]
-[01апр.2023 13:00:13.289] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for skillsapi
-[01апр.2023 13:00:13.290] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, int): unavailable
-[01апр.2023 13:00:13.290] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: sun.misc.Unsafe: available
-[01апр.2023 13:00:13.291] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: maxDirectMemory: 4294967296 bytes (maybe)
-[01апр.2023 13:00:13.292] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.tmpdir: /var/folders/cq/j0_150l142j39rqktdw6k0sc0000gn/T (java.io.tmpdir)
-[01апр.2023 13:00:13.292] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
-[01апр.2023 13:00:13.292] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: Platform: MacOS
-[01апр.2023 13:00:13.293] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.maxDirectMemory: -1 bytes
-[01апр.2023 13:00:13.293] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
-[01апр.2023 13:00:13.293] [modloading-worker-0/DEBUG] [io.netty.util.internal.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
-[01апр.2023 13:00:13.294] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.noPreferDirect: false
-[01апр.2023 13:00:13.326] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Loading Network data for FML net version: FML3
-[01апр.2023 13:00:13.327] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for shimmer
-[01апр.2023 13:00:13.331] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.lowdragmc.shimmer.forge.client.ForgeEventListener to FORGE
-[01апр.2023 13:00:13.356] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-client.toml for forge tracking
-[01апр.2023 13:00:13.357] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-server.toml for forge tracking
-[01апр.2023 13:00:13.357] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-common.toml for forge tracking
-[01апр.2023 13:00:13.397] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for forge
-[01апр.2023 13:00:13.397] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.common.ForgeSpawnEggItem$CommonHandler to MOD
-[01апр.2023 13:00:13.401] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.common.ForgeSpawnEggItem$ColorRegisterHandler to MOD
-[01апр.2023 13:00:13.408] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.model.data.ModelDataManager to FORGE
-[01апр.2023 13:00:13.410] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.ForgeHooksClient$ClientEvents to MOD
-[01апр.2023 13:00:13.417] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.ClientForgeMod to MOD
-[01апр.2023 13:00:13.492] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/energy/IEnergyStorage;
-[01апр.2023 13:00:13.493] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/fluids/capability/IFluidHandler;
-[01апр.2023 13:00:13.494] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/fluids/capability/IFluidHandlerItem;
-[01апр.2023 13:00:13.494] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/items/IItemHandler;
-[01апр.2023 13:00:13.544] [Render thread/DEBUG] [mixin/]: Mixing client.MixinHumanoidModel from skillsapi.mixins.json into net.minecraft.client.model.HumanoidModel
-[01апр.2023 13:00:13.783] [Render thread/DEBUG] [net.minecraftforge.client.loading.ClientModLoader/CORE]: Generating PackInfo named mod:skillsapi for mod file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
-[01апр.2023 13:00:13.783] [Render thread/DEBUG] [net.minecraftforge.client.loading.ClientModLoader/CORE]: Generating PackInfo named mod:forge for mod file /
-[01апр.2023 13:00:13.784] [Render thread/DEBUG] [net.minecraftforge.client.loading.ClientModLoader/CORE]: Generating PackInfo named mod:shimmer for mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
-[01апр.2023 13:00:14.055] [Render thread/DEBUG] [mixin/]: Mixing ModelBlockRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.block.ModelBlockRenderer
-[01апр.2023 13:00:14.099] [Render thread/DEBUG] [mixin/]: Mixing QuadLighterMixin from shimmer.forge.mixins.json into net.minecraftforge.client.model.lighting.QuadLighter
-[01апр.2023 13:00:14.141] [Render thread/DEBUG] [mixin/]: Mixing LiquidBlockRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.block.LiquidBlockRenderer
-[01апр.2023 13:00:14.190] [Render thread/DEBUG] [mixin/]: Mixing client.MixinCamera from skillsapi.mixins.json into net.minecraft.client.Camera
-[01апр.2023 13:00:14.230] [Render thread/DEBUG] [mixin/]: Mixing client.MixinLevelRenderer from skillsapi.mixins.json into net.minecraft.client.renderer.LevelRenderer
-[01апр.2023 13:00:14.282] [Render thread/DEBUG] [mixin/]: Mixing LevelRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.LevelRenderer
-[01апр.2023 13:00:14.301] [Render thread/DEBUG] [mixin/]: Mixing flywheel.LevelRenderMixin from shimmer.forge.mixins.json into net.minecraft.client.renderer.LevelRenderer
-[01апр.2023 13:00:14.443] [Render thread/DEBUG] [mixin/]: Mixing ForgeParticleEngineMixin from shimmer.forge.mixins.json into net.minecraft.client.particle.ParticleEngine
-[01апр.2023 13:00:14.615] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [examplemod]
-[01апр.2023 13:00:14.627] [Render thread/DEBUG] [mixin/]: Mixing client.MixinDimensionSpecialEffects from skillsapi.mixins.json into net.minecraft.client.renderer.DimensionSpecialEffects
-[01апр.2023 13:00:14.637] [Render thread/DEBUG] [Shimmer/]: detect loader forge
-[01апр.2023 13:00:14.638] [Render thread/DEBUG] [Shimmer/]: Loaded com.lowdragmc.shimmer.forge.platform.ForgePlatformHelper@24fef542 for service
-[01апр.2023 13:00:14.639] [Render thread/DEBUG] [mixin/]: Mixing ShaderInstanceGlslProcessorMixin from shimmer.mixins.json into net.minecraft.client.renderer.ShaderInstance$1
-[01апр.2023 13:00:14.645] [Render thread/DEBUG] [mixin/]: Mixing BlendModeMixin from shimmer.mixins.json into com.mojang.blaze3d.shaders.BlendMode
-[01апр.2023 13:00:14.646] [Render thread/DEBUG] [mixin/]: Renaming @Accessor method setLastApplied(Lcom/mojang/blaze3d/shaders/BlendMode;)V to setLastApplied_$md$efa64d$0 in shimmer.mixins.json:BlendModeMixin
-[01апр.2023 13:00:14.654] [Render thread/DEBUG] [mixin/]: Renaming @Accessor method getLastApplied()Lcom/mojang/blaze3d/shaders/BlendMode; to getLastApplied_$md$efa64d$1 in shimmer.mixins.json:BlendModeMixin
-[01апр.2023 13:00:14.660] [Render thread/DEBUG] [mixin/]: Mixing ProgramMixin from shimmer.mixins.json into com.mojang.blaze3d.shaders.Program
-[01апр.2023 13:00:15.774] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
-[01апр.2023 13:00:15.789] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Loading configs type CLIENT
-[01апр.2023 13:00:15.790] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/shimmer-client.toml
-[01апр.2023 13:00:15.791] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/shimmer-client.toml
-[01апр.2023 13:00:15.792] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/shimmer-client.toml for changes
-[01апр.2023 13:00:15.795] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-client.toml
-[01апр.2023 13:00:15.796] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-client.toml
-[01апр.2023 13:00:15.796] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-client.toml for changes
-[01апр.2023 13:00:15.797] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Loaded forge config file forge-client.toml
-[01апр.2023 13:00:15.797] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Loading configs type COMMON
-[01апр.2023 13:00:15.798] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-common.toml
-[01апр.2023 13:00:15.798] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-common.toml
-[01апр.2023 13:00:15.798] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-common.toml for changes
-[01апр.2023 13:00:15.798] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Loaded forge config file forge-common.toml
-[01апр.2023 13:00:15.939] [Worker-Main-1/DEBUG] [mixin/]: Mixing ParticleDescriptionMixin from shimmer.mixins.json into net.minecraft.client.particle.ParticleDescription
-[01апр.2023 13:00:16.129] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[01апр.2023 13:00:16.612] [Worker-Main-2/DEBUG] [mixin/]: Mixing client.MixinLivingEntityRenderer from skillsapi.mixins.json into net.minecraft.client.renderer.entity.LivingEntityRenderer
-[01апр.2023 13:00:16.662] [Worker-Main-2/DEBUG] [mixin/]: Mixing HumanoidArmorLayerMixin from shimmer.mixins.json into net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer
-[01апр.2023 13:00:16.663] [Worker-Main-2/DEBUG] [mixin/]: Renaming synthetic method lambda$injectRenderModel$0(Lnet/minecraft/client/model/HumanoidModel;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/resources/ResourceLocation;FFFLnet/minecraft/client/renderer/MultiBufferSource;)V to mdefa64d$lambda$injectRenderModel$0$0 in shimmer.mixins.json:HumanoidArmorLayerMixin
-[01апр.2023 13:00:16.800] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file shimmer-client.toml changed, sending notifies
-[01апр.2023 13:00:16.801] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-client.toml changed, sending notifies
-[01апр.2023 13:00:16.802] [Thread-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
-[01апр.2023 13:00:16.802] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-common.toml changed, sending notifies
-[01апр.2023 13:00:16.803] [Thread-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
-[01апр.2023 13:00:16.868] [Render thread/DEBUG] [net.minecraftforge.fml.DeferredWorkQueue/LOADING]: Dispatching synchronous work for work queue SIDED_SETUP: 1 jobs
-[01апр.2023 13:00:16.872] [Forge Version Check/DEBUG] [net.minecraftforge.fml.VersionChecker/]: [forge] Received version check data:
+[11апр.2023 18:49:46.501] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent0/]: java.nio.DirectByteBuffer.<init>(long, int): unavailable
+[11апр.2023 18:49:46.501] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: sun.misc.Unsafe: available
+[11апр.2023 18:49:46.501] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for skillsapi
+[11апр.2023 18:49:46.502] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: maxDirectMemory: 4294967296 bytes (maybe)
+[11апр.2023 18:49:46.502] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.tmpdir: /var/folders/cq/j0_150l142j39rqktdw6k0sc0000gn/T (java.io.tmpdir)
+[11апр.2023 18:49:46.502] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.bitMode: 64 (sun.arch.data.model)
+[11апр.2023 18:49:46.503] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: Platform: MacOS
+[11апр.2023 18:49:46.504] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.maxDirectMemory: -1 bytes
+[11апр.2023 18:49:46.504] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.uninitializedArrayAllocationThreshold: -1
+[11апр.2023 18:49:46.506] [modloading-worker-0/DEBUG] [io.netty.util.internal.CleanerJava9/]: java.nio.ByteBuffer.cleaner(): available
+[11апр.2023 18:49:46.506] [modloading-worker-0/DEBUG] [io.netty.util.internal.PlatformDependent/]: -Dio.netty.noPreferDirect: false
+[11апр.2023 18:49:46.540] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for shimmer
+[11апр.2023 18:49:46.542] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Loading Network data for FML net version: FML3
+[11апр.2023 18:49:46.545] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing com.lowdragmc.shimmer.forge.client.ForgeEventListener to FORGE
+[11апр.2023 18:49:46.569] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-client.toml for forge tracking
+[11апр.2023 18:49:46.569] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-server.toml for forge tracking
+[11апр.2023 18:49:46.569] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Config file forge-common.toml for forge tracking
+[11апр.2023 18:49:46.606] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Attempting to inject @EventBusSubscriber classes into the eventbus for forge
+[11апр.2023 18:49:46.606] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.common.ForgeSpawnEggItem$CommonHandler to MOD
+[11апр.2023 18:49:46.609] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.common.ForgeSpawnEggItem$ColorRegisterHandler to MOD
+[11апр.2023 18:49:46.613] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.model.data.ModelDataManager to FORGE
+[11апр.2023 18:49:46.616] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.ForgeHooksClient$ClientEvents to MOD
+[11апр.2023 18:49:46.623] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.minecraftforge.client.ClientForgeMod to MOD
+[11апр.2023 18:49:46.672] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/energy/IEnergyStorage;
+[11апр.2023 18:49:46.674] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/fluids/capability/IFluidHandler;
+[11апр.2023 18:49:46.674] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/fluids/capability/IFluidHandlerItem;
+[11апр.2023 18:49:46.674] [Render thread/DEBUG] [net.minecraftforge.common.capabilities.CapabilityManager/CAPABILITIES]: Attempting to automatically register: Lnet/minecraftforge/items/IItemHandler;
+[11апр.2023 18:49:46.719] [Render thread/DEBUG] [mixin/]: Mixing client.MixinHumanoidModel from skillsapi.mixins.json into net.minecraft.client.model.HumanoidModel
+[11апр.2023 18:49:46.965] [Render thread/DEBUG] [net.minecraftforge.client.loading.ClientModLoader/CORE]: Generating PackInfo named mod:skillsapi for mod file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
+[11апр.2023 18:49:46.966] [Render thread/DEBUG] [net.minecraftforge.client.loading.ClientModLoader/CORE]: Generating PackInfo named mod:forge for mod file /
+[11апр.2023 18:49:46.966] [Render thread/DEBUG] [net.minecraftforge.client.loading.ClientModLoader/CORE]: Generating PackInfo named mod:shimmer for mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
+[11апр.2023 18:49:47.150] [Render thread/DEBUG] [mixin/]: Mixing ModelBlockRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.block.ModelBlockRenderer
+[11апр.2023 18:49:47.177] [Render thread/DEBUG] [mixin/]: Mixing QuadLighterMixin from shimmer.forge.mixins.json into net.minecraftforge.client.model.lighting.QuadLighter
+[11апр.2023 18:49:47.200] [Render thread/DEBUG] [mixin/]: Mixing LiquidBlockRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.block.LiquidBlockRenderer
+[11апр.2023 18:49:47.226] [Render thread/DEBUG] [mixin/]: Mixing client.MixinCamera from skillsapi.mixins.json into net.minecraft.client.Camera
+[11апр.2023 18:49:47.249] [Render thread/DEBUG] [mixin/]: Mixing client.MixinLevelRenderer from skillsapi.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[11апр.2023 18:49:47.283] [Render thread/DEBUG] [mixin/]: Mixing LevelRendererMixin from shimmer.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[11апр.2023 18:49:47.297] [Render thread/DEBUG] [mixin/]: Mixing flywheel.LevelRenderMixin from shimmer.forge.mixins.json into net.minecraft.client.renderer.LevelRenderer
+[11апр.2023 18:49:47.419] [Render thread/DEBUG] [mixin/]: Mixing ForgeParticleEngineMixin from shimmer.forge.mixins.json into net.minecraft.client.particle.ParticleEngine
+[11апр.2023 18:49:47.583] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [examplemod]
+[11апр.2023 18:49:47.596] [Render thread/DEBUG] [mixin/]: Mixing client.MixinDimensionSpecialEffects from skillsapi.mixins.json into net.minecraft.client.renderer.DimensionSpecialEffects
+[11апр.2023 18:49:47.608] [Render thread/DEBUG] [Shimmer/]: detect loader forge
+[11апр.2023 18:49:47.610] [Render thread/DEBUG] [Shimmer/]: Loaded com.lowdragmc.shimmer.forge.platform.ForgePlatformHelper@7df3da0b for service
+[11апр.2023 18:49:47.611] [Render thread/DEBUG] [mixin/]: Mixing ShaderInstanceGlslProcessorMixin from shimmer.mixins.json into net.minecraft.client.renderer.ShaderInstance$1
+[11апр.2023 18:49:47.618] [Render thread/DEBUG] [mixin/]: Mixing BlendModeMixin from shimmer.mixins.json into com.mojang.blaze3d.shaders.BlendMode
+[11апр.2023 18:49:47.618] [Render thread/DEBUG] [mixin/]: Renaming @Accessor method setLastApplied(Lcom/mojang/blaze3d/shaders/BlendMode;)V to setLastApplied_$md$fe2ca2$0 in shimmer.mixins.json:BlendModeMixin
+[11апр.2023 18:49:47.626] [Render thread/DEBUG] [mixin/]: Renaming @Accessor method getLastApplied()Lcom/mojang/blaze3d/shaders/BlendMode; to getLastApplied_$md$fe2ca2$1 in shimmer.mixins.json:BlendModeMixin
+[11апр.2023 18:49:47.633] [Render thread/DEBUG] [mixin/]: Mixing ProgramMixin from shimmer.mixins.json into com.mojang.blaze3d.shaders.Program
+[11апр.2023 18:49:48.945] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[11апр.2023 18:49:48.969] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Loading configs type CLIENT
+[11апр.2023 18:49:48.970] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/shimmer-client.toml
+[11апр.2023 18:49:48.971] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/shimmer-client.toml
+[11апр.2023 18:49:48.972] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/shimmer-client.toml for changes
+[11апр.2023 18:49:48.976] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-client.toml
+[11апр.2023 18:49:48.977] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-client.toml
+[11апр.2023 18:49:48.977] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-client.toml for changes
+[11апр.2023 18:49:48.978] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Loaded forge config file forge-client.toml
+[11апр.2023 18:49:48.978] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Loading configs type COMMON
+[11апр.2023 18:49:48.978] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-common.toml
+[11апр.2023 18:49:48.978] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-common.toml
+[11апр.2023 18:49:48.986] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/run/config/forge-common.toml for changes
+[11апр.2023 18:49:48.986] [modloading-worker-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Loaded forge config file forge-common.toml
+[11апр.2023 18:49:49.189] [Worker-Main-7/DEBUG] [mixin/]: Mixing ParticleDescriptionMixin from shimmer.mixins.json into net.minecraft.client.particle.ParticleDescription
+[11апр.2023 18:49:49.376] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[11апр.2023 18:49:49.587] [Worker-Main-1/DEBUG] [mixin/]: Mixing client.MixinLivingEntityRenderer from skillsapi.mixins.json into net.minecraft.client.renderer.entity.LivingEntityRenderer
+[11апр.2023 18:49:49.640] [Worker-Main-1/DEBUG] [mixin/]: Mixing HumanoidArmorLayerMixin from shimmer.mixins.json into net.minecraft.client.renderer.entity.layers.HumanoidArmorLayer
+[11апр.2023 18:49:49.642] [Worker-Main-1/DEBUG] [mixin/]: Renaming synthetic method lambda$injectRenderModel$0(Lnet/minecraft/client/model/HumanoidModel;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/resources/ResourceLocation;FFFLnet/minecraft/client/renderer/MultiBufferSource;)V to mdfe2ca2$lambda$injectRenderModel$0$0 in shimmer.mixins.json:HumanoidArmorLayerMixin
+[11апр.2023 18:49:49.881] [Render thread/DEBUG] [net.minecraftforge.fml.DeferredWorkQueue/LOADING]: Dispatching synchronous work for work queue SIDED_SETUP: 1 jobs
+[11апр.2023 18:49:49.909] [Render thread/DEBUG] [Shimmer/]: reloading config files end
+[11апр.2023 18:49:49.916] [Render thread/DEBUG] [net.minecraftforge.fml.DeferredWorkQueue/LOADING]: Synchronous work queue completed in 33.63 ms
+[11апр.2023 18:49:49.987] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file shimmer-client.toml changed, sending notifies
+[11апр.2023 18:49:49.988] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-client.toml changed, sending notifies
+[11апр.2023 18:49:49.988] [Thread-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
+[11апр.2023 18:49:49.988] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-common.toml changed, sending notifies
+[11апр.2023 18:49:49.988] [Thread-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
+[11апр.2023 18:49:50.347] [Forge Version Check/DEBUG] [net.minecraftforge.fml.VersionChecker/]: [forge] Received version check data:
 {
   "homepage": "https://files.minecraftforge.net/net/minecraftforge/forge/",
   "promos": {
@@ -491,192 +497,169 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
     "1.19.2-latest": "43.2.8",
     "1.19.3-latest": "44.1.23",
     "1.19.3-recommended": "44.1.0",
-    "1.19.4-latest": "45.0.40"
+    "1.19.4-latest": "45.0.43"
   }
 }
-[01апр.2023 13:00:16.874] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 43.1.43 Target: 43.2.0
-[01апр.2023 13:00:16.897] [Render thread/DEBUG] [Shimmer/]: reloading config files end
-[01апр.2023 13:00:16.906] [Render thread/DEBUG] [net.minecraftforge.fml.DeferredWorkQueue/LOADING]: Synchronous work queue completed in 36.27 ms
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_helmet#inventory' referenced from: skillsapi:test_helmet#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_helmet.json
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_chestplate#inventory' referenced from: skillsapi:test_chestplate#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_chestplate.json
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_leggings#inventory' referenced from: skillsapi:test_leggings#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_leggings.json
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_boots#inventory' referenced from: skillsapi:test_boots#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_boots.json
-[01апр.2023 13:00:23.406] [Render thread/DEBUG] [net.minecraftforge.common.ForgeI18n/CORE]: Loading I18N data entries: 5878
-[01апр.2023 13:00:23.437] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[01апр.2023 13:00:23.438] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[01апр.2023 13:00:23.492] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
-[01апр.2023 13:00:23.494] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[01апр.2023 13:00:23.652] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[01апр.2023 13:00:23.666] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
-[01апр.2023 13:00:23.666] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[01апр.2023 13:00:23.667] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[01апр.2023 13:00:23.668] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[01апр.2023 13:00:23.669] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[01апр.2023 13:00:23.669] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[01апр.2023 13:00:23.676] [Render thread/DEBUG] [mixin/]: Mixing BakedQuadMixin from shimmer.forge.mixins.json into net.minecraft.client.renderer.block.model.BakedQuad
-[01апр.2023 13:00:24.827] [Render thread/INFO] [Shimmer/]: inject shader vsh particle.
-[01апр.2023 13:00:24.891] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_solid.
-[01апр.2023 13:00:24.903] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_solid.
-[01апр.2023 13:00:24.918] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout_mipped.
-[01апр.2023 13:00:24.929] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout_mipped.
-[01апр.2023 13:00:24.944] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout.
-[01апр.2023 13:00:24.955] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout.
-[01апр.2023 13:00:24.970] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_translucent.
-[01апр.2023 13:00:25.003] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_armor_cutout_no_cull.
-[01апр.2023 13:00:25.027] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_solid.
-[01апр.2023 13:00:25.053] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout.
-[01апр.2023 13:00:25.077] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull.
-[01апр.2023 13:00:25.102] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull_z_offset.
-[01апр.2023 13:00:25.139] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent_cull.
-[01апр.2023 13:00:25.167] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent.
-[01апр.2023 13:00:25.200] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[01апр.2023 13:00:25.202] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_smooth_cutout.
-[01апр.2023 13:00:25.232] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_decal.
-[01апр.2023 13:00:25.256] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_no_outline.
-[01апр.2023 13:00:25.526] [Render thread/DEBUG] [mixin/]: Mixing PostChainMixin from shimmer.mixins.json into net.minecraft.client.renderer.PostChain
-[01апр.2023 13:00:25.527] [Render thread/DEBUG] [mixin/]: Renaming synthetic method lambda$injectGetRenderTarget$0(Ljava/lang/String;)Lcom/mojang/blaze3d/pipeline/RenderTarget; to mdefa64d$lambda$injectGetRenderTarget$0$0 in shimmer.mixins.json:PostChainMixin
-[01апр.2023 13:00:25.575] [Render thread/DEBUG] [mixin/]: Mixing PostPassMixin from shimmer.mixins.json into net.minecraft.client.renderer.PostPass
-[01апр.2023 13:00:25.604] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[01апр.2023 13:00:25.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[01апр.2023 13:00:25.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[01апр.2023 13:00:26.402] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[01апр.2023 13:02:57.616] [Render thread/DEBUG] [net.minecraftforge.server.ServerLifecycleHooks/CORE]: Generating PackInfo named mod:skillsapi for mod file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
-[01апр.2023 13:02:57.616] [Render thread/DEBUG] [net.minecraftforge.server.ServerLifecycleHooks/CORE]: Generating PackInfo named mod:forge for mod file /
-[01апр.2023 13:02:57.617] [Render thread/DEBUG] [net.minecraftforge.server.ServerLifecycleHooks/CORE]: Generating PackInfo named mod:shimmer for mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
-[01апр.2023 13:02:59.512] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[01апр.2023 13:03:00.117] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
-[01апр.2023 13:03:00.536] [Render thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: Gathering id map for writing to world save Новый мир
-[01апр.2023 13:03:00.542] [Render thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: ID Map collection complete Новый мир
-[01апр.2023 13:03:00.584] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
-[01апр.2023 13:03:00.584] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[01апр.2023 13:03:00.690] [Server thread/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing serverconfig directory : ./saves/Новый мир/serverconfig
-[01апр.2023 13:03:00.691] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Loading configs type SERVER
-[01апр.2023 13:03:00.691] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for ./saves/Новый мир/serverconfig/forge-server.toml
-[01апр.2023 13:03:00.692] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file ./saves/Новый мир/serverconfig/forge-server.toml
-[01апр.2023 13:03:00.693] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file ./saves/Новый мир/serverconfig/forge-server.toml for changes
-[01апр.2023 13:03:00.693] [Server thread/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Loaded forge config file forge-server.toml
-[01апр.2023 13:03:00.810] [Server thread/DEBUG] [mixin/]: Mixing BlockLightEngineMixin from shimmer.mixins.json into net.minecraft.world.level.lighting.BlockLightEngine
-[01апр.2023 13:03:00.989] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[01апр.2023 13:03:01.696] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-server.toml changed, sending notifies
-[01апр.2023 13:03:01.696] [Thread-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
-[01апр.2023 13:03:05.169] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.170] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.519] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:06.019] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 24%
-[01апр.2023 13:03:06.518] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 70%
-[01апр.2023 13:03:06.875] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[01апр.2023 13:03:06.901] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 5893 ms
-[01апр.2023 13:03:06.980] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 8, from 0
-[01апр.2023 13:03:07.013] [Render thread/DEBUG] [io.netty.channel.MultithreadEventLoopGroup/]: -Dio.netty.eventLoopThreads: 16
-[01апр.2023 13:03:07.029] [Render thread/DEBUG] [io.netty.util.internal.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
-[01апр.2023 13:03:07.030] [Render thread/DEBUG] [io.netty.util.internal.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
-[01апр.2023 13:03:07.035] [Render thread/DEBUG] [io.netty.channel.nio.NioEventLoop/]: -Dio.netty.noKeySetOptimization: false
-[01апр.2023 13:03:07.035] [Render thread/DEBUG] [io.netty.channel.nio.NioEventLoop/]: -Dio.netty.selectorAutoRebuildThreshold: 512
-[01апр.2023 13:03:07.041] [Render thread/DEBUG] [io.netty.util.internal.PlatformDependent/]: org.jctools-core.MpscChunkedArrayQueue: available
-[01апр.2023 13:03:07.193] [Render thread/DEBUG] [io.netty.channel.DefaultChannelId/]: -Dio.netty.processId: 27532 (auto-detected)
-[01апр.2023 13:03:07.196] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[01апр.2023 13:03:07.196] [Render thread/DEBUG] [io.netty.util.NetUtil/]: -Djava.net.preferIPv4Stack: false
-[01апр.2023 13:03:07.196] [Render thread/DEBUG] [io.netty.util.NetUtil/]: -Djava.net.preferIPv6Addresses: false
-[01апр.2023 13:03:07.209] [Render thread/DEBUG] [io.netty.util.NetUtilInitializations/]: Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
-[01апр.2023 13:03:07.209] [Render thread/DEBUG] [io.netty.util.NetUtil/]: Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
-[01апр.2023 13:03:07.212] [Render thread/DEBUG] [io.netty.channel.DefaultChannelId/]: -Dio.netty.machineId: d4:57:63:ff:fe:e6:85:c5 (auto-detected)
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.numHeapArenas: 16
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.numDirectArenas: 16
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.pageSize: 8192
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.maxOrder: 9
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.chunkSize: 4194304
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.smallCacheSize: 256
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.normalCacheSize: 64
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedBufferCapacity: 32768
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimInterval: 8192
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimIntervalMillis: 0
-[01апр.2023 13:03:07.240] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.useCacheForAllThreads: false
-[01апр.2023 13:03:07.241] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
-[01апр.2023 13:03:07.250] [Render thread/DEBUG] [io.netty.buffer.ByteBufUtil/]: -Dio.netty.allocator.type: pooled
-[01апр.2023 13:03:07.250] [Render thread/DEBUG] [io.netty.buffer.ByteBufUtil/]: -Dio.netty.threadLocalDirectBufferSize: 0
-[01апр.2023 13:03:07.250] [Render thread/DEBUG] [io.netty.buffer.ByteBufUtil/]: -Dio.netty.maxThreadLocalCharBufferSize: 16384
-[01апр.2023 13:03:07.274] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Starting local connection.
-[01апр.2023 13:03:07.376] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.maxCapacityPerThread: 4096
-[01апр.2023 13:03:07.376] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.ratio: 8
-[01апр.2023 13:03:07.377] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.chunkSize: 32
-[01апр.2023 13:03:07.377] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.blocking: false
-[01апр.2023 13:03:07.389] [Netty Server IO #1/DEBUG] [io.netty.buffer.AbstractByteBuf/]: -Dio.netty.buffer.checkAccessible: true
-[01апр.2023 13:03:07.390] [Netty Server IO #1/DEBUG] [io.netty.buffer.AbstractByteBuf/]: -Dio.netty.buffer.checkBounds: true
-[01апр.2023 13:03:07.390] [Netty Server IO #1/DEBUG] [io.netty.util.ResourceLeakDetectorFactory/]: Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1da889f0
-[01апр.2023 13:03:07.395] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Starting local connection.
-[01апр.2023 13:03:07.446] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Sending ticking packet info 'net.minecraftforge.network.HandshakeMessages$S2CModData' to 'fml:handshake' sequence 0
-[01апр.2023 13:03:07.451] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 0
-[01апр.2023 13:03:07.494] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Sending ticking packet info 'net.minecraftforge.network.HandshakeMessages$S2CModList' to 'fml:handshake' sequence 1
-[01апр.2023 13:03:07.495] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 1
-[01апр.2023 13:03:07.496] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Logging into server with mod list [minecraft, skillsapi, forge, shimmer]
-[01апр.2023 13:03:07.496] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:loginwrapper' : Version test of 'FML3' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:tier_sorting' : Version test of '1.0' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:handshake' : Version test of 'FML3' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'skillsapi:main_channel' : Version test of '1' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:unregister' : Version test of 'FML3' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:play' : Version test of 'FML3' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:register' : Version test of 'FML3' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:split' : Version test of '1.1' from server : ACCEPTED
-[01апр.2023 13:03:07.497] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Accepting channel list from server
-[01апр.2023 13:03:07.498] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Dispatching wrapped packet reply for channel fml:handshake with index 1
-[01апр.2023 13:03:07.499] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Accepted server connection
-[01апр.2023 13:03:07.499] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 1
-[01апр.2023 13:03:07.499] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received client indexed reply 1 of type net.minecraftforge.network.HandshakeMessages$C2SModListReply
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received client connection with modlist [minecraft, skillsapi, forge, shimmer]
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:loginwrapper' : Version test of 'FML3' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:tier_sorting' : Version test of '1.0' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:handshake' : Version test of 'FML3' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'skillsapi:main_channel' : Version test of '1' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:unregister' : Version test of 'FML3' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:play' : Version test of 'FML3' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:register' : Version test of 'FML3' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:split' : Version test of '1.1' from client : ACCEPTED
-[01апр.2023 13:03:07.500] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Accepting channel list from client
-[01апр.2023 13:03:07.501] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Accepted client connection mod list
-[01апр.2023 13:03:07.547] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Sending ticking packet info 'Config forge-server.toml' to 'fml:handshake' sequence 2
-[01апр.2023 13:03:07.547] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 2
-[01апр.2023 13:03:07.548] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received config sync from server
-[01апр.2023 13:03:07.548] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Dispatching wrapped packet reply for channel fml:handshake with index 2
-[01апр.2023 13:03:07.548] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 2
-[01апр.2023 13:03:07.548] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received client indexed reply 2 of type net.minecraftforge.network.HandshakeMessages$C2SAcknowledge
-[01апр.2023 13:03:07.548] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received acknowledgement from client
-[01апр.2023 13:03:07.597] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Handshake complete!
-[01апр.2023 13:03:07.647] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[01апр.2023 13:03:07.687] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@2ed08c87
-[01апр.2023 13:03:07.707] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:f5b385d2] logged in with entity id 3 at (65.38306902497666, -58.3746974668591, -26.124739329052954)
-[01апр.2023 13:03:07.771] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
-[01апр.2023 13:03:08.668] [Render thread/DEBUG] [mixin/]: Mixing RenderChunkMixin from shimmer.mixins.json into net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk
-[01апр.2023 13:03:08.673] [Render thread/DEBUG] [mixin/]: Mixing RebuildTaskMixin from shimmer.mixins.json into net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk$RebuildTask
-[01апр.2023 13:03:08.985] [Render thread/DEBUG] [io.netty.util.internal.ThreadLocalRandom/]: -Dio.netty.initialSeedUniquifier: 0xa78110017712ab01
-[01апр.2023 13:03:09.151] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 79 advancements
-[01апр.2023 13:03:10.875] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[01апр.2023 13:03:10.892] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[01апр.2023 13:03:10.905] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[01апр.2023 13:03:10.906] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[01апр.2023 13:03:10.908] [Server thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: Gathering id map for writing to world save Новый мир
-[01апр.2023 13:03:10.917] [Server thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: ID Map collection complete Новый мир
-[01апр.2023 13:03:33.792] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
-[01апр.2023 13:03:33.825] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Отключение
-[01апр.2023 13:03:33.825] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev покинул игру
-[01апр.2023 13:03:33.832] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
-[01апр.2023 13:03:33.874] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[01апр.2023 13:03:33.874] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[01апр.2023 13:03:33.874] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[01апр.2023 13:03:34.705] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[01апр.2023 13:03:34.740] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[01апр.2023 13:03:34.741] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[01апр.2023 13:03:34.742] [Server thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: Gathering id map for writing to world save Новый мир
-[01апр.2023 13:03:34.746] [Server thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: ID Map collection complete Новый мир
-[01апр.2023 13:03:34.758] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Новый мир): All chunks are saved
-[01апр.2023 13:03:34.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01апр.2023 13:03:34.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01апр.2023 13:03:34.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
-[01апр.2023 13:03:35.586] [Server thread/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing serverconfig directory : ./saves/Новый мир/serverconfig
-[01апр.2023 13:03:35.587] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Unloading configs type SERVER
+[11апр.2023 18:49:50.351] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 43.1.43 Target: 43.2.0
+[11апр.2023 18:49:54.090] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_helmet#inventory' referenced from: skillsapi:test_helmet#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_helmet.json
+[11апр.2023 18:49:54.090] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_chestplate#inventory' referenced from: skillsapi:test_chestplate#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_chestplate.json
+[11апр.2023 18:49:54.091] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_leggings#inventory' referenced from: skillsapi:test_leggings#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_leggings.json
+[11апр.2023 18:49:54.091] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_boots#inventory' referenced from: skillsapi:test_boots#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_boots.json
+[11апр.2023 18:49:56.630] [Render thread/DEBUG] [net.minecraftforge.common.ForgeI18n/CORE]: Loading I18N data entries: 5878
+[11апр.2023 18:49:56.649] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[11апр.2023 18:49:56.650] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[11апр.2023 18:49:56.681] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
+[11апр.2023 18:49:56.684] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[11апр.2023 18:49:56.903] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[11апр.2023 18:49:56.916] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[11апр.2023 18:49:56.916] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[11апр.2023 18:49:56.917] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[11апр.2023 18:49:56.918] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[11апр.2023 18:49:56.918] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[11апр.2023 18:49:56.919] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[11апр.2023 18:49:56.924] [Render thread/DEBUG] [mixin/]: Mixing BakedQuadMixin from shimmer.forge.mixins.json into net.minecraft.client.renderer.block.model.BakedQuad
+[11апр.2023 18:49:58.059] [Render thread/INFO] [Shimmer/]: inject shader vsh particle.
+[11апр.2023 18:49:58.124] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_solid.
+[11апр.2023 18:49:58.135] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_solid.
+[11апр.2023 18:49:58.151] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout_mipped.
+[11апр.2023 18:49:58.164] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout_mipped.
+[11апр.2023 18:49:58.179] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout.
+[11апр.2023 18:49:58.190] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout.
+[11апр.2023 18:49:58.205] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_translucent.
+[11апр.2023 18:49:58.239] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_armor_cutout_no_cull.
+[11апр.2023 18:49:58.264] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_solid.
+[11апр.2023 18:49:58.289] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout.
+[11апр.2023 18:49:58.313] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull.
+[11апр.2023 18:49:58.338] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull_z_offset.
+[11апр.2023 18:49:58.372] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent_cull.
+[11апр.2023 18:49:58.396] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent.
+[11апр.2023 18:49:58.427] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[11апр.2023 18:49:58.429] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_smooth_cutout.
+[11апр.2023 18:49:58.460] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_decal.
+[11апр.2023 18:49:58.486] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_no_outline.
+[11апр.2023 18:49:58.763] [Render thread/DEBUG] [mixin/]: Mixing PostChainMixin from shimmer.mixins.json into net.minecraft.client.renderer.PostChain
+[11апр.2023 18:49:58.763] [Render thread/DEBUG] [mixin/]: Renaming synthetic method lambda$injectGetRenderTarget$0(Ljava/lang/String;)Lcom/mojang/blaze3d/pipeline/RenderTarget; to mdfe2ca2$lambda$injectGetRenderTarget$0$0 in shimmer.mixins.json:PostChainMixin
+[11апр.2023 18:49:58.814] [Render thread/DEBUG] [mixin/]: Mixing PostPassMixin from shimmer.mixins.json into net.minecraft.client.renderer.PostPass
+[11апр.2023 18:49:58.850] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[11апр.2023 18:49:58.851] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[11апр.2023 18:49:58.851] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[11апр.2023 18:49:59.594] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[11апр.2023 18:50:04.616] [Render thread/DEBUG] [net.minecraftforge.server.ServerLifecycleHooks/CORE]: Generating PackInfo named mod:skillsapi for mod file /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/out/production/resources
+[11апр.2023 18:50:04.616] [Render thread/DEBUG] [net.minecraftforge.server.ServerLifecycleHooks/CORE]: Generating PackInfo named mod:forge for mod file /
+[11апр.2023 18:50:04.616] [Render thread/DEBUG] [net.minecraftforge.server.ServerLifecycleHooks/CORE]: Generating PackInfo named mod:shimmer for mod file /Users/astemirkerefov/.gradle/caches/forge_gradle/deobf_dependencies/com/lowdragmc/shimmer/Shimmer-forge/1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2/Shimmer-forge-1.19.2-0.1.14_mapped_parchment_2022.08.14-1.19.2.jar
+[11апр.2023 18:50:06.472] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[11апр.2023 18:50:07.086] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
+[11апр.2023 18:50:07.461] [Render thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: Gathering id map for writing to world save Новый мир
+[11апр.2023 18:50:07.466] [Render thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: ID Map collection complete Новый мир
+[11апр.2023 18:50:07.508] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
+[11апр.2023 18:50:07.508] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[11апр.2023 18:50:07.571] [Server thread/DEBUG] [net.minecraftforge.fml.loading.FileUtils/CORE]: Found existing serverconfig directory : ./saves/Новый мир/serverconfig
+[11апр.2023 18:50:07.571] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigTracker/CONFIG]: Loading configs type SERVER
+[11апр.2023 18:50:07.571] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Built TOML config for ./saves/Новый мир/serverconfig/forge-server.toml
+[11апр.2023 18:50:07.573] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Loaded TOML config file ./saves/Новый мир/serverconfig/forge-server.toml
+[11апр.2023 18:50:07.573] [Server thread/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Watching TOML config file ./saves/Новый мир/serverconfig/forge-server.toml for changes
+[11апр.2023 18:50:07.573] [Server thread/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Loaded forge config file forge-server.toml
+[11апр.2023 18:50:07.664] [Server thread/DEBUG] [mixin/]: Mixing BlockLightEngineMixin from shimmer.mixins.json into net.minecraft.world.level.lighting.BlockLightEngine
+[11апр.2023 18:50:07.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[11апр.2023 18:50:08.579] [Thread-0/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-server.toml changed, sending notifies
+[11апр.2023 18:50:08.579] [Thread-0/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
+[11апр.2023 18:50:11.914] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:12.300] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 5%
+[11апр.2023 18:50:12.799] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 49%
+[11апр.2023 18:50:13.304] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 88%
+[11апр.2023 18:50:13.388] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[11апр.2023 18:50:13.402] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 5625 ms
+[11апр.2023 18:50:13.543] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 8, from 0
+[11апр.2023 18:50:13.567] [Render thread/DEBUG] [io.netty.channel.MultithreadEventLoopGroup/]: -Dio.netty.eventLoopThreads: 16
+[11апр.2023 18:50:13.590] [Render thread/DEBUG] [io.netty.util.internal.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.initialSize: 1024
+[11апр.2023 18:50:13.590] [Render thread/DEBUG] [io.netty.util.internal.InternalThreadLocalMap/]: -Dio.netty.threadLocalMap.stringBuilder.maxSize: 4096
+[11апр.2023 18:50:13.659] [Render thread/DEBUG] [io.netty.channel.nio.NioEventLoop/]: -Dio.netty.noKeySetOptimization: false
+[11апр.2023 18:50:13.659] [Render thread/DEBUG] [io.netty.channel.nio.NioEventLoop/]: -Dio.netty.selectorAutoRebuildThreshold: 512
+[11апр.2023 18:50:13.669] [Render thread/DEBUG] [io.netty.util.internal.PlatformDependent/]: org.jctools-core.MpscChunkedArrayQueue: available
+[11апр.2023 18:50:13.684] [Render thread/DEBUG] [io.netty.channel.DefaultChannelId/]: -Dio.netty.processId: 44254 (auto-detected)
+[11апр.2023 18:50:13.686] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[11апр.2023 18:50:13.686] [Render thread/DEBUG] [io.netty.util.NetUtil/]: -Djava.net.preferIPv4Stack: false
+[11апр.2023 18:50:13.686] [Render thread/DEBUG] [io.netty.util.NetUtil/]: -Djava.net.preferIPv6Addresses: false
+[11апр.2023 18:50:13.700] [Render thread/DEBUG] [io.netty.util.NetUtilInitializations/]: Loopback interface: lo0 (lo0, 0:0:0:0:0:0:0:1%lo0)
+[11апр.2023 18:50:13.701] [Render thread/DEBUG] [io.netty.util.NetUtil/]: Failed to get SOMAXCONN from sysctl and file /proc/sys/net/core/somaxconn. Default: 128
+[11апр.2023 18:50:13.705] [Render thread/DEBUG] [io.netty.channel.DefaultChannelId/]: -Dio.netty.machineId: d4:57:63:ff:fe:e6:85:c5 (auto-detected)
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.numHeapArenas: 16
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.numDirectArenas: 16
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.pageSize: 8192
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.maxOrder: 9
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.chunkSize: 4194304
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.smallCacheSize: 256
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.normalCacheSize: 64
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedBufferCapacity: 32768
+[11апр.2023 18:50:13.738] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimInterval: 8192
+[11апр.2023 18:50:13.739] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.cacheTrimIntervalMillis: 0
+[11апр.2023 18:50:13.739] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.useCacheForAllThreads: false
+[11апр.2023 18:50:13.739] [Render thread/DEBUG] [io.netty.buffer.PooledByteBufAllocator/]: -Dio.netty.allocator.maxCachedByteBuffersPerChunk: 1023
+[11апр.2023 18:50:13.750] [Render thread/DEBUG] [io.netty.buffer.ByteBufUtil/]: -Dio.netty.allocator.type: pooled
+[11апр.2023 18:50:13.750] [Render thread/DEBUG] [io.netty.buffer.ByteBufUtil/]: -Dio.netty.threadLocalDirectBufferSize: 0
+[11апр.2023 18:50:13.750] [Render thread/DEBUG] [io.netty.buffer.ByteBufUtil/]: -Dio.netty.maxThreadLocalCharBufferSize: 16384
+[11апр.2023 18:50:13.795] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Starting local connection.
+[11апр.2023 18:50:13.920] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.maxCapacityPerThread: 4096
+[11апр.2023 18:50:13.920] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.ratio: 8
+[11апр.2023 18:50:13.920] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.chunkSize: 32
+[11апр.2023 18:50:13.920] [Netty Local Client IO #0/DEBUG] [io.netty.util.Recycler/]: -Dio.netty.recycler.blocking: false
+[11апр.2023 18:50:13.936] [Netty Server IO #1/DEBUG] [io.netty.buffer.AbstractByteBuf/]: -Dio.netty.buffer.checkAccessible: true
+[11апр.2023 18:50:13.936] [Netty Server IO #1/DEBUG] [io.netty.buffer.AbstractByteBuf/]: -Dio.netty.buffer.checkBounds: true
+[11апр.2023 18:50:13.937] [Netty Server IO #1/DEBUG] [io.netty.util.ResourceLeakDetectorFactory/]: Loaded default ResourceLeakDetector: io.netty.util.ResourceLeakDetector@1f67bd49
+[11апр.2023 18:50:13.945] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Starting local connection.
+[11апр.2023 18:50:13.964] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Sending ticking packet info 'net.minecraftforge.network.HandshakeMessages$S2CModData' to 'fml:handshake' sequence 0
+[11апр.2023 18:50:13.971] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 0
+[11апр.2023 18:50:14.014] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Sending ticking packet info 'net.minecraftforge.network.HandshakeMessages$S2CModList' to 'fml:handshake' sequence 1
+[11апр.2023 18:50:14.015] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 1
+[11апр.2023 18:50:14.016] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Logging into server with mod list [minecraft, skillsapi, forge, shimmer]
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:loginwrapper' : Version test of 'FML3' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:tier_sorting' : Version test of '1.0' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:handshake' : Version test of 'FML3' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'skillsapi:main_channel' : Version test of '1' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:unregister' : Version test of 'FML3' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:play' : Version test of 'FML3' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:register' : Version test of 'FML3' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:split' : Version test of '1.1' from server : ACCEPTED
+[11апр.2023 18:50:14.018] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Accepting channel list from server
+[11апр.2023 18:50:14.021] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Dispatching wrapped packet reply for channel fml:handshake with index 1
+[11апр.2023 18:50:14.021] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Accepted server connection
+[11апр.2023 18:50:14.022] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 1
+[11апр.2023 18:50:14.022] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received client indexed reply 1 of type net.minecraftforge.network.HandshakeMessages$C2SModListReply
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received client connection with modlist [minecraft, skillsapi, forge, shimmer]
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:loginwrapper' : Version test of 'FML3' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:tier_sorting' : Version test of '1.0' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:handshake' : Version test of 'FML3' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'skillsapi:main_channel' : Version test of '1' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:unregister' : Version test of 'FML3' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'fml:play' : Version test of 'FML3' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'minecraft:register' : Version test of 'FML3' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Channel 'forge:split' : Version test of '1.1' from client : ACCEPTED
+[11апр.2023 18:50:14.023] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.NetworkRegistry/NETREGISTRY]: Accepting channel list from client
+[11апр.2023 18:50:14.024] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Accepted client connection mod list
+[11апр.2023 18:50:14.065] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Sending ticking packet info 'Config forge-server.toml' to 'fml:handshake' sequence 2
+[11апр.2023 18:50:14.066] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 2
+[11апр.2023 18:50:14.066] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received config sync from server
+[11апр.2023 18:50:14.066] [Netty Local Client IO #0/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Dispatching wrapped packet reply for channel fml:handshake with index 2
+[11апр.2023 18:50:14.066] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.LoginWrapper/FMLHANDSHAKE]: Recieved login wrapper packet event for channel fml:handshake with index 2
+[11апр.2023 18:50:14.067] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received client indexed reply 2 of type net.minecraftforge.network.HandshakeMessages$C2SAcknowledge
+[11апр.2023 18:50:14.067] [Netty Server IO #1/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Received acknowledgement from client
+[11апр.2023 18:50:14.113] [Server thread/DEBUG] [net.minecraftforge.network.HandshakeHandler/FMLHANDSHAKE]: Handshake complete!
+[11апр.2023 18:50:14.161] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[11апр.2023 18:50:14.230] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@59d893ba
+[11апр.2023 18:50:14.266] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:2d84e47d] logged in with entity id 1 at (632.5398241952182, -59.0, -325.14187579560087)
+[11апр.2023 18:50:14.346] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
+[11апр.2023 18:50:15.231] [Render thread/DEBUG] [mixin/]: Mixing RenderChunkMixin from shimmer.mixins.json into net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk
+[11апр.2023 18:50:15.237] [Render thread/DEBUG] [mixin/]: Mixing RebuildTaskMixin from shimmer.mixins.json into net.minecraft.client.renderer.chunk.ChunkRenderDispatcher$RenderChunk$RebuildTask
+[11апр.2023 18:50:15.643] [Render thread/DEBUG] [io.netty.util.internal.ThreadLocalRandom/]: -Dio.netty.initialSeedUniquifier: 0x1d3c9a823ba0a22c
+[11апр.2023 18:50:15.798] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 79 advancements
+[11апр.2023 18:52:11.886] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[11апр.2023 18:52:11.888] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[11апр.2023 18:52:11.896] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds

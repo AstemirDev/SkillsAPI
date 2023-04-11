@@ -1,9 +1,11 @@
 package org.astemir.api.common.entity;
 
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.DefaultAttributes;
+import net.minecraft.world.level.Level;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -38,16 +40,20 @@ public class EntityEventListener {
 
     @SubscribeEvent
     public static void onEntityTick(EntityTickEvent e){
-        if (!e.getEntity().isRemoved()) {
-            if (e.getEntity() instanceof ICustomAIEntity customAIEntity) {
-                customAIEntity.getAISystem().update();
+        Entity entity = e.getEntity();
+        Level level = entity.level;
+        if (!entity.isRemoved()) {
+            if (!level.isClientSide) {
+                if (entity instanceof ICustomAIEntity customAIEntity) {
+                    customAIEntity.getAISystem().update();
+                }
             }
-            if (e.getEntity() instanceof IActionListener actionListener) {
+            if (entity instanceof IActionListener actionListener) {
                 actionListener.getActionStateMachine().update();
             }
         }
-        if (e.getEntity() instanceof IAnimatedEntity entity){
-            AnimationHandler.INSTANCE.updateAnimations(entity.getAnimationFactory());
+        if (entity instanceof IAnimatedEntity animatedEntity){
+            AnimationHandler.INSTANCE.updateAnimations(animatedEntity.getAnimationFactory());
         }
     }
 
@@ -60,8 +66,10 @@ public class EntityEventListener {
 
     @SubscribeEvent
     public static void onHurt(LivingHurtEvent e){
-        if (e.getEntity() instanceof ICustomAIEntity customAIEntity){
-            customAIEntity.getAISystem().handleHurt(e.getSource(),e.getAmount());
+        if (!e.getEntity().level.isClientSide) {
+            if (e.getEntity() instanceof ICustomAIEntity customAIEntity) {
+                customAIEntity.getAISystem().handleHurt(e.getSource(), e.getAmount());
+            }
         }
     }
 
@@ -75,7 +83,9 @@ public class EntityEventListener {
     @SubscribeEvent
     public static void onEntityAdded(EntityJoinLevelEvent e){
         if (e.getEntity() instanceof ICustomAIEntity customAIEntity){
-            customAIEntity.setupAI();
+            if (!e.getLevel().isClientSide) {
+                customAIEntity.setupAI();
+            }
         }
         if (e.getEntity() instanceof IAnimatedEntity) {
             AnimationFactory factory = ((IAnimatedEntity) e.getEntity()).getAnimationFactory();

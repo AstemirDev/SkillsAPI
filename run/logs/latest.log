@@ -1,123 +1,108 @@
-[01апр.2023 13:00:05.843] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 43.1.43, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853, --mixin.config, skillsapi.mixins.json]
-[01апр.2023 13:00:05.848] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.6 by BellSoft; OS Mac OS X arch aarch64 version 13.0.1
-[01апр.2023 13:00:05.951] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23119!/ Service=ModLauncher Env=CLIENT
-[01апр.2023 13:00:06.269] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.270] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.271] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.273] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar is missing mods.toml file
-[01апр.2023 13:00:06.391] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
-[01апр.2023 13:00:07.596] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[01апр.2023 13:00:07.605] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --assetIndex, 1.19]
-[01апр.2023 13:00:07.635] [main/WARN] [mixin/]: Reference map 'skillsapi.refmap.json' for skillsapi.mixins.json could not be read. If this is a development environment you can ignore this message
-[01апр.2023 13:00:08.179] [main/INFO] [mixin/]: Remapping refMap Shimmer-common-Common-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
-[01апр.2023 13:00:08.182] [main/INFO] [mixin/]: Remapping refMap Shimmer-forge-Forge-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
-[01апр.2023 13:00:08.344] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/BlockRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer)
-[01апр.2023 13:00:08.344] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer was not found shimmer.forge.mixins.json:rubidium.BlockRendererMixin
-[01апр.2023 13:00:08.346] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/tasks/ChunkRenderRebuildTask (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask)
-[01апр.2023 13:00:08.346] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask was not found shimmer.forge.mixins.json:rubidium.ChunkRenderRebuildTaskMixin
-[01апр.2023 13:00:08.347] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer)
-[01апр.2023 13:00:08.347] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer was not found shimmer.forge.mixins.json:rubidium.FluidRendererMixin
-[01апр.2023 13:00:08.349] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSectionManager (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager)
-[01апр.2023 13:00:08.349] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager was not found shimmer.forge.mixins.json:rubidium.RenderSectionManagerAccessor
-[01апр.2023 13:00:08.350] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSection (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSection)
-[01апр.2023 13:00:08.350] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSection was not found shimmer.forge.mixins.json:rubidium.RenderSectionMixin
-[01апр.2023 13:00:08.352] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/ShaderChunkRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer)
-[01апр.2023 13:00:08.352] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer was not found shimmer.forge.mixins.json:rubidium.ShaderChunkRendererMixin
-[01апр.2023 13:00:08.353] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/gl/shader/ShaderLoader (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader)
-[01апр.2023 13:00:08.353] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader was not found shimmer.forge.mixins.json:rubidium.ShaderLoaderMixin
-[01апр.2023 13:00:08.355] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/SodiumWorldRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer)
-[01апр.2023 13:00:08.355] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer was not found shimmer.forge.mixins.json:rubidium.SodiumWorldRendererMixin
-[01апр.2023 13:00:11.157] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
-[01апр.2023 13:00:12.648] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/assets/.mcassetsroot' uses unexpected schema
-[01апр.2023 13:00:12.648] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/data/.mcassetsroot' uses unexpected schema
-[01апр.2023 13:00:12.658] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[01апр.2023 13:00:12.661] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[01апр.2023 13:00:12.736] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[01апр.2023 13:00:13.162] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.1.43, for MC 1.19.2 with MCP 20220805.130853
-[01апр.2023 13:00:13.163] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.1.43 Initialized
-[01апр.2023 13:00:14.615] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [examplemod]
-[01апр.2023 13:00:15.774] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
-[01апр.2023 13:00:16.129] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[01апр.2023 13:00:16.874] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 43.1.43 Target: 43.2.0
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_helmet#inventory' referenced from: skillsapi:test_helmet#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_helmet.json
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_chestplate#inventory' referenced from: skillsapi:test_chestplate#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_chestplate.json
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_leggings#inventory' referenced from: skillsapi:test_leggings#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_leggings.json
-[01апр.2023 13:00:20.860] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_boots#inventory' referenced from: skillsapi:test_boots#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_boots.json
-[01апр.2023 13:00:23.437] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[01апр.2023 13:00:23.438] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[01апр.2023 13:00:23.492] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
-[01апр.2023 13:00:23.494] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[01апр.2023 13:00:23.652] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[01апр.2023 13:00:23.666] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
-[01апр.2023 13:00:23.666] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[01апр.2023 13:00:23.667] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[01апр.2023 13:00:23.668] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[01апр.2023 13:00:23.669] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[01апр.2023 13:00:23.669] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[01апр.2023 13:00:24.827] [Render thread/INFO] [Shimmer/]: inject shader vsh particle.
-[01апр.2023 13:00:24.891] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_solid.
-[01апр.2023 13:00:24.903] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_solid.
-[01апр.2023 13:00:24.918] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout_mipped.
-[01апр.2023 13:00:24.929] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout_mipped.
-[01апр.2023 13:00:24.944] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout.
-[01апр.2023 13:00:24.955] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout.
-[01апр.2023 13:00:24.970] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_translucent.
-[01апр.2023 13:00:25.003] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_armor_cutout_no_cull.
-[01апр.2023 13:00:25.027] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_solid.
-[01апр.2023 13:00:25.053] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout.
-[01апр.2023 13:00:25.077] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull.
-[01апр.2023 13:00:25.102] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull_z_offset.
-[01апр.2023 13:00:25.139] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent_cull.
-[01апр.2023 13:00:25.167] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent.
-[01апр.2023 13:00:25.200] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[01апр.2023 13:00:25.202] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_smooth_cutout.
-[01апр.2023 13:00:25.232] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_decal.
-[01апр.2023 13:00:25.256] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_no_outline.
-[01апр.2023 13:00:25.604] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[01апр.2023 13:00:25.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[01апр.2023 13:00:25.605] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[01апр.2023 13:00:26.402] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[01апр.2023 13:02:59.512] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[01апр.2023 13:03:00.117] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
-[01апр.2023 13:03:00.584] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
-[01апр.2023 13:03:00.584] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[01апр.2023 13:03:00.989] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[01апр.2023 13:03:05.169] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.170] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.219] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:05.519] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
-[01апр.2023 13:03:06.019] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 24%
-[01апр.2023 13:03:06.518] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 70%
-[01апр.2023 13:03:06.875] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[01апр.2023 13:03:06.901] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 5893 ms
-[01апр.2023 13:03:06.980] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 8, from 0
-[01апр.2023 13:03:07.196] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[01апр.2023 13:03:07.647] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[01апр.2023 13:03:07.687] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@2ed08c87
-[01апр.2023 13:03:07.707] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:f5b385d2] logged in with entity id 3 at (65.38306902497666, -58.3746974668591, -26.124739329052954)
-[01апр.2023 13:03:07.771] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
-[01апр.2023 13:03:09.151] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 79 advancements
-[01апр.2023 13:03:10.875] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[01апр.2023 13:03:10.892] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[01апр.2023 13:03:10.905] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[01апр.2023 13:03:10.906] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[01апр.2023 13:03:33.792] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Stopping!
-[01апр.2023 13:03:33.825] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Dev lost connection: Отключение
-[01апр.2023 13:03:33.825] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev покинул игру
-[01апр.2023 13:03:33.832] [Server thread/INFO] [net.minecraft.server.network.ServerGamePacketListenerImpl/]: Stopping singleplayer server as player logged out
-[01апр.2023 13:03:33.874] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
-[01апр.2023 13:03:33.874] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
-[01апр.2023 13:03:33.874] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
-[01апр.2023 13:03:34.705] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:overworld
-[01апр.2023 13:03:34.740] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_nether
-[01апр.2023 13:03:34.741] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[Новый мир]'/minecraft:the_end
-[01апр.2023 13:03:34.758] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (Новый мир): All chunks are saved
-[01апр.2023 13:03:34.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[01апр.2023 13:03:34.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[01апр.2023 13:03:34.759] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved
+[11апр.2023 18:49:38.550] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 1.19, --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --gameDir, ., --fml.forgeVersion, 43.1.43, --fml.mcVersion, 1.19.2, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20220805.130853, --mixin.config, skillsapi.mixins.json]
+[11апр.2023 18:49:38.554] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.8+10.0.8+main.0ef7e830 starting: java version 17.0.6 by BellSoft; OS Mac OS X arch aarch64 version 13.0.1
+[11апр.2023 18:49:38.655] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23119!/ Service=ModLauncher Env=CLIENT
+[11апр.2023 18:49:39.005] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/javafmllanguage/1.19.2-43.1.43/f7de6cd316ed046718c4931c956377bffe7ec987/javafmllanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.007] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/lowcodelanguage/1.19.2-43.1.43/40dc131aaab7d1437df6de071bbfea6e3544d835/lowcodelanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.008] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/mclanguage/1.19.2-43.1.43/67d01767ac8c8f58562e4e39895b4249ddbe43be/mclanguage-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.010] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file /Users/astemirkerefov/.gradle/caches/modules-2/files-2.1/net.minecraftforge/fmlcore/1.19.2-43.1.43/8c0cef9ec72ded0555c4ea4ba66058601d2d1dd2/fmlcore-1.19.2-43.1.43.jar is missing mods.toml file
+[11апр.2023 18:49:39.130] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[11апр.2023 18:49:40.441] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[11апр.2023 18:49:40.449] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, /Users/astemirkerefov/.gradle/caches/forge_gradle/assets, --assetIndex, 1.19]
+[11апр.2023 18:49:40.491] [main/WARN] [mixin/]: Reference map 'skillsapi.refmap.json' for skillsapi.mixins.json could not be read. If this is a development environment you can ignore this message
+[11апр.2023 18:49:40.971] [main/INFO] [mixin/]: Remapping refMap Shimmer-common-Common-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
+[11апр.2023 18:49:40.974] [main/INFO] [mixin/]: Remapping refMap Shimmer-forge-Forge-refmap.json using /Users/astemirkerefov/Desktop/Minecraft mods/Forge/SkillsAPI/build/createSrgToMcp/output.srg
+[11апр.2023 18:49:41.147] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/BlockRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer)
+[11апр.2023 18:49:41.148] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.BlockRenderer was not found shimmer.forge.mixins.json:rubidium.BlockRendererMixin
+[11апр.2023 18:49:41.153] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/tasks/ChunkRenderRebuildTask (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask)
+[11апр.2023 18:49:41.153] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.tasks.ChunkRenderRebuildTask was not found shimmer.forge.mixins.json:rubidium.ChunkRenderRebuildTaskMixin
+[11апр.2023 18:49:41.158] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/pipeline/FluidRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer)
+[11апр.2023 18:49:41.158] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.pipeline.FluidRenderer was not found shimmer.forge.mixins.json:rubidium.FluidRendererMixin
+[11апр.2023 18:49:41.163] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSectionManager (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager)
+[11апр.2023 18:49:41.163] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSectionManager was not found shimmer.forge.mixins.json:rubidium.RenderSectionManagerAccessor
+[11апр.2023 18:49:41.168] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/RenderSection (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.RenderSection)
+[11апр.2023 18:49:41.169] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.RenderSection was not found shimmer.forge.mixins.json:rubidium.RenderSectionMixin
+[11апр.2023 18:49:41.173] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/chunk/ShaderChunkRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer)
+[11апр.2023 18:49:41.173] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.chunk.ShaderChunkRenderer was not found shimmer.forge.mixins.json:rubidium.ShaderChunkRendererMixin
+[11апр.2023 18:49:41.178] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/gl/shader/ShaderLoader (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader)
+[11апр.2023 18:49:41.178] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.gl.shader.ShaderLoader was not found shimmer.forge.mixins.json:rubidium.ShaderLoaderMixin
+[11апр.2023 18:49:41.184] [main/WARN] [mixin/]: Error loading class: me/jellysquid/mods/sodium/client/render/SodiumWorldRenderer (java.lang.ClassNotFoundException: me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer)
+[11апр.2023 18:49:41.185] [main/WARN] [mixin/]: @Mixin target me.jellysquid.mods.sodium.client.render.SodiumWorldRenderer was not found shimmer.forge.mixins.json:rubidium.SodiumWorldRendererMixin
+[11апр.2023 18:49:44.123] [pool-3-thread-1/INFO] [net.minecraft.util.datafix.DataFixers/]: Building unoptimized datafixer
+[11апр.2023 18:49:45.697] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/assets/.mcassetsroot' uses unexpected schema
+[11апр.2023 18:49:45.697] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResources/]: Assets URL 'union:/Users/astemirkerefov/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2/forge-1.19.2-43.1.43_mapped_parchment_2022.08.14-1.19.2-recomp.jar%23181!/data/.mcassetsroot' uses unexpected schema
+[11апр.2023 18:49:45.707] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[11апр.2023 18:49:45.711] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[11апр.2023 18:49:45.799] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[11апр.2023 18:49:46.299] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 43.1.43, for MC 1.19.2 with MCP 20220805.130853
+[11апр.2023 18:49:46.301] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v43.1.43 Initialized
+[11апр.2023 18:49:47.583] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [examplemod]
+[11апр.2023 18:49:48.945] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: Default, Mod Resources
+[11апр.2023 18:49:49.376] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[11апр.2023 18:49:50.351] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 43.1.43 Target: 43.2.0
+[11апр.2023 18:49:54.090] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_helmet#inventory' referenced from: skillsapi:test_helmet#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_helmet.json
+[11апр.2023 18:49:54.090] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_chestplate#inventory' referenced from: skillsapi:test_chestplate#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_chestplate.json
+[11апр.2023 18:49:54.091] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_leggings#inventory' referenced from: skillsapi:test_leggings#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_leggings.json
+[11апр.2023 18:49:54.091] [Worker-Main-3/WARN] [net.minecraft.client.resources.model.ModelBakery/]: Unable to load model: 'skillsapi:test_boots#inventory' referenced from: skillsapi:test_boots#inventory: java.io.FileNotFoundException: skillsapi:models/item/test_boots.json
+[11апр.2023 18:49:56.649] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[11апр.2023 18:49:56.650] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[11апр.2023 18:49:56.681] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device CoreAudio Default
+[11апр.2023 18:49:56.684] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[11апр.2023 18:49:56.903] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[11апр.2023 18:49:56.916] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x4 minecraft:textures/atlas/signs.png-atlas
+[11апр.2023 18:49:56.916] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[11апр.2023 18:49:56.917] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[11апр.2023 18:49:56.918] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[11апр.2023 18:49:56.918] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[11апр.2023 18:49:56.919] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[11апр.2023 18:49:58.059] [Render thread/INFO] [Shimmer/]: inject shader vsh particle.
+[11апр.2023 18:49:58.124] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_solid.
+[11апр.2023 18:49:58.135] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_solid.
+[11апр.2023 18:49:58.151] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout_mipped.
+[11апр.2023 18:49:58.164] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout_mipped.
+[11апр.2023 18:49:58.179] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_cutout.
+[11апр.2023 18:49:58.190] [Render thread/INFO] [Shimmer/]: inject shader fsh rendertype_cutout.
+[11апр.2023 18:49:58.205] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_translucent.
+[11апр.2023 18:49:58.239] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_armor_cutout_no_cull.
+[11апр.2023 18:49:58.264] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_solid.
+[11апр.2023 18:49:58.289] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout.
+[11апр.2023 18:49:58.313] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull.
+[11апр.2023 18:49:58.338] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_cutout_no_cull_z_offset.
+[11апр.2023 18:49:58.372] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent_cull.
+[11апр.2023 18:49:58.396] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_translucent.
+[11апр.2023 18:49:58.427] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[11апр.2023 18:49:58.429] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_smooth_cutout.
+[11апр.2023 18:49:58.460] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_decal.
+[11апр.2023 18:49:58.486] [Render thread/INFO] [Shimmer/]: inject shader vsh rendertype_entity_no_outline.
+[11апр.2023 18:49:58.850] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[11апр.2023 18:49:58.851] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[11апр.2023 18:49:58.851] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[11апр.2023 18:49:59.594] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[11апр.2023 18:50:06.472] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[11апр.2023 18:50:07.086] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
+[11апр.2023 18:50:07.508] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.2
+[11апр.2023 18:50:07.508] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[11апр.2023 18:50:07.744] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[11апр.2023 18:50:11.914] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:11.915] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 0%
+[11апр.2023 18:50:12.300] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 5%
+[11апр.2023 18:50:12.799] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 49%
+[11апр.2023 18:50:13.304] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Подготовка области возрождения: 88%
+[11апр.2023 18:50:13.388] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[11апр.2023 18:50:13.402] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 5625 ms
+[11апр.2023 18:50:13.543] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 8, from 0
+[11апр.2023 18:50:13.686] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[11апр.2023 18:50:14.161] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[11апр.2023 18:50:14.230] [Server thread/INFO] [net.minecraftforge.common.AdvancementLoadFix/]: Using new advancement loading for net.minecraft.server.PlayerAdvancements@59d893ba
+[11апр.2023 18:50:14.266] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:2d84e47d] logged in with entity id 1 at (632.5398241952182, -59.0, -325.14187579560087)
+[11апр.2023 18:50:14.346] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev присоединился к игре
+[11апр.2023 18:50:15.798] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 79 advancements
+[11апр.2023 18:52:11.886] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[11апр.2023 18:52:11.888] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[11апр.2023 18:52:11.896] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds

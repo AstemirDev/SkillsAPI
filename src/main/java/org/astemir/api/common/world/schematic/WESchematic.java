@@ -29,7 +29,7 @@ public class WESchematic {
     private int width = 0;
     private int height = 0;
     private int length = 0;
-    private StateReplacement replacement = (state, pos,rotation) -> {
+    private StateReplacement replacement = (state) -> {
         if (state.is(Blocks.STRUCTURE_VOID)){
             return Blocks.AIR.defaultBlockState();
         }
@@ -71,7 +71,9 @@ public class WESchematic {
                     for (String state : statesArray) {
                         String[] stateKeyValue = state.split("=");
                         Property<?> property = stateDefinition.getProperty(stateKeyValue[0]);
-                        blockState = setValueHelper(blockState, property, stateKeyValue[1]);
+                        if (property != null) {
+                            blockState = setValueHelper(blockState, property, stateKeyValue[1]);
+                        }
                     }
                 }
                 blockStates.put(palette.getInt(paletteKey), blockState);
@@ -90,10 +92,16 @@ public class WESchematic {
 
 
     public boolean isEmptyForPlace(LevelAccessor level, BlockPos pos, Vector3 rotation, boolean centered, boolean skipAir){
-        for (Map.Entry<BlockPos, BlockState> entry : blocks(pos, rotation,centered, skipAir).entrySet()) {
+        for (Map.Entry<Vector3, BlockState> entry : blocks(skipAir).entrySet()) {
             if (!entry.getValue().isAir()) {
-                BlockState oldState = level.getBlockState(entry.getKey());
-                if (oldState.isSolidRender(level, pos)) {
+                Vector3 point = entry.getKey();
+                if (centered) {
+                    point = point.add(-width / 2, 0, -length / 2);
+                }
+                point = point.rotateAroundZ(rotation.z).rotateAroundY(rotation.y).rotateAroundX(rotation.x);
+                BlockPos newPos = pos.offset(point.x,point.y,point.z);
+                BlockState oldState = level.getBlockState(newPos);
+                if (oldState.isSolidRender(level, newPos)) {
                     return false;
                 }
             }
@@ -101,8 +109,8 @@ public class WESchematic {
         return true;
     }
 
-    public Map<BlockPos,BlockState> blocks(BlockPos pos, Vector3 rotation, boolean centered, boolean skipAir){
-        Map<BlockPos,BlockState> map = new HashMap<>();
+    public Map<Vector3,BlockState> blocks(boolean skipAir){
+        Map<Vector3,BlockState> map = new HashMap<>();
         for (int x = 0; x < width; ++x) {
             for (int y = 0; y < height; ++y) {
                 for (int z = 0; z < length; ++z) {
@@ -110,17 +118,13 @@ public class WESchematic {
                     BlockState state = blockStates.get((int)blocks[index]);
                     if (state != null) {
                         Vector3 point = new Vector3(x, y, z);
-                        if (centered) {
-                            point = point.add(-width / 2, 0, -length / 2);
-                        }
-                        point = point.rotateAroundZ(rotation.z).rotateAroundY(rotation.y).rotateAroundX(rotation.x);
-                        BlockPos blockPos = new BlockPos(Math.round(point.x), Math.round(point.y), Math.round(point.z)).offset(pos);
+                        Vector3 roundedPos = new Vector3(Math.round(point.x), Math.round(point.y), Math.round(point.z));
                         if (state.isAir()) {
                             if (!skipAir) {
-                                map.put(blockPos, state);
+                                map.put(roundedPos, state);
                             }
                         } else {
-                            map.put(blockPos, replacement.replaceState(state, pos, rotation));
+                            map.put(roundedPos, replacement.replaceState(state));
                         }
                     }
                 }
@@ -148,6 +152,6 @@ public class WESchematic {
 
     public interface StateReplacement{
 
-        BlockState replaceState(BlockState state,BlockPos pos,Vector3 rotation);
+        BlockState replaceState(BlockState state);
     }
 }

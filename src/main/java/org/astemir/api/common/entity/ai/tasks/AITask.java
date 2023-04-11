@@ -14,6 +14,8 @@ import org.astemir.api.common.entity.ai.ICustomAIEntity;
 import org.astemir.api.common.entity.ai.triggers.TaskExecution;
 import org.astemir.api.common.entity.ai.triggers.TaskMalus;
 import org.astemir.api.common.entity.ai.triggers.TaskTrigger;
+import org.astemir.api.common.handler.CustomEvent;
+import org.astemir.api.common.handler.CustomEventMap;
 
 
 public class AITask {
@@ -104,7 +106,6 @@ public class AITask {
         this.execution = execution;
         return this;
     }
-
 
     public AITask setGoal(Goal goal){
         this.goal = goal;

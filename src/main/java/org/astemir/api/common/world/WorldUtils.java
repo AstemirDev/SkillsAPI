@@ -8,8 +8,12 @@ import net.minecraft.core.HolderSet;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.RandomStrollGoal;
+import net.minecraft.world.entity.ai.util.AirRandomPos;
+import net.minecraft.world.entity.monster.hoglin.HoglinAi;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LightLayer;
@@ -31,21 +35,6 @@ import java.util.function.Predicate;
 
 public class WorldUtils {
 
-    public static Block[] UNBREAKABLE_BLOCKS = new Block[]{
-            Blocks.BEDROCK,
-            Blocks.OBSIDIAN,
-            Blocks.BARRIER,
-            Blocks.AIR,
-            Blocks.WATER,
-            Blocks.LAVA,
-            Blocks.END_GATEWAY,
-            Blocks.END_PORTAL,
-            Blocks.END_PORTAL_FRAME,
-            Blocks.CRYING_OBSIDIAN,
-            Blocks.VOID_AIR,
-            Blocks.STRUCTURE_VOID,
-            Blocks.NETHER_PORTAL
-    };
 
     public static <T extends Entity> T createEntity(EntityType type, Level level, Vector3 position, float yaw, float pitch){
         T entity = (T) type.create(level);
@@ -182,10 +171,8 @@ public class WorldUtils {
 
 
     public static boolean isUnbreakableBlock(BlockState state) {
-        for (Block unbreakableBlock : UNBREAKABLE_BLOCKS) {
-            if (state.is(unbreakableBlock)) {
-                return true;
-            }
+        if (!state.is(BlockTags.WITHER_IMMUNE)) {
+            return state.getFluidState().isEmpty();
         }
         return false;
     }
@@ -199,10 +186,6 @@ public class WorldUtils {
             check = check.above();
         }
         return check;
-    }
-
-    public static boolean isIceBlock(BlockState state) {
-        return state.is(Blocks.ICE) || state.is(Blocks.BLUE_ICE) || state.is(Blocks.FROSTED_ICE) || state.is(Blocks.PACKED_ICE);
     }
 
     public static boolean isEmpty(Level level,BlockPos pos){

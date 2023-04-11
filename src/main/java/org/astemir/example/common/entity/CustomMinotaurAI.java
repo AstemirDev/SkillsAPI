@@ -48,14 +48,14 @@ public class CustomMinotaurAI {
                 if (getTicks() % 5 == 0) {
                     ai().jump(this);
                 }
-                ParticleEmitter.emit(ParticleTypes.HEART, getEntity().level, Vector3.from(getEntity().position()), new Vector3(RandomUtils.randomFloat(-2, 2), RandomUtils.randomFloat(-2, 2), RandomUtils.randomFloat(-2, 2)), new Vector3(0, 0, 0), 16);
+                minotaur.playClientEvent(EntityExampleMinotaur.EVENT_IN_LOVE);
             }
 
             @Override
             public boolean onInteract(Player player, InteractionHand hand, ItemStack itemStack, Direction face) {
                 if (itemStack.is(Items.APPLE)) {
-                    player.level.playSound(null, getEntity(), SoundEvents.HORSE_EAT, SoundSource.HOSTILE, 1, 0.5f);
                     itemStack.shrink(1);
+                    minotaur.playClientEvent(EntityExampleMinotaur.EVENT_FEED);
                     return true;
                 }
                 return false;

@@ -1,6 +1,9 @@
 package org.astemir.api.math;
 
 
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MathUtils {
 
@@ -105,6 +108,32 @@ public class MathUtils {
         return newValue;
     }
 
+
+    public static List<Rectangle> splitRectangleToSmaller(Rectangle rectangle, Rectangle smallRect){
+        List<Rectangle> rects = new ArrayList<>();
+        int maxHorizontalSquares = Math.round(((float)rectangle.width)/((float)smallRect.width));
+        int maxVerticalSquares = Math.round(((float)rectangle.height)/((float)smallRect.height));
+        int posX = 0;
+        for (int i = 1;i<maxHorizontalSquares+1;i++){
+            int posY = 0;
+            int newWidth = (i*smallRect.width);
+            if (newWidth > rectangle.width){
+                newWidth = newWidth-(newWidth-rectangle.width);
+            }
+            int width = newWidth-posX;
+            for (int j = 1;j<maxVerticalSquares+1;j++){
+                int newHeight = (j*smallRect.height);
+                if (newHeight > rectangle.height){
+                    newHeight = newHeight-(newHeight-rectangle.height);
+                }
+                int height = newHeight-posY;
+                rects.add(new Rectangle(posX,posY,width,height));
+                posY+=height;
+            }
+            posX+=width;
+        }
+        return rects;
+    }
 
     public static double eval(final String str) {
         return new Object() {

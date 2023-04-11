@@ -4,17 +4,15 @@ import com.mojang.brigadier.builder.ArgumentBuilder;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-
-import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.function.Predicate;
 
-public class CommandBuilder {
+public class CommandBuilder extends CommandVariant{
 
     private String command;
     private Predicate<CommandSourceStack> permission = (p)->true;
     private LinkedList<CommandVariant> branches = new LinkedList<>();
+
 
     public CommandBuilder(String command) {
         this.command = command;
@@ -32,10 +30,17 @@ public class CommandBuilder {
         return this;
     }
 
+    @Override
     public LiteralArgumentBuilder build(){
         ArgumentBuilder res =  Commands.literal(command).requires(permission);
         for (CommandVariant branch : branches) {
             res = res.then(branch.build());
+        }
+        if (getArguments() != null && getExecutable() != null){
+            res = mergeArguments(getArguments(),0);
+        }else
+        if (getExecutable() != null){
+            res = res.executes(getExecutable());
         }
         return (LiteralArgumentBuilder)res;
     }

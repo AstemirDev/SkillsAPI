@@ -76,8 +76,11 @@ public class ServerMessageEntityEvent {
                 if (playerEntity.level instanceof ServerLevel serverLevel){
                     Entity entity = serverLevel.getEntity(message.entityId);
                     if (entity != null) {
-                        if (entity instanceof IEventEntity) {
-                            ((IEventEntity) entity).onHandleServerEvent(message.eventId,message.arguments);
+                        if (entity instanceof IEventEntity eventEntity) {
+                            eventEntity.onHandleServerEvent(message.eventId,message.arguments);
+                            if (eventEntity.serverEventMap() != null){
+                                eventEntity.serverEventMap().handleEvent(message.eventId,entity.blockPosition(),message.arguments);
+                            }
                         }
                     }
                 }

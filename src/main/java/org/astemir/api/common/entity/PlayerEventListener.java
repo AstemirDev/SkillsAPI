@@ -9,8 +9,10 @@ public class PlayerEventListener {
 
     @SubscribeEvent
     public static void onPlayerClickMob(PlayerInteractEvent.EntityInteract e){
-        if (e.getTarget() instanceof ICustomAIEntity customAIEntity){
-            customAIEntity.getAISystem().handlePlayerInteraction(e.getEntity(),e.getHand(),e.getItemStack(),e.getFace());
+        if (!e.getTarget().level.isClientSide) {
+            if (e.getTarget() instanceof ICustomAIEntity customAIEntity) {
+                customAIEntity.getAISystem().handlePlayerInteraction(e.getEntity(), e.getHand(), e.getItemStack(), e.getFace());
+            }
         }
     }
 }

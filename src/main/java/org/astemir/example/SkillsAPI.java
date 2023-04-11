@@ -14,7 +14,7 @@ import org.astemir.api.common.animation.AnimationEventListener;
 import org.astemir.api.common.entity.EntityEventListener;
 import org.astemir.api.common.commands.CommandRegister;
 import org.astemir.api.common.event.EventManager;
-import org.astemir.api.common.event.WorldEventListener;
+import org.astemir.api.common.world.WorldEventListener;
 import org.astemir.api.common.world.SkillsAPIBiomeModifier;
 import org.astemir.api.network.messages.*;
 import org.astemir.api.network.NetworkUtils;

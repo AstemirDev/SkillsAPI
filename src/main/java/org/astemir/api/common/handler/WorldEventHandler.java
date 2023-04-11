@@ -1,4 +1,4 @@
-package org.astemir.api.common.misc;
+package org.astemir.api.common.handler;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -7,15 +7,12 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
-import org.astemir.api.common.entity.IEventEntity;
 import org.astemir.api.network.PacketArgument;
 import org.astemir.api.network.messages.ClientMessageWorldPosEvent;
 import org.astemir.api.network.messages.ServerMessageWorldPosEvent;
 import org.astemir.api.network.NetworkUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class WorldEventHandler {

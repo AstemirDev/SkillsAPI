@@ -7,7 +7,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.fml.LogicalSide;
 import net.minecraftforge.network.NetworkEvent;
-import org.astemir.api.common.misc.WorldEventHandler;
+import org.astemir.api.common.handler.WorldEventHandler;
 import org.astemir.api.network.PacketArgument;
 
 import java.util.function.BiConsumer;

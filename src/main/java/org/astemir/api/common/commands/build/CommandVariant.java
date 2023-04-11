@@ -2,6 +2,7 @@ package org.astemir.api.common.commands.build;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.builder.ArgumentBuilder;
+import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import net.minecraft.commands.CommandSourceStack;
 
 public class CommandVariant {
@@ -24,16 +25,23 @@ public class CommandVariant {
         return branch;
     }
 
+    public CommandPart[] getArguments() {
+        return arguments;
+    }
+
+    public Command<CommandSourceStack> getExecutable() {
+        return executable;
+    }
 
     public ArgumentBuilder build(){
         return mergeArguments(arguments,0);
     }
 
     public ArgumentBuilder mergeArguments(CommandPart[] arguments,int index){
-        if (index < arguments.length-1) {
+        if (index < arguments.length - 1) {
             ArgumentBuilder next = mergeArguments(arguments, index + 1);
             return arguments[index].build().then(next);
-        }else{
+        } else {
             return arguments[index].build().executes(executable);
         }
     }

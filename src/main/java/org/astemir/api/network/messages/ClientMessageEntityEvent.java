@@ -55,8 +55,11 @@ public class ClientMessageEntityEvent {
             context.enqueueWork(() -> {
                 Entity entity = Minecraft.getInstance().level.getEntity(message.entityId);
                 if (entity != null) {
-                    if (entity instanceof IEventEntity) {
-                        ((IEventEntity) entity).onHandleClientEvent(message.eventId,message.arguments);
+                    if (entity instanceof IEventEntity eventEntity) {
+                        eventEntity.onHandleClientEvent(message.eventId,message.arguments);
+                        if (eventEntity.clientEventMap() != null){
+                            eventEntity.clientEventMap().handleEvent(message.eventId,entity.blockPosition(),message.arguments);
+                        }
                     }
                 }
             });

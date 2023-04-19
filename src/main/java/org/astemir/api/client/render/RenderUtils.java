@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 
 @OnlyIn(Dist.CLIENT)
 public class RenderUtils {

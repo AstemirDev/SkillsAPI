@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
 
-import static org.astemir.api.utils.ResourceUtils.*;
+import static org.astemir.api.io.ResourceUtils.*;
 
 
 public class SkillsItemModelProvider extends ItemModelProvider implements IProvider {

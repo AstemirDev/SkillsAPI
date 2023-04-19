@@ -2,13 +2,13 @@ package org.astemir.api.data.blockstate;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import static org.astemir.api.utils.ResourceUtils.getBlockTexture;
+import static org.astemir.api.io.ResourceUtils.getBlockTexture;
 
 public class BlockStateHolder {
 

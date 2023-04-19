@@ -1,7 +1,6 @@
 package org.astemir.api.data.blockstate;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -16,7 +15,7 @@ import java.util.function.Supplier;
 
 
 import static org.astemir.api.data.model.BlockModelUtils.createTintedCross;
-import static org.astemir.api.utils.ResourceUtils.*;
+import static org.astemir.api.io.ResourceUtils.*;
 
 
 public class SkillsBlockStateProvider extends BlockStateProvider implements IProvider {

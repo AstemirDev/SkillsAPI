@@ -17,7 +17,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.ForgeHooksClient;
 import net.minecraftforge.client.event.ModelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 import org.jetbrains.annotations.Nullable;
 import java.util.HashMap;
 import java.util.List;

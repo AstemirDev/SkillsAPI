@@ -7,7 +7,7 @@ import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.recipes.*;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 
 import java.util.ArrayList;
 import java.util.List;

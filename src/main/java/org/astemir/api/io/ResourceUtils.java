@@ -1,4 +1,4 @@
-package org.astemir.api.utils;
+package org.astemir.api.io;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

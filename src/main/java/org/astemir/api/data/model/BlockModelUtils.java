@@ -5,7 +5,7 @@ import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import org.astemir.api.data.blockstate.BlockStateHolder;
 
-import static org.astemir.api.utils.ResourceUtils.*;
+import static org.astemir.api.io.ResourceUtils.*;
 
 public class BlockModelUtils {
 

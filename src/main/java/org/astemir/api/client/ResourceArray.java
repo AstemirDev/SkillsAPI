@@ -1,7 +1,7 @@
 package org.astemir.api.client;
 
 import net.minecraft.resources.ResourceLocation;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 
 public class ResourceArray {
 

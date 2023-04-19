@@ -8,7 +8,7 @@ import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.client.model.SkillsAnimatedModel;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleSharkBoat;
 
 

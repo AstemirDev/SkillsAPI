@@ -12,7 +12,7 @@ import org.astemir.api.client.animation.Animator;
 import org.astemir.api.common.gfx.*;
 import org.astemir.api.math.components.Color;
 import org.astemir.api.client.render.RenderUtils;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 
 
 public class ClientManager {

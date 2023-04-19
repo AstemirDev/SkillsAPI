@@ -9,7 +9,7 @@ import org.astemir.api.common.commands.build.CommandVariant;
 import org.astemir.api.common.world.schematic.ISchematicBuilder;
 import org.astemir.api.common.world.schematic.WESchematic;
 import org.astemir.api.math.components.Vector3;
-import org.astemir.api.utils.FileUtils;
+import org.astemir.api.io.FileUtils;
 
 public class StructureCommand {
 

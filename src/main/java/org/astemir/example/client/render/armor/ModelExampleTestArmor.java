@@ -5,7 +5,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.display.DisplayArgumentArmor;
 import org.astemir.api.client.model.SkillsModel;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 import org.astemir.example.common.item.armor.ArmorItemExample;
 
 

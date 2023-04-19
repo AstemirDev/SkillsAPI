@@ -8,7 +8,7 @@ import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
 import net.minecraftforge.registries.RegistryObject;
 import org.astemir.api.data.IProvider;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 
 import java.util.HashMap;
 import java.util.Map;

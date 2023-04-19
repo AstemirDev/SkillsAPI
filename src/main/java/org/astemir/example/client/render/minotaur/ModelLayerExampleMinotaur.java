@@ -12,7 +12,7 @@ import org.astemir.api.client.SkillsRenderTypes;
 import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.model.SkillsModelLayer;
-import org.astemir.api.utils.ResourceUtils;
+import org.astemir.api.io.ResourceUtils;
 import org.astemir.example.common.entity.EntityExampleMinotaur;
 
 

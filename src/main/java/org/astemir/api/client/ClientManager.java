@@ -10,7 +10,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.animation.Animator;
 import org.astemir.api.common.gfx.*;
-import org.astemir.api.math.Color;
+import org.astemir.api.math.components.Color;
 import org.astemir.api.client.render.RenderUtils;
 import org.astemir.api.utils.ResourceUtils;
 

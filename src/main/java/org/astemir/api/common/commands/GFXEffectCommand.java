@@ -10,7 +10,7 @@ import org.astemir.api.common.commands.build.CommandBuilder;
 import org.astemir.api.common.commands.build.CommandPart;
 import org.astemir.api.common.commands.build.CommandVariant;
 import org.astemir.api.common.gfx.*;
-import org.astemir.api.math.Color;
+import org.astemir.api.math.components.Color;
 
 import java.util.Collection;
 

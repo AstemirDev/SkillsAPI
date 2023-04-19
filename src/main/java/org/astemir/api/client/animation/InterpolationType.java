@@ -1,6 +1,6 @@
 package org.astemir.api.client.animation;
 
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector3;
 
 public abstract class InterpolationType {
 

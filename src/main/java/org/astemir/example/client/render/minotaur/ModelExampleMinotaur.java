@@ -1,6 +1,5 @@
 package org.astemir.example.client.render.minotaur;
 
-import com.lowdragmc.shimmer.client.ShimmerRenderTypes;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.resources.ResourceLocation;

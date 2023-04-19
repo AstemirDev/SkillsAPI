@@ -17,8 +17,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
-import org.astemir.api.math.Color;
-import org.checkerframework.checker.units.qual.C;
 
 import java.util.Collection;
 import java.util.Collections;

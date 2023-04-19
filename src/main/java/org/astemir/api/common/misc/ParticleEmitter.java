@@ -4,12 +4,11 @@ import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.world.entity.ai.goal.AvoidEntityGoal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.astemir.api.lib.shimmer.ShimmerLib;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector3;
 import org.astemir.api.math.random.RandomUtils;
 
 public class ParticleEmitter {

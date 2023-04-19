@@ -1,8 +1,5 @@
 package org.astemir.example.common.entity;
 
-import com.lowdragmc.shimmer.client.light.ColorPointLight;
-import com.lowdragmc.shimmer.client.light.LightManager;
-import com.mojang.math.Vector3f;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -28,9 +25,7 @@ import org.astemir.api.common.handler.CustomEvent;
 import org.astemir.api.common.handler.CustomEventMap;
 import org.astemir.api.common.misc.ParticleEmitter;
 import org.astemir.api.math.random.RandomUtils;
-import org.astemir.api.math.vector.Vector3;
-
-import java.awt.*;
+import org.astemir.api.math.components.Vector3;
 
 import static org.astemir.api.common.entity.utils.EntityUtils.isMoving;
 

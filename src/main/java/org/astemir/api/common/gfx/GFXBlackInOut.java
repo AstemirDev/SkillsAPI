@@ -1,7 +1,7 @@
 package org.astemir.api.common.gfx;
 
 import net.minecraft.network.FriendlyByteBuf;
-import org.astemir.api.math.Color;
+import org.astemir.api.math.components.Color;
 import org.astemir.api.common.entity.ClientSideValue;
 import org.astemir.api.network.NetworkUtils;
 

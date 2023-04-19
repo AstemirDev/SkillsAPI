@@ -19,7 +19,7 @@ import org.astemir.api.client.model.SkillsModel;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.RenderCall;
 import org.astemir.api.common.misc.ICustomRendered;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector3;
 
 
 public abstract class SkillsWrapperArmor<T extends Item & ICustomRendered> extends HumanoidModel<LivingEntity> implements IModelWrapper<T, DisplayArgumentArmor> {

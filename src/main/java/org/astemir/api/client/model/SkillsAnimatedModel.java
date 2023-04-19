@@ -8,10 +8,9 @@ import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.common.animation.*;
 import org.astemir.api.common.animation.objects.IAnimated;
-import org.astemir.api.math.Transform;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Transform;
+import org.astemir.api.math.components.Vector3;
 import org.astemir.api.client.JsonUtils;
-import org.astemir.example.common.entity.EntityExampleMinotaur;
 
 import java.util.HashSet;
 import java.util.Set;

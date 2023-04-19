@@ -7,7 +7,7 @@ import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.animation.Animation;
 import org.astemir.api.common.animation.HolderKey;
 import org.astemir.api.common.animation.objects.IAnimated;
-import org.astemir.api.math.Transform;
+import org.astemir.api.math.components.Transform;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;

@@ -20,8 +20,8 @@ import org.astemir.api.client.wrapper.IModelWrapper;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.client.JsonUtils;
 import org.astemir.api.math.MathUtils;
-import org.astemir.api.math.vector.Vector2;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector2;
+import org.astemir.api.math.components.Vector3;
 import java.util.*;
 import java.util.function.Function;
 

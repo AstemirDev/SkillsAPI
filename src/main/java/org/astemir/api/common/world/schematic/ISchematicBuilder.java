@@ -1,26 +1,15 @@
 package org.astemir.api.common.world.schematic;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.SectionPos;
-import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.ChunkStatus;
-import net.minecraft.world.level.levelgen.structure.StructurePiece;
-import net.minecraft.world.level.levelgen.structure.structures.DesertPyramidStructure;
-import net.minecraft.world.level.levelgen.structure.structures.IglooStructure;
-import net.minecraft.world.level.levelgen.structure.structures.WoodlandMansionStructure;
 import org.astemir.api.math.MathUtils;
 import org.astemir.api.math.collection.Couple;
-import org.astemir.api.math.vector.Vector2;
-import org.astemir.api.math.vector.Vector3;
-import org.w3c.dom.css.Rect;
+import org.astemir.api.math.components.Vector3;
 
 import java.awt.*;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
 
 public interface ISchematicBuilder {
 
@@ -44,7 +33,7 @@ public interface ISchematicBuilder {
         }
     }
 
-    default Set<SchematicSafePlacement> schematicToPieces(WESchematic schematic,boolean skipAir){
+    static Set<SchematicSafePlacement> schematicToPieces(WESchematic schematic,boolean skipAir){
         Map<Vector3,BlockState> points = schematic.blocks(skipAir);
         Rectangle original = new Rectangle(schematic.getWidth(),schematic.getLength());
         List<Rectangle> areas = MathUtils.splitRectangleToSmaller(original,new Rectangle(16,16));

@@ -2,17 +2,14 @@ package org.astemir.api.common.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
-import net.minecraft.world.level.block.state.BlockState;
 import org.astemir.api.common.commands.build.CommandArgument;
 import org.astemir.api.common.commands.build.CommandBuilder;
 import org.astemir.api.common.commands.build.CommandVariant;
 import org.astemir.api.common.world.schematic.ISchematicBuilder;
 import org.astemir.api.common.world.schematic.WESchematic;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector3;
 import org.astemir.api.utils.FileUtils;
-import java.util.Map;
 
 public class StructureCommand {
 

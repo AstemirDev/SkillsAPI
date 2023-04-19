@@ -1,6 +1,6 @@
 package org.astemir.api.client.animation;
 import net.minecraft.util.Mth;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector3;
 import org.astemir.api.math.MathUtils;
 
 import java.util.List;

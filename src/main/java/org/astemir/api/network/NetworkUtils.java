@@ -9,7 +9,7 @@ import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.simple.SimpleChannel;
 import net.minecraftforge.server.ServerLifecycleHooks;
 import org.astemir.example.SkillsAPI;
-import org.astemir.api.math.Color;
+import org.astemir.api.math.components.Color;
 
 public class NetworkUtils {
 

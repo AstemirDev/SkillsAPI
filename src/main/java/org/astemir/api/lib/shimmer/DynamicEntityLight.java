@@ -4,7 +4,7 @@ import com.lowdragmc.shimmer.client.light.ColorPointLight;
 import com.lowdragmc.shimmer.client.light.LightManager;
 import com.mojang.math.Vector3f;
 import net.minecraft.world.entity.Entity;
-import org.astemir.api.math.Color;
+import org.astemir.api.math.components.Color;
 
 public class DynamicEntityLight {
 

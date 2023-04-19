@@ -16,8 +16,8 @@ import org.astemir.api.client.render.cube.ModelCube;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.client.render.cube.UVMap;
 import org.astemir.api.common.animation.Animation;
-import org.astemir.api.math.vector.Vector2;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector2;
+import org.astemir.api.math.components.Vector3;
 import org.astemir.api.math.MathUtils;
 
 import java.io.IOException;

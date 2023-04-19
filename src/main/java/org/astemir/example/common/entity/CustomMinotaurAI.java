@@ -1,9 +1,6 @@
 package org.astemir.example.common.entity;
 
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
@@ -16,9 +13,6 @@ import org.astemir.api.common.entity.ai.tasks.AITaskAttack;
 import org.astemir.api.common.entity.ai.tasks.AITaskTimer;
 import org.astemir.api.common.entity.ai.triggers.TaskExecution;
 import org.astemir.api.common.entity.ai.triggers.TaskTrigger;
-import org.astemir.api.common.misc.ParticleEmitter;
-import org.astemir.api.math.random.RandomUtils;
-import org.astemir.api.math.vector.Vector3;
 
 public class CustomMinotaurAI {
 

@@ -14,7 +14,7 @@ import net.minecraft.world.level.block.state.StateHolder;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.apache.commons.lang3.StringUtils;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector3;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;

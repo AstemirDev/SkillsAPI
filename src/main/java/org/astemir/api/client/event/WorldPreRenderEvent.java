@@ -3,8 +3,8 @@ package org.astemir.api.client.event;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.eventbus.api.Cancelable;
 import net.minecraftforge.eventbus.api.Event;
-import org.astemir.api.math.vector.Vector2;
-import org.astemir.api.math.vector.Vector3;
+import org.astemir.api.math.components.Vector2;
+import org.astemir.api.math.components.Vector3;
 
 @Cancelable
 public class WorldPreRenderEvent extends Event {

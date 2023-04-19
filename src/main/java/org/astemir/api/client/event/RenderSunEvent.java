@@ -2,7 +2,7 @@ package org.astemir.api.client.event;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraftforge.eventbus.api.Event;
-import org.astemir.api.math.Color;
+import org.astemir.api.math.components.Color;
 
 public class RenderSunEvent extends Event {
 

@@ -1,0 +1,5 @@
+/run/
+/codegen/
+/.idea
+/src/generated
+/src/main/java/org/astemir/api/io/generator

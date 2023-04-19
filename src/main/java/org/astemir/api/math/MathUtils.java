@@ -1,6 +1,8 @@
 package org.astemir.api.math;
 
 
+import org.astemir.api.math.components.Rect2;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,25 +111,25 @@ public class MathUtils {
     }
 
 
-    public static List<Rectangle> splitRectangleToSmaller(Rectangle rectangle, Rectangle smallRect){
-        List<Rectangle> rects = new ArrayList<>();
-        int maxHorizontalSquares = Math.round(((float)rectangle.width)/((float)smallRect.width));
-        int maxVerticalSquares = Math.round(((float)rectangle.height)/((float)smallRect.height));
+    public static List<Rect2> splitRectangleToSmaller(Rect2 rectangle, Rect2 smallRect){
+        List<Rect2> rects = new ArrayList<>();
+        int maxHorizontalSquares = Math.round(((float)rectangle.getWidth())/((float)smallRect.getWidth()));
+        int maxVerticalSquares = Math.round(((float)rectangle.getHeight())/((float)smallRect.getHeight()));
         int posX = 0;
         for (int i = 1;i<maxHorizontalSquares+1;i++){
             int posY = 0;
-            int newWidth = (i*smallRect.width);
-            if (newWidth > rectangle.width){
-                newWidth = newWidth-(newWidth-rectangle.width);
+            int newWidth = (int) (i*smallRect.getWidth());
+            if (newWidth > rectangle.getWidth()){
+                newWidth = (int) (newWidth-(newWidth-rectangle.getWidth()));
             }
             int width = newWidth-posX;
             for (int j = 1;j<maxVerticalSquares+1;j++){
-                int newHeight = (j*smallRect.height);
-                if (newHeight > rectangle.height){
-                    newHeight = newHeight-(newHeight-rectangle.height);
+                int newHeight = (int) (j*smallRect.getHeight());
+                if (newHeight > rectangle.getHeight()){
+                    newHeight = (int) (newHeight-(newHeight-rectangle.getHeight()));
                 }
                 int height = newHeight-posY;
-                rects.add(new Rectangle(posX,posY,width,height));
+                rects.add(new Rect2(posX,posY,width,height));
                 posY+=height;
             }
             posX+=width;

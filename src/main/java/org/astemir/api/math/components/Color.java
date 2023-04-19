@@ -41,6 +41,10 @@ public class Color {
         this((float)(rgba >> 16 & 255) / 255.0F,(float)(rgba >> 8 & 255) / 255.0F,(float)(rgba & 255) / 255.0F,(float)(rgba >> 24 & 255) / 255.0F);
     }
 
+    public int getRGB(){
+        return new java.awt.Color(r,g,b).getRGB();
+    }
+
     public static int toRGB(float r, float g, float b, float a) {
         return (((int)(a * 255.0F) & 255) << 24) | (((int)(r * 255.0F) & 255) << 16) | (((int)(g * 255.0F) & 255) << 8) | ((int)(b * 255.0F) & 255);
     }
@@ -56,6 +60,19 @@ public class Color {
         colors[2] = (int)(b*255);
         colors[3] = (int)(a*255);
         return colors;
+    }
+
+    public HSV getHSV(){
+        float[] floats = new float[3];
+        java.awt.Color.RGBtoHSB((int)(r*255),(int)(g*255),(int)(b*255),floats);
+        return new HSV(floats[0],floats[1],floats[2]);
+    }
+
+    public void setHSV(HSV hsv){
+        java.awt.Color color = new java.awt.Color(java.awt.Color.HSBtoRGB(hsv.h,hsv.s,hsv.v));
+        r = ((float)color.getRed())/255f;
+        g = ((float)color.getGreen())/255f;
+        b = ((float)color.getBlue())/255f;
     }
 
     public Vector3f toVector3f(){
@@ -84,5 +101,17 @@ public class Color {
 
     public boolean equalsApprox(Color color){
         return MathUtils.equalsApprox(r,color.r) && MathUtils.equalsApprox(g,color.g) && MathUtils.equalsApprox(b,color.b) && MathUtils.equalsApprox(a,color.a);
+    }
+
+    public class HSV{
+        public float h;
+        public float s;
+        public float v;
+
+        public HSV(float h, float s, float v) {
+            this.h = h;
+            this.s = s;
+            this.v = v;
+        }
     }
 }

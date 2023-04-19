@@ -5,6 +5,7 @@ import net.minecraft.world.level.WorldGenLevel;
 import net.minecraft.world.level.block.state.BlockState;
 import org.astemir.api.math.MathUtils;
 import org.astemir.api.math.collection.Couple;
+import org.astemir.api.math.components.Rect2;
 import org.astemir.api.math.components.Vector3;
 
 import java.awt.*;
@@ -35,10 +36,10 @@ public interface ISchematicBuilder {
 
     static Set<SchematicSafePlacement> schematicToPieces(WESchematic schematic,boolean skipAir){
         Map<Vector3,BlockState> points = schematic.blocks(skipAir);
-        Rectangle original = new Rectangle(schematic.getWidth(),schematic.getLength());
-        List<Rectangle> areas = MathUtils.splitRectangleToSmaller(original,new Rectangle(16,16));
+        Rect2 original = new Rect2(0,0,schematic.getWidth(),schematic.getLength());
+        List<Rect2> areas = MathUtils.splitRectangleToSmaller(original,new Rect2(0,0,16,16));
         Set<SchematicSafePlacement> areasPoints = new HashSet<>();
-        for (Rectangle area : areas) {
+        for (Rect2 area : areas) {
             List<Couple<Vector3,BlockState>> list = new ArrayList<>();
             for (Map.Entry<Vector3, BlockState> point : points.entrySet()) {
                 if (area.contains(point.getKey().x,point.getKey().z)){
@@ -53,10 +54,10 @@ public interface ISchematicBuilder {
     public class SchematicSafePlacement{
 
         private List<Couple<Vector3,BlockState>> points = new ArrayList<>();
-        private Rectangle rectangle;
+        private Rect2 rectangle;
         private WESchematic schematic;
 
-        public SchematicSafePlacement(List<Couple<Vector3, BlockState>> points, WESchematic schematic, Rectangle rectangle) {
+        public SchematicSafePlacement(List<Couple<Vector3, BlockState>> points, WESchematic schematic, Rect2 rectangle) {
             this.points = points;
             this.schematic = schematic;
             this.rectangle = rectangle;
@@ -77,7 +78,7 @@ public interface ISchematicBuilder {
             return points;
         }
 
-        public Rectangle getRectangle() {
+        public Rect2 getRectangle() {
             return rectangle;
         }
 

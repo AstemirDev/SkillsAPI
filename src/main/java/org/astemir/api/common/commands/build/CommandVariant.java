@@ -25,6 +25,12 @@ public class CommandVariant {
         return branch;
     }
 
+
+    public CommandVariant setArguments(CommandPart... arguments){
+        this.arguments = arguments;
+        return this;
+    }
+
     public CommandPart[] getArguments() {
         return arguments;
     }

@@ -36,9 +36,13 @@ public class CommandBuilder extends CommandVariant{
         for (CommandVariant branch : branches) {
             res = res.then(branch.build());
         }
-        if (getArguments() != null && getExecutable() != null){
-            res = mergeArguments(getArguments(),0);
-        }else
+        boolean hasArguments = getArguments() != null;
+        if (hasArguments){
+            hasArguments = getArguments().length > 0;
+        }
+        if (hasArguments) {
+            res = mergeArguments(getArguments(), 0);
+        }
         if (getExecutable() != null){
             res = res.executes(getExecutable());
         }

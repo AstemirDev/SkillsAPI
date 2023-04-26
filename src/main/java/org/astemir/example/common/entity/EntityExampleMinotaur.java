@@ -70,8 +70,8 @@ public class EntityExampleMinotaur extends Monster implements ISkillsMob, ICusto
 
     @OnlyIn(Dist.CLIENT)
     public CustomEventMap clientEventMap = new CustomEventMap().
-            registerEvent(EVENT_IN_LOVE,(entity,args)-> ParticleEmitter.emit(ParticleTypes.HEART, level, Vector3.from(position()), new Vector3(RandomUtils.randomFloat(-2, 2), RandomUtils.randomFloat(-2, 2), RandomUtils.randomFloat(-2, 2)), new Vector3(0, 0, 0), 16)).
-            registerEvent(EVENT_FEED,(pos,args)->{
+            registerEvent(EVENT_IN_LOVE,(entity,level,args)-> ParticleEmitter.emit(ParticleTypes.HEART, level, Vector3.from(position()), new Vector3(RandomUtils.randomFloat(-2, 2), RandomUtils.randomFloat(-2, 2), RandomUtils.randomFloat(-2, 2)), new Vector3(0, 0, 0), 16)).
+            registerEvent(EVENT_FEED,(pos,level,args)->{
                 level.playSound(null, EntityExampleMinotaur.this, SoundEvents.HORSE_EAT, SoundSource.HOSTILE, 1, 0.5f);
             });
 

@@ -24,9 +24,6 @@ public class SkillsRendererBlockEntity<T extends BlockEntity & ICustomRendered> 
 
     @Override
     public void render(T blockEntity, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight, int packedOverlay) {
-        if (blockEntity instanceof IAnimatedBlock animatedBlock){
-            blockModelWrapper.getModel(blockEntity).setupAnim(blockEntity,null,0,0,((float)animatedBlock.getTicks())+partialTick,0,0);
-        }
         blockModelWrapper.renderTarget = (T) blockEntity;
         blockModelWrapper.multiBufferSource = bufferSource;
         int light = 0;
@@ -36,9 +33,17 @@ public class SkillsRendererBlockEntity<T extends BlockEntity & ICustomRendered> 
             light = 15728880;
         }
         VertexConsumer consumer = bufferSource.getBuffer(blockModelWrapper.getRenderType());
+        animate(blockEntity,partialTick);
         blockModelWrapper.renderToBuffer(poseStack,consumer,light,packedOverlay,1,1,1,1);
     }
 
+
+    @Override
+    public void animate(T instance, float partialTicks) {
+        if (instance instanceof IAnimatedBlock animatedBlock){
+            blockModelWrapper.getModel(instance).setupAnim(instance,null,0,0,getTicks((int) animatedBlock.getTicks()),0,0);
+        }
+    }
 
     @Override
     public IModelWrapper<T, IDisplayArgument> getModelWrapper() {

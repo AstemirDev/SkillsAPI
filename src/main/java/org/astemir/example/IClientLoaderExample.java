@@ -6,6 +6,7 @@ import org.astemir.api.IClientLoader;
 import org.astemir.api.client.registry.ArmorModelsRegistry;
 import org.astemir.api.client.ModelUtils;
 import org.astemir.api.client.render.SkillsRendererItem;
+import org.astemir.api.lib.shimmer.ShimmerLib;
 import org.astemir.example.client.render.armor.ModelWrapperTestArmor;
 import org.astemir.example.client.render.beacon.RendererExampleCosmicBeacon;
 import org.astemir.example.client.render.mace.WrapperExampleMace;

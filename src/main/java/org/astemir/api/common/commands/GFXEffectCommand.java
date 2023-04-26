@@ -24,12 +24,18 @@ public class GFXEffectCommand {
         CommandArgument color = CommandArgument.vector3("color");
         CommandArgument replaceMode = CommandArgument.bool("replace");
         CommandBuilder builder = new CommandBuilder("gfx")
-                .variants(new CommandVariant(new CommandPart("shakescreen"),targets,power,ticks,replaceMode).execute((p)->{
-                    GFXScreenShake effect = new GFXScreenShake(power.getDouble(p),ticks.getInt(p));
+                .variants(new CommandVariant(new CommandPart("roughshake"),targets,power,ticks,replaceMode).execute((p)->{
+                    GFXRoughShake effect = new GFXRoughShake(power.getDouble(p),ticks.getInt(p));
                     boolean replace = replaceMode.getBoolean(p);
                     sendEffect(targets.getEntities(p),effect,replace);
                     return 0;
-                }),new CommandVariant(new CommandPart("blackout"),targets,color,speed,replaceMode).execute((p)->{
+                }),
+                    new CommandVariant(new CommandPart("softshake"),targets,power,ticks,replaceMode).execute((p)->{
+                        GFXSoftShake effect = new GFXSoftShake(power.getDouble(p),ticks.getInt(p));
+                        boolean replace = replaceMode.getBoolean(p);
+                        sendEffect(targets.getEntities(p),effect,replace);
+                        return 0;
+                    }),new CommandVariant(new CommandPart("blackout"),targets,color,speed,replaceMode).execute((p)->{
                     Vec3 vec = color.getVector3(p);
                     GFXBlackOut effect = new GFXBlackOut(new Color((float)vec.x,(float)vec.y,(float)vec.z,1),speed.getDouble(p));
                     boolean replace = replaceMode.getBoolean(p);

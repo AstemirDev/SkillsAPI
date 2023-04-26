@@ -27,7 +27,7 @@ import java.util.List;
 
 public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends EntityModel<T>> extends EntityRenderer<T> implements ISkillsRenderer<T, IDisplayArgument>{
 
-    private SkillsWrapperEntity entityModelWrapper;
+    private SkillsWrapperEntity<T> entityModelWrapper;
     private M model;
     protected final List<RenderLayer<T, M>> layers = Lists.newArrayList();
 
@@ -49,21 +49,27 @@ public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends E
         float f1 = Mth.rotLerp(partialTick, entity.yRotO, entity.getYRot());
         float f2 = Mth.rotLerp(partialTick, entity.xRotO, entity.getXRot());
         poseStack.pushPose();
-        float tickCount = ((float)entityModelWrapper.getRenderTarget().tickCount)+Minecraft.getInstance().getPartialTick();
         setupRotations(entity,poseStack,yaw,partialTick);
         poseStack.scale(-1.0F, -1.0F, 1.0F);
         scale(entity,poseStack,partialTick);
         poseStack.translate(0.0D, (double)-1.501F, 0.0D);
-        entityModelWrapper.setupAnim(entity,0,0,tickCount,f1,f2);
         VertexConsumer vertexconsumer = bufferSource.getBuffer(entityModelWrapper.getRenderType());
-        this.model.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
+        entityModelWrapper.renderToBuffer(poseStack, vertexconsumer, packedLight, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         if (!entity.isSpectator()) {
-            for(RenderLayer<T, M> renderlayer : this.layers) {
-                renderlayer.render(poseStack, bufferSource, packedLight, entity, 0, 0, partialTick, 0, f1, f2);
+            for(RenderLayer<T, M> renderLayer : this.layers) {
+                renderLayer.render(poseStack, bufferSource, packedLight, entity, 0, 0, partialTick, 0, f1, f2);
             }
         }
         poseStack.popPose();
         super.render(entity, yaw, partialTick, poseStack, bufferSource, packedLight);
+    }
+
+    @Override
+    public void animate(T instance, float partialTicks) {
+        float f1 = Mth.rotLerp(partialTicks, instance.yRotO, instance.getYRot());
+        float f2 = Mth.rotLerp(partialTicks, instance.xRotO, instance.getXRot());
+        float tickCount = getTicks(entityModelWrapper.getRenderTarget().tickCount);
+        entityModelWrapper.animate(instance,0,0,tickCount,f1,f2);
     }
 
     protected void setupRotations(T entity, PoseStack stack, float yaw, float partialTicks) {

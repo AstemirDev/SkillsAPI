@@ -8,9 +8,14 @@
     "org/astemir/api/mixin/client/MixinHumanoidModel": {
       "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V": "Lnet/minecraft/client/model/HumanoidModel;m_6973_(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V"
     },
+    "org/astemir/api/mixin/client/MixinLevelRenderer": {
+      "renderEntity": "Lnet/minecraft/client/renderer/LevelRenderer;m_109517_(Lnet/minecraft/world/entity/Entity;DDDFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;)V"
+    },
     "org/astemir/api/mixin/client/MixinGameRenderer": {
       "renderLevel": "Lnet/minecraft/client/renderer/GameRenderer;m_109089_(FJLcom/mojang/blaze3d/vertex/PoseStack;)V",
-      "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V": "Lnet/minecraft/client/renderer/GameRenderer;m_109111_(Lcom/mojang/math/Matrix4f;)V"
+      "Lnet/minecraft/util/profiling/ProfilerFiller;popPush(Ljava/lang/String;)V": "Lnet/minecraft/util/profiling/ProfilerFiller;m_6182_(Ljava/lang/String;)V",
+      "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V": "Lnet/minecraft/client/renderer/GameRenderer;m_109111_(Lcom/mojang/math/Matrix4f;)V",
+      "render": "Lnet/minecraft/client/renderer/GameRenderer;m_109093_(FJZ)V"
     },
     "org/astemir/api/mixin/client/MixinLivingEntityRenderer": {
       "Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V": "Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;m_7546_(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V",
@@ -28,9 +33,14 @@
       "org/astemir/api/mixin/client/MixinHumanoidModel": {
         "setupAnim(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V": "Lnet/minecraft/client/model/HumanoidModel;m_6973_(Lnet/minecraft/world/entity/LivingEntity;FFFFF)V"
       },
+      "org/astemir/api/mixin/client/MixinLevelRenderer": {
+        "renderEntity": "Lnet/minecraft/client/renderer/LevelRenderer;m_109517_(Lnet/minecraft/world/entity/Entity;DDDFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;)V"
+      },
       "org/astemir/api/mixin/client/MixinGameRenderer": {
         "renderLevel": "Lnet/minecraft/client/renderer/GameRenderer;m_109089_(FJLcom/mojang/blaze3d/vertex/PoseStack;)V",
-        "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V": "Lnet/minecraft/client/renderer/GameRenderer;m_109111_(Lcom/mojang/math/Matrix4f;)V"
+        "Lnet/minecraft/util/profiling/ProfilerFiller;popPush(Ljava/lang/String;)V": "Lnet/minecraft/util/profiling/ProfilerFiller;m_6182_(Ljava/lang/String;)V",
+        "Lnet/minecraft/client/renderer/GameRenderer;resetProjectionMatrix(Lcom/mojang/math/Matrix4f;)V": "Lnet/minecraft/client/renderer/GameRenderer;m_109111_(Lcom/mojang/math/Matrix4f;)V",
+        "render": "Lnet/minecraft/client/renderer/GameRenderer;m_109093_(FJZ)V"
       },
       "org/astemir/api/mixin/client/MixinLivingEntityRenderer": {
         "Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;scale(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V": "Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;m_7546_(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;F)V",

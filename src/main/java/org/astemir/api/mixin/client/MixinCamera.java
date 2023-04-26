@@ -8,7 +8,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraftforge.common.MinecraftForge;
 import org.astemir.example.SkillsAPI;
-import org.astemir.api.client.event.WorldPreRenderEvent;
+import org.astemir.api.client.event.CameraAdvancedSetupEvent;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
@@ -44,7 +44,7 @@ public abstract class MixinCamera {
         this.level = pLevel;
         this.entity = pEntity;
         this.detached = pDetached;
-        WorldPreRenderEvent event = new WorldPreRenderEvent(pEntity,pPartialTick,detached,pThirdPersonReverse);
+        CameraAdvancedSetupEvent event = new CameraAdvancedSetupEvent(pEntity,pPartialTick,detached,pThirdPersonReverse);
         event.setRotation(pEntity.getViewYRot(pPartialTick), pEntity.getViewXRot(pPartialTick));
         event.setPosition(Mth.lerp((double)pPartialTick, pEntity.xo, pEntity.getX()), Mth.lerp((double)pPartialTick, pEntity.yo, pEntity.getY()) + (double)Mth.lerp(pPartialTick, this.eyeHeightOld, this.eyeHeight), Mth.lerp((double)pPartialTick, pEntity.zo, pEntity.getZ()));
         MinecraftForge.EVENT_BUS.post(event);

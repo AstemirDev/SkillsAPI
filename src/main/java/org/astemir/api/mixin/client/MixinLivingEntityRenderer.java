@@ -28,6 +28,7 @@ public abstract class MixinLivingEntityRenderer<T extends LivingEntity, M extend
         super(pContext);
     }
 
+
     @Inject(method = "render",at=@At(value = "INVOKE",target = "Lnet/minecraft/client/renderer/entity/LivingEntityRenderer;setupRotations(Lnet/minecraft/world/entity/LivingEntity;Lcom/mojang/blaze3d/vertex/PoseStack;FFF)V"), remap = SkillsAPI.REMAP)
     public void onSetupRotations(T pEntity, float pEntityYaw, float pPartialTicks, PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, CallbackInfo ci) {
         LivingTransformEvent.Rotation<T> event = new LivingTransformEvent.Rotation(pEntity,pMatrixStack,getBob(pEntity,pPartialTicks), Mth.rotLerp(pPartialTicks, pEntity.yBodyRotO, pEntity.yBodyRot),pPartialTicks);

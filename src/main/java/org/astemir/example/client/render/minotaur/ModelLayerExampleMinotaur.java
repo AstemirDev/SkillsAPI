@@ -10,6 +10,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.astemir.api.client.SkillsRenderTypes;
 import org.astemir.api.client.display.IDisplayArgument;
+import org.astemir.api.lib.shimmer.ShimmerLib;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.model.SkillsModelLayer;
 import org.astemir.api.io.ResourceUtils;

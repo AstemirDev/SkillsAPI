@@ -42,7 +42,7 @@ public abstract class SkillsWrapperArmor<T extends Item & ICustomRendered> exten
         VertexConsumer consumer = ItemRenderer.getFoilBufferDirect(Minecraft.getInstance().renderBuffers().bufferSource(),getRenderType(), false, hasFoil);
         SkillsModel<T, DisplayArgumentArmor> model = getModel(renderTarget);
         model.modelWrapper = this;
-        model.renderWithLayers(poseStack,consumer,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
+        model.renderToBuffer(poseStack,consumer,packedLight, packedOverlay, r, g, b, a);
     }
 
     @Override

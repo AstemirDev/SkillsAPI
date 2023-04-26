@@ -1,13 +1,19 @@
 package org.astemir.api.client.model;
 
+import com.mojang.math.Vector3d;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.inventory.InventoryScreen;
+import net.minecraft.client.model.AnimationUtils;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.client.event.RenderLivingEvent;
 import org.astemir.api.client.animation.*;
 import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.client.render.cube.ModelElement;
 import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.api.common.animation.*;
 import org.astemir.api.common.animation.objects.IAnimated;
+import org.astemir.api.math.MathUtils;
 import org.astemir.api.math.components.Transform;
 import org.astemir.api.math.components.Vector3;
 import org.astemir.api.client.JsonUtils;
@@ -189,7 +195,8 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
                                     float animationDelta = smoothnessType.deltaCalculate(partialTicks, animation.getSmoothness());
                                     if (bone.getRotations() != null) {
                                         if (checkCanRotate(animated, argument,animation, bone)) {
-                                            rot = rot.rotLerp(interpolation.interpolate(bone.getRotations(), animationTick), animationDelta);
+                                            Vector3 f1 = interpolation.interpolate(bone.getRotations(), animationTick);
+                                            rot = rot.rotLerp(f1, animationDelta);
                                         }
                                     }
                                     if (bone.getScales() != null) {

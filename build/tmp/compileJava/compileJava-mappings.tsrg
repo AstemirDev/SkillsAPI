@@ -28,6 +28,7 @@ org/astemir/api/mixin/client/MixinLevelRenderer MOON_LOCATION f_109454_
 org/astemir/api/mixin/client/MixinLevelRenderer starBuffer f_109471_
 org/astemir/api/mixin/client/MixinLevelRenderer darkBuffer f_109473_
 org/astemir/api/mixin/client/MixinLevelRenderer entityTarget f_109411_
+org/astemir/api/mixin/client/MixinLevelRenderer entityRenderDispatcher f_109463_
 org/astemir/api/mixin/client/MixinCamera setRotation (FF)V m_90572_
 org/astemir/api/mixin/client/MixinCamera setPosition (DDD)V m_90584_
 org/astemir/api/mixin/client/MixinCamera move (DDD)V m_90568_

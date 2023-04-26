@@ -1,8 +1,7 @@
 package org.astemir.api.math.components;
 
 
-import com.mojang.math.Vector3d;
-import com.mojang.math.Vector3f;
+import com.mojang.math.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.phys.Vec3;
@@ -108,12 +107,9 @@ public class Vector3 implements IMathOperand<Vector3> {
     }
 
     public Vector3 normalize(){
-        float magnitude = magnitude();
-        if (magnitude > 0) {
-            return div(magnitude);
-        }else{
-            return new Vector3(x,y,z);
-        }
+        float len2 = magnitude();
+        if (len2 == 0f || len2 == 1f) return new Vector3(x,y,z);
+        return this.mul(1f / (float)Math.sqrt(len2));
     }
 
     public Vector3 direction(Vector3 vector){
@@ -124,6 +120,29 @@ public class Vector3 implements IMathOperand<Vector3> {
         return vector.sub(this);
     }
 
+
+    public Vector3 rotateAroundAxis(Vector3 axis,double angle) {
+        double x = getX(), y = getY(), z = getZ();
+        double x2 = axis.getX(), y2 = axis.getY(), z2 = axis.getZ();
+        double cosTheta = Math.cos(angle);
+        double sinTheta = Math.sin(angle);
+        double dotProduct = this.dot(axis);
+        double xPrime = x2 * dotProduct * (1d - cosTheta)
+                + x * cosTheta
+                + (-z2 * y + y2 * z) * sinTheta;
+        double yPrime = y2 * dotProduct * (1d - cosTheta)
+                + y * cosTheta
+                + (z2 * x - x2 * z) * sinTheta;
+        double zPrime = z2 * dotProduct * (1d - cosTheta)
+                + z * cosTheta
+                + (-y2 * x + x2 * y) * sinTheta;
+        return new Vector3(xPrime,yPrime,zPrime);
+    }
+
+
+    public float angleTo(Vector3 vector3) {
+        return MathUtils.atan2((float)cross(vector3).length(), (float)dot(vector3));
+    }
 
     public Vector3 rotateAroundX(double angle) {
         double angleCos = Math.cos(angle);
@@ -235,6 +254,13 @@ public class Vector3 implements IMathOperand<Vector3> {
         return new Vector3(x,y,z);
     }
 
+    public float dot(Vector3 vector) {
+        return x * vector.x + y * vector.y + z * vector.z;
+    }
+
+    public Vector3 cross(Vector3 vector) {
+        return new Vector3(this.y * vector.z - this.z * vector.y, this.z * vector.x - this.x * vector.z, this.x * vector.y - this.y * vector.x);
+    }
 
     public Vector3d toVector3d(){
         return new Vector3d(x,y,z);
@@ -272,6 +298,13 @@ public class Vector3 implements IMathOperand<Vector3> {
         return MathUtils.equalsApprox(x,vector.x) && MathUtils.equalsApprox(y,vector.y) && MathUtils.equalsApprox(z,vector.z);
     }
 
+    public Vector3 rad(){
+        return new Vector3(MathUtils.rad(x),MathUtils.rad(y),MathUtils.rad(z));
+    }
+
+    public Vector3 deg(){
+        return new Vector3(MathUtils.deg(x),MathUtils.deg(y),MathUtils.deg(z));
+    }
 
     public static Vector3 from(float x, float y, float z){
         return new Vector3(x,y,z);

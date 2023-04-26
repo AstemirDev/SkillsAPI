@@ -2,17 +2,17 @@ package org.astemir.api.common.gfx;
 
 import net.minecraft.network.FriendlyByteBuf;
 
-public class GFXScreenShake extends GFXEffect{
+public class GFXRoughShake extends GFXEffect{
 
     private double shakePower = 0.25f;
     private int ticks = 0;
 
-    public GFXScreenShake(double shakePower, int ticks) {
+    public GFXRoughShake(double shakePower, int ticks) {
         this.shakePower = shakePower;
         this.ticks = ticks;
     }
 
-    public GFXScreenShake() {
+    public GFXRoughShake() {
     }
 
     @Override
@@ -50,6 +50,6 @@ public class GFXScreenShake extends GFXEffect{
 
     @Override
     public GFXEffectType getEffectType() {
-        return GFXEffectType.SCREEN_SHAKE;
+        return GFXEffectType.ROUGH_SHAKE;
     }
 }

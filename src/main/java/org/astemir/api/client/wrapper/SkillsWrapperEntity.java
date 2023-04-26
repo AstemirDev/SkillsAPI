@@ -30,7 +30,7 @@ public abstract class SkillsWrapperEntity<T extends Entity & ICustomRendered> ex
     public void renderWrapper(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a, RenderCall renderCall,boolean resetBuffer) {
         SkillsModel<T,IDisplayArgument> model = getModel(renderTarget);
         model.modelWrapper = this;
-        model.renderWithLayers(poseStack,bufferSource,packedLight, packedOverlay, r, g, b, a,renderCall,resetBuffer);
+        model.renderToBuffer(poseStack,bufferSource,packedLight, packedOverlay, r, g, b, a);
     }
 
     @Override
@@ -38,9 +38,12 @@ public abstract class SkillsWrapperEntity<T extends Entity & ICustomRendered> ex
         renderWrapper(poseStack,bufferSource,packedLight,packedOverlay,r,g,b,calculateClientAlpha(),RenderCall.MODEL,true);
     }
 
+    public void animate(T entity,float limbSwing,float limbSwingAmount,float ageInTicks,float netHeadYaw,float headPitch){
+        getModel(entity).setupAnim(entity,null,limbSwing,limbSwingAmount,ageInTicks,netHeadYaw,headPitch);
+    }
+
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-        getModel(entity).setupAnim(entity,null,limbSwing,limbSwingAmount,ageInTicks,netHeadYaw,headPitch);
     }
 
     public RenderType getDefaultRenderType(){

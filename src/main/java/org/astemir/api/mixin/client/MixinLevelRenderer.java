@@ -10,17 +10,27 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.*;
+import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.material.FogType;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.common.MinecraftForge;
+import org.astemir.api.client.event.LivingTransformEvent;
+import org.astemir.api.client.render.ISkillsRenderer;
+import org.astemir.api.common.misc.ICustomRendered;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.event.RenderSunEvent;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.Shadow;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import javax.annotation.Nullable;
 
@@ -45,6 +55,22 @@ public abstract class MixinLevelRenderer {
 
     @Shadow @Nullable private RenderTarget entityTarget;
 
+
+    @Shadow @Final private EntityRenderDispatcher entityRenderDispatcher;
+
+    /**
+     * @author
+     * @reason handle
+     */
+    @Inject(method = "renderEntity",at = @At("HEAD"),remap = SkillsAPI.REMAP)
+    public void onRenderEntity(Entity pEntity, double pCamX, double pCamY, double pCamZ, float pPartialTick, PoseStack pPoseStack, MultiBufferSource pBufferSource, CallbackInfo ci) {
+        EntityRenderer renderer = this.entityRenderDispatcher.getRenderer(pEntity);
+        if (renderer instanceof ISkillsRenderer iSkillsRenderer){
+            if (pEntity instanceof ICustomRendered) {
+                iSkillsRenderer.animate((ICustomRendered) pEntity,pPartialTick);
+            }
+        }
+    }
 
     /**
      * @author

@@ -79,7 +79,7 @@ public class ServerMessageEntityEvent {
                         if (entity instanceof IEventEntity eventEntity) {
                             eventEntity.onHandleServerEvent(message.eventId,message.arguments);
                             if (eventEntity.serverEventMap() != null){
-                                eventEntity.serverEventMap().handleEvent(message.eventId,entity.blockPosition(),message.arguments);
+                                eventEntity.serverEventMap().handleEvent(message.eventId,serverLevel,entity.blockPosition(),message.arguments);
                             }
                         }
                     }

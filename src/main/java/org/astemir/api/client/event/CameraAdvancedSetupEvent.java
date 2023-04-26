@@ -7,19 +7,19 @@ import org.astemir.api.math.components.Vector2;
 import org.astemir.api.math.components.Vector3;
 
 @Cancelable
-public class WorldPreRenderEvent extends Event {
+public class CameraAdvancedSetupEvent extends Event {
 
 
     private Entity entity;
     private float partialTick;
-    boolean detached;
-    boolean thirdPersonReverse;
     private Vector2 rotation = new Vector2(0,0);
     private Vector3 position = new Vector3(0,0,0);
     private Vector3 offset = new Vector3(0,0,0);
     private boolean vanillaBehavior = true;
+    private boolean detached;
+    private boolean thirdPersonReverse;
 
-    public WorldPreRenderEvent(Entity entity, float partialTick, boolean detached, boolean thirdPersonReverse) {
+    public CameraAdvancedSetupEvent(Entity entity, float partialTick, boolean detached, boolean thirdPersonReverse) {
         this.entity = entity;
         this.partialTick = partialTick;
         this.detached = detached;

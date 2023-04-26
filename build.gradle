@@ -192,6 +192,7 @@ dependencies {
     // Examples using mod jars from ./libs
     // implementation fg.deobf("blank:coolmod-${mc_version}:${coolmod_version}")
     implementation fg.deobf("com.lowdragmc.shimmer:Shimmer-forge:1.19.2-0.1.14")
+
     // For more info...
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html

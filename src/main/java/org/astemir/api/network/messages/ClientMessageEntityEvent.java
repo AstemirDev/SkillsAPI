@@ -58,7 +58,7 @@ public class ClientMessageEntityEvent {
                     if (entity instanceof IEventEntity eventEntity) {
                         eventEntity.onHandleClientEvent(message.eventId,message.arguments);
                         if (eventEntity.clientEventMap() != null){
-                            eventEntity.clientEventMap().handleEvent(message.eventId,entity.blockPosition(),message.arguments);
+                            eventEntity.clientEventMap().handleEvent(message.eventId,Minecraft.getInstance().level,entity.blockPosition(),message.arguments);
                         }
                     }
                 }

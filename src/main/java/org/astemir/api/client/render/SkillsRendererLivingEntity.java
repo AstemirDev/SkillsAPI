@@ -28,7 +28,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered,M extends EntityModel<T>> extends LivingEntityRenderer<T,M> implements ISkillsRenderer<T, IDisplayArgument>{
 
-    private SkillsWrapperEntity entityModelWrapper;
+    private SkillsWrapperEntity<T> entityModelWrapper;
 
     public SkillsRendererLivingEntity(EntityRendererProvider.Context context, SkillsWrapperEntity entityModel) {
         super(context, (M) entityModel, 0.5f);
@@ -46,6 +46,51 @@ public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered
                 this.renderLeash(entity, partialTicks, poseStack, bufferSource, leashHolder);
             }
         }
+    }
+
+    @Override
+    public void animate(T instance,float partialTicks) {
+        float f = Mth.rotLerp(partialTicks, instance.yBodyRotO, instance.yBodyRot);
+        float f1 = Mth.rotLerp(partialTicks, instance.yHeadRotO, instance.yHeadRot);
+        float f2 = f1 - f;
+        if (instance.getVehicle() instanceof LivingEntity) {
+            LivingEntity livingentity = (LivingEntity)instance.getVehicle();
+            f = Mth.rotLerp(partialTicks, livingentity.yBodyRotO, livingentity.yBodyRot);
+            f2 = f1 - f;
+            float f3 = Mth.wrapDegrees(f2);
+            if (f3 < -85.0F) {
+                f3 = -85.0F;
+            }
+
+            if (f3 >= 85.0F) {
+                f3 = 85.0F;
+            }
+
+            f = f1 - f3;
+            if (f3 * f3 > 2500.0F) {
+                f += f3 * 0.2F;
+            }
+
+            f2 = f1 - f;
+        }
+        float f6 = Mth.lerp(partialTicks, instance.xRotO, instance.getXRot());
+        if (isEntityUpsideDown(instance)) {
+            f6 *= -1.0F;
+            f2 *= -1.0F;
+        }
+        float limbSwing = 0.0F;
+        float limbSwingAmount = 0.0F;
+        if (instance.isAlive()) {
+            limbSwing = instance.animationPosition - instance.animationSpeed * (1.0F - partialTicks);
+            limbSwingAmount = Mth.lerp(partialTicks, instance.animationSpeedOld, instance.animationSpeed);
+            if (instance.isBaby()) {
+                limbSwing *= 3.0F;
+            }
+            if (limbSwingAmount > 1.0F) {
+                limbSwingAmount = 1.0F;
+            }
+        }
+        entityModelWrapper.animate(instance,limbSwing,limbSwingAmount,getTicks(instance.tickCount),f2,f6);
     }
 
     @Nullable
@@ -130,6 +175,7 @@ public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered
         p_174308_.vertex(p_174309_, f5 - p_174319_, f6 + p_174318_, f7 + p_174320_).color(f2, f3, f4, 1.0F).uv2(k).endVertex();
         p_174308_.vertex(p_174309_, f5 + p_174319_, f6 + p_174317_ - p_174318_, f7 - p_174320_).color(f2, f3, f4, 1.0F).uv2(k).endVertex();
     }
+
 
     @Override
     public IModelWrapper getModelWrapper() {

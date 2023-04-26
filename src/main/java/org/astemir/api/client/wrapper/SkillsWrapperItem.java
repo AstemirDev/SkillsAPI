@@ -34,7 +34,7 @@ public abstract class SkillsWrapperItem<T extends Item & ICustomRendered> extend
         poseStack.translate(0, 0.01f, 0);
         poseStack.translate(0.5, 2, 0.5f);
         poseStack.scale(-1,-1,1);
-        model.renderWithLayers(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
+        model.renderToBuffer(poseStack,consumer,packedLight,packedOverlay,r,g,b,a);
         poseStack.popPose();
         model.setupAnim(renderTarget,new DisplayArgumentItem(itemStack,transformType),0,0,0,0,0);
     }

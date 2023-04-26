@@ -31,14 +31,14 @@ simulationDistance:8
 entityDistanceScaling:5.0
 guiScale:0
 particles:0
-maxFps:260
+maxFps:60
 graphicsMode:0
 ao:0
 prioritizeChunkUpdates:0
 biomeBlendRadius:2
 renderClouds:"true"
-resourcePacks:["vanilla","mod_resources"]
-incompatibleResourcePacks:[]
+resourcePacks:["vanilla","mod_resources","file/shaders test"]
+incompatibleResourcePacks:["file/shaders test"]
 lastServer:
 lang:ru_ru
 soundDevice:""

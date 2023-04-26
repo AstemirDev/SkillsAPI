@@ -1,7 +1,11 @@
 package org.astemir.api.math;
 
 
+import com.mojang.math.Quaternion;
+import net.minecraft.util.Mth;
+import net.minecraftforge.common.util.TransformationHelper;
 import org.astemir.api.math.components.Rect2;
+import org.astemir.api.math.components.Vector3;
 
 import java.awt.*;
 import java.util.ArrayList;
@@ -10,6 +14,8 @@ import java.util.List;
 public class MathUtils {
 
     public static float PI = 3.14159265358979323846f;
+
+    public static float PI_HALF = 3.14159265358979323846f/2f;
 
     public static float PI2 = PI*2;
 
@@ -35,6 +41,10 @@ public class MathUtils {
         return (float)Math.sin(value);
     }
 
+    public static float acos(float value){
+        return (float)Math.acos(value);
+    }
+
     public static float atan2(float y,float x){
         return (float)Math.atan2(y,x);
     }
@@ -58,6 +68,69 @@ public class MathUtils {
             return 0;
         }
         return f;
+    }
+
+
+    public static Quaternion quaternionFromAngle(Vector3 vector){
+        float qx = sin(vector.z/2) * cos(vector.x/2) * cos(vector.y/2) - cos(vector.z/2) * sin(vector.x/2) * sin(vector.y/2);
+        float qy = cos(vector.z/2) * sin(vector.x/2) * cos(vector.y/2) + sin(vector.z/2) * cos(vector.x/2) * sin(vector.y/2);
+        float qz = cos(vector.z/2) * cos(vector.x/2) * sin(vector.y/2) - sin(vector.z/2) * sin(vector.x/2) * cos(vector.y/2);
+        float qw = cos(vector.z/2) * cos(vector.x/2) * cos(vector.y/2) + sin(vector.z/2) * sin(vector.x/2) * sin(vector.y/2);
+        return new Quaternion(qx,qy,qz,qw);
+    }
+
+    public static Vector3 quaternionToAngle(Quaternion quaternion){
+        float x = quaternion.i();
+        float y = quaternion.j();
+        float z = quaternion.k();
+        float w = quaternion.r();
+        float t0 = (float) (+2.0 * (w * x + y * z));
+        float t1 = (float) (+1.0 - 2.0 * (x * x + y * y));
+        float roll = atan2(t0, t1);
+        float t2 = (float) (+2.0 * (w * y - z * x));
+        if (t2 > 1.0f){
+            t2 = 1.0f;
+        }else
+        if (t2 < -1.0f){
+            t2 = -1.0f;
+        }
+        float pitch = asin(t2);
+        float t3 = (float) (+2.0 * (w * z + x * y));
+        float t4 = (float) (+1.0 - 2.0 * (y * y + z * z));
+        float yaw = atan2(t3, t4);
+        return new Vector3(yaw,pitch,roll);
+    }
+
+
+
+    public static Quaternion slerp(Quaternion from,Quaternion to,float alpha){
+        float cosom = Math.fma(from.i(), to.i(), Math.fma(from.j(), to.j(), Math.fma(from.k(), to.k(), from.r() * to.r())));
+        float absCosom = Math.abs(cosom);
+        float scale0, scale1;
+        if (1.0f - absCosom > 1E-6f) {
+            float sinSqr = 1.0f - absCosom * absCosom;
+            float sinom = 1.0f/MathUtils.sqrt(sinSqr);
+            float omega = (float) Math.atan2(sinSqr * sinom, absCosom);
+            scale0 = (float) (Math.sin((1.0 - alpha) * omega) * sinom);
+            scale1 = (float) (Math.sin(alpha * omega) * sinom);
+        } else {
+            scale0 = 1.0f - alpha;
+            scale1 = alpha;
+        }
+        scale1 = cosom >= 0.0f ? scale1 : -scale1;
+        return new Quaternion(Math.fma(scale0, from.i(), scale1 * to.i()),Math.fma(scale0, from.j(), scale1 * to.j()),Math.fma(scale0, from.k(), scale1 * to.k()),Math.fma(scale0, from.r(), scale1 * to.r()));
+    }
+
+
+    public static double cosFromSin(double sin, double angle) {
+        double cos = sqrt((float) (1.0 - sin * sin));
+        double a = angle + PI_HALF;
+        double b = a - (int)(a / PI2) * PI2;
+        if (b < 0.0)
+            b = PI2 + b;
+        if (b >= PI)
+            return -cos;
+        return cos;
     }
 
     public static float shortestAngle(float a,float b){

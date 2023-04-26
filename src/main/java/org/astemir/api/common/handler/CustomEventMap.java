@@ -1,6 +1,7 @@
 package org.astemir.api.common.handler;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
 import org.astemir.api.network.PacketArgument;
 import java.util.HashMap;
 import java.util.Map;
@@ -9,9 +10,9 @@ public class CustomEventMap {
 
     public Map<Integer,EventHandle> map = new HashMap<>();
 
-    public void handleEvent(int id,BlockPos pos,PacketArgument[] arguments){
+    public void handleEvent(int id, Level level,BlockPos pos, PacketArgument[] arguments){
         if (map.containsKey(id)) {
-            map.get(id).handle(pos,arguments);
+            map.get(id).handle(pos,level,arguments);
         }
     }
 
@@ -34,6 +35,6 @@ public class CustomEventMap {
     }
 
     public interface EventHandle{
-        void handle(BlockPos pos, PacketArgument[] arguments);
+        void handle(BlockPos pos, Level level,PacketArgument[] arguments);
     }
 }

@@ -34,7 +34,7 @@ public abstract class SkillsWrapperBlockEntity<T extends BlockEntity & ICustomRe
         poseStack.translate(0.5, 1.5f, 0.5f);
         scale(getRenderTarget(),poseStack, partialTicks);
         setupRotations(getRenderTarget(),poseStack, partialTicks);
-        model.renderWithLayers(poseStack,consumer,packedLight,packedOverlay,r,g,b,a,RenderCall.MODEL,false);
+        model.renderToBuffer(poseStack,consumer,packedLight,packedOverlay,r,g,b,a);
         poseStack.popPose();
     }
 

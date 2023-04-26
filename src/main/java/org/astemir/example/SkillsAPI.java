@@ -16,6 +16,7 @@ import org.astemir.api.common.commands.CommandRegister;
 import org.astemir.api.common.event.EventManager;
 import org.astemir.api.common.world.WorldEventListener;
 import org.astemir.api.common.world.SkillsAPIBiomeModifier;
+import org.astemir.api.lib.shimmer.ShimmerLib;
 import org.astemir.api.network.messages.*;
 import org.astemir.api.network.NetworkUtils;
 import org.astemir.example.common.block.ExampleModBlocks;
@@ -44,6 +45,7 @@ public class SkillsAPI extends SkillsForgeMod {
 
     public SkillsAPI() {
         INSTANCE = this;
+        ShimmerLib.INSTANCE.load();
         if (isInitializeExampleFeatures()) {
             ExampleModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
             ExampleModBlocks.TILE_ENTITIES.register(FMLJavaModLoadingContext.get().getModEventBus());

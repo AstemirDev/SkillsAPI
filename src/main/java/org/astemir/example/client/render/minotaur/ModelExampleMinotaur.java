@@ -3,8 +3,11 @@ package org.astemir.example.client.render.minotaur;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.resources.ResourceLocation;
+import org.astemir.api.client.animation.AnimationUtils;
 import org.astemir.api.client.display.IDisplayArgument;
 import org.astemir.api.client.render.RenderCall;
+import org.astemir.api.math.MathUtils;
+import org.astemir.api.math.components.Vector3;
 import org.astemir.example.SkillsAPI;
 import org.astemir.api.client.animation.InterpolationType;
 import org.astemir.api.client.animation.SmoothnessType;
@@ -34,6 +37,12 @@ public class ModelExampleMinotaur extends SkillsAnimatedModel<EntityExampleMinot
 		if (head != null) {
 			lookAt(head, headPitch, headYaw);
 		}
+
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		super.renderToBuffer(poseStack, buffer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
 	@Override

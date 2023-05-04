@@ -12,7 +12,7 @@ public class PlayerGFXEffectManager {
 
     private CopyOnWriteArrayList<GFXEffect> effects = new CopyOnWriteArrayList<>();
 
-    public static void addGFXEffect(ServerPlayer player, GFXEffect effect,boolean replace){
+    public static void addEffect(ServerPlayer player, GFXEffect effect, boolean replace){
         NetworkUtils.sendToPlayer(player,new ClientMessagePlayerEffect(effect,replace));
     }
 
@@ -27,7 +27,7 @@ public class PlayerGFXEffectManager {
     }
 
 
-    public void addGFXEffect(GFXEffect effect,boolean replace){
+    public void addEffect(GFXEffect effect, boolean replace){
         if (replace) {
             for (GFXEffect gfxEffect : effects) {
                 if (gfxEffect.getEffectType() == effect.getEffectType()){

@@ -61,7 +61,7 @@ public class GFXEffectCommand {
         for (Entity entity : entities) {
             if (entity instanceof ServerPlayer) {
                 ServerPlayer player = (ServerPlayer) entity;
-                PlayerGFXEffectManager.addGFXEffect(player, effect, replace);
+                PlayerGFXEffectManager.addEffect(player, effect, replace);
             }
         }
     }

@@ -90,7 +90,7 @@ public class SkillsRendererLivingEntity<T extends LivingEntity & ICustomRendered
                 limbSwingAmount = 1.0F;
             }
         }
-        entityModelWrapper.animate(instance,limbSwing,limbSwingAmount,getTicks(instance.tickCount),f2,f6);
+        entityModelWrapper.getModel(instance).setupAnim(instance,null,limbSwing,limbSwingAmount,getTicks(instance.tickCount),f2,f6);
     }
 
     @Nullable

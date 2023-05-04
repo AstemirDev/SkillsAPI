@@ -59,6 +59,18 @@ public class WorldEventHandler {
         void onHandleEvent(ServerLevel level, BlockPos pos, int event, PacketArgument[] arguments);
     }
 
+    public static void playClientEvent(Level level, BlockPos pos, CustomEvent event, PacketArgument... arguments){
+        playClientEvent(level,pos,event.getValue(),arguments);
+    }
+
+    public static void playClientEvent(Player player, Level level, BlockPos pos, CustomEvent event, PacketArgument... arguments){
+        playClientEvent(player,level,pos,event.getValue(),arguments);
+    }
+
+    public static void playServerEvent(Level level, BlockPos pos, CustomEvent event, PacketArgument... arguments){
+        playServerEvent(level,pos,event.getValue(),arguments);
+    }
+
     public static void playClientEvent(Level level, BlockPos pos, int event, PacketArgument... arguments){
         if (level.isClientSide){
             return;

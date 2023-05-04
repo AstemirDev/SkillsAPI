@@ -20,8 +20,6 @@ public abstract class SkillsWrapperBlockEntity<T extends BlockEntity & ICustomRe
     public T renderTarget;
     public MultiBufferSource multiBufferSource;
 
-
-
     public SkillsWrapperBlockEntity() {
         super(RenderType::entityCutoutNoCull);
     }
@@ -38,8 +36,12 @@ public abstract class SkillsWrapperBlockEntity<T extends BlockEntity & ICustomRe
         poseStack.popPose();
     }
 
-    protected void setupRotations(T blockEntity, PoseStack stack, float partialTicks) {
+    @Override
+    public void renderToBuffer(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a) {
+        renderBlock(poseStack,bufferSource,multiBufferSource,packedLight,packedOverlay,r,g,b,a);
     }
+
+    protected void setupRotations(T blockEntity, PoseStack stack, float partialTicks) {}
 
     protected void scale(T entity,PoseStack stack, float partialTicks){
         stack.scale(-1,-1,1);
@@ -50,10 +52,6 @@ public abstract class SkillsWrapperBlockEntity<T extends BlockEntity & ICustomRe
         return RenderType.entityCutoutNoCull(getModel(renderTarget).getTexture(renderTarget));
     }
 
-    @Override
-    public void renderToBuffer(PoseStack poseStack, VertexConsumer bufferSource, int packedLight, int packedOverlay, float r, float g, float b, float a) {
-        renderBlock(poseStack,bufferSource,multiBufferSource,packedLight,packedOverlay,r,g,b,a);
-    }
 
     public MultiBufferSource getMultiBufferSource() {
         return multiBufferSource;

@@ -102,6 +102,7 @@ public abstract class SkillsModel<T extends ICustomRendered,K extends IDisplayAr
         }
     }
 
+
     public void setupAnim(T animated, K argument,float limbSwing, float limbSwingAmount, float ticks,float headYaw, float headPitch) {
         float partialTicks = Minecraft.getInstance().getPartialTick();
         if (!Minecraft.getInstance().isPaused()) {

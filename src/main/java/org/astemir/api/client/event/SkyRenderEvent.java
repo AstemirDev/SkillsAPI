@@ -4,12 +4,14 @@ import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraftforge.eventbus.api.Event;
 import org.astemir.api.math.components.Color;
 
-public class RenderSunEvent extends Event {
+public class SkyRenderEvent extends Event {
 
     private PoseStack stack;
     private Color color = new Color(1,1,1,1);
-    private float size = 30.0F;
-    private float verticalOffset = 100.0F;
+    private float sunSize = 30.0F;
+    private float moonSize = 20.0F;
+    private float sunVerticalOffset = 100.0F;
+    private float moonVerticalOffset = -100.0F;
     private float xRot = 0;
     private float yRot = 0;
     private float timeOfDay;
@@ -17,7 +19,7 @@ public class RenderSunEvent extends Event {
     private float partialTicks;
 
 
-    public RenderSunEvent(PoseStack stack,float timeOfDay,float rainLevel,float partialTicks) {
+    public SkyRenderEvent(PoseStack stack, float timeOfDay, float rainLevel, float partialTicks) {
         this.stack = stack;
         this.color.a = 1.0F-rainLevel;
         this.partialTicks = partialTicks;
@@ -35,20 +37,36 @@ public class RenderSunEvent extends Event {
         this.color = color;
     }
 
-    public float getSize() {
-        return size;
+    public float getSunSize() {
+        return sunSize;
     }
 
-    public void setSize(float size) {
-        this.size = size;
+    public void setSunSize(float sunSize) {
+        this.sunSize = sunSize;
     }
 
-    public float getVerticalOffset() {
-        return verticalOffset;
+    public float getMoonSize() {
+        return moonSize;
     }
 
-    public void setVerticalOffset(float verticalOffset) {
-        this.verticalOffset = verticalOffset;
+    public void setMoonSize(float moonSize) {
+        this.moonSize = moonSize;
+    }
+
+    public float getSunVerticalOffset() {
+        return sunVerticalOffset;
+    }
+
+    public void setSunVerticalOffset(float sunVerticalOffset) {
+        this.sunVerticalOffset = sunVerticalOffset;
+    }
+
+    public float getMoonVerticalOffset() {
+        return moonVerticalOffset;
+    }
+
+    public void setMoonVerticalOffset(float moonVerticalOffset) {
+        this.moonVerticalOffset = moonVerticalOffset;
     }
 
     public float getXRot() {

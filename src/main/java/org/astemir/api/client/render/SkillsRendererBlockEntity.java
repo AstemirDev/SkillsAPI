@@ -33,8 +33,8 @@ public class SkillsRendererBlockEntity<T extends BlockEntity & ICustomRendered> 
             light = 15728880;
         }
         VertexConsumer consumer = bufferSource.getBuffer(blockModelWrapper.getRenderType());
-        animate(blockEntity,partialTick);
         blockModelWrapper.renderToBuffer(poseStack,consumer,light,packedOverlay,1,1,1,1);
+        animate(blockEntity,partialTick);
     }
 
 

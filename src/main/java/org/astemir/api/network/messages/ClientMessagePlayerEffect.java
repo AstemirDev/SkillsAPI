@@ -43,7 +43,7 @@ public class ClientMessagePlayerEffect {
         public void accept(ClientMessagePlayerEffect message, Supplier<NetworkEvent.Context> contextSupplier) {
             final NetworkEvent.Context context = contextSupplier.get();
             context.enqueueWork(() -> {
-                PlayerGFXEffectManager.getInstance().addGFXEffect(message.gfxEffect,message.replace);
+                PlayerGFXEffectManager.getInstance().addEffect(message.gfxEffect,message.replace);
             });
             context.setPacketHandled(true);
         }

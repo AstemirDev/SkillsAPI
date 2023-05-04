@@ -68,8 +68,7 @@ public class SkillsRendererEntity<T extends Entity & ICustomRendered,M extends E
     public void animate(T instance, float partialTicks) {
         float f1 = Mth.rotLerp(partialTicks, instance.yRotO, instance.getYRot());
         float f2 = Mth.rotLerp(partialTicks, instance.xRotO, instance.getXRot());
-        float tickCount = getTicks(entityModelWrapper.getRenderTarget().tickCount);
-        entityModelWrapper.animate(instance,0,0,tickCount,f1,f2);
+        entityModelWrapper.getModel(instance).setupAnim(instance,null,0,0,getTicks(entityModelWrapper.getRenderTarget().tickCount),f1,f2);
     }
 
     protected void setupRotations(T entity, PoseStack stack, float yaw, float partialTicks) {

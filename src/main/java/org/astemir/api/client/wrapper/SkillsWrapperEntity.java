@@ -38,14 +38,6 @@ public abstract class SkillsWrapperEntity<T extends Entity & ICustomRendered> ex
         renderWrapper(poseStack,bufferSource,packedLight,packedOverlay,r,g,b,calculateClientAlpha(),RenderCall.MODEL,true);
     }
 
-    public void animate(T entity,float limbSwing,float limbSwingAmount,float ageInTicks,float netHeadYaw,float headPitch){
-        getModel(entity).setupAnim(entity,null,limbSwing,limbSwingAmount,ageInTicks,netHeadYaw,headPitch);
-    }
-
-    @Override
-    public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    }
-
     public RenderType getDefaultRenderType(){
         return RenderType.entityCutoutNoCull(getModel(getRenderTarget()).getTexture(getRenderTarget()));
     }
@@ -86,4 +78,7 @@ public abstract class SkillsWrapperEntity<T extends Entity & ICustomRendered> ex
     public MultiBufferSource getMultiBufferSource() {
         return multiBufferSource;
     }
+
+    @Override
+    public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {}
 }

@@ -101,8 +101,6 @@ public class MathUtils {
         return new Vector3(yaw,pitch,roll);
     }
 
-
-
     public static Quaternion slerp(Quaternion from,Quaternion to,float alpha){
         float cosom = Math.fma(from.i(), to.i(), Math.fma(from.j(), to.j(), Math.fma(from.k(), to.k(), from.r() * to.r())));
         float absCosom = Math.abs(cosom);

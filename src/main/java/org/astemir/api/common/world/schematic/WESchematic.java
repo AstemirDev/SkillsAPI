@@ -150,6 +150,11 @@ public class WESchematic {
     }
 
 
+    public WESchematic replacement(StateReplacement replacement) {
+        this.replacement = replacement;
+        return this;
+    }
+
     public interface StateReplacement{
 
         BlockState replaceState(BlockState state);

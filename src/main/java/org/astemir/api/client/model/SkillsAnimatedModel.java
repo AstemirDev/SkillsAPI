@@ -12,12 +12,14 @@ import org.astemir.api.math.components.Transform;
 import org.astemir.api.math.components.Vector3;
 import org.astemir.api.client.JsonUtils;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 
 public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,K extends IDisplayArgument> extends SkillsModel<T,K> {
 
-    public Set<AnimationTrack> animations = new HashSet<>();
+    public Set<AnimationTrack> animations = new LinkedHashSet<>();
     private InterpolationType interpolation = InterpolationType.CATMULLROM;
     private SmoothnessType smoothnessType = SmoothnessType.SQR_EXPONENTIAL;
     private float smoothness = 2;
@@ -93,12 +95,10 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
     }
 
     public AnimationTrack getTrack(String name){
-        for (AnimationTrack animation : animations) {
-            if (animation.getName().equals(name)){
-                return animation;
-            }
-        }
-        return null;
+        return animations.stream()
+                .filter(animation -> animation.getName().equals(name))
+                .findFirst()
+                .orElse(null);
     }
 
     private boolean checkCanScale(T animated,K argument,Animation animation,AnimationBone bone){
@@ -120,43 +120,30 @@ public abstract class SkillsAnimatedModel<T extends ICustomRendered & IAnimated,
         return true;
     }
 
-    private boolean isRotatingInAnyTrack(T animated, K argument,ModelElement renderer){
-        for (Animation playingAnimation : animated.getAnimationFactory(argument).getPlayingAnimations()) {
-            AnimationTrack track = getTrack(playingAnimation.getName());
-            if (track != null) {
-                if (track.hasBone(renderer.getName())) {
-                    return track.getBone(renderer.getName()).getRotations() != null;
-                }
-            }
-        }
-        return false;
+    private boolean isRotatingInAnyTrack(T animated, K argument, ModelElement renderer) {
+        return isTransformingInAnyTrack(animated, argument, renderer, AnimationBone::getRotations);
     }
 
-
-    private boolean isPositioningInAnyTrack(T animated, K argument,ModelElement renderer){
-        for (Animation playingAnimation : animated.getAnimationFactory(argument).getPlayingAnimations()) {
-            AnimationTrack track = getTrack(playingAnimation.getName());
-            if (track != null) {
-                if (track.hasBone(renderer.getName())) {
-                    return track.getBone(renderer.getName()).getPositions() != null;
-                }
-            }
-        }
-        return false;
+    private boolean isPositioningInAnyTrack(T animated, K argument, ModelElement renderer) {
+        return isTransformingInAnyTrack(animated, argument, renderer, AnimationBone::getPositions);
     }
 
-
-    private boolean isScalingInAnyTrack(T animated, K argument,ModelElement renderer){
-        for (Animation playingAnimation : animated.getAnimationFactory(argument).getPlayingAnimations()) {
-            AnimationTrack track = getTrack(playingAnimation.getName());
-            if (track != null) {
-                if (track.hasBone(renderer.getName())) {
-                    return track.getBone(renderer.getName()).getScales() != null;
-                }
-            }
-        }
-        return false;
+    private boolean isScalingInAnyTrack(T animated, K argument, ModelElement renderer) {
+        return isTransformingInAnyTrack(animated, argument, renderer, AnimationBone::getScales);
     }
+
+    private boolean isTransformingInAnyTrack(T animated, K argument, ModelElement renderer, Function<AnimationBone, Object[]> function) {
+        return animated.getAnimationFactory(argument)
+                .getPlayingAnimations().stream()
+                .map(playingAnimation -> getTrack(playingAnimation.getName()))
+                .filter(Objects::nonNull)
+                .filter(track -> track.hasBone(renderer.getName()))
+                .map(track -> track.getBone(renderer.getName()))
+                .filter(bone -> function.apply(bone) != null)
+                .findFirst()
+                .isPresent();
+    }
+
 
 
     @Override

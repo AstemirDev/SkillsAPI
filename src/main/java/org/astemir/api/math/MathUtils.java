@@ -182,28 +182,18 @@ public class MathUtils {
     }
 
 
-    public static List<Rect2> splitRectangleToSmaller(Rect2 rectangle, Rect2 smallRect){
+    public static List<Rect2> splitRectangleToSmaller(Rect2 rectangle, Rect2 smallRect) {
         List<Rect2> rects = new ArrayList<>();
-        int maxHorizontalSquares = Math.round(((float)rectangle.getWidth())/((float)smallRect.getWidth()));
-        int maxVerticalSquares = Math.round(((float)rectangle.getHeight())/((float)smallRect.getHeight()));
-        int posX = 0;
-        for (int i = 1;i<maxHorizontalSquares+1;i++){
-            int posY = 0;
-            int newWidth = (int) (i*smallRect.getWidth());
-            if (newWidth > rectangle.getWidth()){
-                newWidth = (int) (newWidth-(newWidth-rectangle.getWidth()));
+        int maxHorizontalSquares = Math.floorDiv((int)rectangle.getWidth(),(int) smallRect.getWidth());
+        int maxVerticalSquares = Math.floorDiv((int)rectangle.getHeight(),(int) smallRect.getHeight());
+        for (int i = 0; i < maxHorizontalSquares; i++) {
+            for (int j = 0; j < maxVerticalSquares; j++) {
+                int startX = (int)(i * smallRect.getWidth());
+                int startY = (int)(j * smallRect.getHeight());
+                int width = (int)Math.min(smallRect.getWidth(), rectangle.getWidth() - startX);
+                int height = (int)Math.min(smallRect.getHeight(), rectangle.getHeight() - startY);
+                rects.add(new Rect2(startX, startY, width, height));
             }
-            int width = newWidth-posX;
-            for (int j = 1;j<maxVerticalSquares+1;j++){
-                int newHeight = (int) (j*smallRect.getHeight());
-                if (newHeight > rectangle.getHeight()){
-                    newHeight = (int) (newHeight-(newHeight-rectangle.getHeight()));
-                }
-                int height = newHeight-posY;
-                rects.add(new Rect2(posX,posY,width,height));
-                posY+=height;
-            }
-            posX+=width;
         }
         return rects;
     }
@@ -217,6 +207,7 @@ public class MathUtils {
             }
 
             boolean eat(int charToEat) {
+
                 while (ch == ' ') nextChar();
                 if (ch == charToEat) {
                     nextChar();

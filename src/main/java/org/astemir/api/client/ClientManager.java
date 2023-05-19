@@ -47,10 +47,14 @@ public class ClientManager {
         for (GFXEffect effect : gfxEffectHandler.getEffects()) {
             if (effect.getEffectType() == GFXEffectType.SOFT_SHAKE){
                 GFXSoftShake screenShake = (GFXSoftShake) effect;
-                float ticks = ((float) (screenShake.getTicks()))+e.getPartialTicks();
+                float ticks = (float) (screenShake.getTicks() + e.getPartialTicks());
                 if (screenShake.getTicks() > 0) {
-                    double power = screenShake.getShakePower()*0.1f;
-                    e.getPoseStack().translate(MathUtils.cos(ticks/4f)*power,MathUtils.cos(ticks/2f)*power,MathUtils.sin(ticks/3f)*power);
+                    double power = screenShake.getShakePower() * 0.1f;
+                    float lerpAmount = 0.5f;
+                    float x = MathUtils.lerp(0, (float) Math.sin(ticks / 4f),lerpAmount) * (float) power;
+                    float y = MathUtils.lerp(0, (float) Math.sin(ticks / 2f),lerpAmount) * (float) power;
+                    float z = MathUtils.lerp(0, (float) Math.sin(ticks / 3f),lerpAmount) * (float) power;
+                    e.getPoseStack().translate(x, y, z);
                 }
             }
         }
@@ -62,12 +66,19 @@ public class ClientManager {
         for (GFXEffect effect : gfxEffectHandler.getEffects()) {
             if (effect.getEffectType() == GFXEffectType.ROUGH_SHAKE){
                 GFXRoughShake screenShake = (GFXRoughShake) effect;
-                float ticks = (float) (((float) (screenShake.getTicks()))+e.getPartialTick());
+                float ticks = (float) (screenShake.getTicks() + e.getPartialTick());
                 if (screenShake.getTicks() > 0) {
                     double power = screenShake.getShakePower();
-                    e.setYaw((float) ((double) e.getYaw() + power * Math.cos(ticks * 2.5F + 1.0F)));
-                    e.setPitch((float) ((double) e.getPitch() + power * Math.cos(ticks * 1.5F + 2.0F)));
-                    e.setRoll((float) ((double) e.getRoll() + power * Math.cos(ticks * 2.0F)));
+                    float yaw = e.getYaw();
+                    float pitch = e.getPitch();
+                    float roll = e.getRoll();
+                    float targetYaw = yaw + (float) (power * Math.sin(ticks * 2.5F + 1.0F));
+                    float targetPitch = pitch + (float) (power * Math.sin(ticks * 1.5F + 2.0F));
+                    float targetRoll = roll + (float) (power * Math.sin(ticks * 2.0F));
+                    float lerpAmount = 0.5f;
+                    e.setYaw(MathUtils.lerp(yaw, targetYaw,lerpAmount));
+                    e.setPitch(MathUtils.lerp(pitch, targetPitch,lerpAmount));
+                    e.setRoll(MathUtils.lerp(roll, targetRoll,lerpAmount));
                 }
             }
         }

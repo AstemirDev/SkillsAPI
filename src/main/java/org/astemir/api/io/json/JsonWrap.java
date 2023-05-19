@@ -2,7 +2,6 @@ package org.astemir.api.io.json;
 
 
 import com.google.gson.*;
-
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;

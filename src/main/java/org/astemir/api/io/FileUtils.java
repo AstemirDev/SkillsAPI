@@ -2,6 +2,8 @@ package org.astemir.api.io;
 
 import net.minecraftforge.fml.ModList;
 import org.apache.commons.lang3.StringUtils;
+import org.astemir.api.math.MathUtils;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

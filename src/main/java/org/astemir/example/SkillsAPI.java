@@ -11,17 +11,17 @@ import org.astemir.api.client.ClientManager;
 import org.astemir.api.client.registry.TESRModelsRegistry;
 import org.astemir.api.client.render.SkillsRendererItem;
 import org.astemir.api.common.animation.AnimationEventListener;
-import org.astemir.api.common.entity.EntityEventListener;
 import org.astemir.api.common.commands.CommandRegister;
+import org.astemir.api.common.entity.EntityEventListener;
+import org.astemir.api.common.entity.PlayerEventListener;
 import org.astemir.api.common.event.EventManager;
-import org.astemir.api.common.world.WorldEventListener;
 import org.astemir.api.common.world.SkillsAPIBiomeModifier;
+import org.astemir.api.common.world.WorldEventListener;
 import org.astemir.api.lib.shimmer.ShimmerLib;
-import org.astemir.api.network.messages.*;
 import org.astemir.api.network.NetworkUtils;
+import org.astemir.api.network.messages.*;
 import org.astemir.example.common.block.ExampleModBlocks;
 import org.astemir.example.common.entity.ExampleModEntities;
-import org.astemir.api.common.entity.PlayerEventListener;
 import org.astemir.example.common.item.ExampleModItems;
 import static org.astemir.example.SkillsAPI.MOD_ID;
 
@@ -29,19 +29,13 @@ import static org.astemir.example.SkillsAPI.MOD_ID;
 public class SkillsAPI extends SkillsForgeMod {
 
     public final static String MOD_ID = "skillsapi";
-
     public final static String PROTOCOL_VERSION = Integer.toString(1);
-
     public static final SimpleChannel API_NETWORK = NetworkUtils.createNetworkChannel(MOD_ID,"main_channel",PROTOCOL_VERSION);
-
     public static volatile boolean INITIALIZED = false;
-
     public static boolean INITIALIZE_EXAMPLE_FEATURES = true;
-
     public static final boolean REMAP = true;
 
     public static SkillsAPI INSTANCE;
-
 
     public SkillsAPI() {
         INSTANCE = this;

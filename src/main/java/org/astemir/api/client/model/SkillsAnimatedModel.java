@@ -1,6 +1,7 @@
 package org.astemir.api.client.model;
 
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.model.WardenModel;
 import net.minecraft.resources.ResourceLocation;
 import org.astemir.api.client.animation.*;
 import org.astemir.api.client.display.IDisplayArgument;

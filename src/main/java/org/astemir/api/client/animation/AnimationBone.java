@@ -2,14 +2,10 @@ package org.astemir.api.client.animation;
 
 
 public class AnimationBone {
-
-
     private KeyFrame[] rotations;
     private KeyFrame[] scales;
     private KeyFrame[] positions;
-
     private String boneName;
-
 
     public AnimationBone(String boneName, KeyFrame[] rotations, KeyFrame[] scales, KeyFrame[] positions) {
         this.rotations = rotations;

@@ -26,7 +26,6 @@ import java.util.*;
 import java.util.function.Function;
 
 public abstract class SkillsModel<T extends ICustomRendered,K extends IDisplayArgument> extends Model {
-
     public Set<ModelElement> renderers = new HashSet<>();
     public IModelWrapper<T,K> modelWrapper;
     public Vector2 textureSize = new Vector2(64,32);

@@ -9,6 +9,9 @@ import org.astemir.api.math.MathUtils;
 
 public class Vector3 implements IMathOperand<Vector3> {
 
+    public static final Vector3 ZERO = new Vector3(0,0,0);
+    public static final Vector3 ONE = new Vector3(1,1,1);
+
     public float x;
     public float y;
     public float z;
@@ -23,6 +26,12 @@ public class Vector3 implements IMathOperand<Vector3> {
         this.x = MathUtils.floatSafe((float)x);
         this.y = MathUtils.floatSafe((float)y);
         this.z = MathUtils.floatSafe((float)z);
+    }
+
+    public Vector3(Vector3 vector) {
+        this.x = vector.x;
+        this.y = vector.y;
+        this.z = vector.z;
     }
 
     @Override

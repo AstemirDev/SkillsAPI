@@ -2,6 +2,7 @@ package org.astemir.api.common.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
 import net.minecraft.commands.CommandSourceStack;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.phys.Vec3;
@@ -10,6 +11,7 @@ import org.astemir.api.common.commands.build.CommandBuilder;
 import org.astemir.api.common.commands.build.CommandPart;
 import org.astemir.api.common.commands.build.CommandVariant;
 import org.astemir.api.common.gfx.*;
+import org.astemir.api.common.handler.WorldEventHandler;
 import org.astemir.api.math.components.Color;
 
 import java.util.Collection;

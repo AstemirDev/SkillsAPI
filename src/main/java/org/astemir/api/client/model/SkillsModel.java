@@ -78,7 +78,7 @@ public abstract class SkillsModel<T extends ICustomRendered,K extends IDisplayAr
 
     @Override
     public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
-        renderWithLayers(poseStack,buffer,packedLight,packedOverlay,red,green,blue,alpha,RenderCall.MODEL,false);
+        renderWithLayers(poseStack,buffer,packedLight,packedOverlay,red,green,blue,alpha,RenderCall.MODEL,true);
     }
 
 

@@ -6,6 +6,9 @@ import org.jetbrains.annotations.NotNull;
 
 public class Vector2 implements IMathOperand<Vector2> {
 
+    public static final Vector2 ZERO = new Vector2(0,0);
+    public static final Vector2 ONE = new Vector2(1,1);
+
     public float x;
     public float y;
 
@@ -17,6 +20,11 @@ public class Vector2 implements IMathOperand<Vector2> {
     public Vector2(double x, double y) {
         this.x = (float)x;
         this.y = (float)y;
+    }
+
+    public Vector2(Vector2 vector) {
+        this.x = vector.x;
+        this.y = vector.y;
     }
 
     @Override
@@ -40,7 +48,7 @@ public class Vector2 implements IMathOperand<Vector2> {
     }
 
     public Vector2 add(float x1, float y1){
-        return new Vector2(x*x1,y*y1);
+        return new Vector2(x+x1,y+y1);
     }
 
     public Vector2 sub(float x1, float y1){

@@ -2,8 +2,8 @@ package org.astemir.api.math.components;
 
 public class Rect2 {
 
-    private Vector2 position = new Vector2(0,0);
-    private Vector2 size = new Vector2(0,0);
+    private Vector2 position;
+    private Vector2 size;
 
     public Rect2(Vector2 position, Vector2 size) {
         this.position = position;
@@ -76,5 +76,21 @@ public class Rect2 {
 
     public Vector2 getSize() {
         return size;
+    }
+
+    public static Rect2 sized(Vector2 size){
+        return new Rect2(new Vector2(0,0),size);
+    }
+
+    public static Rect2 rect(Vector2 position,Vector2 size){
+        return new Rect2(position,size);
+    }
+
+    public static Rect2 sized(float x,float y){
+        return sized(new Vector2(x,y));
+    }
+
+    public static Rect2 rect(float x,float y,float width,float height){
+        return rect(new Vector2(x,y),new Vector2(width,height));
     }
 }

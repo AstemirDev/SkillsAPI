@@ -7,7 +7,6 @@ import net.minecraft.world.entity.Entity;
 import org.astemir.api.math.components.Color;
 
 public class DynamicEntityLight {
-
     private ColorPointLight pointLight;
     private float r = 1;
     private float g = 1;

@@ -6,7 +6,7 @@ import org.astemir.api.math.MathUtils;
 
 public class Color {
 
-
+    private static final String HEX_PREFIX = "#";
     public static final Color RED = new Color(1f,0f,0f,1f);
     public static final Color GREEN = new Color(0f,1f,0f,1f);
     public static final Color DARK_GREEN = new Color(0.5f,0f,0f,0.5f);
@@ -41,11 +41,11 @@ public class Color {
         this((float)(rgba >> 16 & 255) / 255.0F,(float)(rgba >> 8 & 255) / 255.0F,(float)(rgba & 255) / 255.0F,(float)(rgba >> 24 & 255) / 255.0F);
     }
 
-    public int getRGB(){
-        return new java.awt.Color(r,g,b).getRGB();
+    public int toRGB() {
+        return (((int)(r * 255.0F) & 255) << 16) | (((int)(g * 255.0F) & 255) << 8) | ((int)(b * 255.0F) & 255);
     }
 
-    public static int toRGB(float r, float g, float b, float a) {
+    public int getRGBA() {
         return (((int)(a * 255.0F) & 255) << 24) | (((int)(r * 255.0F) & 255) << 16) | (((int)(g * 255.0F) & 255) << 8) | ((int)(b * 255.0F) & 255);
     }
 
@@ -92,7 +92,7 @@ public class Color {
     }
 
     public static Color convert(int r, int g, int b, int a) {
-        return new Color((float)(((float)r)/255f),(float)(((float)g)/255f),(float)(((float)b)/255f),(float)(((float)a)/255f));
+        return new Color(((float)r)/255f, ((float)g)/255f, ((float)b)/255f, ((float)a)/255f);
     }
 
     public Color interpolate(Color color, float t){
@@ -113,5 +113,38 @@ public class Color {
             this.s = s;
             this.v = v;
         }
+    }
+
+    public static Color fromHexString(String string) {
+        if (string.startsWith(HEX_PREFIX)) {
+            try {
+                final int hex = Integer.parseInt(string.substring(1), 16);
+                return new Color(hex);
+            } catch (final NumberFormatException e) {
+                return null;
+            }
+        }
+        return null;
+    }
+    public static Color fromName(String name){
+        switch (name.toLowerCase()){
+            case "red": return Color.RED;
+            case "green": return Color.GREEN;
+            case "light_green": return Color.LIGHT_GREEN;
+            case "dark_green": return Color.DARK_GREEN;
+            case "blue": return Color.BLUE;
+            case "dark_blue": return Color.DARK_BLUE;
+            case "yellow": return Color.YELLOW;
+            case "gold": return Color.GOLD;
+            case "orange": return Color.ORANGE;
+            case "aqua": return Color.AQUA;
+            case "cyan": return Color.CYAN;
+            case "purple": return Color.PURPLE;
+            case "pink": return Color.PINK;
+            case "magenta": return Color.MAGENTA;
+            case "white": return Color.WHITE;
+            case "black": return Color.BLACK;
+        }
+        return Color.BLACK;
     }
 }
